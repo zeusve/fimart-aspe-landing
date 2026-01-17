@@ -33,16 +33,16 @@ const Specialist = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative order-2 lg:order-1"
           >
-            <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0">
+            <div className="relative aspect-[3/4] max-w-md mx-auto lg:mx-0">
               {/* Decorative background */}
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl -rotate-3" />
               
               {/* Main image container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
                 <img
                   src={rafaelImage}
                   alt="Rafael Fermín Martínez - Fisioterapeuta"
-                  className="w-full h-full object-cover object-top brightness-105 contrast-105"
+                  className="w-full h-full object-cover object-[center_15%] brightness-105 contrast-105"
                 />
                 {/* Subtle overlay for consistency */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
