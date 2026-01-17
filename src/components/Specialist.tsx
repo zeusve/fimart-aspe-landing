@@ -48,11 +48,6 @@ const Specialist = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
               </div>
 
-              {/* Floating badge */}
-              <div className="absolute -bottom-4 -right-4 bg-background rounded-xl shadow-lg p-4 border border-border">
-                <p className="text-sm font-semibold text-primary">Colegiado Nº XXXX</p>
-                <p className="text-xs text-muted-foreground">Fisioterapeuta Oficial</p>
-              </div>
             </div>
           </motion.div>
 
