@@ -6,26 +6,29 @@ const Services = () => {
   const services = [
     {
       icon: Activity,
-      title: "Fisioterapia Deportiva",
+      title: "Fisioterapia Deportiva en Aspe",
+      subtitle: "Rehabilitación y Vuelta Segura al Deporte",
       description:
-        "Recuperación funcional para deportistas y personas activas. Tratamiento de lesiones musculares, tendinosas y articulares con técnicas especializadas.",
-      features: ["Lesiones musculares", "Rehabilitación postoperatoria", "Prevención de lesiones"],
+        "Somos especialistas en fisioterapia deportiva en Aspe, ayudando a deportistas amateurs y profesionales a recuperarse de lesiones y volver a su actividad con seguridad. Nuestro enfoque combina rehabilitación funcional, control de cargas y readaptación progresiva al gesto deportivo.",
+      features: ["Lesiones musculares y tendinopatías", "Esguinces y sobrecargas", "Readaptación deportiva"],
       image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: Scan,
       title: "Fisioterapia Invasiva y Ecografía",
+      subtitle: "Diagnóstico Preciso y Tratamiento Avanzado",
       description:
-        "Tecnología avanzada para el diagnóstico y tratamiento. Punción seca, electrólisis percutánea (EPI) y neuromodulación guiada por ecografía.",
-      features: ["Punción seca", "EPI/EPTE", "Diagnóstico ecográfico"],
+        "La fisioterapia invasiva con ecografía nos permite ofrecer tratamientos más precisos y eficaces. Utilizamos ecógrafo para valorar el estado real de músculos, tendones y ligamentos. Aplicamos punción seca, EPI/EPTE y neuromodulación percutánea bajo control ecográfico.",
+      features: ["Punción seca en Aspe", "EPI/EPTE ecográfico", "Neuromodulación percutánea"],
       image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: Hand,
-      title: "Terapia Manual y ATM",
+      title: "Terapia Manual y ATM en Aspe",
+      subtitle: "Dolor de Espalda, Cuello y Mandíbula",
       description:
-        "Tratamiento del dolor mediante técnicas de osteopatía y terapia manual. Especialización en disfunciones de la articulación temporomandibular (ATM).",
-      features: ["Osteopatía", "Dolor cervical y lumbar", "Bruxismo y ATM"],
+        "Abordamos dolores de espalda, cervicales, cefaleas y problemas de mandíbula mediante técnicas de osteopatía, movilización articular y tratamiento miofascial. Tratamos alteraciones de la ATM relacionadas con bruxismo, estrés o problemas posturales.",
+      features: ["Osteopatía y movilización articular", "Tratamiento ATM y bruxismo", "Cefaleas y dolor cervical"],
       image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
   ];
@@ -83,10 +86,13 @@ const Services = () => {
 
               {/* Service Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-sm font-medium text-primary mb-3">
+                  {service.subtitle}
+                </p>
+                <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                   {service.description}
                 </p>
 
