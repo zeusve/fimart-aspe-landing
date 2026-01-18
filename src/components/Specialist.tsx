@@ -6,18 +6,18 @@ const Specialist = () => {
   const highlights = [
     {
       icon: Award,
-      title: "Experiencia",
-      description: "Años de formación continua y práctica clínica",
+      title: "Desde 2014",
+      description: "Más de una década de experiencia clínica",
     },
     {
       icon: Heart,
-      title: "Dedicación",
-      description: "Trato cercano y personalizado con cada paciente",
+      title: "Diagnóstico Preciso",
+      description: "Valoración con tecnología avanzada",
     },
     {
       icon: Target,
-      title: "Resultados",
-      description: "Enfoque en encontrar el origen del dolor",
+      title: "Solución de Raíz",
+      description: "Buscamos el origen, no solo el síntoma",
     },
   ];
 
@@ -41,7 +41,7 @@ const Specialist = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
                 <img
                   src={rafaelImage}
-                  alt="Rafael Fermín Martínez - Fisioterapeuta"
+                  alt="Rafael Fermín Martínez - Fisioterapeuta en Aspe"
                   className="w-full h-full object-cover object-[center_15%] brightness-105 contrast-105"
                 />
                 {/* Subtle overlay for consistency */}
@@ -64,20 +64,22 @@ const Specialist = () => {
             </span>
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Rafael Fermín Martínez
+              Fisioterapia Avanzada en Aspe
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Con años de experiencia y formación continua en las técnicas más avanzadas, 
-              mi objetivo es ofrecerte un tratamiento integral y personalizado. Creo firmemente 
-              en encontrar el <strong className="text-foreground">origen del dolor</strong>, 
-              no solo en tratar los síntomas.
+              Desde 2014, en <strong className="text-foreground">Fimart</strong> combinamos 
+              la valoración precisa con la última tecnología para que recuperes tu calidad 
+              de vida en tiempo récord. No solo tratamos el dolor, buscamos el origen para 
+              solucionarlo de raíz.
             </p>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Cada paciente es único, y por eso diseño planes de recuperación adaptados 
-              a tus necesidades específicas, combinando terapia manual, tecnología avanzada 
-              y un seguimiento cercano de tu evolución.
+              Mi filosofía se basa en <strong className="text-foreground">valorar, diagnosticar 
+              y tratar</strong> utilizando la tecnología más avanzada del sector para acelerar 
+              los tiempos de recuperación biológica. Ya sea mediante terapia manual experta o 
+              técnicas invasivas de vanguardia, mi compromiso es poner todo mi conocimiento 
+              al servicio de tu bienestar.
             </p>
 
             {/* Highlights */}

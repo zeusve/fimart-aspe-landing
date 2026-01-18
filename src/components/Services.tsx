@@ -1,35 +1,44 @@
 import { motion } from "framer-motion";
-import { Activity, Scan, Hand, ArrowRight } from "lucide-react";
+import { Bone, Hand, Footprints, Zap, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Services = () => {
   const services = [
     {
-      icon: Activity,
-      title: "Fisioterapia Deportiva en Aspe",
-      subtitle: "Rehabilitación y Vuelta Segura al Deporte",
+      icon: Bone,
+      title: "Tratamiento Integral de Columna Vertebral",
+      subtitle: "Dolor de Espalda y Cuello",
       description:
-        "Somos especialistas en fisioterapia deportiva en Aspe, ayudando a deportistas amateurs y profesionales a recuperarse de lesiones y volver a su actividad con seguridad. Nuestro enfoque combina rehabilitación funcional, control de cargas y readaptación progresiva al gesto deportivo.",
-      features: ["Lesiones musculares y tendinopatías", "Esguinces y sobrecargas", "Readaptación deportiva"],
-      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      icon: Scan,
-      title: "Fisioterapia Invasiva y Ecografía",
-      subtitle: "Diagnóstico Preciso y Tratamiento Avanzado",
-      description:
-        "La fisioterapia invasiva con ecografía nos permite ofrecer tratamientos más precisos y eficaces. Utilizamos ecógrafo para valorar el estado real de músculos, tendones y ligamentos. Aplicamos punción seca, EPI/EPTE y neuromodulación percutánea bajo control ecográfico.",
-      features: ["Punción seca en Aspe", "EPI/EPTE ecográfico", "Neuromodulación percutánea"],
-      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "¿Sufres de dolor de espalda o cuello? Abordamos patologías complejas de la columna cervical, dorsal y lumbar. Tratamos desde hernias discales y protusiones hasta cervicalgias, lumbociática y escoliosis.",
+      features: ["Hernias discales y protusiones", "Vértigos y migrañas (neuralgia de Arnold)", "Bruxismo y ATM"],
+      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: Hand,
-      title: "Terapia Manual y ATM en Aspe",
-      subtitle: "Dolor de Espalda, Cuello y Mandíbula",
+      title: "Recuperación de Miembro Superior",
+      subtitle: "Hombro, Codo y Mano",
       description:
-        "Abordamos dolores de espalda, cervicales, cefaleas y problemas de mandíbula mediante técnicas de osteopatía, movilización articular y tratamiento miofascial. Tratamos alteraciones de la ATM relacionadas con bruxismo, estrés o problemas posturales.",
-      features: ["Osteopatía y movilización articular", "Tratamiento ATM y bruxismo", "Cefaleas y dolor cervical"],
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Recupera la movilidad y la fuerza. Somos expertos en el tratamiento del manguito rotador, tendinopatías y bursitis de hombro. Tratamos eficazmente el codo de tenista (epicondilitis) y de golfista.",
+      features: ["Manguito rotador y tendinopatías", "Túnel carpiano y dedo en resorte", "Rehabilitación post-quirúrgica"],
+      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      icon: Footprints,
+      title: "Rehabilitación de Miembro Inferior",
+      subtitle: "Cadera, Rodilla y Pie",
+      description:
+        "Vuelve a caminar sin dolor. Tratamos lesiones deportivas y degenerativas: desde lesiones de menisco y ligamentos cruzados en rodilla, hasta trocanteritis y pubalgia en cadera.",
+      features: ["Menisco y ligamentos cruzados", "Fascitis plantar y espolón calcáneo", "Recuperación de prótesis"],
+      image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      icon: Zap,
+      title: "Fisioterapia Invasiva y Tecnología Avanzada",
+      subtitle: "Tratamientos de Última Generación",
+      description:
+        "En Fimart Aspe no solo usamos las manos. Empleamos la última tecnología para llegar donde la terapia manual no alcanza. Utilizamos Ecografía para un diagnóstico preciso y aplicamos técnicas punteras.",
+      features: ["EPI y Neuromodulación Percutánea", "Punción Seca ecográfica", "Diatermia y Ondas de Choque"],
+      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -53,13 +62,13 @@ const Services = () => {
             Servicios Especializados
           </h2>
           <p className="text-lg text-muted-foreground">
-            Ofrecemos una amplia gama de tratamientos adaptados a tus necesidades, 
-            combinando técnicas tradicionales con la última tecnología.
+            Ofrecemos tratamientos integrales adaptados a tus necesidades, 
+            combinando terapia manual experta con la última tecnología del sector.
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.article
               key={service.title}
