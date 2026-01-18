@@ -10,11 +10,11 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center pt-16 lg:pt-20 overflow-hidden">
       {/* Background Image with Dark Overlay for Text Legibility */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Clínica de Fisioterapia Fimart en Aspe fachada"
-          className="w-full h-full object-cover object-center"
-        />
+          <img
+            src={heroImage}
+            alt="Fisioterapeuta tratando dolor de espalda en clínica de Aspe"
+            className="w-full h-full object-cover object-center"
+          />
         {/* Critical: Dark overlay 60% opacity for white text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-primary/30" />
       </div>
@@ -32,13 +32,12 @@ const Hero = () => {
             </span>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
-              <span className="block">Fisioterapia en Aspe:</span>
-              <span className="block mt-2 text-primary">Elimina tu Dolor Hoy</span>
+              Tratamiento de Columna en Aspe: Solución Integral a tu Dolor de Espalda
             </h1>
             
             <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed drop-shadow-md">
-              Expertos en dolor de espalda, lesiones deportivas y tecnología avanzada 
-              (EPI, Ecografía). ¡Recupera tu vida con tratamientos personalizados!
+              En nuestra <strong>Clínica de Fisioterapia en Aspe</strong>, somos expertos en dolor de espalda, 
+              lesiones deportivas y tecnología avanzada (EPI, Ecografía). ¡Recupera tu vida con tratamientos personalizados!
             </p>
 
             {/* CTA destacado */}
