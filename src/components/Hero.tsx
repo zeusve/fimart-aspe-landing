@@ -32,7 +32,7 @@ const Hero = () => {
             </span>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
-              Fisioterapia en Aspe: Elimina tu Dolor Hoy
+              Fisioterapia Avanzada y Recuperación Funcional en Aspe
             </h1>
             
             <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed drop-shadow-md">
