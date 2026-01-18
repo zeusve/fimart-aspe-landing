@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Bone, Hand, Footprints, Zap, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ecografiaImage from "@/assets/tecnologia-fisioterapia-avanzada.jpg";
+import diatermiaImage from "@/assets/diatermia-tcare-fimart.jpg";
 
 const Services = () => {
   const services = [
@@ -11,7 +13,8 @@ const Services = () => {
       description:
         "¿Sufres de dolor de espalda o cuello? Abordamos patologías complejas de la columna cervical, dorsal y lumbar. Tratamos desde hernias discales y protusiones hasta cervicalgias, lumbociática y escoliosis.",
       features: ["Hernias discales y protusiones", "Vértigos y migrañas (neuralgia de Arnold)", "Bruxismo y ATM"],
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: ecografiaImage,
+      imageAlt: "Tecnología de fisioterapia avanzada y ecografía en Fimart Aspe",
     },
     {
       icon: Hand,
@@ -20,7 +23,8 @@ const Services = () => {
       description:
         "Recupera la movilidad y la fuerza. Somos expertos en el tratamiento del manguito rotador, tendinopatías y bursitis de hombro. Tratamos eficazmente el codo de tenista (epicondilitis) y de golfista.",
       features: ["Manguito rotador y tendinopatías", "Túnel carpiano y dedo en resorte", "Rehabilitación post-quirúrgica"],
-      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: diatermiaImage,
+      imageAlt: "Equipo de diatermia TCare para tratamiento fisioterapéutico",
     },
     {
       icon: Footprints,
@@ -29,7 +33,8 @@ const Services = () => {
       description:
         "Vuelve a caminar sin dolor. Tratamos lesiones deportivas y degenerativas: desde lesiones de menisco y ligamentos cruzados en rodilla, hasta trocanteritis y pubalgia en cadera.",
       features: ["Menisco y ligamentos cruzados", "Fascitis plantar y espolón calcáneo", "Recuperación de prótesis"],
-      image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: ecografiaImage,
+      imageAlt: "Tecnología de fisioterapia avanzada y ecografía",
     },
     {
       icon: Zap,
@@ -38,7 +43,8 @@ const Services = () => {
       description:
         "En Fimart Aspe no solo usamos las manos. Empleamos la última tecnología para llegar donde la terapia manual no alcanza. Utilizamos Ecografía para un diagnóstico preciso y aplicamos técnicas punteras.",
       features: ["EPI y Neuromodulación Percutánea", "Punción Seca ecográfica", "Diatermia y Ondas de Choque"],
-      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: diatermiaImage,
+      imageAlt: "Tecnología de fisioterapia avanzada y ecografía",
     },
   ];
 
@@ -76,16 +82,16 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
+              className="group bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              {/* Service Image */}
-              <div className="relative h-48 overflow-hidden">
+              {/* Service Image - Fixed 16:9 aspect ratio with object-fit cover */}
+              <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                   src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt={service.imageAlt}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary text-primary-foreground shadow-lg">
                     <service.icon className="w-6 h-6" />
@@ -109,7 +115,7 @@ const Services = () => {
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
