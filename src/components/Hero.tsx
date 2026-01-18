@@ -31,9 +31,9 @@ const Hero = () => {
               Clínica en Aspe, Alicante
             </span>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance drop-shadow-lg">
-              Fisioterapia en Aspe:{" "}
-              <span className="text-primary-foreground bg-primary/90 px-3 py-1 rounded-lg">Elimina tu Dolor Hoy</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
+              <span className="block">Fisioterapia en Aspe:</span>
+              <span className="block mt-2 text-primary">Elimina tu Dolor Hoy</span>
             </h1>
             
             <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed drop-shadow-md">
