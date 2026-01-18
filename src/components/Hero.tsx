@@ -1,20 +1,22 @@
 import { Phone, ArrowDown, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import heroImage from "@/assets/clinica-fisioterapia-fimart-aspe.jpg";
 
 const Hero = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 lg:pt-20 overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Dark Overlay for Text Legibility */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-          alt="Fisioterapia profesional en Aspe"
-          className="w-full h-full object-cover"
+          src={heroImage}
+          alt="Clínica de Fisioterapia Fimart en Aspe fachada"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-primary/20" />
+        {/* Critical: Dark overlay 60% opacity for white text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-primary/30" />
       </div>
 
       {/* Content */}
@@ -25,23 +27,23 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-white bg-white/20 rounded-full border border-white/30 backdrop-blur-sm">
               Clínica en Aspe, Alicante
             </span>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 text-balance">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance drop-shadow-lg">
               Fisioterapia en Aspe:{" "}
-              <span className="text-primary">Elimina tu Dolor Hoy</span>
+              <span className="text-primary-foreground bg-primary/90 px-3 py-1 rounded-lg">Elimina tu Dolor Hoy</span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed drop-shadow-md">
               Expertos en dolor de espalda, lesiones deportivas y tecnología avanzada 
               (EPI, Ecografía). ¡Recupera tu vida con tratamientos personalizados!
             </p>
 
             {/* CTA destacado */}
-            <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 mb-8 max-w-xl">
-              <p className="text-foreground font-medium">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 mb-8 max-w-xl">
+              <p className="text-white font-medium drop-shadow-sm">
                 ¿El dolor no te deja avanzar? Valoremos tu caso hoy mismo y empieza a recuperarte.
               </p>
             </div>
@@ -67,7 +69,7 @@ const Hero = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-2 border-primary text-primary hover:bg-primary/5 text-base px-8 h-12"
+              className="border-2 border-white text-white hover:bg-white/10 bg-white/5 backdrop-blur-sm text-base px-8 h-12"
             >
               <a href="tel:652667953" className="flex items-center">
                 <Phone className="w-5 h-5 mr-2" />
@@ -87,14 +89,14 @@ const Hero = () => {
       >
         <a 
           href="#especialista" 
-          className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors"
+          className="flex flex-col items-center text-white/80 hover:text-white transition-colors"
         >
-          <span className="text-sm mb-2">Descubre más</span>
+          <span className="text-sm mb-2 drop-shadow-md">Descubre más</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ArrowDown className="w-5 h-5" />
+            <ArrowDown className="w-5 h-5 drop-shadow-md" />
           </motion.div>
         </a>
       </motion.div>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Heart, Target } from "lucide-react";
-import rafaelImage from "@/assets/rafael-fermin.png";
+import specialistImage from "@/assets/fisioterapeuta-tratando-paciente-aspe.jpg";
 
 const Specialist = () => {
   const highlights = [
@@ -24,8 +24,9 @@ const Specialist = () => {
   return (
     <section id="especialista" className="py-20 lg:py-32 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image */}
+        {/* Split Screen Layout: 50% Image | 50% Text */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Image - Portrait Container (4:5 aspect ratio) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -33,25 +34,24 @@ const Specialist = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative order-2 lg:order-1"
           >
-            <div className="relative aspect-[3/4] max-w-md mx-auto lg:mx-0">
+            <div className="relative max-w-md mx-auto lg:mx-0">
               {/* Decorative background */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl -rotate-3" />
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl -rotate-3" />
               
-              {/* Main image container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
+              {/* Main image container with 4:5 portrait aspect ratio */}
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
                 <img
-                  src={rafaelImage}
-                  alt="Rafael Fermín Martínez - Fisioterapeuta en Aspe"
-                  className="w-full h-full object-cover object-[center_15%] brightness-105 contrast-105"
+                  src={specialistImage}
+                  alt="Fisioterapeuta en Aspe tratando paciente con terapia manual"
+                  className="w-full h-full object-cover object-[center_top]"
                 />
                 {/* Subtle overlay for consistency */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
               </div>
-
             </div>
           </motion.div>
 
-          {/* Content */}
+          {/* Content - 50% width on desktop */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
