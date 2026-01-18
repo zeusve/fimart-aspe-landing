@@ -1,4 +1,4 @@
-import { Phone, ArrowDown } from "lucide-react";
+import { Phone, ArrowDown, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-          alt="Fisioterapia profesional"
+          alt="Fisioterapia profesional en Aspe"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-primary/20" />
@@ -30,14 +30,21 @@ const Hero = () => {
             </span>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 text-balance">
-              Fisioterapia Avanzada y{" "}
-              <span className="text-primary">Recuperación Funcional</span> en Aspe
+              Fisioterapia en Aspe:{" "}
+              <span className="text-primary">Elimina tu Dolor Hoy</span>
             </h1>
             
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Tu salud en las mejores manos. Tratamientos personalizados con la última 
-              tecnología para tu bienestar y recuperación completa.
+              Expertos en dolor de espalda, lesiones deportivas y tecnología avanzada 
+              (EPI, Ecografía). ¡Recupera tu vida con tratamientos personalizados!
             </p>
+
+            {/* CTA destacado */}
+            <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 mb-8 max-w-xl">
+              <p className="text-foreground font-medium">
+                ¿El dolor no te deja avanzar? Valoremos tu caso hoy mismo y empieza a recuperarte.
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
@@ -51,9 +58,9 @@ const Hero = () => {
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg text-base px-8 h-12"
             >
-              <a href="tel:652667953" className="flex items-center">
-                <Phone className="w-5 h-5 mr-2" />
-                Llamar Ahora
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Pedir Cita por WhatsApp
               </a>
             </Button>
             <Button 
@@ -62,8 +69,9 @@ const Hero = () => {
               size="lg" 
               className="border-2 border-primary text-primary hover:bg-primary/5 text-base px-8 h-12"
             >
-              <a href="#tratamientos">
-                Ver Tratamientos
+              <a href="tel:652667953" className="flex items-center">
+                <Phone className="w-5 h-5 mr-2" />
+                Llamar Ahora
               </a>
             </Button>
           </motion.div>
