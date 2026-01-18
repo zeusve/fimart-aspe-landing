@@ -64,7 +64,7 @@ const Specialist = () => {
             </span>
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Fisioterapia Avanzada en Aspe
+              Tu Fisioterapeuta en Aspe
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -96,7 +96,7 @@ const Specialist = () => {
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-3">
                     <item.icon className="w-6 h-6" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+                  <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
                 </motion.div>
               ))}

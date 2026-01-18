@@ -185,9 +185,9 @@ const Services = () => {
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary border border-primary/20 mb-4 shadow-sm">
                   <tech.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                <h4 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                   {tech.title}
-                </h3>
+                </h4>
                 <p className="text-sm font-medium text-primary mb-2">
                   {tech.subtitle}
                 </p>
@@ -260,7 +260,7 @@ const Services = () => {
                     </div>
                     <div className="text-left">
                       <h3 className="text-lg font-bold text-foreground">
-                        {zone.title}
+                        Tratamiento de {zone.title} en Aspe
                       </h3>
                       <p className="text-sm text-muted-foreground">
                         {zone.subtitle}
@@ -309,9 +309,9 @@ const Services = () => {
           className="text-center"
         >
           <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-foreground mb-3">
+            <h4 className="text-xl font-bold text-foreground mb-3">
               ¿No encuentras tu dolencia?
-            </h3>
+            </h4>
             <p className="text-muted-foreground mb-6">
               Tratamos muchas más patologías. Cuéntanos tu caso y te asesoraremos sin compromiso.
             </p>
