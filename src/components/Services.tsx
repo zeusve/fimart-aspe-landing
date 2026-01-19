@@ -59,7 +59,7 @@ const Services = () => {
     },
     {
       icon: Radio,
-      title: "Láser y Neuromodulación",
+      title: "Láser",
       subtitle: "Percutánea Ecoguiada",
       description: "Estimulación nerviosa para modular el dolor crónico y restaurar la función neuromuscular.",
       badge: "Avanzado",
@@ -129,7 +129,7 @@ const Services = () => {
     {
       image: laserImage,
       alt: "laser terapeutico aspe",
-      title: "Láser y Neuromodulación",
+      title: "Láser",
     },
     {
       image: electroacupunturaImage,
