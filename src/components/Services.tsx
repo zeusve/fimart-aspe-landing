@@ -40,6 +40,8 @@ import magnetoterapiaImage from "@/assets/magnetoterapia-aspe.jpg";
 import electroterapiaImage from "@/assets/electroterapia-ultrasonidos-aspe.jpg";
 import infrarrojosImage from "@/assets/infrarrojos-aspe.jpg";
 import poleaConicaImage from "@/assets/polea-conica-aspe.jpg";
+import kinesiotapeImage from "@/assets/kinesiotape-aspe.jpg";
+import fibrolisisImage from "@/assets/fibrolisis-gancho-aspe.jpg";
 
 const Services = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
@@ -84,7 +86,7 @@ const Services = () => {
     },
     {
       icon: Syringe,
-      title: "Punción Seca",
+      title: "Electroacupuntura y Punción Seca",
       subtitle: "Tratamiento de Trigger Points",
       description: "Desactivación de puntos gatillo miofasciales con agujas de acupuntura ecoguiadas.",
       badge: "Invasivo",
@@ -132,7 +134,7 @@ const Services = () => {
     {
       image: electroacupunturaImage,
       alt: "electroacupuntura puncion seca aspe",
-      title: "Punción Seca",
+      title: "Electroacupuntura y Punción Seca",
     },
     {
       image: magnetoterapiaImage,
@@ -153,6 +155,16 @@ const Services = () => {
       image: poleaConicaImage,
       alt: "polea conica aspe",
       title: "Polea Cónica",
+    },
+    {
+      image: kinesiotapeImage,
+      alt: "kinesiotape aspe",
+      title: "Kinesiotape",
+    },
+    {
+      image: fibrolisisImage,
+      alt: "fibrolisis gancho aspe",
+      title: "Fibrolisis con Gancho",
     },
   ];
 
