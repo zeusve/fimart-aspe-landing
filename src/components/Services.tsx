@@ -59,7 +59,7 @@ const Services = () => {
     },
     {
       icon: Radio,
-      title: "Neuromodulación",
+      title: "Láser y Neuromodulación",
       subtitle: "Percutánea Ecoguiada",
       description: "Estimulación nerviosa para modular el dolor crónico y restaurar la función neuromuscular.",
       badge: "Avanzado",
@@ -86,7 +86,7 @@ const Services = () => {
     },
     {
       icon: Syringe,
-      title: "Electroacupuntura y Punción Seca",
+      title: "Electroacupuntura y Neuromodulación",
       subtitle: "Tratamiento de Trigger Points",
       description: "Desactivación de puntos gatillo miofasciales con agujas de acupuntura ecoguiadas.",
       badge: "Invasivo",
@@ -129,12 +129,12 @@ const Services = () => {
     {
       image: laserImage,
       alt: "laser terapeutico aspe",
-      title: "Láser Terapéutico",
+      title: "Láser y Neuromodulación",
     },
     {
       image: electroacupunturaImage,
       alt: "electroacupuntura puncion seca aspe",
-      title: "Electroacupuntura y Punción Seca",
+      title: "Electroacupuntura y Neuromodulación",
     },
     {
       image: magnetoterapiaImage,
