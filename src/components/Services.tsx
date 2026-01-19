@@ -207,11 +207,11 @@ const Services = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-24"
         >
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center">
-              <MessageCircle className="w-5 h-5 mr-2" />
-              ¿Necesitas alguna de estas técnicas? Consúltanos
-              <ArrowRight className="w-4 h-4 ml-2" />
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg px-4 sm:px-6 py-3 h-auto">
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center flex-wrap gap-1 text-center">
+              <MessageCircle className="w-5 h-5 mr-1 sm:mr-2 flex-shrink-0" />
+              <span className="text-sm sm:text-base">¿Necesitas alguna de estas técnicas? Consúltanos</span>
+              <ArrowRight className="w-4 h-4 ml-1 sm:ml-2 flex-shrink-0" />
             </a>
           </Button>
         </motion.div>
