@@ -102,8 +102,38 @@ const Services = () => {
     },
   ];
 
-  // Imágenes adicionales para el carrusel "Nuestra Tecnología"
+  // Todas las imágenes de maquinaria para el carrusel "Nuestra Tecnología"
   const technologyCarousel = [
+    {
+      image: epiImage,
+      alt: "epi electrolisis percutanea aspe",
+      title: "EPI / EPM",
+    },
+    {
+      image: ecografoImage,
+      alt: "ecografo msk aspe",
+      title: "Ecografía MSK",
+    },
+    {
+      image: ondasChoquesImage,
+      alt: "ondas de choque radiales aspe",
+      title: "Ondas de Choque",
+    },
+    {
+      image: diatermiaImage,
+      alt: "diatermia tecar aspe",
+      title: "Diatermia / TECAR",
+    },
+    {
+      image: laserImage,
+      alt: "laser terapeutico aspe",
+      title: "Láser Terapéutico",
+    },
+    {
+      image: electroacupunturaImage,
+      alt: "electroacupuntura puncion seca aspe",
+      title: "Punción Seca",
+    },
     {
       image: magnetoterapiaImage,
       alt: "magnetoterapia aspe",
