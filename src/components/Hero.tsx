@@ -13,7 +13,7 @@ const Hero = () => {
           <img
             src={fachadaImage}
             alt="fachada clinica fimart aspe"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[center_top]"
           />
         {/* Critical: Dark overlay 60% opacity for white text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-primary/30" />
