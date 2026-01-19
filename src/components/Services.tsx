@@ -19,8 +19,27 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import ecografiaImage from "@/assets/tecnologia-fisioterapia-avanzada.jpg";
-import diatermiaImage from "@/assets/diatermia-tcare-fimart.jpg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+// Imágenes principales para tarjetas de servicios
+import ecografoImage from "@/assets/ecografo-msk-aspe.jpg";
+import epiImage from "@/assets/epi-electrolisis-percutanea-aspe.jpg";
+import ondasChoquesImage from "@/assets/ondas-de-choque-radiales-aspe.jpg";
+import diatermiaImage from "@/assets/diatermia-tecar-aspe.jpg";
+import laserImage from "@/assets/laser-terapeutico-aspe.jpg";
+import electroacupunturaImage from "@/assets/electroacupuntura-puncion-seca-aspe.jpg";
+
+// Imágenes adicionales para el carrusel
+import magnetoterapiaImage from "@/assets/magnetoterapia-aspe.jpg";
+import electroterapiaImage from "@/assets/electroterapia-ultrasonidos-aspe.jpg";
+import infrarrojosImage from "@/assets/infrarrojos-aspe.jpg";
+import poleaConicaImage from "@/assets/polea-conica-aspe.jpg";
 
 const Services = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
@@ -33,7 +52,8 @@ const Services = () => {
       subtitle: "Electrólisis Percutánea",
       description: "Técnica invasiva ecoguiada que acelera la regeneración del tejido mediante corriente galvánica.",
       badge: "Premium",
-      image: ecografiaImage,
+      image: epiImage,
+      alt: "epi electrolisis percutanea aspe",
     },
     {
       icon: Radio,
@@ -41,7 +61,8 @@ const Services = () => {
       subtitle: "Percutánea Ecoguiada",
       description: "Estimulación nerviosa para modular el dolor crónico y restaurar la función neuromuscular.",
       badge: "Avanzado",
-      image: diatermiaImage,
+      image: laserImage,
+      alt: "laser terapeutico aspe",
     },
     {
       icon: Scan,
@@ -49,7 +70,8 @@ const Services = () => {
       subtitle: "Diagnóstico en Tiempo Real",
       description: "Visualización precisa de tejidos blandos para un diagnóstico certero y tratamiento guiado.",
       badge: "Diagnóstico",
-      image: ecografiaImage,
+      image: ecografoImage,
+      alt: "ecografo msk aspe",
     },
     {
       icon: Waves,
@@ -57,7 +79,8 @@ const Services = () => {
       subtitle: "Terapia Extracorpórea",
       description: "Regeneración tisular profunda para tendinopatías crónicas y calcificaciones.",
       badge: "Regenerativo",
-      image: diatermiaImage,
+      image: ondasChoquesImage,
+      alt: "ondas de choque radiales aspe",
     },
     {
       icon: Syringe,
@@ -65,7 +88,8 @@ const Services = () => {
       subtitle: "Tratamiento de Trigger Points",
       description: "Desactivación de puntos gatillo miofasciales con agujas de acupuntura ecoguiadas.",
       badge: "Invasivo",
-      image: ecografiaImage,
+      image: electroacupunturaImage,
+      alt: "electroacupuntura puncion seca aspe",
     },
     {
       icon: Target,
@@ -74,6 +98,31 @@ const Services = () => {
       description: "Termoterapia profunda que acelera la recuperación celular y reduce la inflamación.",
       badge: "Térmico",
       image: diatermiaImage,
+      alt: "diatermia tecar aspe",
+    },
+  ];
+
+  // Imágenes adicionales para el carrusel "Nuestra Tecnología"
+  const technologyCarousel = [
+    {
+      image: magnetoterapiaImage,
+      alt: "magnetoterapia aspe",
+      title: "Magnetoterapia",
+    },
+    {
+      image: electroterapiaImage,
+      alt: "electroterapia ultrasonidos aspe",
+      title: "Electroterapia y Ultrasonidos",
+    },
+    {
+      image: infrarrojosImage,
+      alt: "infrarrojos aspe",
+      title: "Infrarrojos",
+    },
+    {
+      image: poleaConicaImage,
+      alt: "polea conica aspe",
+      title: "Polea Cónica",
     },
   ];
 
@@ -171,11 +220,12 @@ const Services = () => {
               </div>
 
               {/* Image */}
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative h-40 sm:h-44 lg:h-48 overflow-hidden">
                 <img
                   src={tech.image}
-                  alt={`Tecnología de fisioterapia avanzada - ${tech.title}`}
+                  alt={tech.alt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
               </div>
@@ -205,7 +255,7 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-24"
+          className="text-center mb-16"
         >
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg px-4 sm:px-6 py-3 h-auto">
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center flex-wrap gap-1 text-center">
@@ -214,6 +264,65 @@ const Services = () => {
               <ArrowRight className="w-4 h-4 ml-1 sm:ml-2 flex-shrink-0" />
             </a>
           </Button>
+        </motion.div>
+
+        {/* ============================================ */}
+        {/* CARRUSEL: NUESTRA TECNOLOGÍA */}
+        {/* ============================================ */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-24"
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
+              Nuestra Tecnología
+            </h3>
+            <p className="text-muted-foreground">
+              Equipamiento de última generación para tu recuperación
+            </p>
+          </div>
+
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {technologyCarousel.map((item, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="relative group overflow-hidden rounded-xl border border-border bg-card"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h4 className="text-white font-semibold text-lg">
+                        {item.title}
+                      </h4>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex -left-12 bg-card border-border hover:bg-primary hover:text-primary-foreground" />
+            <CarouselNext className="hidden sm:flex -right-12 bg-card border-border hover:bg-primary hover:text-primary-foreground" />
+          </Carousel>
         </motion.div>
 
         {/* ============================================ */}
