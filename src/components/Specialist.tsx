@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Heart, Target } from "lucide-react";
-import specialistImage from "@/assets/fisioterapeuta-tratando-paciente-aspe.jpg";
+import specialistImage from "@/assets/fisioterapeuta-rafael-fermin-aspe.jpg";
 
 const Specialist = () => {
   const highlights = [
@@ -42,7 +42,7 @@ const Specialist = () => {
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
                 <img
                   src={specialistImage}
-                  alt="Fisioterapeuta en Aspe tratando paciente con terapia manual"
+                  alt="fisioterapeuta rafael fermin aspe"
                   className="w-full h-full object-cover object-[center_top]"
                 />
                 {/* Subtle overlay for consistency */}
