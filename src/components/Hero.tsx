@@ -1,18 +1,18 @@
 import { Phone, ArrowDown, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/clinica-fisioterapia-fimart-aspe.jpg";
+import fachadaImage from "@/assets/fachada-clinica-fimart-aspe.jpg";
 
 const Hero = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 lg:pt-20 overflow-hidden">
+    <section className="relative h-[60vh] sm:h-[80vh] lg:min-h-screen flex items-center justify-center pt-16 lg:pt-20 overflow-hidden">
       {/* Background Image with Dark Overlay for Text Legibility */}
       <div className="absolute inset-0 z-0">
           <img
-            src={heroImage}
-            alt="Fisioterapeuta tratando dolor de espalda en clínica de Aspe"
+            src={fachadaImage}
+            alt="fachada clinica fimart aspe"
             className="w-full h-full object-cover object-center"
           />
         {/* Critical: Dark overlay 60% opacity for white text readability */}
