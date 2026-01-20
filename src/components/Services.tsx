@@ -184,8 +184,8 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {/* BENTO GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-16">
+        {/* UNIFORM GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 mb-16">
           {bentoServices.map((service, index) => (
             <motion.div
               key={service.title}
@@ -198,14 +198,15 @@ const Services = () => {
                 ease: [0.25, 0.46, 0.45, 0.94]
               }}
               whileHover={{ 
-                scale: 1.02,
+                scale: 1.03,
                 transition: { type: "spring", stiffness: 300, damping: 20 }
               }}
               className={`
                 group relative overflow-hidden rounded-2xl border border-border 
                 bg-gradient-to-br from-card to-card/50
                 hover:border-primary/50 transition-all duration-500
-                ${service.featured ? 'md:col-span-2 md:row-span-1' : ''}
+                flex flex-col h-full
+                ${service.featured ? 'ring-2 ring-primary/30 ring-offset-2 ring-offset-background' : ''}
               `}
             >
               {/* Glow Effect on Hover */}
@@ -217,42 +218,48 @@ const Services = () => {
               
               {/* Badge */}
               <div className="absolute top-4 right-4 z-20">
-                <span className="px-3 py-1 text-xs font-bold bg-primary text-primary-foreground rounded-full shadow-lg shadow-primary/30">
+                <span className={`px-3 py-1 text-xs font-bold rounded-full shadow-lg ${
+                  service.featured 
+                    ? 'bg-primary text-primary-foreground shadow-primary/30' 
+                    : 'bg-muted text-foreground border border-border'
+                }`}>
                   {service.badge}
                 </span>
               </div>
 
-              {/* Image */}
-              <div className={`relative overflow-hidden ${service.featured ? 'h-48 md:h-64' : 'h-40 lg:h-48'}`}>
+              {/* Image - Fixed Height */}
+              <div className="relative overflow-hidden h-44">
                 <img
                   src={service.image}
                   alt={service.alt}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
               </div>
 
-              {/* Content */}
-              <div className="p-5 pt-0 -mt-10 relative z-10">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/20 text-primary border border-primary/30 mb-4 shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow duration-300">
-                  <service.icon className="w-7 h-7" />
+              {/* Content - Flex grow to fill space */}
+              <div className="p-5 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl border mb-3 shadow-lg transition-shadow duration-300 ${
+                  service.featured 
+                    ? 'bg-primary/20 text-primary border-primary/30 shadow-primary/20 group-hover:shadow-primary/40' 
+                    : 'bg-secondary/20 text-secondary border-secondary/30 shadow-secondary/20 group-hover:shadow-secondary/40'
+                }`}>
+                  <service.icon className="w-6 h-6" />
                 </div>
-                <h4 className="font-display text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors tracking-wide">
+                <h4 className="font-display text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors tracking-wide">
                   {service.title}
                 </h4>
-                <p className="text-sm font-medium text-primary mb-2">
+                <p className={`text-xs font-medium mb-2 ${service.featured ? 'text-primary' : 'text-secondary'}`}>
                   {service.subtitle}
                 </p>
-                <p className="text-sm text-muted-foreground leading-relaxed font-body">
+                <p className="text-sm text-muted-foreground leading-relaxed font-body flex-grow">
                   {service.description}
                 </p>
               </div>
 
               {/* Border Glow */}
-              <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-colors duration-300 pointer-events-none" 
-                style={{ boxShadow: 'inset 0 0 0 1px transparent' }}
-              />
+              <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-colors duration-300 pointer-events-none" />
             </motion.div>
           ))}
         </div>
