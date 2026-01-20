@@ -3,6 +3,7 @@ import {
   Hand, 
   Activity, 
   Zap,
+  Cpu,
   ArrowRight,
   CheckCircle,
   Star,
@@ -29,6 +30,11 @@ const ServicesNew = () => {
       icon: Zap,
       title: "Fisioterapia deportiva",
       description: "Para deportistas y amateurs. Mejora rendimiento y reduce el riesgo de lesiones.",
+    },
+    {
+      icon: Cpu,
+      title: "Tecnología avanzada",
+      description: "EPI, láser terapéutico, ondas de choque y diatermia para tratamientos de última generación.",
     },
   ];
 
