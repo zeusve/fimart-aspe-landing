@@ -7,98 +7,132 @@ const Hero = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center pt-16 sm:pt-20 pb-8 sm:pb-12 overflow-hidden">
-      {/* Background Image with Dark Overlay for Text Legibility */}
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image/Video with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={fachadaImage}
-          alt="fachada clinica fimart aspe"
-          className="w-full h-full object-cover object-[center_30%] sm:object-[center_top]"
+          alt="Clínica Fimart Aspe"
+          className="w-full h-full object-cover"
         />
-        {/* Critical: Dark overlay for white text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-primary/30" />
+        {/* Dark gradient overlay for Dark Tech Premium look */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
+      </div>
+
+      {/* Animated Grid Pattern Overlay */}
+      <div className="absolute inset-0 z-[1] opacity-20">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }}
+        />
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <span className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 mb-4 sm:mb-6 text-xs sm:text-sm font-medium text-white bg-white/20 rounded-full border border-white/30 backdrop-blur-sm">
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30 backdrop-blur-sm"
+            >
               Clínica en Aspe, Alicante
-            </span>
+            </motion.span>
             
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6 drop-shadow-lg">
-              Fisioterapia Avanzada y Recuperación Funcional en Aspe
-            </h1>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-[0.95] mb-6 tracking-tight"
+            >
+              <span className="block">RECUPERA</span>
+              <span className="block text-primary glow-green-text">TU MOVIMIENTO</span>
+            </motion.h1>
             
-            <p className="text-sm sm:text-lg md:text-xl text-white/90 mb-5 sm:mb-8 max-w-2xl leading-relaxed drop-shadow-md">
-              En nuestra <strong>Clínica de Fisioterapia en Aspe</strong>, somos expertos en dolor de espalda, 
-              lesiones deportivas y tecnología avanzada (EPI, Ecografía). ¡Recupera tu vida con tratamientos personalizados!
-            </p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="font-body text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
+            >
+              Fisioterapia avanzada con tecnología de vanguardia. 
+              <span className="text-foreground font-medium"> EPI, Ecografía MSK y tratamientos invasivos</span> para 
+              resultados que transforman vidas.
+            </motion.p>
 
-            {/* CTA destacado */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 sm:p-4 mb-5 sm:mb-8 max-w-xl">
-              <p className="text-white text-sm sm:text-base font-medium drop-shadow-sm">
-                ¿El dolor no te deja avanzar? Valoremos tu caso hoy mismo y empieza a recuperarte.
+            {/* CTA Box */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="inline-block bg-card/50 backdrop-blur-md border border-border rounded-2xl p-6 mb-8"
+            >
+              <p className="text-foreground text-base sm:text-lg font-medium mb-4">
+                ¿El dolor no te deja avanzar? Valoremos tu caso hoy mismo.
               </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-          >
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12"
-            >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                Pedir Cita por WhatsApp
-              </a>
-            </Button>
-            <Button 
-              asChild 
-              variant="outline" 
-              size="lg" 
-              className="border-2 border-white text-white hover:bg-white/10 bg-white/5 backdrop-blur-sm text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12"
-            >
-              <a href="tel:652667953" className="flex items-center justify-center">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                Llamar Ahora
-              </a>
-            </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 text-base px-8 h-12"
+                >
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                    <MessageCircle className="w-5 h-5" />
+                    Pedir Cita por WhatsApp
+                  </a>
+                </Button>
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-2 border-muted-foreground/30 text-foreground hover:bg-foreground/5 hover:border-primary/50 backdrop-blur-sm text-base px-8 h-12 transition-all duration-300"
+                >
+                  <a href="tel:652667953" className="flex items-center justify-center gap-2">
+                    <Phone className="w-5 h-5" />
+                    Llamar Ahora
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator - Hidden on mobile */}
+      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <a 
           href="#especialista" 
-          className="flex flex-col items-center text-white/80 hover:text-white transition-colors"
+          className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors duration-300"
         >
-          <span className="text-sm mb-2 drop-shadow-md">Descubre más</span>
+          <span className="text-sm mb-2 font-medium">Descubre más</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ArrowDown className="w-5 h-5 drop-shadow-md" />
+            <ArrowDown className="w-5 h-5" />
           </motion.div>
         </a>
       </motion.div>
+
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[5]" />
     </section>
   );
 };

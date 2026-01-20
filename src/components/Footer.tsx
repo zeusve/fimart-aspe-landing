@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -6,53 +7,68 @@ const Footer = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
-    <footer id="contacto" className="bg-foreground text-background">
+    <footer id="contacto" className="bg-card border-t border-border">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand & Description */}
-          <div className="lg:col-span-1">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-1"
+          >
             <a href="#" className="inline-block mb-6">
-              <span className="text-3xl font-bold tracking-tight text-primary">
+              <span className="font-display text-3xl font-bold tracking-tight text-primary glow-green-text">
                 FIMART
               </span>
             </a>
-            <p className="text-background/70 mb-6 leading-relaxed">
+            <p className="text-muted-foreground mb-6 leading-relaxed font-body">
               Clínica de fisioterapia especializada en tratamientos avanzados 
               para tu recuperación y bienestar.
             </p>
             
             {/* Social Links */}
             <div className="flex space-x-4">
-              <a
+              <motion.a
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href="https://www.facebook.com/clinicafisioterapiafimart/?locale=es_ES"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-background/10 hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href="https://www.instagram.com/fisioterapia_fimart/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-background/10 hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-background">Contacto</h4>
-            <ul className="space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h4 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">CONTACTO</h4>
+            <ul className="space-y-4 font-body">
               <li>
                 <a
                   href="tel:652667953"
-                  className="flex items-start group text-background/70 hover:text-primary transition-colors"
+                  className="flex items-start group text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
                   <span className="text-xl font-semibold group-hover:text-primary">
@@ -60,65 +76,81 @@ const Footer = () => {
                   </span>
                 </a>
               </li>
-              <li className="flex items-start text-background/70">
-                <MapPin className="w-5 h-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
+              <li className="flex items-start text-muted-foreground">
+                <MapPin className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" />
                 <span>
                   Calle Colón, 30<br />
                   03680 Aspe, Alicante
                 </span>
               </li>
-              <li className="flex items-start text-background/70">
-                <Clock className="w-5 h-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
+              <li className="flex items-start text-muted-foreground">
+                <Clock className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" />
                 <span>
                   Lunes - Viernes<br />
                   Consultar horarios
                 </span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-background">Enlaces</h4>
-            <ul className="space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h4 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">ENLACES</h4>
+            <ul className="space-y-3 font-body">
               <li>
-                <a href="#tratamientos" className="text-background/70 hover:text-primary transition-colors">
+                <a href="#tratamientos" className="text-muted-foreground hover:text-primary transition-colors">
                   Tratamientos
                 </a>
               </li>
               <li>
-                <a href="#especialista" className="text-background/70 hover:text-primary transition-colors">
+                <a href="#especialista" className="text-muted-foreground hover:text-primary transition-colors">
                   El Especialista
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="text-background/70 hover:text-primary transition-colors">
+                <a href="#contacto" className="text-muted-foreground hover:text-primary transition-colors">
                   Contacto
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* CTA Section */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-background">¿Necesitas ayuda?</h4>
-            <p className="text-background/70 mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <h4 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">¿NECESITAS AYUDA?</h4>
+            <p className="text-muted-foreground mb-6 font-body">
               Reserva tu cita y comienza tu recuperación con nosotros.
             </p>
             <Button
               asChild
               size="lg"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25"
             >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 Pedir Cita por WhatsApp
               </a>
             </Button>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Map Placeholder */}
-        <div className="mt-12 rounded-xl overflow-hidden border border-background/20">
+        {/* Map */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-12 rounded-2xl overflow-hidden border border-border"
+        >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3126.7974562987245!2d-0.7708!3d38.3453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b2f0c0c0c0c1%3A0x0!2sCalle%20Col%C3%B3n%2C%2030%2C%2003680%20Aspe%2C%20Alicante!5e0!3m2!1ses!2ses!4v1600000000000!5m2!1ses!2ses"
             width="100%"
@@ -130,18 +162,18 @@ const Footer = () => {
             title="Ubicación Clínica Fimart"
             className="grayscale hover:grayscale-0 transition-all duration-500"
           />
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-background/10">
+      <div className="border-t border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-body">
             <p>
               © {currentYear} Clínica de Fisioterapia Fimart. Todos los derechos reservados.
             </p>
-            <p>
-              Diseñado con ❤️ en Aspe
+            <p className="flex items-center gap-1">
+              Diseñado con <span className="text-primary">♥</span> en Aspe
             </p>
           </div>
         </div>
