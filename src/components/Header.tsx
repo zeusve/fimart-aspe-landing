@@ -15,36 +15,52 @@ const Header = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-2">
-            <span className="text-2xl lg:text-3xl font-bold tracking-tight text-primary">
+          <motion.a 
+            href="#" 
+            className="flex items-center space-x-2"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+          >
+            <span className="font-display text-2xl lg:text-3xl font-bold tracking-tight text-primary glow-green-text">
               FIMART
             </span>
-          </a>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <motion.a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium"
+                className="relative text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium font-body"
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 {link.label}
-              </a>
+                <motion.span
+                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary origin-left"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.a>
             ))}
           </nav>
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a href="tel:652667953" className="flex items-center text-muted-foreground hover:text-primary transition-colors">
+            <a href="tel:652667953" className="flex items-center text-muted-foreground hover:text-primary transition-colors font-body">
               <Phone className="w-4 h-4 mr-2" />
               <span className="font-medium">652 667 953</span>
             </a>
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
+            <Button 
+              asChild 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300"
+            >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 Pedir Cita
               </a>
@@ -52,13 +68,36 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
             aria-label="Toggle menu"
+            whileTap={{ scale: 0.95 }}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <AnimatePresence mode="wait">
+              {isMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-6 h-6" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-6 h-6" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
 
@@ -69,33 +108,42 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border"
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="lg:hidden bg-card/95 backdrop-blur-xl border-b border-border"
           >
-            <nav className="container mx-auto px-4 py-4 space-y-4">
-              {navLinks.map((link) => (
-                <a
+            <nav className="container mx-auto px-4 py-6 space-y-4">
+              {navLinks.map((link, index) => (
+                <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block text-foreground hover:text-primary transition-colors font-medium py-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="block text-foreground hover:text-primary transition-colors font-medium py-2 font-body"
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
-              <div className="pt-4 border-t border-border space-y-3">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="pt-4 border-t border-border space-y-4"
+              >
                 <a 
                   href="tel:652667953" 
-                  className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+                  className="flex items-center text-muted-foreground hover:text-primary transition-colors font-body"
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   <span className="font-medium">652 667 953</span>
                 </a>
-                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                     Pedir Cita por WhatsApp
                   </a>
                 </Button>
-              </div>
+              </motion.div>
             </nav>
           </motion.div>
         )}

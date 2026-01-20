@@ -10,7 +10,8 @@ import {
   MessageCircle,
   Bone,
   Hand,
-  Footprints
+  Footprints,
+  Brain
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,13 +20,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 // Imágenes principales para tarjetas de servicios
 import ecografoImage from "@/assets/ecografo-msk-aspe.jpg";
@@ -35,140 +29,74 @@ import diatermiaImage from "@/assets/diatermia-tecar-aspe.jpg";
 import laserImage from "@/assets/laser-terapeutico-aspe.jpg";
 import electroacupunturaImage from "@/assets/electroacupuntura-puncion-seca-aspe.jpg";
 
-// Imágenes adicionales para el carrusel
-import magnetoterapiaImage from "@/assets/magnetoterapia-aspe.jpg";
-import electroterapiaImage from "@/assets/electroterapia-ultrasonidos-aspe.jpg";
-import infrarrojosImage from "@/assets/infrarrojos-aspe.jpg";
-import poleaConicaImage from "@/assets/polea-conica-aspe.jpg";
-import kinesiotapeImage from "@/assets/kinesiotape-aspe.jpg";
-import fibrolisisImage from "@/assets/fibrolisis-gancho-aspe.jpg";
-
 const Services = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
-  // BLOQUE 1: Tecnología y Técnicas Avanzadas
-  const technologies = [
+  // BENTO GRID Services - Including Neurología as featured
+  const bentoServices = [
+    {
+      icon: Brain,
+      title: "Neurología",
+      subtitle: "Neuromodulación Avanzada",
+      description: "Tratamiento especializado del sistema nervioso. Abordamos patologías neurológicas complejas con las técnicas más innovadoras.",
+      badge: "Especialidad",
+      image: electroacupunturaImage,
+      alt: "neurología neuromodulación aspe",
+      featured: true,
+    },
     {
       icon: Zap,
       title: "EPI / EPM",
       subtitle: "Electrólisis Percutánea",
-      description: "Técnica invasiva ecoguiada que acelera la regeneración del tejido mediante corriente galvánica.",
+      description: "Técnica invasiva ecoguiada que acelera la regeneración tisular.",
       badge: "Premium",
       image: epiImage,
       alt: "epi electrolisis percutanea aspe",
-    },
-    {
-      icon: Radio,
-      title: "Láser",
-      subtitle: "Percutánea Ecoguiada",
-      description: "Estimulación nerviosa para modular el dolor crónico y restaurar la función neuromuscular.",
-      badge: "Avanzado",
-      image: laserImage,
-      alt: "laser terapeutico aspe",
+      featured: false,
     },
     {
       icon: Scan,
       title: "Ecografía MSK",
       subtitle: "Diagnóstico en Tiempo Real",
-      description: "Visualización precisa de tejidos blandos para un diagnóstico certero y tratamiento guiado.",
+      description: "Visualización precisa de tejidos blandos para un diagnóstico certero.",
       badge: "Diagnóstico",
       image: ecografoImage,
       alt: "ecografo msk aspe",
+      featured: false,
     },
     {
       icon: Waves,
       title: "Ondas de Choque",
       subtitle: "Terapia Extracorpórea",
-      description: "Regeneración tisular profunda para tendinopatías crónicas y calcificaciones.",
+      description: "Regeneración tisular profunda para tendinopatías crónicas.",
       badge: "Regenerativo",
       image: ondasChoquesImage,
       alt: "ondas de choque radiales aspe",
+      featured: false,
     },
     {
-      icon: Syringe,
-      title: "Electroacupuntura y Neuromodulación",
-      subtitle: "Tratamiento de Trigger Points",
-      description: "Desactivación de puntos gatillo miofasciales con agujas de acupuntura ecoguiadas.",
-      badge: "Invasivo",
-      image: electroacupunturaImage,
-      alt: "electroacupuntura puncion seca aspe",
+      icon: Radio,
+      title: "Láser",
+      subtitle: "Terapia de Luz",
+      description: "Tratamiento con láser de alta potencia para acelerar la recuperación.",
+      badge: "Avanzado",
+      image: laserImage,
+      alt: "laser terapeutico aspe",
+      featured: false,
     },
     {
       icon: Target,
       title: "Diatermia / TECAR",
       subtitle: "Radiofrecuencia Profunda",
-      description: "Termoterapia profunda que acelera la recuperación celular y reduce la inflamación.",
+      description: "Termoterapia profunda que acelera la recuperación celular.",
       badge: "Térmico",
       image: diatermiaImage,
       alt: "diatermia tecar aspe",
+      featured: false,
     },
   ];
 
-  // Todas las imágenes de maquinaria para el carrusel "Nuestra Tecnología"
-  const technologyCarousel = [
-    {
-      image: epiImage,
-      alt: "epi electrolisis percutanea aspe",
-      title: "EPI / EPM",
-    },
-    {
-      image: ecografoImage,
-      alt: "ecografo msk aspe",
-      title: "Ecografía MSK",
-    },
-    {
-      image: ondasChoquesImage,
-      alt: "ondas de choque radiales aspe",
-      title: "Ondas de Choque",
-    },
-    {
-      image: diatermiaImage,
-      alt: "diatermia tecar aspe",
-      title: "Diatermia / TECAR",
-    },
-    {
-      image: laserImage,
-      alt: "laser terapeutico aspe",
-      title: "Láser",
-    },
-    {
-      image: electroacupunturaImage,
-      alt: "electroacupuntura puncion seca aspe",
-      title: "Electroacupuntura y Neuromodulación",
-    },
-    {
-      image: magnetoterapiaImage,
-      alt: "magnetoterapia aspe",
-      title: "Magnetoterapia",
-    },
-    {
-      image: electroterapiaImage,
-      alt: "electroterapia ultrasonidos aspe",
-      title: "Electroterapia y Ultrasonidos",
-    },
-    {
-      image: infrarrojosImage,
-      alt: "infrarrojos aspe",
-      title: "Infrarrojos",
-    },
-    {
-      image: poleaConicaImage,
-      alt: "polea conica aspe",
-      title: "Polea Cónica",
-    },
-    {
-      image: kinesiotapeImage,
-      alt: "kinesiotape aspe",
-      title: "Kinesiotape",
-    },
-    {
-      image: fibrolisisImage,
-      alt: "fibrolisis gancho aspe",
-      title: "Fibrolisis con Gancho",
-    },
-  ];
-
-  // BLOQUE 2: Tratamientos por Zona del Cuerpo
+  // Body Zones for Accordion
   const bodyZones = [
     {
       id: "columna",
@@ -219,201 +147,182 @@ const Services = () => {
   ];
 
   return (
-    <section id="tratamientos" className="py-20 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="tratamientos" className="py-20 lg:py-32 bg-background relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* ============================================ */}
-        {/* BLOQUE 1: TECNOLOGÍA Y TÉCNICAS AVANZADAS */}
-        {/* ============================================ */}
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
-            Lo que nos diferencia
+          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
+            Tecnología Avanzada
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Tecnología Avanzada y Fisioterapia Invasiva en Aspe
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            NUESTROS<br />
+            <span className="text-primary glow-green-text">TRATAMIENTOS</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground font-body">
             Combinamos la terapia manual experta con la última tecnología para acelerar tu recuperación.
           </p>
         </motion.div>
 
-        {/* Grid de Tarjetas de Tecnología */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {technologies.map((tech, index) => (
+        {/* BENTO GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-16">
+          {bentoServices.map((service, index) => (
             <motion.div
-              key={tech.title}
+              key={service.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-card rounded-xl border border-border overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all duration-300"
+              transition={{ 
+                duration: 0.5, 
+                delay: index * 0.1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              whileHover={{ 
+                scale: 1.02,
+                transition: { type: "spring", stiffness: 300, damping: 20 }
+              }}
+              className={`
+                group relative overflow-hidden rounded-2xl border border-border 
+                bg-gradient-to-br from-card to-card/50
+                hover:border-primary/50 transition-all duration-500
+                ${service.featured ? 'md:col-span-2 md:row-span-1' : ''}
+              `}
             >
+              {/* Glow Effect on Hover */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 pointer-events-none"
+              />
+              
               {/* Badge */}
-              <div className="absolute top-4 right-4 z-10">
-                <span className="px-3 py-1 text-xs font-semibold bg-primary text-primary-foreground rounded-full shadow-lg">
-                  {tech.badge}
+              <div className="absolute top-4 right-4 z-20">
+                <span className="px-3 py-1 text-xs font-bold bg-primary text-primary-foreground rounded-full shadow-lg shadow-primary/30">
+                  {service.badge}
                 </span>
               </div>
 
               {/* Image */}
-              <div className="relative h-40 sm:h-44 lg:h-48 overflow-hidden">
+              <div className={`relative overflow-hidden ${service.featured ? 'h-48 md:h-64' : 'h-40 lg:h-48'}`}>
                 <img
-                  src={tech.image}
-                  alt={tech.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src={service.image}
+                  alt={service.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
               </div>
 
               {/* Content */}
-              <div className="p-5 pt-0 -mt-8 relative z-10">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary border border-primary/20 mb-4 shadow-sm">
-                  <tech.icon className="w-7 h-7" />
+              <div className="p-5 pt-0 -mt-10 relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/20 text-primary border border-primary/30 mb-4 shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow duration-300">
+                  <service.icon className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                  {tech.title}
+                <h4 className="font-display text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors tracking-wide">
+                  {service.title}
                 </h4>
                 <p className="text-sm font-medium text-primary mb-2">
-                  {tech.subtitle}
+                  {service.subtitle}
                 </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {tech.description}
+                <p className="text-sm text-muted-foreground leading-relaxed font-body">
+                  {service.description}
                 </p>
               </div>
+
+              {/* Border Glow */}
+              <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-colors duration-300 pointer-events-none" 
+                style={{ boxShadow: 'inset 0 0 0 1px transparent' }}
+              />
             </motion.div>
           ))}
         </div>
 
-        {/* CTA Bloque 1 */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg px-4 sm:px-6 py-3 h-auto">
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center flex-wrap gap-1 text-center">
-              <MessageCircle className="w-5 h-5 mr-1 sm:mr-2 flex-shrink-0" />
-              <span className="text-sm sm:text-base">¿Necesitas alguna de estas técnicas? Consúltanos</span>
-              <ArrowRight className="w-4 h-4 ml-1 sm:ml-2 flex-shrink-0" />
+          <Button 
+            asChild 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-8 h-14 text-base"
+          >
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <MessageCircle className="w-5 h-5" />
+              ¿Necesitas alguna técnica? Consúltanos
+              <ArrowRight className="w-5 h-5" />
             </a>
           </Button>
         </motion.div>
 
-        {/* ============================================ */}
-        {/* CARRUSEL: NUESTRA TECNOLOGÍA */}
-        {/* ============================================ */}
+        {/* BODY ZONES SECTION */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-24"
-        >
-          <div className="text-center mb-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
-              Nuestra Tecnología
-            </h3>
-            <p className="text-muted-foreground">
-              Equipamiento de última generación para tu recuperación
-            </p>
-          </div>
-
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-5xl mx-auto"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {technologyCarousel.map((item, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="relative group overflow-hidden rounded-xl border border-border bg-card"
-                  >
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={item.image}
-                        alt={item.alt}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h4 className="text-white font-semibold text-lg">
-                        {item.title}
-                      </h4>
-                    </div>
-                  </motion.div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex -left-12 bg-card border-border hover:bg-primary hover:text-primary-foreground" />
-            <CarouselNext className="hidden sm:flex -right-12 bg-card border-border hover:bg-primary hover:text-primary-foreground" />
-          </Carousel>
-        </motion.div>
-
-        {/* ============================================ */}
-        {/* BLOQUE 2: ¿QUÉ TRATAMOS? POR ZONAS */}
-        {/* ============================================ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
+          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-secondary bg-secondary/10 rounded-full border border-secondary/30">
             Especialidades
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            ¿Qué Tratamos en Fimart Aspe?
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            ¿QUÉ<br />
+            <span className="text-secondary">TRATAMOS?</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Tratamiento especializado de lesiones por zonas del cuerpo. 
-            Encuentra tu dolencia y descubre cómo podemos ayudarte.
+          <p className="text-lg text-muted-foreground font-body">
+            Tratamiento especializado de lesiones por zonas del cuerpo.
           </p>
         </motion.div>
 
-        {/* Acordeón de Zonas del Cuerpo */}
+        {/* Accordion */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto mb-12"
+          className="max-w-3xl mx-auto"
         >
           <Accordion type="single" collapsible className="space-y-4">
             {bodyZones.map((zone) => (
               <AccordionItem 
                 key={zone.id} 
                 value={zone.id}
-                className="bg-card border border-border rounded-xl overflow-hidden px-0 data-[state=open]:border-primary/30 transition-colors"
+                className="bg-card border border-border rounded-xl overflow-hidden px-0 data-[state=open]:border-secondary/50 transition-all duration-300"
               >
-                <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
+                <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-muted/30 transition-colors">
                   <div className="flex items-center gap-4">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/20 text-secondary">
                       <zone.icon className="w-6 h-6" />
                     </div>
                     <div className="text-left">
-                      <h3 className="text-lg font-bold text-foreground">
-                        Tratamiento de {zone.title} en Aspe
+                      <h3 className="font-display text-lg font-bold text-foreground tracking-wide">
+                        {zone.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground font-body">
                         {zone.subtitle}
                       </p>
                     </div>
@@ -421,60 +330,25 @@ const Services = () => {
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6">
                   <div className="pt-2">
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Tratamiento especializado de {zone.title.toLowerCase()} en Aspe:
-                    </p>
-                    <ul className="grid sm:grid-cols-2 gap-2 mb-6">
+                    <ul className="grid sm:grid-cols-2 gap-2">
                       {zone.conditions.map((condition) => (
                         <li 
                           key={condition.name}
-                          className="flex items-start gap-2 text-sm"
+                          className="flex items-start gap-2 text-sm font-body"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0" />
                           <span className={condition.highlight ? "font-semibold text-foreground" : "text-muted-foreground"}>
                             {condition.name}
                           </span>
                         </li>
                       ))}
                     </ul>
-                    <Button asChild variant="outline" size="sm" className="border-primary text-primary hover:bg-primary/5">
-                      <a href={`${whatsappLink}&text=Hola,%20tengo%20un%20problema%20de%20${encodeURIComponent(zone.title)}%20y%20me%20gustaría%20pedir%20cita`} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        ¿Tienes esta dolencia? Consúltanos
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
-                    </Button>
                   </div>
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </motion.div>
-
-        {/* CTA Final */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-        >
-          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h4 className="text-xl font-bold text-foreground mb-3">
-              ¿No encuentras tu dolencia?
-            </h4>
-            <p className="text-muted-foreground mb-6">
-              Tratamos muchas más patologías. Cuéntanos tu caso y te asesoraremos sin compromiso.
-            </p>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Consultar por WhatsApp
-              </a>
-            </Button>
-          </div>
-        </motion.div>
-
       </div>
     </section>
   );

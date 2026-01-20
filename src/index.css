@@ -2,81 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Clínica Fimart - Medical Clean Design System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* FIMART - Dark Tech Premium Design System */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 13% 13%;
+    /* Dark Tech Premium - Default is Dark Mode */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 13%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 13%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Clinical Blue - Main accent color */
-    --primary: 200 100% 36%;
-    --primary-foreground: 0 0% 100%;
+    /* Neon Green Accent */
+    --primary: 83 78% 55%;
+    --primary-foreground: 222 47% 6%;
 
-    /* Light blue tint for backgrounds */
-    --secondary: 200 40% 96%;
-    --secondary-foreground: 200 100% 25%;
+    /* Electric Blue Secondary */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    /* Clinical blue accent */
-    --accent: 200 60% 94%;
-    --accent-foreground: 200 100% 30%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 200 100% 36%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 83 78% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom clinical tokens */
-    --clinical-blue: 200 100% 36%;
-    --clinical-blue-light: 200 60% 94%;
-    --clinical-blue-dark: 200 100% 25%;
-    --text-dark: 220 13% 13%;
-    --text-body: 215 16% 35%;
-    --shadow-clinical: 0 4px 20px -4px hsl(200 50% 30% / 0.15);
+    /* Custom Dark Tech tokens */
+    --neon-green: 83 78% 55%;
+    --electric-blue: 217 91% 60%;
+    --slate-950: 222 47% 6%;
+    --glow-green: 0 0 30px hsl(83 78% 55% / 0.4);
+    --glow-blue: 0 0 30px hsl(217 91% 60% / 0.4);
   }
 
   .dark {
-    --background: 220 13% 8%;
-    --foreground: 0 0% 98%;
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 220 13% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 220 13% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 200 100% 45%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 83 78% 55%;
+    --primary-foreground: 222 47% 6%;
 
-    --secondary: 200 30% 15%;
-    --secondary-foreground: 200 60% 80%;
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 13% 15%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 200 40% 18%;
-    --accent-foreground: 200 60% 85%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
-    --ring: 200 100% 45%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 83 78% 55%;
   }
 }
 
@@ -90,8 +89,15 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 }
 
@@ -100,7 +106,45 @@
     text-wrap: balance;
   }
 
-  .shadow-clinical {
-    box-shadow: var(--shadow-clinical);
+  .font-display {
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .glow-green {
+    box-shadow: var(--glow-green);
+  }
+
+  .glow-blue {
+    box-shadow: var(--glow-blue);
+  }
+
+  .glow-green-text {
+    text-shadow: 0 0 20px hsl(83 78% 55% / 0.5);
+  }
+
+  .gradient-dark {
+    background: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 4%) 100%);
+  }
+
+  .gradient-card {
+    background: linear-gradient(145deg, hsl(222 47% 10%) 0%, hsl(222 47% 6%) 100%);
+  }
+
+  /* Pulse animation for CTA */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(83 78% 55% / 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 12px hsl(83 78% 55% / 0);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }

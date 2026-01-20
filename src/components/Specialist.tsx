@@ -22,67 +22,89 @@ const Specialist = () => {
   ];
 
   return (
-    <section id="especialista" className="py-20 lg:py-32 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Split Screen Layout: 50% Image | 50% Text */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Image - Portrait Container (4:5 aspect ratio) */}
+    <section id="especialista" className="py-20 lg:py-32 bg-muted/20 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--secondary)) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Split Screen Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative order-2 lg:order-1"
           >
             <div className="relative max-w-md mx-auto lg:mx-0">
-              {/* Decorative background */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl -rotate-3" />
+              {/* Decorative Glow */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent rounded-2xl blur-xl" />
               
-              {/* Main image container with 4:5 portrait aspect ratio */}
-              <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+              {/* Main image container */}
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border shadow-2xl shadow-primary/10"
+              >
                 <img
                   src={specialistImage}
-                  alt="fisioterapeuta rafael fermin aspe"
+                  alt="Fisioterapeuta Rafael Fermín Aspe"
                   className="w-full h-full object-cover object-[center_top]"
                 />
-                {/* Subtle overlay for consistency */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
-              </div>
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                
+                {/* Name overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="font-display text-xl font-bold text-foreground tracking-wide">
+                    RAFAEL FERMÍN
+                  </p>
+                  <p className="text-sm text-primary font-medium">
+                    Fisioterapeuta Colegiado
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* Content - 50% width on desktop */}
+          {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="order-1 lg:order-2"
           >
-            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
+            <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-secondary bg-secondary/10 rounded-full border border-secondary/30">
               Conoce a tu Fisioterapeuta
             </span>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Tu Fisioterapeuta en Aspe
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+              TU FISIO<br />
+              <span className="text-secondary">EN ASPE</span>
             </h2>
             
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Desde 2014, en <strong className="text-foreground">Fimart</strong> combinamos 
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed font-body">
+              Desde 2014, en <span className="text-foreground font-semibold">Fimart</span> combinamos 
               la valoración precisa con la última tecnología para que recuperes tu calidad 
-              de vida en tiempo récord. No solo tratamos el dolor, buscamos el origen para 
-              solucionarlo de raíz.
+              de vida en tiempo récord.
             </p>
             
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Mi filosofía se basa en <strong className="text-foreground">valorar, diagnosticar 
-              y tratar</strong> utilizando la tecnología más avanzada del sector para acelerar 
-              los tiempos de recuperación biológica. Ya sea mediante terapia manual experta o 
-              técnicas invasivas de vanguardia, mi compromiso es poner todo mi conocimiento 
-              al servicio de tu bienestar.
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed font-body">
+              Mi filosofía se basa en <span className="text-foreground font-semibold">valorar, diagnosticar 
+              y tratar</span> utilizando la tecnología más avanzada del sector.
             </p>
 
-            {/* Highlights */}
+            {/* Highlights Grid */}
             <div className="grid sm:grid-cols-3 gap-6">
               {highlights.map((item, index) => (
                 <motion.div
@@ -91,13 +113,14 @@ const Specialist = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center sm:text-left"
+                  whileHover={{ scale: 1.05 }}
+                  className="group text-center sm:text-left"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-3">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/20 text-secondary border border-secondary/30 mb-3 group-hover:shadow-lg group-hover:shadow-secondary/20 transition-shadow duration-300">
                     <item.icon className="w-6 h-6" />
                   </div>
-                  <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <h4 className="font-display font-bold text-foreground mb-1 tracking-wide">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground font-body">{item.description}</p>
                 </motion.div>
               ))}
             </div>
