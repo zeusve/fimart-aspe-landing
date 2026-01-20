@@ -7,16 +7,16 @@ const Hero = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
-    <section className="relative h-[60vh] sm:h-[80vh] lg:min-h-screen flex items-center justify-center pt-16 lg:pt-20 overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center justify-center pt-16 sm:pt-20 pb-8 sm:pb-12 overflow-hidden">
       {/* Background Image with Dark Overlay for Text Legibility */}
       <div className="absolute inset-0 z-0">
-          <img
-            src={fachadaImage}
-            alt="fachada clinica fimart aspe"
-            className="w-full h-full object-cover object-[center_top]"
-          />
-        {/* Critical: Dark overlay 60% opacity for white text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-primary/30" />
+        <img
+          src={fachadaImage}
+          alt="fachada clinica fimart aspe"
+          className="w-full h-full object-cover object-[center_30%] sm:object-[center_top]"
+        />
+        {/* Critical: Dark overlay for white text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-primary/30" />
       </div>
 
       {/* Content */}
@@ -27,22 +27,22 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-white bg-white/20 rounded-full border border-white/30 backdrop-blur-sm">
+            <span className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 mb-4 sm:mb-6 text-xs sm:text-sm font-medium text-white bg-white/20 rounded-full border border-white/30 backdrop-blur-sm">
               Clínica en Aspe, Alicante
             </span>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6 drop-shadow-lg">
               Fisioterapia Avanzada y Recuperación Funcional en Aspe
             </h1>
             
-            <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed drop-shadow-md">
+            <p className="text-sm sm:text-lg md:text-xl text-white/90 mb-5 sm:mb-8 max-w-2xl leading-relaxed drop-shadow-md">
               En nuestra <strong>Clínica de Fisioterapia en Aspe</strong>, somos expertos en dolor de espalda, 
               lesiones deportivas y tecnología avanzada (EPI, Ecografía). ¡Recupera tu vida con tratamientos personalizados!
             </p>
 
             {/* CTA destacado */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 mb-8 max-w-xl">
-              <p className="text-white font-medium drop-shadow-sm">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 sm:p-4 mb-5 sm:mb-8 max-w-xl">
+              <p className="text-white text-sm sm:text-base font-medium drop-shadow-sm">
                 ¿El dolor no te deja avanzar? Valoremos tu caso hoy mismo y empieza a recuperarte.
               </p>
             </div>
@@ -52,15 +52,15 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             <Button 
               asChild 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg text-base px-8 h-12"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12"
             >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <MessageCircle className="w-5 h-5 mr-2" />
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Pedir Cita por WhatsApp
               </a>
             </Button>
@@ -68,10 +68,10 @@ const Hero = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-2 border-white text-white hover:bg-white/10 bg-white/5 backdrop-blur-sm text-base px-8 h-12"
+              className="border-2 border-white text-white hover:bg-white/10 bg-white/5 backdrop-blur-sm text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12"
             >
-              <a href="tel:652667953" className="flex items-center">
-                <Phone className="w-5 h-5 mr-2" />
+              <a href="tel:652667953" className="flex items-center justify-center">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Llamar Ahora
               </a>
             </Button>
@@ -79,12 +79,12 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator - Hidden on mobile to avoid overlap with buttons */}
+      {/* Scroll Indicator - Hidden on mobile */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <a 
           href="#especialista" 
