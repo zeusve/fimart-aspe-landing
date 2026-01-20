@@ -275,12 +275,12 @@ const Services = () => {
           <Button 
             asChild 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-8 h-14 text-base"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-4 sm:px-8 h-auto py-3 sm:h-14 text-sm sm:text-base w-full sm:w-auto max-w-xs sm:max-w-none"
           >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-              <MessageCircle className="w-5 h-5" />
-              ¿Necesitas alguna técnica? Consúltanos
-              <ArrowRight className="w-5 h-5" />
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 flex-wrap sm:flex-nowrap">
+              <MessageCircle className="w-5 h-5 flex-shrink-0" />
+              <span className="text-center">¿Necesitas alguna técnica? Consúltanos</span>
+              <ArrowRight className="w-5 h-5 flex-shrink-0 hidden sm:block" />
             </a>
           </Button>
         </motion.div>
