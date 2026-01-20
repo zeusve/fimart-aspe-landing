@@ -8,11 +8,11 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
-      {/* Background Image/Video with Dark Overlay */}
+      {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={fachadaImage}
-          alt="Clínica Fimart Aspe"
+          alt="Clínica de fisioterapia Fimart en Aspe, fachada exterior"
           className="w-full h-full object-cover object-[center_top]"
         />
         {/* Dark gradient overlay for Dark Tech Premium look */}
@@ -48,17 +48,17 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30 backdrop-blur-sm"
             >
-              Clínica en Aspe, Alicante
+              Desde 2015 en Aspe, Alicante
             </motion.span>
             
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-[0.95] mb-6 tracking-tight"
+              className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.1] mb-6 tracking-tight"
             >
-              <span className="block">RECUPERA</span>
-              <span className="block text-primary glow-green-text">TU MOVIMIENTO</span>
+              <span className="block">Fisioterapia en Aspe –</span>
+              <span className="block text-primary glow-green-text">Clínica Fisioterapia Avanzada Fimart</span>
             </motion.h1>
             
             <motion.p 
@@ -67,9 +67,8 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="font-body text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
             >
-              Fisioterapia avanzada con tecnología de vanguardia. 
-              <span className="text-foreground font-medium"> EPI, Ecografía MSK y tratamientos invasivos</span> para 
-              resultados que transforman vidas.
+              Recupera tu movilidad y mejora tu calidad de vida con tratamientos personalizados y cercanos.
+              <span className="text-foreground font-medium"> Trayectoria y confianza desde 2015.</span>
             </motion.p>
 
             {/* CTA Box */}
@@ -90,7 +89,7 @@ const Hero = () => {
                 >
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                     <MessageCircle className="w-5 h-5" />
-                    Pedir Cita por WhatsApp
+                    Solicitar Cita
                   </a>
                 </Button>
                 <Button 
@@ -118,7 +117,7 @@ const Hero = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <a 
-          href="#especialista" 
+          href="#problema-solucion" 
           className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors duration-300"
         >
           <span className="text-sm mb-2 font-medium">Descubre más</span>

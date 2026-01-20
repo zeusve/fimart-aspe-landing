@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, Facebook, Instagram } from "lucide-react";
+import { MapPin, Phone, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
@@ -24,9 +24,12 @@ const Footer = () => {
                 FIMART
               </span>
             </a>
+            <p className="text-muted-foreground mb-4 leading-relaxed font-body">
+              <strong className="text-foreground">Fisioterapia Avanzada Fimart</strong>
+            </p>
             <p className="text-muted-foreground mb-6 leading-relaxed font-body">
-              Clínica de fisioterapia especializada en tratamientos avanzados 
-              para tu recuperación y bienestar.
+              Clínica de fisioterapia en Aspe especializada en tratamientos personalizados 
+              para tu recuperación y bienestar. Desde 2015.
             </p>
             
             {/* Social Links */}
@@ -38,7 +41,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Facebook"
+                aria-label="Facebook de Clínica Fimart"
               >
                 <Facebook className="w-5 h-5" />
               </motion.a>
@@ -49,14 +52,14 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Instagram"
+                aria-label="Instagram de Clínica Fimart"
               >
                 <Instagram className="w-5 h-5" />
               </motion.a>
             </div>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Info - NAP Consistente */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,33 +67,35 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h4 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">CONTACTO</h4>
-            <ul className="space-y-4 font-body">
-              <li>
-                <a
-                  href="tel:652667953"
-                  className="flex items-start group text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Phone className="w-5 h-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
-                  <span className="text-xl font-semibold group-hover:text-primary">
-                    652 667 953
+            <address className="not-italic">
+              <ul className="space-y-4 font-body">
+                <li>
+                  <a
+                    href="tel:652667953"
+                    className="flex items-start group text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Phone className="w-5 h-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
+                    <span className="text-xl font-semibold group-hover:text-primary">
+                      652 667 953
+                    </span>
+                  </a>
+                </li>
+                <li className="flex items-start text-muted-foreground">
+                  <MapPin className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" />
+                  <span>
+                    <strong className="text-foreground">Calle Colón, 30 Bajo</strong><br />
+                    03680 Aspe (Alicante)
                   </span>
-                </a>
-              </li>
-              <li className="flex items-start text-muted-foreground">
-                <MapPin className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" />
-                <span>
-                  Calle Colón, 30<br />
-                  03680 Aspe, Alicante
-                </span>
-              </li>
-              <li className="flex items-start text-muted-foreground">
-                <Clock className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" />
-                <span>
-                  Lunes - Viernes<br />
-                  Consultar horarios
-                </span>
-              </li>
-            </ul>
+                </li>
+                <li className="flex items-start text-muted-foreground">
+                  <Clock className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" />
+                  <span>
+                    Lunes - Viernes<br />
+                    Consultar horarios
+                  </span>
+                </li>
+              </ul>
+            </address>
           </motion.div>
 
           {/* Quick Links */}
@@ -101,23 +106,30 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h4 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">ENLACES</h4>
-            <ul className="space-y-3 font-body">
-              <li>
-                <a href="#tratamientos" className="text-muted-foreground hover:text-primary transition-colors">
-                  Tratamientos
-                </a>
-              </li>
-              <li>
-                <a href="#especialista" className="text-muted-foreground hover:text-primary transition-colors">
-                  El Especialista
-                </a>
-              </li>
-              <li>
-                <a href="#contacto" className="text-muted-foreground hover:text-primary transition-colors">
-                  Contacto
-                </a>
-              </li>
-            </ul>
+            <nav aria-label="Enlaces del pie de página">
+              <ul className="space-y-3 font-body">
+                <li>
+                  <a href="#tratamientos" className="text-muted-foreground hover:text-primary transition-colors">
+                    Tratamientos
+                  </a>
+                </li>
+                <li>
+                  <a href="#especialista" className="text-muted-foreground hover:text-primary transition-colors">
+                    El Especialista
+                  </a>
+                </li>
+                <li>
+                  <a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">
+                    Preguntas Frecuentes
+                  </a>
+                </li>
+                <li>
+                  <a href="#contacto" className="text-muted-foreground hover:text-primary transition-colors">
+                    Contacto
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </motion.div>
 
           {/* CTA Section */}
@@ -136,8 +148,9 @@ const Footer = () => {
               size="lg"
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25"
             >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                Pedir Cita por WhatsApp
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                <MessageCircle className="w-5 h-5" />
+                Solicitar Cita
               </a>
             </Button>
           </motion.div>
@@ -159,7 +172,7 @@ const Footer = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Ubicación Clínica Fimart"
+            title="Ubicación Clínica Fimart en Aspe - Calle Colón 30"
             className="grayscale hover:grayscale-0 transition-all duration-500"
           />
         </motion.div>
@@ -170,7 +183,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-body">
             <p>
-              © {currentYear} Clínica de Fisioterapia Fimart. Todos los derechos reservados.
+              © {currentYear} Fisioterapia Avanzada Fimart | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: 652 667 953
             </p>
             <p className="flex items-center gap-1">
               Diseñado con <span className="text-primary">♥</span> en Aspe
