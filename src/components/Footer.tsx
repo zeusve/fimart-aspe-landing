@@ -29,7 +29,7 @@ const Footer = () => {
             </p>
             <p className="text-muted-foreground mb-6 leading-relaxed font-body">
               Clínica de fisioterapia en Aspe especializada en tratamientos personalizados 
-              para tu recuperación y bienestar. Desde 2015.
+              para tu recuperación y bienestar. Desde 2014.
             </p>
             
             {/* Social Links */}

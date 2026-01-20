@@ -48,7 +48,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30 backdrop-blur-sm"
             >
-              Desde 2015 en Aspe, Alicante
+              Desde 2014 en Aspe, Alicante
             </motion.span>
             
             <motion.h1 
@@ -68,7 +68,7 @@ const Hero = () => {
               className="font-body text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
             >
               Recupera tu movilidad y mejora tu calidad de vida con tratamientos personalizados y cercanos.
-              <span className="text-foreground font-medium"> Trayectoria y confianza desde 2015.</span>
+              <span className="text-foreground font-medium"> Trayectoria y confianza desde 2014.</span>
             </motion.p>
 
             {/* CTA Box */}

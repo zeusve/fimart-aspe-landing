@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import { 
   Hand, 
   Activity, 
-  Zap, 
-  Dumbbell,
-  MessageCircle,
+  Zap,
   ArrowRight,
   CheckCircle,
   Star,
@@ -32,16 +30,11 @@ const ServicesNew = () => {
       title: "Fisioterapia deportiva",
       description: "Para deportistas y amateurs. Mejora rendimiento y reduce el riesgo de lesiones.",
     },
-    {
-      icon: Dumbbell,
-      title: "Pilates terapéutico",
-      description: "Mejora estabilidad y postura, clave en dolores crónicos.",
-    },
   ];
 
   const benefits = [
     { icon: CheckCircle, text: "Tratamientos 100% personalizados" },
-    { icon: Award, text: "Clínica autorizada con trayectoria desde 2015" },
+    { icon: Award, text: "Clínica autorizada con trayectoria desde 2014" },
     { icon: Star, text: "Alta satisfacción (4.9★ en reseñas)" },
     { icon: MapPin, text: "Ubicación céntrica en Calle Colón, 30" },
   ];
