@@ -7,7 +7,7 @@ const Hero = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
       {/* Background Image/Video with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <img
