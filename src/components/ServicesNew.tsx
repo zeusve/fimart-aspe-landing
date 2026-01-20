@@ -136,10 +136,9 @@ const ServicesNew = () => {
           <Button 
             asChild 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-8 h-12 text-base"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 w-full sm:w-auto px-6 sm:px-8 h-12 text-sm sm:text-base"
           >
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-              <MessageCircle className="w-5 h-5" />
               <span>¿Necesitas algún tratamiento? Consúltanos</span>
               <ArrowRight className="w-5 h-5 hidden sm:block" />
             </a>
