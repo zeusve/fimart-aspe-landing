@@ -13,7 +13,7 @@ const Hero = () => {
         <img
           src={fachadaImage}
           alt="Clínica Fimart Aspe"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_top]"
         />
         {/* Dark gradient overlay for Dark Tech Premium look */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
