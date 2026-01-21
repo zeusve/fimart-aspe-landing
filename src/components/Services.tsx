@@ -147,7 +147,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="tratamientos" className="py-20 lg:py-32 bg-background relative overflow-hidden">
+    <section id="tecnologia" className="py-20 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div 
