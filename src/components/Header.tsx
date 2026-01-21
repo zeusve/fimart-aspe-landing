@@ -8,7 +8,9 @@ const Header = () => {
 
   const navLinks = [
     { href: "#tratamientos", label: "Tratamientos" },
+    { href: "#tecnologia", label: "Tecnología" },
     { href: "#especialista", label: "El Especialista" },
+    { href: "#faq", label: "FAQ" },
     { href: "#contacto", label: "Contacto" },
   ];
 
