@@ -53,6 +53,8 @@ const BeforeAfter = () => {
             className="relative aspect-[16/9] rounded-2xl overflow-hidden cursor-pointer group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={() => setIsHovered(true)}
+            onTouchEnd={() => setIsHovered(false)}
           >
             {/* Base Layer - Treatment */}
             <img
@@ -122,7 +124,8 @@ const BeforeAfter = () => {
             >
               <p className="text-sm font-medium text-foreground flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Pasa el cursor para ver
+                <span className="hidden sm:inline">Pasa el cursor para ver</span>
+                <span className="sm:hidden">Toca para ver</span>
               </p>
             </motion.div>
           </div>
