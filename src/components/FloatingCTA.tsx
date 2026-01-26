@@ -1,12 +1,13 @@
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const FloatingCTA = () => {
+const FloatingCTA = forwardRef<HTMLDivElement>((_, ref) => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
-    <motion.div
+    <motion.div ref={ref}
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: 2, duration: 0.5, type: "spring", stiffness: 200 }}
@@ -44,6 +45,8 @@ const FloatingCTA = () => {
       />
     </motion.div>
   );
-};
+});
+
+FloatingCTA.displayName = "FloatingCTA";
 
 export default FloatingCTA;
