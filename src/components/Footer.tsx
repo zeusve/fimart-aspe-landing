@@ -1,14 +1,13 @@
-import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const Footer = forwardRef<HTMLElement>((_, ref) => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
 
   return (
-    <footer ref={ref} id="contacto" className="bg-card border-t border-border">
+    <footer id="contacto" className="bg-card border-t border-border">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
@@ -194,8 +193,6 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
       </div>
     </footer>
   );
-});
-
-Footer.displayName = "Footer";
+};
 
 export default Footer;
