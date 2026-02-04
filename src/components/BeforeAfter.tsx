@@ -8,9 +8,13 @@ const BeforeAfter = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="py-20 lg:py-32 bg-background relative overflow-hidden">
+    <section 
+      id="diagnostico"
+      className="py-20 lg:py-32 bg-background relative overflow-hidden"
+      aria-labelledby="diagnostico-heading"
+    >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5" aria-hidden="true">
         <div 
           className="w-full h-full"
           style={{
@@ -21,7 +25,7 @@ const BeforeAfter = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -31,18 +35,21 @@ const BeforeAfter = () => {
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
             Diagnóstico Preciso
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+          <h2 
+            id="diagnostico-heading"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight"
+          >
             VEMOS LO QUE<br />
             <span className="text-primary glow-text">OTROS NO VEN</span>
           </h2>
           <p className="text-lg text-muted-foreground font-body">
-            Nuestra tecnología de ecografía MSK nos permite ver en tiempo real 
+            Nuestra tecnología de <strong>ecografía MSK</strong> nos permite ver en tiempo real 
             lo que está ocurriendo en tus tejidos para un diagnóstico certero.
           </p>
-        </motion.div>
+        </motion.header>
 
         {/* Interactive Before/After Component */}
-        <motion.div
+        <motion.figure
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -55,12 +62,17 @@ const BeforeAfter = () => {
             onMouseLeave={() => setIsHovered(false)}
             onTouchStart={() => setIsHovered(true)}
             onTouchEnd={() => setIsHovered(false)}
+            role="img"
+            aria-label="Comparación interactiva: tratamiento de fisioterapia vs diagnóstico por ecografía MSK"
           >
             {/* Base Layer - Treatment */}
             <img
               src={fisioterapeutaImage}
-              alt="Tratamiento fisioterapia"
+              alt="Fisioterapeuta realizando tratamiento manual en Clínica FIMART Aspe"
               className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              width={800}
+              height={450}
             />
 
             {/* Overlay Layer - Ecografía */}
@@ -73,18 +85,22 @@ const BeforeAfter = () => {
               }}
               transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="absolute inset-0"
+              aria-hidden="true"
             >
               <img
                 src={ecografoImage}
-                alt="Ecografía MSK diagnóstico"
+                alt="Diagnóstico por ecografía MSK en Clínica FIMART Aspe"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                width={800}
+                height={450}
               />
               {/* Blue tint overlay for tech effect */}
               <div className="absolute inset-0 bg-secondary/20 mix-blend-overlay" />
             </motion.div>
 
             {/* Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" aria-hidden="true" />
             
             {/* Interactive Border Glow */}
             <motion.div
@@ -95,6 +111,7 @@ const BeforeAfter = () => {
               }}
               transition={{ duration: 0.4 }}
               className="absolute inset-0 rounded-2xl"
+              aria-hidden="true"
             />
 
             {/* Labels */}
@@ -103,7 +120,7 @@ const BeforeAfter = () => {
                 animate={{ opacity: isHovered ? 0.5 : 1 }}
                 className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border"
               >
-                <Eye className="w-5 h-5 text-primary" />
+                <Eye className="w-5 h-5 text-primary" aria-hidden="true" />
                 <span className="text-sm font-medium text-foreground">Vista Normal</span>
               </motion.div>
               
@@ -111,7 +128,7 @@ const BeforeAfter = () => {
                 animate={{ opacity: isHovered ? 1 : 0.5 }}
                 className="flex items-center gap-2 bg-secondary/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-secondary/50"
               >
-                <Scan className="w-5 h-5 text-secondary-foreground" />
+                <Scan className="w-5 h-5 text-secondary-foreground" aria-hidden="true" />
                 <span className="text-sm font-medium text-secondary-foreground">Ecografía MSK</span>
               </motion.div>
             </div>
@@ -123,7 +140,7 @@ const BeforeAfter = () => {
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-card/90 backdrop-blur-md px-6 py-3 rounded-full border border-primary/30"
             >
               <p className="text-sm font-medium text-foreground flex items-center gap-2">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" aria-hidden="true" />
                 <span className="hidden sm:inline">Pasa el cursor para ver</span>
                 <span className="sm:hidden">Toca para ver</span>
               </p>
@@ -131,16 +148,10 @@ const BeforeAfter = () => {
           </div>
 
           {/* Caption */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-center text-muted-foreground mt-6 text-sm font-body"
-          >
-            Tecnología de imagen en tiempo real para diagnósticos precisos y tratamientos guiados
-          </motion.p>
-        </motion.div>
+          <figcaption className="text-center text-muted-foreground mt-6 text-sm font-body">
+            Tecnología de imagen en tiempo real para diagnósticos precisos y tratamientos guiados por ecografía
+          </figcaption>
+        </motion.figure>
       </div>
     </section>
   );

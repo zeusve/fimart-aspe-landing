@@ -25,23 +25,32 @@ const FAQ = () => {
     },
     {
       id: "precio",
-      question: "¿Cuánto cuesta una sesión de fisioterapia?",
+      question: "¿Cuánto cuesta una sesión de fisioterapia en FIMART?",
       answer: "El precio varía según el tratamiento necesario. Ofrecemos una valoración inicial personalizada. Contacta por WhatsApp al 652 667 953 para conocer tarifas y disponibilidad.",
     },
     {
       id: "cita",
-      question: "¿Cómo pido cita?",
+      question: "¿Cómo pido cita en la clínica de fisioterapia?",
       answer: "Puedes pedir cita fácilmente por WhatsApp al 652 667 953 o llamando directamente. Trabajamos con cita previa para garantizar una atención personalizada y sin esperas.",
+    },
+    {
+      id: "ubicacion",
+      question: "¿Dónde está la clínica de fisioterapia FIMART?",
+      answer: "Estamos en Calle Colón, 30 Bajo, 03680 Aspe (Alicante). Fácil acceso y parking cercano. Atendemos pacientes de Aspe, Novelda, Monforte del Cid, Elche y alrededores.",
     },
   ];
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-card relative overflow-hidden">
+    <section 
+      id="faq" 
+      className="py-20 lg:py-28 bg-card relative overflow-hidden"
+      aria-labelledby="faq-heading"
+    >
       {/* Subtle background accent */}
-      <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-secondary/5 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-secondary/5 to-transparent pointer-events-none" aria-hidden="true" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -51,11 +60,14 @@ const FAQ = () => {
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
             Resolvemos tus dudas
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight">
+          <h2 
+            id="faq-heading"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight"
+          >
             Preguntas frecuentes sobre{" "}
             <span className="text-primary">fisioterapia en Aspe</span>
           </h2>
-        </motion.div>
+        </motion.header>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,9 +84,9 @@ const FAQ = () => {
                 className="bg-background border border-border rounded-xl overflow-hidden px-0 data-[state=open]:border-primary/50 transition-all duration-300"
               >
                 <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-muted/30 transition-colors text-left">
-                  <span className="font-display text-lg font-bold text-foreground tracking-wide pr-4">
+                  <h3 className="font-display text-lg font-bold text-foreground tracking-wide pr-4 text-left">
                     {faq.question}
-                  </span>
+                  </h3>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6">
                   <p className="text-muted-foreground leading-relaxed font-body">

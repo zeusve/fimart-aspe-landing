@@ -31,16 +31,22 @@ const Hero = () => {
   const titleLine3 = "FIMART";
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0"
+      aria-labelledby="hero-heading"
+    >
       {/* Animated Particles Background */}
       <HeroParticles />
 
       {/* Background Image with Overlays */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
         <img
           src={fachadaImage}
-          alt="Clínica de fisioterapia FIMART en Aspe"
+          alt="Fachada de Clínica de Fisioterapia FIMART en Aspe, Alicante - Calle Colón 30"
           className="w-full h-full object-cover object-[center_top]"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
         />
         {/* Dark Overlay - Dark Mode */}
         <div className="absolute inset-0 dark:from-background/95 dark:via-background/80 dark:to-background/70 dark:bg-gradient-to-b hidden dark:block" />
@@ -49,7 +55,7 @@ const Hero = () => {
       </div>
 
       {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 z-[1] opacity-10 dark:opacity-20">
+      <div className="absolute inset-0 z-[1] opacity-10 dark:opacity-20" aria-hidden="true">
         <div
           className="w-full h-full"
           style={{
@@ -83,7 +89,10 @@ const Hero = () => {
             animate="visible"
             className="mb-6"
           >
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+            <h1 
+              id="hero-heading"
+              className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight"
+            >
               {/* Line 1: Fisioterapia en Aspe */}
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
@@ -104,7 +113,7 @@ const Hero = () => {
                 {titleLine2}
               </motion.span>
               
-              {/* Line 3: Fimart (Cyan) */}
+              {/* Line 3: FIMART (Cyan) */}
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -143,8 +152,14 @@ const Hero = () => {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 text-base px-8 h-12"
               >
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                  <MessageCircle className="w-5 h-5" />
+                <a 
+                  href={whatsappLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center justify-center gap-2"
+                  aria-label="Solicitar cita en Clínica FIMART Aspe por WhatsApp"
+                >
+                  <MessageCircle className="w-5 h-5" aria-hidden="true" />
                   Solicitar Cita
                 </a>
               </Button>
@@ -154,8 +169,12 @@ const Hero = () => {
                 size="lg"
                 className="border-2 border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary backdrop-blur-sm text-base px-8 h-12 transition-all duration-300"
               >
-                <a href="tel:652667953" className="flex items-center justify-center gap-2">
-                  <Phone className="w-5 h-5" />
+                <a 
+                  href="tel:+34652667953" 
+                  className="flex items-center justify-center gap-2"
+                  aria-label="Llamar a Clínica FIMART al 652 667 953"
+                >
+                  <Phone className="w-5 h-5" aria-hidden="true" />
                   Llamar Ahora
                 </a>
               </Button>
@@ -186,7 +205,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[5]" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[5]" aria-hidden="true" />
     </section>
   );
 };

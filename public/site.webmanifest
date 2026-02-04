@@ -1,0 +1,46 @@
+{
+  "name": "Fisioterapia Avanzada FIMART",
+  "short_name": "FIMART",
+  "description": "Clínica de fisioterapia en Aspe especializada en terapia manual, rehabilitación funcional y fisioterapia deportiva. Tratamientos personalizados desde 2014.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "lang": "es-ES",
+  "categories": ["health", "medical", "fitness"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Pedir Cita",
+      "short_name": "Cita",
+      "description": "Solicitar cita por WhatsApp",
+      "url": "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART",
+      "icons": []
+    },
+    {
+      "name": "Llamar",
+      "short_name": "Llamar",
+      "description": "Llamar a la clínica",
+      "url": "tel:652667953",
+      "icons": []
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
