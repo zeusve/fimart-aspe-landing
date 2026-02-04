@@ -7,48 +7,49 @@
 
 @layer base {
   :root {
-    /* Dark Tech Premium - Default is Dark Mode */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    /* Light Mode - Professional & Clean */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Neon Green Accent */
-    --primary: 83 78% 55%;
-    --primary-foreground: 222 47% 6%;
+    /* Green Accent - Adapted for light */
+    --primary: 83 65% 40%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Electric Blue Secondary */
-    --secondary: 217 91% 60%;
-    --secondary-foreground: 210 40% 98%;
+    /* Blue Secondary - Adapted for light */
+    --secondary: 217 80% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 47% 12%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 217 80% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 47% 15%;
-    --input: 222 47% 15%;
-    --ring: 83 78% 55%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 83 65% 40%;
 
     --radius: 0.75rem;
 
-    /* Custom Dark Tech tokens */
-    --neon-green: 83 78% 55%;
-    --electric-blue: 217 91% 60%;
+    /* Custom tokens */
+    --neon-green: 83 65% 40%;
+    --electric-blue: 217 80% 50%;
     --slate-950: 222 47% 6%;
-    --glow-green: 0 0 30px hsl(83 78% 55% / 0.4);
-    --glow-blue: 0 0 30px hsl(217 91% 60% / 0.4);
+    --glow-green: 0 0 30px hsl(83 65% 40% / 0.25);
+    --glow-blue: 0 0 30px hsl(217 80% 50% / 0.25);
   }
 
   .dark {
+    /* Dark Tech Premium */
     --background: 222 47% 6%;
     --foreground: 210 40% 98%;
 
@@ -76,6 +77,12 @@
     --border: 222 47% 15%;
     --input: 222 47% 15%;
     --ring: 83 78% 55%;
+
+    /* Custom Dark tokens */
+    --neon-green: 83 78% 55%;
+    --electric-blue: 217 91% 60%;
+    --glow-green: 0 0 30px hsl(83 78% 55% / 0.4);
+    --glow-blue: 0 0 30px hsl(217 91% 60% / 0.4);
   }
 }
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,6 +56,7 @@ const Header = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
+            <ThemeToggle />
             <a href="tel:652667953" className="flex items-center text-muted-foreground hover:text-primary transition-colors font-body">
               <Phone className="w-4 h-4 mr-2" />
               <span className="font-medium">652 667 953</span>
@@ -133,13 +135,16 @@ const Header = () => {
                 transition={{ delay: 0.3 }}
                 className="pt-4 border-t border-border space-y-4"
               >
-                <a 
-                  href="tel:652667953" 
-                  className="flex items-center text-muted-foreground hover:text-primary transition-colors font-body"
-                >
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span className="font-medium">652 667 953</span>
-                </a>
+                <div className="flex items-center justify-between">
+                  <a 
+                    href="tel:652667953" 
+                    className="flex items-center text-muted-foreground hover:text-primary transition-colors font-body"
+                  >
+                    <Phone className="w-4 h-4 mr-2" />
+                    <span className="font-medium">652 667 953</span>
+                  </a>
+                  <ThemeToggle />
+                </div>
                 <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                     Pedir Cita por WhatsApp
