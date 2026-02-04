@@ -26,8 +26,9 @@ const Hero = () => {
     },
   };
 
-  const titleText = "Fisioterapia en Aspe";
-  const titleTextLine2 = "Clínica Fisioterapia Avanzada Fimart";
+  const titleLine1 = "Fisioterapia en Aspe";
+  const titleLine2 = "Clínica Fisioterapia Avanzada";
+  const titleLine3 = "Fimart";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
@@ -63,7 +64,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -75,38 +76,43 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          {/* Main Title with Letter Animation */}
+          {/* Main Title - 3 Lines */}
           <motion.div
             variants={titleVariants}
             initial="hidden"
             animate="visible"
             className="mb-6"
           >
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-              <div>
-                {titleText.split('').map((letter, index) => (
-                  <motion.span
-                    key={`line1-${index}`}
-                    variants={letterVariants}
-                    transition={{ duration: 0.6, delay: index * 0.04 }}
-                    className="text-foreground"
-                  >
-                    {letter === ' ' ? '\u00A0' : letter}
-                  </motion.span>
-                ))}
-              </div>
-              <div className="mt-2">
-                {titleTextLine2.split('').map((letter, index) => (
-                  <motion.span
-                    key={`line2-${index}`}
-                    variants={letterVariants}
-                    transition={{ duration: 0.6, delay: (titleText.length + index) * 0.04 }}
-                    className={index > titleTextLine2.indexOf('Fimart') - 1 ? 'text-primary glow-text' : 'text-foreground'}
-                  >
-                    {letter === ' ' ? '\u00A0' : letter}
-                  </motion.span>
-                ))}
-              </div>
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+              {/* Line 1: Fisioterapia en Aspe */}
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="block text-foreground"
+              >
+                {titleLine1}
+              </motion.span>
+              
+              {/* Line 2: Clínica Fisioterapia Avanzada */}
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="block text-foreground mt-1"
+              >
+                {titleLine2}
+              </motion.span>
+              
+              {/* Line 3: Fimart (Cyan) */}
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="block text-primary glow-text mt-1"
+              >
+                {titleLine3}
+              </motion.span>
             </h1>
           </motion.div>
 
