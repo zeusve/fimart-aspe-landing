@@ -15,9 +15,9 @@ const Hero = () => {
           alt="Clínica de fisioterapia Fimart en Aspe, fachada exterior"
           className="w-full h-full object-cover object-[center_top]"
         />
-        {/* Dark gradient overlay for Dark Tech Premium look */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
+        {/* Dark gradient overlay for Dark Tech Premium look (dark mode) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background dark:from-background/90 dark:via-background/70 dark:to-background from-transparent via-transparent to-white/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80 dark:from-background/80 dark:via-transparent dark:to-background/80 from-white/30 via-transparent to-white/30" />
       </div>
 
       {/* Animated Grid Pattern Overlay */}
