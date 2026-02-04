@@ -3,6 +3,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
+import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY } from "@/lib/constants";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,8 +15,6 @@ const Header = () => {
     { href: "#faq", label: "FAQ" },
     { href: "#contacto", label: "Contacto" },
   ];
-
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/15">
@@ -57,15 +56,15 @@ const Header = () => {
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
             <ThemeToggle />
-            <a href="tel:652667953" className="flex items-center text-muted-foreground hover:text-primary transition-colors font-body">
+            <a href={`tel:${PHONE_NUMBER}`} className="flex items-center text-muted-foreground hover:text-primary transition-colors font-body">
               <Phone className="w-4 h-4 mr-2" />
-              <span className="font-medium">652 667 953</span>
+              <span className="font-medium">{PHONE_DISPLAY}</span>
             </a>
             <Button 
               asChild 
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300"
             >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                 Pedir Cita
               </a>
             </Button>
@@ -140,16 +139,16 @@ const Header = () => {
               >
                 <div className="flex items-center justify-between">
                   <a 
-                    href="tel:652667953" 
+                    href={`tel:${PHONE_NUMBER}`} 
                     className="flex items-center text-muted-foreground hover:text-primary transition-colors font-body"
                   >
                     <Phone className="w-4 h-4 mr-2" />
-                    <span className="font-medium">652 667 953</span>
+                    <span className="font-medium">{PHONE_DISPLAY}</span>
                   </a>
                   <ThemeToggle />
                 </div>
                 <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                     Pedir Cita por WhatsApp
                   </a>
                 </Button>
