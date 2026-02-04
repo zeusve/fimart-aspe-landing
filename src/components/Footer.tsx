@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY, SOCIAL_LINKS } from "@/lib/constants";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   return (
     <footer id="contacto" className="bg-card border-t border-border" role="contentinfo">
@@ -39,7 +39,7 @@ const Footer = () => {
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    href="https://www.facebook.com/clinicafisioterapiafimart/?locale=es_ES"
+                    href={SOCIAL_LINKS.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -52,7 +52,7 @@ const Footer = () => {
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    href="https://www.instagram.com/fisioterapia_fimart/"
+                    href={SOCIAL_LINKS.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -161,7 +161,7 @@ const Footer = () => {
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25"
             >
               <a 
-                href={whatsappLink} 
+                href={WHATSAPP_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center justify-center gap-2"

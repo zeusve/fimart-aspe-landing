@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface Particle {
@@ -9,7 +9,7 @@ interface Particle {
   size: number;
 }
 
-const HeroParticles: React.FC = () => {
+const HeroParticles = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {

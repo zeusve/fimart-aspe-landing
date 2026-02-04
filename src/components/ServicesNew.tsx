@@ -11,9 +11,9 @@ import {
   Award
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_LINK } from "@/lib/constants";
 
 const ServicesNew = () => {
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   const services = [
     {
@@ -146,7 +146,7 @@ const ServicesNew = () => {
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 w-full sm:w-auto px-6 sm:px-8 h-12 text-sm sm:text-base"
           >
             <a 
-              href={whatsappLink} 
+              href={WHATSAPP_LINK} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center justify-center gap-2"

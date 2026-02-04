@@ -39,13 +39,6 @@
     --ring: 203 82% 40%;
 
     --radius: 0.75rem;
-
-    /* Custom tokens - Light Mode */
-    --cyan-accent: 203 82% 40%;
-    --green-accent: 203 82% 40%;
-    --text-primary: 217 33% 17%;
-    --text-secondary: 217 12% 43%;
-    --surface-light: 0 0% 100%;
   }
 
   .dark {
@@ -79,13 +72,6 @@
     --border: 217 33% 25%;
     --input: 217 33% 25%;
     --ring: 187 100% 50%;
-
-    /* Custom Dark tokens */
-    --cyan-accent: 187 100% 50%;
-    --green-accent: 187 100% 50%;
-    --text-primary: 210 40% 98%;
-    --text-secondary: 215 20% 65%;
-    --surface-dark: rgba(42, 45, 63, 0.6);
   }
 }
 
@@ -124,101 +110,17 @@
   }
 
   /* Glow Effects */
-  .glow-cyan {
-    box-shadow: 0 0 30px hsl(var(--cyan-accent) / 0.4);
-  }
-
-  .glow-green {
-    box-shadow: 0 0 30px hsl(var(--green-accent) / 0.4);
-  }
-
   .glow-text {
     text-shadow: 0 0 20px hsl(var(--primary) / 0.6);
   }
 
-  /* Gradients */
-  .gradient-cyan-green {
-    background: linear-gradient(135deg, hsl(var(--cyan-accent)), hsl(var(--green-accent)));
+  /* Animations - Pulse Glow (for CTA buttons) */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 15px hsl(var(--primary) / 0.4); }
+    50% { box-shadow: 0 0 30px hsl(var(--primary) / 0.7); }
   }
 
-  .gradient-dark {
-    background: linear-gradient(180deg, hsl(217 33% 9%) 0%, hsl(217 33% 6%) 100%);
-  }
-
-  .gradient-light {
-    background: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 100%) 100%);
-  }
-
-  /* Animations - Floating */
-  @keyframes floating-soft {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .animate-floating-soft {
-    animation: floating-soft 4s ease-in-out infinite;
-  }
-
-  /* Animations - Glow Pulse */
-  @keyframes glow-pulse {
-    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.6); }
-    50% { box-shadow: 0 0 40px hsl(var(--primary) / 1); }
-  }
-
-  .animate-glow-pulse {
-    animation: glow-pulse 3s ease-in-out infinite;
-  }
-
-  /* Animations - Gradient Shift */
-  @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .animate-gradient-shift {
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-  }
-
-  /* Animations - Reveal From Bottom */
-  @keyframes reveal-from-bottom {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-reveal-bottom {
-    animation: reveal-from-bottom 0.8s ease-out both;
-  }
-
-  /* Animations - Reveal From Left */
-  @keyframes reveal-from-left {
-    from {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .animate-reveal-left {
-    animation: reveal-from-left 0.8s ease-out both;
-  }
-
-  /* Hover Effects */
-  .hover-lift {
-    @apply transition-all duration-300 hover:translate-y-[-15px] hover:shadow-lg;
-  }
-
-  .hover-glow {
-    @apply transition-all duration-300 hover:drop-shadow-[0_0_15px_hsl(var(--primary)/0.6)];
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
   }
 }

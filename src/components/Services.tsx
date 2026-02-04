@@ -4,7 +4,6 @@ import {
   Radio, 
   Waves, 
   Scan, 
-  Syringe,
   Target,
   ArrowRight,
   MessageCircle,
@@ -28,9 +27,9 @@ import ondasChoquesImage from "@/assets/ondas-de-choque-radiales-aspe.jpg";
 import diatermiaImage from "@/assets/diatermia-tecar-aspe.jpg";
 import laserImage from "@/assets/laser-terapeutico-aspe.jpg";
 import electroacupunturaImage from "@/assets/electroacupuntura-puncion-seca-aspe.jpg";
+import { WHATSAPP_LINK } from "@/lib/constants";
 
 const Services = () => {
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   // BENTO GRID Services - Including Neurología as featured
   const bentoServices = [
@@ -286,7 +285,7 @@ const Services = () => {
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-4 sm:px-8 h-auto py-3 sm:h-14 text-sm sm:text-base w-full sm:w-auto max-w-xs sm:max-w-none"
           >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 flex-wrap sm:flex-nowrap">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 flex-wrap sm:flex-nowrap">
               <MessageCircle className="w-5 h-5 flex-shrink-0" />
               <span className="text-center">¿Necesitas alguna técnica? Consúltanos</span>
               <ArrowRight className="w-5 h-5 flex-shrink-0 hidden sm:block" />

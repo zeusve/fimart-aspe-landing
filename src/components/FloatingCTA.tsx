@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_LINK } from "@/lib/constants";
 
 const FloatingCTA = () => {
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   return (
     <motion.div
@@ -18,7 +18,7 @@ const FloatingCTA = () => {
         className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 rounded-full px-6 h-14 text-base animate-pulse-glow"
       >
         <a 
-          href={whatsappLink} 
+          href={WHATSAPP_LINK} 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center gap-2"
