@@ -7,7 +7,7 @@ const Footer = () => {
   const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   return (
-    <footer id="contacto" className="bg-card border-t border-border">
+    <footer id="contacto" className="bg-card border-t border-border" role="contentinfo">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
@@ -19,7 +19,7 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="lg:col-span-1"
           >
-            <a href="#" className="inline-block mb-6">
+            <a href="#" className="inline-block mb-6" aria-label="Ir al inicio de la página">
               <span className="font-display text-3xl font-bold tracking-tight text-primary glow-text">
                 FIMART
               </span>
@@ -33,30 +33,36 @@ const Footer = () => {
             </p>
             
             {/* Social Links */}
-            <div className="flex space-x-4">
-              <motion.a
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://www.facebook.com/clinicafisioterapiafimart/?locale=es_ES"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Facebook de Clínica FIMART"
-              >
-                <Facebook className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://www.instagram.com/fisioterapia_fimart/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Instagram de Clínica FIMART"
-              >
-                <Instagram className="w-5 h-5" />
-              </motion.a>
-            </div>
+            <nav aria-label="Redes sociales">
+              <ul className="flex space-x-4" role="list">
+                <li>
+                  <motion.a
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    href="https://www.facebook.com/clinicafisioterapiafimart/?locale=es_ES"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="Visitar página de Facebook de Clínica FIMART"
+                  >
+                    <Facebook className="w-5 h-5" aria-hidden="true" />
+                  </motion.a>
+                </li>
+                <li>
+                  <motion.a
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    href="https://www.instagram.com/fisioterapia_fimart/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="Visitar perfil de Instagram de Clínica FIMART"
+                  >
+                    <Instagram className="w-5 h-5" aria-hidden="true" />
+                  </motion.a>
+                </li>
+              </ul>
+            </nav>
           </motion.div>
 
           {/* Contact Info - NAP Consistente */}
@@ -66,32 +72,33 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">CONTACTO</h4>
+            <h2 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">CONTACTO</h2>
             <address className="not-italic">
-              <ul className="space-y-4 font-body">
+              <ul className="space-y-4 font-body" role="list">
                 <li>
                   <a
-                    href="tel:652667953"
+                    href="tel:+34652667953"
                     className="flex items-start group text-muted-foreground hover:text-primary transition-colors"
+                    aria-label="Llamar al teléfono 652 667 953"
                   >
-                    <Phone className="w-5 h-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
+                    <Phone className="w-5 h-5 mr-3 mt-0.5 text-primary flex-shrink-0" aria-hidden="true" />
                     <span className="text-xl font-semibold group-hover:text-primary">
                       652 667 953
                     </span>
                   </a>
                 </li>
                 <li className="flex items-start text-muted-foreground">
-                  <MapPin className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" />
+                  <MapPin className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" aria-hidden="true" />
                   <span>
                     <strong className="text-foreground">Calle Colón, 30 Bajo</strong><br />
                     03680 Aspe (Alicante)
                   </span>
                 </li>
                 <li className="flex items-start text-muted-foreground">
-                  <Clock className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" />
+                  <Clock className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" aria-hidden="true" />
                   <span>
-                    Lunes - Viernes<br />
-                    Consultar horarios
+                    <strong className="text-foreground">Lunes - Viernes</strong><br />
+                    09:00 - 14:00 y 16:00 - 20:00
                   </span>
                 </li>
               </ul>
@@ -105,17 +112,22 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">ENLACES</h4>
+            <h2 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">ENLACES</h2>
             <nav aria-label="Enlaces del pie de página">
-              <ul className="space-y-3 font-body">
+              <ul className="space-y-3 font-body" role="list">
                 <li>
                   <a href="#tratamientos" className="text-muted-foreground hover:text-primary transition-colors">
-                    Tratamientos
+                    Tratamientos de fisioterapia
                   </a>
                 </li>
                 <li>
                   <a href="#especialista" className="text-muted-foreground hover:text-primary transition-colors">
                     El Especialista
+                  </a>
+                </li>
+                <li>
+                  <a href="#tecnologia" className="text-muted-foreground hover:text-primary transition-colors">
+                    Tecnología avanzada
                   </a>
                 </li>
                 <li>
@@ -139,7 +151,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h4 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">¿NECESITAS AYUDA?</h4>
+            <h2 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">¿NECESITAS AYUDA?</h2>
             <p className="text-muted-foreground mb-6 font-body">
               Reserva tu cita y comienza tu recuperación con nosotros.
             </p>
@@ -148,8 +160,14 @@ const Footer = () => {
               size="lg"
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25"
             >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                <MessageCircle className="w-5 h-5" />
+              <a 
+                href={whatsappLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center gap-2"
+                aria-label="Solicitar cita por WhatsApp en Clínica FIMART"
+              >
+                <MessageCircle className="w-5 h-5" aria-hidden="true" />
                 Solicitar Cita
               </a>
             </Button>
@@ -172,7 +190,7 @@ const Footer = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Ubicación Clínica FIMART en Aspe - Calle Colón 30"
+            title="Mapa de ubicación de Clínica FIMART en Aspe - Calle Colón 30, 03680 Aspe, Alicante"
             className="grayscale hover:grayscale-0 transition-all duration-500"
           />
         </motion.div>
@@ -183,10 +201,10 @@ const Footer = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-body">
             <p>
-              © {currentYear} Fisioterapia Avanzada FIMART | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: 652 667 953
+              © {currentYear} <strong>Fisioterapia Avanzada FIMART</strong> | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: <a href="tel:+34652667953" className="hover:text-primary transition-colors">652 667 953</a>
             </p>
             <p className="flex items-center gap-1">
-              Diseñado con <span className="text-primary">♥</span> en Aspe
+              Diseñado con <span className="text-primary" aria-label="amor">♥</span> en Aspe
             </p>
           </div>
         </div>

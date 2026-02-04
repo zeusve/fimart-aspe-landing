@@ -46,9 +46,13 @@ const ServicesNew = () => {
   ];
 
   return (
-    <section id="tratamientos" className="py-20 lg:py-32 bg-background relative overflow-hidden">
+    <section 
+      id="tratamientos" 
+      className="py-20 lg:py-32 bg-background relative overflow-hidden"
+      aria-labelledby="tratamientos-heading"
+    >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5" aria-hidden="true">
         <div 
           className="w-full h-full"
           style={{
@@ -64,7 +68,7 @@ const ServicesNew = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Services Section */}
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -74,16 +78,19 @@ const ServicesNew = () => {
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
             Nuestros Servicios
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight">
+          <h2 
+            id="tratamientos-heading"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight"
+          >
             Tratamientos de fisioterapia en Aspe{" "}
             <span className="text-primary">adaptados a ti</span>
           </h2>
-        </motion.div>
+        </motion.header>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" role="list">
           {services.map((service, index) => (
-            <motion.article
+            <motion.li
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -104,10 +111,11 @@ const ServicesNew = () => {
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 pointer-events-none"
+                aria-hidden="true"
               />
               
-              <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/20 text-primary border border-primary/30 mb-4 group-hover:shadow-lg group-hover:shadow-primary/20 transition-shadow duration-300">
+              <article className="relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/20 text-primary border border-primary/30 mb-4 group-hover:shadow-lg group-hover:shadow-primary/20 transition-shadow duration-300" aria-hidden="true">
                   <service.icon className="w-7 h-7" />
                 </div>
                 <h3 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors tracking-wide">
@@ -116,13 +124,13 @@ const ServicesNew = () => {
                 <p className="text-muted-foreground leading-relaxed font-body">
                   {service.description}
                 </p>
-              </div>
+              </article>
 
               {/* Border Glow */}
-              <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-colors duration-300 pointer-events-none" />
-            </motion.article>
+              <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-colors duration-300 pointer-events-none" aria-hidden="true" />
+            </motion.li>
           ))}
-        </div>
+        </ul>
 
         {/* CTA */}
         <motion.div
@@ -137,14 +145,20 @@ const ServicesNew = () => {
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 w-full sm:w-auto px-6 sm:px-8 h-12 text-sm sm:text-base"
           >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+            <a 
+              href={whatsappLink} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center justify-center gap-2"
+              aria-label="Consultar sobre tratamientos de fisioterapia por WhatsApp"
+            >
               <span>¿Necesitas algún tratamiento? Consúltanos</span>
-              <ArrowRight className="w-5 h-5 hidden sm:block" />
+              <ArrowRight className="w-5 h-5 hidden sm:block" aria-hidden="true" />
             </a>
           </Button>
         </motion.div>
 
-        {/* Why Choose Fimart Section */}
+        {/* Why Choose FIMART Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -162,9 +176,9 @@ const ServicesNew = () => {
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto" role="list">
           {benefits.map((benefit, index) => (
-            <motion.div
+            <motion.li
               key={benefit.text}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -172,15 +186,15 @@ const ServicesNew = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex items-start gap-4 p-5 bg-card border border-border rounded-xl hover:border-secondary/50 transition-colors duration-300"
             >
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-secondary/20 text-secondary flex-shrink-0">
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-secondary/20 text-secondary flex-shrink-0" aria-hidden="true">
                 <benefit.icon className="w-5 h-5" />
               </div>
               <p className="text-foreground font-medium font-body leading-snug">
                 {benefit.text}
               </p>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

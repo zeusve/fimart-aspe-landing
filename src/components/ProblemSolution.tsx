@@ -3,16 +3,20 @@ import { MessageCircle, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ProblemSolution = () => {
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
+  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   return (
-    <section id="problema-solucion" className="py-20 lg:py-28 bg-card relative overflow-hidden">
+    <section 
+      id="problema-solucion" 
+      className="py-20 lg:py-28 bg-card relative overflow-hidden"
+      aria-labelledby="problema-solucion-heading"
+    >
       {/* Subtle background accent */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" aria-hidden="true" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
+        <article className="max-w-4xl mx-auto">
+          <motion.header
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -22,11 +26,14 @@ const ProblemSolution = () => {
             <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
               Nuestro Enfoque
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight">
+            <h2 
+              id="problema-solucion-heading"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight"
+            >
               Tu clínica de fisioterapia en Aspe para{" "}
               <span className="text-primary">recuperar tu bienestar</span>
             </h2>
-          </motion.div>
+          </motion.header>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -36,20 +43,20 @@ const ProblemSolution = () => {
             className="bg-background/50 backdrop-blur-sm border border-border rounded-2xl p-8 lg:p-10"
           >
             <div className="flex items-start gap-4 mb-6">
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary flex-shrink-0">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary flex-shrink-0" aria-hidden="true">
                 <Heart className="w-6 h-6" />
               </div>
               <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed font-body">
                 Acudir a un fisioterapeuta no debería ser solo "aliviar el dolor unos días". En nuestra clínica trabajamos con una visión clara:{" "}
-                <span className="text-foreground font-medium">entender el origen del problema, tratarlo y evitar que vuelva a aparecer.</span>
+                <strong className="text-foreground font-medium">entender el origen del problema, tratarlo y evitar que vuelva a aparecer.</strong>
               </p>
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed font-body mb-8">
               Muchos pacientes llegan tras haber probado otros centros sin éxito. Aquí encuentran un{" "}
-              <span className="text-foreground font-medium">tratamiento adaptado</span>, una{" "}
-              <span className="text-foreground font-medium">explicación clara</span> de su lesión y un{" "}
-              <span className="text-foreground font-medium">seguimiento real</span>.
+              <strong className="text-foreground font-medium">tratamiento adaptado</strong>, una{" "}
+              <strong className="text-foreground font-medium">explicación clara</strong> de su lesión y un{" "}
+              <strong className="text-foreground font-medium">seguimiento real</strong>.
             </p>
 
             <div className="text-center">
@@ -58,14 +65,20 @@ const ProblemSolution = () => {
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 text-base px-8 h-12"
               >
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                  <MessageCircle className="w-5 h-5" />
+                <a 
+                  href={whatsappLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center justify-center gap-2"
+                  aria-label="Solicitar cita en Clínica FIMART por WhatsApp"
+                >
+                  <MessageCircle className="w-5 h-5" aria-hidden="true" />
                   Solicitar Cita
                 </a>
               </Button>
             </div>
           </motion.div>
-        </div>
+        </article>
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ import laserImage from "@/assets/laser-terapeutico-aspe.jpg";
 import electroacupunturaImage from "@/assets/electroacupuntura-puncion-seca-aspe.jpg";
 
 const Services = () => {
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
+  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   // BENTO GRID Services - Including Neurología as featured
   const bentoServices = [
@@ -147,9 +147,13 @@ const Services = () => {
   ];
 
   return (
-    <section id="tecnologia" className="py-20 lg:py-32 bg-background relative overflow-hidden">
+    <section 
+      id="tecnologia" 
+      className="py-20 lg:py-32 bg-background relative overflow-hidden"
+      aria-labelledby="tecnologia-heading"
+    >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5" aria-hidden="true">
         <div 
           className="w-full h-full"
           style={{
@@ -175,12 +179,15 @@ const Services = () => {
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
             Tecnología Avanzada
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+          <h2 
+            id="tecnologia-heading"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight"
+          >
             NUESTROS<br />
             <span className="text-primary glow-text">TRATAMIENTOS</span>
           </h2>
           <p className="text-lg text-muted-foreground font-body">
-            Combinamos la terapia manual experta con la última tecnología para acelerar tu recuperación.
+            Combinamos la <strong>terapia manual experta</strong> con la última tecnología para acelerar tu recuperación.
           </p>
         </motion.div>
 
@@ -231,11 +238,13 @@ const Services = () => {
               <div className="relative overflow-hidden h-44">
                 <img
                   src={service.image}
-                  alt={service.alt}
+                  alt={`${service.title} - Tratamiento de fisioterapia en Clínica FIMART Aspe: ${service.description}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
+                  width={400}
+                  height={176}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" aria-hidden="true" />
               </div>
 
               {/* Content - Flex grow to fill space */}
