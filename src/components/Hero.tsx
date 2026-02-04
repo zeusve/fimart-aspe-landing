@@ -65,10 +65,10 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="font-body text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
+              className="font-body text-lg sm:text-xl text-foreground dark:text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)] dark:drop-shadow-none"
             >
               Recupera tu movilidad y mejora tu calidad de vida con tratamientos personalizados y cercanos.
-              <span className="text-foreground font-medium"> Trayectoria y confianza desde 2014.</span>
+              <span className="font-semibold"> Trayectoria y confianza desde 2014.</span>
             </motion.p>
 
             {/* CTA Box */}
