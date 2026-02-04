@@ -2,85 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-/* FIMART - Dark Tech Premium Design System */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+/* FIMART - Futurista & Premium Design System */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Light Mode - Professional & Clean */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    /* Light Mode - Professional Clean */
+    --background: 0 0% 98%;
+    --foreground: 217 33% 17%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 217 33% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 217 33% 17%;
 
-    /* Blue Accent for Light Mode (instead of green) */
-    --primary: 217 80% 50%;
+    /* Light Mode: Cyan Oscuro (Azul) */
+    --primary: 203 82% 40%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary also Blue in Light Mode */
-    --secondary: 217 70% 45%;
+    /* Light Mode: Verde oscuro y saturado */
+    --secondary: 155 59% 35%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 215 14% 92%;
+    --muted-foreground: 217 12% 43%;
 
-    --accent: 217 80% 50%;
+    --accent: 203 82% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 80% 50%;
+    --border: 217 13% 91%;
+    --input: 217 13% 91%;
+    --ring: 203 82% 40%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens - Blue for Light Mode */
-    --neon-green: 217 80% 50%;
-    --electric-blue: 217 80% 50%;
-    --slate-950: 222 47% 6%;
-    --glow-primary: 0 0 30px hsl(217 80% 50% / 0.25);
+    /* Custom tokens - Light Mode */
+    --cyan-accent: 203 82% 40%;
+    --green-accent: 155 59% 35%;
+    --text-primary: 217 33% 17%;
+    --text-secondary: 217 12% 43%;
+    --surface-light: 0 0% 100%;
   }
 
   .dark {
-    /* Dark Tech Premium */
-    --background: 222 47% 6%;
+    /* Dark Mode - Futurista Premium */
+    --background: 217 33% 9%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 8%;
+    --card: 217 33% 15%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 8%;
+    --popover: 217 33% 15%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 83 78% 55%;
-    --primary-foreground: 222 47% 6%;
+    /* Dark Mode: Cyan Neon */
+    --primary: 187 100% 50%;
+    --primary-foreground: 217 33% 9%;
 
-    --secondary: 217 91% 60%;
-    --secondary-foreground: 210 40% 98%;
+    /* Dark Mode: Verde Neon */
+    --secondary: 145 87% 44%;
+    --secondary-foreground: 217 33% 9%;
 
-    --muted: 222 47% 12%;
+    --muted: 217 33% 25%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 187 100% 50%;
+    --accent-foreground: 217 33% 9%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 47% 15%;
-    --input: 222 47% 15%;
-    --ring: 83 78% 55%;
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 187 100% 50%;
 
-    /* Custom Dark tokens - Green */
-    --neon-green: 83 78% 55%;
-    --electric-blue: 217 91% 60%;
-    --glow-primary: 0 0 30px hsl(83 78% 55% / 0.4);
+    /* Custom Dark tokens */
+    --cyan-accent: 187 100% 50%;
+    --green-accent: 145 87% 44%;
+    --text-primary: 210 40% 98%;
+    --text-secondary: 215 20% 65%;
+    --surface-dark: rgba(42, 45, 63, 0.6);
   }
 }
 
@@ -99,10 +104,9 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -112,44 +116,109 @@
   }
 
   .font-display {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   .font-body {
     font-family: 'Inter', sans-serif;
   }
 
+  /* Glow Effects */
+  .glow-cyan {
+    box-shadow: 0 0 30px hsl(var(--cyan-accent) / 0.4);
+  }
+
   .glow-green {
-    box-shadow: var(--glow-primary);
+    box-shadow: 0 0 30px hsl(var(--green-accent) / 0.4);
   }
 
-  .glow-blue {
-    box-shadow: var(--glow-primary);
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.6);
   }
 
-  .glow-green-text {
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  /* Gradients */
+  .gradient-cyan-green {
+    background: linear-gradient(135deg, hsl(var(--cyan-accent)), hsl(var(--green-accent)));
   }
 
   .gradient-dark {
-    background: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 4%) 100%);
+    background: linear-gradient(180deg, hsl(217 33% 9%) 0%, hsl(217 33% 6%) 100%);
   }
 
-  .gradient-card {
-    background: linear-gradient(145deg, hsl(222 47% 10%) 0%, hsl(222 47% 6%) 100%);
+  .gradient-light {
+    background: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 100%) 100%);
   }
 
-  /* Pulse animation for CTA - uses primary color */
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7);
+  /* Animations - Floating */
+  @keyframes floating-soft {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-floating-soft {
+    animation: floating-soft 4s ease-in-out infinite;
+  }
+
+  /* Animations - Glow Pulse */
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.6); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 1); }
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  /* Animations - Gradient Shift */
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* Animations - Reveal From Bottom */
+  @keyframes reveal-from-bottom {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
     }
-    50% {
-      box-shadow: 0 0 0 12px hsl(var(--primary) / 0);
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  .animate-reveal-bottom {
+    animation: reveal-from-bottom 0.8s ease-out both;
+  }
+
+  /* Animations - Reveal From Left */
+  @keyframes reveal-from-left {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-reveal-left {
+    animation: reveal-from-left 0.8s ease-out both;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:translate-y-[-15px] hover:shadow-lg;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:drop-shadow-[0_0_15px_hsl(var(--primary)/0.6)];
   }
 }
