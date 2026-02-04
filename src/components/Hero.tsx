@@ -28,7 +28,7 @@ const Hero = () => {
 
   const titleLine1 = "Fisioterapia en Aspe";
   const titleLine2 = "Clínica Fisioterapia Avanzada";
-  const titleLine3 = "Fimart";
+  const titleLine3 = "FIMART";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
