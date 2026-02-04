@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
+  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   return (
     <footer id="contacto" className="bg-card border-t border-border">
@@ -25,7 +25,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-muted-foreground mb-4 leading-relaxed font-body">
-              <strong className="text-foreground">Fisioterapia Avanzada Fimart</strong>
+              <strong className="text-foreground">Fisioterapia Avanzada FIMART</strong>
             </p>
             <p className="text-muted-foreground mb-6 leading-relaxed font-body">
               Clínica de fisioterapia en Aspe especializada en tratamientos personalizados 
@@ -41,7 +41,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Facebook de Clínica Fimart"
+                aria-label="Facebook de Clínica FIMART"
               >
                 <Facebook className="w-5 h-5" />
               </motion.a>
@@ -52,7 +52,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Instagram de Clínica Fimart"
+                aria-label="Instagram de Clínica FIMART"
               >
                 <Instagram className="w-5 h-5" />
               </motion.a>
@@ -172,7 +172,7 @@ const Footer = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Ubicación Clínica Fimart en Aspe - Calle Colón 30"
+            title="Ubicación Clínica FIMART en Aspe - Calle Colón 30"
             className="grayscale hover:grayscale-0 transition-all duration-500"
           />
         </motion.div>
@@ -183,7 +183,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-body">
             <p>
-              © {currentYear} Fisioterapia Avanzada Fimart | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: 652 667 953
+              © {currentYear} Fisioterapia Avanzada FIMART | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: 652 667 953
             </p>
             <p className="flex items-center gap-1">
               Diseñado con <span className="text-primary">♥</span> en Aspe

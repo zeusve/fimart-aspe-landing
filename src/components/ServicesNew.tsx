@@ -13,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 const ServicesNew = () => {
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
+  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   const services = [
     {
@@ -157,7 +157,7 @@ const ServicesNew = () => {
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight">
             Por qué elegir{" "}
-            <span className="text-secondary">Fimart en Aspe</span>
+            <span className="text-secondary">FIMART en Aspe</span>
           </h2>
         </motion.div>
 
