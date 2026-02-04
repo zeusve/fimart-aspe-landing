@@ -5,7 +5,7 @@ import HeroParticles from "./HeroParticles";
 import fachadaImage from "@/assets/fachada-clinica-fimart-aspe.jpg";
 
 const Hero = () => {
-  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20Fimart";
+  const whatsappLink = "https://wa.me/34652667953?text=Hola,%20me%20gustaría%20pedir%20cita%20en%20la%20Clínica%20FIMART";
 
   const titleVariants = {
     hidden: { opacity: 0 },
@@ -39,7 +39,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={fachadaImage}
-          alt="Clínica de fisioterapia Fimart en Aspe"
+          alt="Clínica de fisioterapia FIMART en Aspe"
           className="w-full h-full object-cover object-[center_top]"
         />
         {/* Dark Overlay - Dark Mode */}

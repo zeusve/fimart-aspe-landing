@@ -21,7 +21,7 @@ const FAQ = () => {
     {
       id: "prescripcion",
       question: "¿Necesito prescripción médica para ir al fisioterapeuta?",
-      answer: "No, en España puedes acudir directamente al fisioterapeuta sin prescripción médica. En Clínica Fimart realizamos una valoración completa en la primera sesión para determinar el tratamiento más adecuado.",
+      answer: "No, en España puedes acudir directamente al fisioterapeuta sin prescripción médica. En Clínica FIMART realizamos una valoración completa en la primera sesión para determinar el tratamiento más adecuado.",
     },
     {
       id: "precio",
