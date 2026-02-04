@@ -26,7 +26,7 @@ const Hero = () => {
     },
   };
 
-  const titleText = "Fisioterapia en Aspe – Clínica Fimart";
+  const titleText = "Fisioterapia en Aspe Clínica Fisioterapia Avanzada Fimart";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
