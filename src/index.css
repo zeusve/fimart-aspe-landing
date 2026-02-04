@@ -21,8 +21,8 @@
     --primary: 217 80% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Green Secondary - Adapted for light */
-    --secondary: 83 65% 40%;
+    /* Secondary also Blue in Light Mode */
+    --secondary: 217 70% 45%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 14% 96%;
@@ -40,12 +40,11 @@
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --neon-green: 83 65% 40%;
+    /* Custom tokens - Blue for Light Mode */
+    --neon-green: 217 80% 50%;
     --electric-blue: 217 80% 50%;
     --slate-950: 222 47% 6%;
-    --glow-green: 0 0 30px hsl(83 65% 40% / 0.25);
-    --glow-blue: 0 0 30px hsl(217 80% 50% / 0.25);
+    --glow-primary: 0 0 30px hsl(217 80% 50% / 0.25);
   }
 
   .dark {
@@ -78,11 +77,10 @@
     --input: 222 47% 15%;
     --ring: 83 78% 55%;
 
-    /* Custom Dark tokens */
+    /* Custom Dark tokens - Green */
     --neon-green: 83 78% 55%;
     --electric-blue: 217 91% 60%;
-    --glow-green: 0 0 30px hsl(83 78% 55% / 0.4);
-    --glow-blue: 0 0 30px hsl(217 91% 60% / 0.4);
+    --glow-primary: 0 0 30px hsl(83 78% 55% / 0.4);
   }
 }
 
@@ -122,15 +120,15 @@
   }
 
   .glow-green {
-    box-shadow: var(--glow-green);
+    box-shadow: var(--glow-primary);
   }
 
   .glow-blue {
-    box-shadow: var(--glow-blue);
+    box-shadow: var(--glow-primary);
   }
 
   .glow-green-text {
-    text-shadow: 0 0 20px hsl(83 78% 55% / 0.5);
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
   }
 
   .gradient-dark {
@@ -141,13 +139,13 @@
     background: linear-gradient(145deg, hsl(222 47% 10%) 0%, hsl(222 47% 6%) 100%);
   }
 
-  /* Pulse animation for CTA */
+  /* Pulse animation for CTA - uses primary color */
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 0 0 hsl(83 78% 55% / 0.7);
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7);
     }
     50% {
-      box-shadow: 0 0 0 12px hsl(83 78% 55% / 0);
+      box-shadow: 0 0 0 12px hsl(var(--primary) / 0);
     }
   }
 
