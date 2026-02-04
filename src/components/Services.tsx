@@ -177,7 +177,7 @@ const Services = () => {
           </span>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
             NUESTROS<br />
-            <span className="text-primary glow-green-text">TRATAMIENTOS</span>
+            <span className="text-primary glow-text">TRATAMIENTOS</span>
           </h2>
           <p className="text-lg text-muted-foreground font-body">
             Combinamos la terapia manual experta con la última tecnología para acelerar tu recuperación.
