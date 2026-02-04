@@ -22,7 +22,7 @@
     --primary-foreground: 0 0% 100%;
 
     /* Light Mode: Verde oscuro y saturado */
-    --secondary: 155 59% 35%;
+    --secondary: 203 82% 40%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 215 14% 92%;
@@ -42,7 +42,7 @@
 
     /* Custom tokens - Light Mode */
     --cyan-accent: 203 82% 40%;
-    --green-accent: 155 59% 35%;
+    --green-accent: 203 82% 40%;
     --text-primary: 217 33% 17%;
     --text-secondary: 217 12% 43%;
     --surface-light: 0 0% 100%;
@@ -63,8 +63,8 @@
     --primary: 187 100% 50%;
     --primary-foreground: 217 33% 9%;
 
-    /* Dark Mode: Verde Neon */
-    --secondary: 145 87% 44%;
+    /* Dark Mode: Azul Eléctrico (complementario al Cyan) */
+    --secondary: 187 100% 50%;
     --secondary-foreground: 217 33% 9%;
 
     --muted: 217 33% 25%;
@@ -82,7 +82,7 @@
 
     /* Custom Dark tokens */
     --cyan-accent: 187 100% 50%;
-    --green-accent: 145 87% 44%;
+    --green-accent: 187 100% 50%;
     --text-primary: 210 40% 98%;
     --text-secondary: 215 20% 65%;
     --surface-dark: rgba(42, 45, 63, 0.6);

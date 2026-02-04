@@ -33,7 +33,7 @@ const BeforeAfter = () => {
           </span>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
             VEMOS LO QUE<br />
-            <span className="text-primary glow-green-text">OTROS NO VEN</span>
+            <span className="text-primary glow-text">OTROS NO VEN</span>
           </h2>
           <p className="text-lg text-muted-foreground font-body">
             Nuestra tecnología de ecografía MSK nos permite ver en tiempo real 
@@ -90,8 +90,8 @@ const BeforeAfter = () => {
             <motion.div
               animate={{ 
                 boxShadow: isHovered 
-                  ? 'inset 0 0 60px hsl(217 91% 60% / 0.3)' 
-                  : 'inset 0 0 30px hsl(83 78% 55% / 0.2)'
+                  ? 'inset 0 0 60px hsl(187 100% 50% / 0.3)' 
+                  : 'inset 0 0 30px hsl(187 100% 50% / 0.2)'
               }}
               transition={{ duration: 0.4 }}
               className="absolute inset-0 rounded-2xl"

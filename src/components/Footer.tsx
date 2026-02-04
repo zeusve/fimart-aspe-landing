@@ -20,7 +20,7 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <a href="#" className="inline-block mb-6">
-              <span className="font-display text-3xl font-bold tracking-tight text-primary glow-green-text">
+              <span className="font-display text-3xl font-bold tracking-tight text-primary glow-text">
                 FIMART
               </span>
             </a>
