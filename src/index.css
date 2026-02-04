@@ -17,12 +17,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Green Accent - Adapted for light */
-    --primary: 83 65% 40%;
+    /* Blue Accent for Light Mode (instead of green) */
+    --primary: 217 80% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Blue Secondary - Adapted for light */
-    --secondary: 217 80% 50%;
+    /* Green Secondary - Adapted for light */
+    --secondary: 83 65% 40%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 14% 96%;
@@ -36,7 +36,7 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 83 65% 40%;
+    --ring: 217 80% 50%;
 
     --radius: 0.75rem;
 
