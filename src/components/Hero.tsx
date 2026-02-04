@@ -26,7 +26,8 @@ const Hero = () => {
     },
   };
 
-  const titleText = "Fisioterapia en Aspe Clínica Fisioterapia Avanzada Fimart";
+  const titleText = "Fisioterapia en Aspe";
+  const titleTextLine2 = "Clínica Fisioterapia Avanzada Fimart";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
@@ -81,17 +82,31 @@ const Hero = () => {
             animate="visible"
             className="mb-6"
           >
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight flex flex-wrap justify-center gap-1 sm:gap-2">
-              {titleText.split('').map((letter, index) => (
-                <motion.span
-                  key={index}
-                  variants={letterVariants}
-                  transition={{ duration: 0.6, delay: index * 0.04 }}
-                  className={letter === '–' || letter === ' ' ? '' : (index > titleText.indexOf('Fimart') - 1 ? 'text-primary glow-text' : 'text-foreground')}
-                >
-                  {letter === ' ' ? '\u00A0' : letter}
-                </motion.span>
-              ))}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+              <div>
+                {titleText.split('').map((letter, index) => (
+                  <motion.span
+                    key={`line1-${index}`}
+                    variants={letterVariants}
+                    transition={{ duration: 0.6, delay: index * 0.04 }}
+                    className="text-foreground"
+                  >
+                    {letter === ' ' ? '\u00A0' : letter}
+                  </motion.span>
+                ))}
+              </div>
+              <div className="mt-2">
+                {titleTextLine2.split('').map((letter, index) => (
+                  <motion.span
+                    key={`line2-${index}`}
+                    variants={letterVariants}
+                    transition={{ duration: 0.6, delay: (titleText.length + index) * 0.04 }}
+                    className={index > titleTextLine2.indexOf('Fimart') - 1 ? 'text-primary glow-text' : 'text-foreground'}
+                  >
+                    {letter === ' ' ? '\u00A0' : letter}
+                  </motion.span>
+                ))}
+              </div>
             </h1>
           </motion.div>
 
