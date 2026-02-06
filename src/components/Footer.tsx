@@ -227,8 +227,8 @@ const Footer = () => {
               <p className="text-center md:text-left">
                 © {currentYear} <strong>Fisioterapia Avanzada FIMART</strong> | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: <a href="tel:+34652667953" className="hover:text-primary transition-colors">652 667 953</a>
               </p>
-              <p className="flex items-center gap-1">
-                Diseñado con <span className="text-primary" aria-label="amor">♥</span> en Aspe
+              <p className="text-muted-foreground/70">
+                Web diseñada por <span className="font-medium text-foreground/80">Znatix</span>
               </p>
             </div>
           </div>
