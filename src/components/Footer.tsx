@@ -190,6 +190,7 @@ const Footer = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
             title="Mapa de ubicación de Clínica FIMART en Aspe - Calle Colón 30, 03680 Aspe, Alicante"
             className="grayscale hover:grayscale-0 transition-all duration-500"
           />

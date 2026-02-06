@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
-import { 
-  Hand, 
-  Activity, 
+import {
+  Hand,
+  Activity,
   Zap,
   Cpu,
-  ArrowRight,
   CheckCircle,
   Star,
   MapPin,
   Award
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { WHATSAPP_LINK } from "@/lib/constants";
+import SectionBadge from "@/components/ui/SectionBadge";
+import GridBackground from "@/components/ui/GridBackground";
+import CTAButton from "@/components/ui/CTAButton";
 
 const ServicesNew = () => {
 
@@ -51,19 +51,7 @@ const ServicesNew = () => {
       className="py-20 lg:py-32 bg-background relative overflow-hidden"
       aria-labelledby="tratamientos-heading"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5" aria-hidden="true">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
-      </div>
+      <GridBackground variant="lines" size={60} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -75,9 +63,7 @@ const ServicesNew = () => {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
-            Nuestros Servicios
-          </span>
+          <SectionBadge variant="primary">Nuestros Servicios</SectionBadge>
           <h2 
             id="tratamientos-heading"
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight"
@@ -140,22 +126,13 @@ const ServicesNew = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-24"
         >
-          <Button 
-            asChild 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 w-full sm:w-auto px-6 sm:px-8 h-12 text-sm sm:text-base"
+          <CTAButton
+            variant="whatsapp-arrow"
+            fullWidth
+            ariaLabel="Consultar sobre tratamientos de fisioterapia por WhatsApp"
           >
-            <a 
-              href={WHATSAPP_LINK} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center justify-center gap-2"
-              aria-label="Consultar sobre tratamientos de fisioterapia por WhatsApp"
-            >
-              <span>¿Necesitas algún tratamiento? Consúltanos</span>
-              <ArrowRight className="w-5 h-5 hidden sm:block" aria-hidden="true" />
-            </a>
-          </Button>
+            ¿Necesitas algún tratamiento? Consúltanos
+          </CTAButton>
         </motion.div>
 
         {/* Why Choose FIMART Section */}
@@ -166,9 +143,7 @@ const ServicesNew = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-secondary bg-secondary/10 rounded-full border border-secondary/30">
-            ¿Por qué nosotros?
-          </span>
+          <SectionBadge variant="secondary">¿Por qué nosotros?</SectionBadge>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight">
             Por qué elegir{" "}
             <span className="text-secondary">FIMART en Aspe</span>

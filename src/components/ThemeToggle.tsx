@@ -12,7 +12,8 @@ const ThemeToggle = () => {
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="relative w-9 h-9 rounded-full hover:bg-muted"
-      aria-label="Cambiar tema"
+      aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+      aria-pressed={theme === "dark"}
     >
       <AnimatePresence mode="wait" initial={false}>
         {theme === "dark" ? (

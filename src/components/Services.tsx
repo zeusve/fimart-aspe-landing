@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
-import { 
-  Zap, 
-  Radio, 
-  Waves, 
-  Scan, 
+import {
+  Zap,
+  Radio,
+  Waves,
+  Scan,
   Target,
-  ArrowRight,
-  MessageCircle,
   Bone,
   Hand,
   Footprints,
   Brain
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import SectionBadge from "@/components/ui/SectionBadge";
+import GridBackground from "@/components/ui/GridBackground";
+import CTAButton from "@/components/ui/CTAButton";
 
 // Imágenes principales para tarjetas de servicios
 import ecografoImage from "@/assets/ecografo-msk-aspe.jpg";
@@ -27,7 +27,6 @@ import ondasChoquesImage from "@/assets/ondas-de-choque-radiales-aspe.jpg";
 import diatermiaImage from "@/assets/diatermia-tecar-aspe.jpg";
 import laserImage from "@/assets/laser-terapeutico-aspe.jpg";
 import electroacupunturaImage from "@/assets/electroacupuntura-puncion-seca-aspe.jpg";
-import { WHATSAPP_LINK } from "@/lib/constants";
 
 const Services = () => {
 
@@ -151,19 +150,7 @@ const Services = () => {
       className="py-20 lg:py-32 bg-background relative overflow-hidden"
       aria-labelledby="tecnologia-heading"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5" aria-hidden="true">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
-      </div>
+      <GridBackground variant="lines" size={60} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -175,9 +162,7 @@ const Services = () => {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
-            Tecnología Avanzada
-          </span>
+          <SectionBadge variant="primary">Tecnología Avanzada</SectionBadge>
           <h2 
             id="tecnologia-heading"
             className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight"
@@ -280,17 +265,14 @@ const Services = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-24"
         >
-          <Button 
-            asChild 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-4 sm:px-8 h-auto py-3 sm:h-14 text-sm sm:text-base w-full sm:w-auto max-w-xs sm:max-w-none"
+          <CTAButton
+            variant="whatsapp-arrow"
+            fullWidth
+            className="px-4 sm:px-8 h-auto py-3 sm:h-14 text-sm sm:text-base max-w-xs sm:max-w-none"
+            ariaLabel="Consultar sobre técnicas de fisioterapia por WhatsApp"
           >
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 flex-wrap sm:flex-nowrap">
-              <MessageCircle className="w-5 h-5 flex-shrink-0" />
-              <span className="text-center">¿Necesitas alguna técnica? Consúltanos</span>
-              <ArrowRight className="w-5 h-5 flex-shrink-0 hidden sm:block" />
-            </a>
-          </Button>
+            ¿Necesitas alguna técnica? Consúltanos
+          </CTAButton>
         </motion.div>
 
         {/* BODY ZONES SECTION */}
@@ -301,9 +283,7 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-secondary bg-secondary/10 rounded-full border border-secondary/30">
-            Especialidades
-          </span>
+          <SectionBadge variant="secondary">Especialidades</SectionBadge>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
             ¿QUÉ<br />
             <span className="text-secondary">TRATAMOS?</span>

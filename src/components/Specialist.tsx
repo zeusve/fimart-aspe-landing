@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Award, Heart, Target } from "lucide-react";
 import specialistImage from "@/assets/fisioterapeuta-rafael-fermin-aspe.jpg";
+import SectionBadge from "@/components/ui/SectionBadge";
+import GridBackground from "@/components/ui/GridBackground";
 
 const Specialist = () => {
   const highlights = [
@@ -27,16 +29,7 @@ const Specialist = () => {
       className="py-20 lg:py-32 bg-muted/20 relative overflow-hidden"
       aria-labelledby="especialista-heading"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5" aria-hidden="true">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--secondary)) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }}
-        />
-      </div>
+      <GridBackground variant="dots" size={40} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Split Screen Layout */}
@@ -91,9 +84,7 @@ const Specialist = () => {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="order-1 lg:order-2"
           >
-            <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-secondary bg-secondary/10 rounded-full border border-secondary/30">
-              Conoce a tu Fisioterapeuta
-            </span>
+            <SectionBadge variant="secondary">Conoce a tu Fisioterapeuta</SectionBadge>
             
             <h2 
               id="especialista-heading"

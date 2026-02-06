@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { WHATSAPP_LINK } from "@/lib/constants";
+import { Heart } from "lucide-react";
+import SectionBadge from "@/components/ui/SectionBadge";
+import CTAButton from "@/components/ui/CTAButton";
 
 const ProblemSolution = () => {
 
@@ -23,9 +23,7 @@ const ProblemSolution = () => {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-center mb-10"
           >
-            <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
-              Nuestro Enfoque
-            </span>
+            <SectionBadge variant="primary">Nuestro Enfoque</SectionBadge>
             <h2 
               id="problema-solucion-heading"
               className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight"
@@ -60,22 +58,12 @@ const ProblemSolution = () => {
             </p>
 
             <div className="text-center">
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 text-base px-8 h-12"
+              <CTAButton
+                variant="whatsapp"
+                ariaLabel="Solicitar cita en Clínica FIMART por WhatsApp"
               >
-                <a 
-                  href={WHATSAPP_LINK} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center justify-center gap-2"
-                  aria-label="Solicitar cita en Clínica FIMART por WhatsApp"
-                >
-                  <MessageCircle className="w-5 h-5" aria-hidden="true" />
-                  Solicitar Cita
-                </a>
-              </Button>
+                Solicitar Cita
+              </CTAButton>
             </div>
           </motion.div>
         </article>

@@ -1,73 +1,103 @@
-# Welcome to your Lovable project
+# FIMART - Clínica de Fisioterapia Aspe
 
-## Project info
+Landing page para la Clínica de Fisioterapia FIMART ubicada en Aspe, Alicante.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Stack Tecnológico
 
-## How can I edit this code?
+- **React 18** - Biblioteca de UI
+- **TypeScript** - Tipado estático
+- **Vite** - Build tool y dev server
+- **Tailwind CSS** - Estilos utilitarios
+- **shadcn/ui** - Componentes UI basados en Radix
+- **Framer Motion** - Animaciones
+- **Vitest** - Testing
 
-There are several ways of editing your application.
+## Estructura del Proyecto
 
-**Use Lovable**
+```
+src/
+├── components/           # Componentes React
+│   ├── ui/              # Componentes UI reutilizables
+│   │   ├── CTAButton.tsx      # Botón CTA con variantes
+│   │   ├── SectionBadge.tsx   # Badge de sección
+│   │   ├── GridBackground.tsx # Fondo con patrón
+│   │   └── ...                # Componentes shadcn/ui
+│   ├── Hero.tsx         # Sección hero
+│   ├── Services.tsx     # Servicios y tecnología
+│   ├── Specialist.tsx   # Perfil del especialista
+│   ├── Footer.tsx       # Pie de página
+│   └── ...
+├── lib/                 # Utilidades y constantes
+│   ├── constants.ts     # Constantes globales
+│   └── utils.ts         # Funciones de utilidad
+├── pages/               # Páginas de la aplicación
+├── test/                # Tests unitarios
+└── assets/              # Imágenes y recursos
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Instalación
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+# Clonar repositorio
+git clone https://github.com/zeusve/fimart-aspe-landing.git
+cd fimart-aspe-landing
 
-**Use your preferred IDE**
+# Instalar dependencias
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Iniciar servidor de desarrollo
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Scripts Disponibles
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run dev      # Servidor de desarrollo
+npm run build    # Build de producción
+npm run preview  # Preview del build
+npm test         # Ejecutar tests
+npm run lint     # Linting con ESLint
+```
 
-**Use GitHub Codespaces**
+## Componentes Reutilizables
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### CTAButton
+Botón de llamada a la acción con soporte para WhatsApp y teléfono.
+```tsx
+<CTAButton variant="whatsapp" ariaLabel="Solicitar cita">
+  Solicitar Cita
+</CTAButton>
+```
 
-## What technologies are used for this project?
+### SectionBadge
+Badge para encabezados de sección.
+```tsx
+<SectionBadge variant="primary">Tecnología Avanzada</SectionBadge>
+```
 
-This project is built with:
+### GridBackground
+Fondo con patrón de líneas o puntos.
+```tsx
+<GridBackground variant="lines" size={60} />
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Optimizaciones Implementadas
 
-## How can I deploy this project?
+- **Performance**: Partículas reducidas, React.memo en componentes puros
+- **Accesibilidad**: Skip links, aria-labels, prefers-reduced-motion
+- **SEO**: Sitemap.xml, robots.txt, JSON-LD estructurado
+- **Seguridad**: Sandbox en iframes, headers de seguridad
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Testing
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+# Ejecutar todos los tests
+npm test
 
-Yes, you can!
+# Tests en modo watch
+npm run test:watch
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Licencia
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Todos los derechos reservados - Clínica FIMART Aspe
