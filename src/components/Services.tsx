@@ -8,7 +8,8 @@ import {
   Bone,
   Hand,
   Footprints,
-  Brain
+  Brain,
+  ArrowRight
 } from "lucide-react";
 import {
   Accordion,
@@ -16,6 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
 import SectionBadge from "@/components/ui/SectionBadge";
 import GridBackground from "@/components/ui/GridBackground";
 import CTAButton from "@/components/ui/CTAButton";
@@ -41,6 +43,7 @@ const Services = () => {
       image: electroacupunturaImage,
       alt: "neurología neuromodulación aspe",
       featured: true,
+      link: "/fisioterapia-neurologica-aspe",
     },
     {
       icon: Zap,
@@ -51,6 +54,7 @@ const Services = () => {
       image: epiImage,
       alt: "epi electrolisis percutanea aspe",
       featured: false,
+      link: "/epi-electrolisis-percutanea-aspe",
     },
     {
       icon: Scan,
@@ -61,6 +65,7 @@ const Services = () => {
       image: ecografoImage,
       alt: "ecografo msk aspe",
       featured: false,
+      link: "/ecografia-musculoesqueletica-aspe",
     },
     {
       icon: Waves,
@@ -71,6 +76,7 @@ const Services = () => {
       image: ondasChoquesImage,
       alt: "ondas de choque radiales aspe",
       featured: false,
+      link: "/ondas-de-choque-aspe",
     },
     {
       icon: Radio,
@@ -81,6 +87,7 @@ const Services = () => {
       image: laserImage,
       alt: "laser terapeutico aspe",
       featured: false,
+      link: "/laser-terapeutico-aspe",
     },
     {
       icon: Target,
@@ -91,6 +98,7 @@ const Services = () => {
       image: diatermiaImage,
       alt: "diatermia tecar aspe",
       featured: false,
+      link: "/diatermia-tecar-aspe",
     },
   ];
 
@@ -234,8 +242,8 @@ const Services = () => {
               {/* Content - Flex grow to fill space */}
               <div className="p-5 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
                 <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl border mb-3 shadow-lg transition-shadow duration-300 ${
-                  service.featured 
-                    ? 'bg-primary/20 text-primary border-primary/30 shadow-primary/20 group-hover:shadow-primary/40' 
+                  service.featured
+                    ? 'bg-primary/20 text-primary border-primary/30 shadow-primary/20 group-hover:shadow-primary/40'
                     : 'bg-secondary/20 text-secondary border-secondary/30 shadow-secondary/20 group-hover:shadow-secondary/40'
                 }`}>
                   <service.icon className="w-6 h-6" />
@@ -246,9 +254,20 @@ const Services = () => {
                 <p className={`text-xs font-medium mb-2 ${service.featured ? 'text-primary' : 'text-secondary'}`}>
                   {service.subtitle}
                 </p>
-                <p className="text-sm text-muted-foreground leading-relaxed font-body flex-grow">
+                <p className="text-sm text-muted-foreground leading-relaxed font-body flex-grow mb-4">
                   {service.description}
                 </p>
+                <Link
+                  to={service.link}
+                  className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
+                    service.featured
+                      ? 'text-primary hover:text-primary/80'
+                      : 'text-secondary hover:text-secondary/80'
+                  }`}
+                >
+                  Ver más información
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
 
               {/* Border Glow */}

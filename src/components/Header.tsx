@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY } from "@/lib/constants";
 
@@ -9,11 +10,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#especialista", label: "El Especialista" },
-    { href: "#tratamientos", label: "Tratamientos" },
-    { href: "#tecnologia", label: "Tecnología" },
-    { href: "#faq", label: "FAQ" },
-    { href: "#contacto", label: "Contacto" },
+    { href: "/#especialista", label: "El Especialista" },
+    { href: "/#tratamientos", label: "Tratamientos" },
+    { href: "/#tecnologia", label: "Tecnología" },
+    { href: "/#faq", label: "FAQ" },
+    { href: "/#contacto", label: "Contacto" },
   ];
 
   return (
@@ -30,16 +31,17 @@ const Header = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <motion.a 
-            href="#" 
-            className="flex items-center space-x-2"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          >
-            <span className="font-display text-2xl lg:text-3xl font-bold tracking-tight text-primary glow-text">
-              FIMART
-            </span>
-          </motion.a>
+          <Link to="/">
+            <motion.span
+              className="flex items-center space-x-2"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              <span className="font-display text-2xl lg:text-3xl font-bold tracking-tight text-primary glow-text">
+                FIMART
+              </span>
+            </motion.span>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
