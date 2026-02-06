@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY, SOCIAL_LINKS } from "@/lib/constants";
 
 const Footer = () => {
@@ -112,33 +113,38 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">ENLACES</h2>
-            <nav aria-label="Enlaces del pie de página">
+            <h2 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">SERVICIOS</h2>
+            <nav aria-label="Enlaces a servicios">
               <ul className="space-y-3 font-body" role="list">
                 <li>
-                  <a href="#tratamientos" className="text-muted-foreground hover:text-primary transition-colors">
-                    Tratamientos de fisioterapia
-                  </a>
+                  <Link to="/epi-electrolisis-percutanea-aspe" className="text-muted-foreground hover:text-primary transition-colors">
+                    EPI / Electrólisis Percutánea
+                  </Link>
                 </li>
                 <li>
-                  <a href="#especialista" className="text-muted-foreground hover:text-primary transition-colors">
-                    El Especialista
-                  </a>
+                  <Link to="/ondas-de-choque-aspe" className="text-muted-foreground hover:text-primary transition-colors">
+                    Ondas de Choque
+                  </Link>
                 </li>
                 <li>
-                  <a href="#tecnologia" className="text-muted-foreground hover:text-primary transition-colors">
-                    Tecnología avanzada
-                  </a>
+                  <Link to="/ecografia-musculoesqueletica-aspe" className="text-muted-foreground hover:text-primary transition-colors">
+                    Ecografía MSK
+                  </Link>
                 </li>
                 <li>
-                  <a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">
-                    Preguntas Frecuentes
-                  </a>
+                  <Link to="/laser-terapeutico-aspe" className="text-muted-foreground hover:text-primary transition-colors">
+                    Láser Terapéutico
+                  </Link>
                 </li>
                 <li>
-                  <a href="#contacto" className="text-muted-foreground hover:text-primary transition-colors">
-                    Contacto
-                  </a>
+                  <Link to="/diatermia-tecar-aspe" className="text-muted-foreground hover:text-primary transition-colors">
+                    Diatermia / TECAR
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/fisioterapia-neurologica-aspe" className="text-muted-foreground hover:text-primary transition-colors">
+                    Fisioterapia Neurológica
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -200,13 +206,31 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-body">
-            <p>
-              © {currentYear} <strong>Fisioterapia Avanzada FIMART</strong> | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: <a href="tel:+34652667953" className="hover:text-primary transition-colors">652 667 953</a>
-            </p>
-            <p className="flex items-center gap-1">
-              Diseñado con <span className="text-primary" aria-label="amor">♥</span> en Aspe
-            </p>
+          <div className="flex flex-col gap-4 text-sm text-muted-foreground font-body">
+            {/* Legal Links */}
+            <nav aria-label="Enlaces legales" className="flex flex-wrap justify-center gap-4 md:gap-6">
+              <Link to="/aviso-legal" className="hover:text-primary transition-colors">
+                Aviso Legal
+              </Link>
+              <span className="hidden md:inline text-border">|</span>
+              <Link to="/politica-privacidad" className="hover:text-primary transition-colors">
+                Política de Privacidad
+              </Link>
+              <span className="hidden md:inline text-border">|</span>
+              <Link to="/politica-cookies" className="hover:text-primary transition-colors">
+                Política de Cookies
+              </Link>
+            </nav>
+
+            {/* Copyright */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-2 pt-4 border-t border-border/50">
+              <p className="text-center md:text-left">
+                © {currentYear} <strong>Fisioterapia Avanzada FIMART</strong> | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: <a href="tel:+34652667953" className="hover:text-primary transition-colors">652 667 953</a>
+              </p>
+              <p className="flex items-center gap-1">
+                Diseñado con <span className="text-primary" aria-label="amor">♥</span> en Aspe
+              </p>
+            </div>
           </div>
         </div>
       </div>
