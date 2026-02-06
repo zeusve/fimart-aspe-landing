@@ -23,9 +23,10 @@
 | 🎨 **Diseño moderno** | UI responsive con animaciones fluidas |
 | 📱 **PWA Ready** | Instalable en dispositivos móviles |
 | ⚡ **Performance** | Lighthouse 90+ en todas las métricas |
-| 🔍 **SEO Optimizado** | Schema.org, sitemap, meta tags |
+| 🔍 **SEO Optimizado** | Landing pages por servicio, Schema.org, sitemap |
 | 📊 **Analytics** | Google Analytics 4 integrado |
-| 🔒 **Seguro** | Headers de seguridad configurados |
+| 🔒 **Seguro** | Headers de seguridad + HTTPS |
+| 🍪 **RGPD Compliant** | Banner de cookies + páginas legales |
 
 ---
 
@@ -35,10 +36,37 @@
 Frontend     →  React 18 + TypeScript
 Styling      →  Tailwind CSS + shadcn/ui
 Animations   →  Framer Motion
+Routing      →  React Router DOM
 Build        →  Vite 5
 Testing      →  Vitest
 Deploy       →  Vercel
 ```
+
+---
+
+## 🌐 Estructura de URLs
+
+### Página Principal
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Landing page principal |
+
+### Landing Pages de Servicios (SEO)
+| Ruta | Servicio |
+|------|----------|
+| `/epi-electrolisis-percutanea-aspe` | EPI / Electrólisis Percutánea |
+| `/ondas-de-choque-aspe` | Ondas de Choque |
+| `/ecografia-musculoesqueletica-aspe` | Ecografía MSK |
+| `/laser-terapeutico-aspe` | Láser Terapéutico |
+| `/diatermia-tecar-aspe` | Diatermia / TECAR |
+| `/fisioterapia-neurologica-aspe` | Fisioterapia Neurológica |
+
+### Páginas Legales (LSSI/RGPD)
+| Ruta | Página |
+|------|--------|
+| `/aviso-legal` | Aviso Legal |
+| `/politica-privacidad` | Política de Privacidad |
+| `/politica-cookies` | Política de Cookies |
 
 ---
 
@@ -62,14 +90,29 @@ npm run dev
 
 ```
 src/
-├── components/     # Componentes React
-│   ├── ui/         # shadcn/ui components
-│   ├── Hero.tsx
+├── components/          # Componentes React
+│   ├── ui/              # shadcn/ui components
+│   ├── Header.tsx
+│   ├── Footer.tsx
 │   ├── Services.tsx
+│   ├── CookieBanner.tsx # Banner RGPD
+│   ├── LegalLayout.tsx  # Layout páginas legales
+│   ├── ServiceLayout.tsx # Layout landing servicios
 │   └── ...
-├── assets/         # Imágenes optimizadas
-├── lib/            # Utilidades
-└── pages/          # Rutas
+├── pages/
+│   ├── Index.tsx        # Página principal
+│   ├── AvisoLegal.tsx
+│   ├── PoliticaPrivacidad.tsx
+│   ├── PoliticaCookies.tsx
+│   └── services/        # Landing pages SEO
+│       ├── EpiElectrolisis.tsx
+│       ├── OndasChoque.tsx
+│       ├── EcografiaMsk.tsx
+│       ├── LaserTerapeutico.tsx
+│       ├── DiatermiaTecar.tsx
+│       └── FisioterapiaNeurologica.tsx
+├── assets/              # Imágenes optimizadas
+└── lib/                 # Utilidades y constantes
 ```
 
 ---
@@ -78,7 +121,7 @@ src/
 
 | Comando | Descripción |
 |---------|-------------|
-| `npm run dev` | Servidor de desarrollo |
+| `npm run dev` | Servidor de desarrollo (localhost:8080) |
 | `npm run build` | Build de producción |
 | `npm run preview` | Preview del build |
 | `npm test` | Ejecutar tests |
@@ -98,6 +141,6 @@ src/
 
 <div align="center">
 
-**© 2024 Clínica FIMART Aspe** · Todos los derechos reservados
+**© 2026 Clínica FIMART Aspe** · Todos los derechos reservados
 
 </div>
