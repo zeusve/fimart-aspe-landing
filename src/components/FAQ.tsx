@@ -5,6 +5,27 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY } from "@/lib/constants";
+
+const WhatsAppLink = ({ children }: { children: React.ReactNode }) => (
+  <a
+    href={WHATSAPP_LINK}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-primary hover:underline font-medium"
+  >
+    {children}
+  </a>
+);
+
+const PhoneLink = ({ children }: { children: React.ReactNode }) => (
+  <a
+    href={`tel:${PHONE_NUMBER}`}
+    className="text-primary hover:underline font-medium"
+  >
+    {children}
+  </a>
+);
 
 const FAQ = () => {
   const faqs = [
@@ -26,12 +47,20 @@ const FAQ = () => {
     {
       id: "precio",
       question: "¿Cuánto cuesta una sesión de fisioterapia en FIMART?",
-      answer: "El precio varía según el tratamiento necesario. Ofrecemos una valoración inicial personalizada. Contacta por WhatsApp al 652 667 953 para conocer tarifas y disponibilidad.",
+      answer: (
+        <>
+          El precio varía según el tratamiento necesario. Ofrecemos una valoración inicial personalizada. <WhatsAppLink>Contacta por WhatsApp</WhatsAppLink> o llama al <PhoneLink>{PHONE_DISPLAY}</PhoneLink> para conocer tarifas y disponibilidad.
+        </>
+      ),
     },
     {
       id: "cita",
       question: "¿Cómo pido cita en la clínica de fisioterapia?",
-      answer: "Puedes pedir cita fácilmente por WhatsApp al 652 667 953 o llamando directamente. Trabajamos con cita previa para garantizar una atención personalizada y sin esperas.",
+      answer: (
+        <>
+          Puedes pedir cita fácilmente por <WhatsAppLink>WhatsApp</WhatsAppLink> o <PhoneLink>llamando al {PHONE_DISPLAY}</PhoneLink>. Trabajamos con cita previa para garantizar una atención personalizada y sin esperas.
+        </>
+      ),
     },
     {
       id: "ubicacion",
