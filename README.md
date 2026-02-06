@@ -1,103 +1,103 @@
-# FIMART - Clínica de Fisioterapia Aspe
+<div align="center">
 
-Landing page para la Clínica de Fisioterapia FIMART ubicada en Aspe, Alicante.
+# 🏥 Fisioterapia FIMART
 
-## Stack Tecnológico
+**Landing page para la Clínica de Fisioterapia FIMART**
 
-- **React 18** - Biblioteca de UI
-- **TypeScript** - Tipado estático
-- **Vite** - Build tool y dev server
-- **Tailwind CSS** - Estilos utilitarios
-- **shadcn/ui** - Componentes UI basados en Radix
-- **Framer Motion** - Animaciones
-- **Vitest** - Testing
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-00C7B7?style=for-the-badge&logo=vercel&logoColor=white)](https://fisioterapiafimart.com)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Tailwind](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-## Estructura del Proyecto
+[🌐 Ver sitio web](https://fisioterapiafimart.com) · [📍 Aspe, Alicante](https://maps.google.com/?q=Calle+Colon+30+Aspe)
+
+</div>
+
+---
+
+## ✨ Características
+
+| Feature | Descripción |
+|---------|-------------|
+| 🎨 **Diseño moderno** | UI responsive con animaciones fluidas |
+| 📱 **PWA Ready** | Instalable en dispositivos móviles |
+| ⚡ **Performance** | Lighthouse 90+ en todas las métricas |
+| 🔍 **SEO Optimizado** | Schema.org, sitemap, meta tags |
+| 📊 **Analytics** | Google Analytics 4 integrado |
+| 🔒 **Seguro** | Headers de seguridad configurados |
+
+---
+
+## 🛠️ Tech Stack
 
 ```
-src/
-├── components/           # Componentes React
-│   ├── ui/              # Componentes UI reutilizables
-│   │   ├── CTAButton.tsx      # Botón CTA con variantes
-│   │   ├── SectionBadge.tsx   # Badge de sección
-│   │   ├── GridBackground.tsx # Fondo con patrón
-│   │   └── ...                # Componentes shadcn/ui
-│   ├── Hero.tsx         # Sección hero
-│   ├── Services.tsx     # Servicios y tecnología
-│   ├── Specialist.tsx   # Perfil del especialista
-│   ├── Footer.tsx       # Pie de página
-│   └── ...
-├── lib/                 # Utilidades y constantes
-│   ├── constants.ts     # Constantes globales
-│   └── utils.ts         # Funciones de utilidad
-├── pages/               # Páginas de la aplicación
-├── test/                # Tests unitarios
-└── assets/              # Imágenes y recursos
+Frontend     →  React 18 + TypeScript
+Styling      →  Tailwind CSS + shadcn/ui
+Animations   →  Framer Motion
+Build        →  Vite 5
+Testing      →  Vitest
+Deploy       →  Vercel
 ```
 
-## Instalación
+---
+
+## 🚀 Quick Start
 
 ```bash
-# Clonar repositorio
+# Clonar
 git clone https://github.com/zeusve/fimart-aspe-landing.git
 cd fimart-aspe-landing
 
-# Instalar dependencias
+# Instalar
 npm install
 
-# Iniciar servidor de desarrollo
+# Desarrollo
 npm run dev
 ```
 
-## Scripts Disponibles
+---
 
-```bash
-npm run dev      # Servidor de desarrollo
-npm run build    # Build de producción
-npm run preview  # Preview del build
-npm test         # Ejecutar tests
-npm run lint     # Linting con ESLint
+## 📁 Estructura
+
+```
+src/
+├── components/     # Componentes React
+│   ├── ui/         # shadcn/ui components
+│   ├── Hero.tsx
+│   ├── Services.tsx
+│   └── ...
+├── assets/         # Imágenes optimizadas
+├── lib/            # Utilidades
+└── pages/          # Rutas
 ```
 
-## Componentes Reutilizables
+---
 
-### CTAButton
-Botón de llamada a la acción con soporte para WhatsApp y teléfono.
-```tsx
-<CTAButton variant="whatsapp" ariaLabel="Solicitar cita">
-  Solicitar Cita
-</CTAButton>
-```
+## 📜 Scripts
 
-### SectionBadge
-Badge para encabezados de sección.
-```tsx
-<SectionBadge variant="primary">Tecnología Avanzada</SectionBadge>
-```
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción |
+| `npm run preview` | Preview del build |
+| `npm test` | Ejecutar tests |
+| `npm run lint` | Linting |
 
-### GridBackground
-Fondo con patrón de líneas o puntos.
-```tsx
-<GridBackground variant="lines" size={60} />
-```
+---
 
-## Optimizaciones Implementadas
+## 📞 Contacto
 
-- **Performance**: Partículas reducidas, React.memo en componentes puros
-- **Accesibilidad**: Skip links, aria-labels, prefers-reduced-motion
-- **SEO**: Sitemap.xml, robots.txt, JSON-LD estructurado
-- **Seguridad**: Sandbox en iframes, headers de seguridad
+**Clínica FIMART** - Fisioterapia Avanzada
 
-## Testing
+- 📍 Calle Colón, 30 Bajo - 03680 Aspe (Alicante)
+- 📱 [652 667 953](tel:652667953)
+- 🌐 [fisioterapiafimart.com](https://fisioterapiafimart.com)
 
-```bash
-# Ejecutar todos los tests
-npm test
+---
 
-# Tests en modo watch
-npm run test:watch
-```
+<div align="center">
 
-## Licencia
+**© 2024 Clínica FIMART Aspe** · Todos los derechos reservados
 
-Todos los derechos reservados - Clínica FIMART Aspe
+</div>
