@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build && cp dist/index.html dist/200.html",
   "outputDirectory": "dist",
   "trailingSlash": false,
   "cleanUrls": true,
