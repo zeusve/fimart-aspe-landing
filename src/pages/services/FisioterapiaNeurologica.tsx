@@ -1,10 +1,18 @@
 import { Brain } from "lucide-react";
 import ServiceLayout from "@/components/ServiceLayout";
+import SEO from "@/components/SEO";
 import neurologiaImage from "@/assets/electroacupuntura-puncion-seca-aspe.jpg";
 
 const FisioterapiaNeurologica = () => {
   return (
-    <ServiceLayout
+    <>
+      <SEO
+        title="Fisioterapia Neurológica en Aspe | Clínica FIMART"
+        description="Fisioterapia neurológica y neuromodulación en Aspe. Tratamiento de dolor neuropático, atrapamientos nerviosos, ciática y radiculopatías. Clínica FIMART."
+        path="/fisioterapia-neurologica-aspe"
+        keywords="fisioterapia neurológica Aspe, neuromodulación Aspe, ciática Aspe, túnel carpiano Aspe"
+      />
+      <ServiceLayout
       title="Fisioterapia Neurológica"
       subtitle="Neuromodulación Avanzada"
       description="La fisioterapia neurológica se especializa en el tratamiento de patologías del sistema nervioso. Utilizamos técnicas de neuromodulación percutánea y electroacupuntura para tratar dolor neuropático, atrapamientos nerviosos y diversas afecciones neurológicas."
@@ -67,6 +75,7 @@ const FisioterapiaNeurologica = () => {
         },
       ]}
     />
+    </>
   );
 };
 

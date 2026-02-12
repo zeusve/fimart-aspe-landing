@@ -1,10 +1,18 @@
 import { Waves } from "lucide-react";
 import ServiceLayout from "@/components/ServiceLayout";
+import SEO from "@/components/SEO";
 import ondasImage from "@/assets/ondas-de-choque-radiales-aspe.jpg";
 
 const OndasChoque = () => {
   return (
-    <ServiceLayout
+    <>
+      <SEO
+        title="Ondas de Choque en Aspe | Clínica FIMART"
+        description="Tratamiento con ondas de choque en Aspe. Terapia no invasiva para tendinopatías crónicas, calcificaciones y dolor musculoesquelético. Clínica FIMART."
+        path="/ondas-de-choque-aspe"
+        keywords="ondas de choque Aspe, terapia extracorpórea Aspe, fascitis plantar Aspe, tendinitis Aspe"
+      />
+      <ServiceLayout
       title="Ondas de Choque"
       subtitle="Terapia Extracorpórea"
       description="Las ondas de choque son pulsos acústicos de alta energía que penetran en el tejido para estimular la regeneración celular. Es un tratamiento no invasivo altamente efectivo para tendinopatías crónicas, calcificaciones y dolor musculoesquelético persistente."
@@ -67,6 +75,7 @@ const OndasChoque = () => {
         },
       ]}
     />
+    </>
   );
 };
 

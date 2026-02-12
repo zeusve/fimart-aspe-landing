@@ -1,9 +1,17 @@
 import LegalLayout from "@/components/LegalLayout";
+import SEO from "@/components/SEO";
 import { CLINIC_INFO, PHONE_DISPLAY } from "@/lib/constants";
 
 const PoliticaPrivacidad = () => {
   return (
-    <LegalLayout title="Política de Privacidad" lastUpdated="Febrero 2026">
+    <>
+      <SEO
+        title="Política de Privacidad | Clínica FIMART"
+        description="Política de privacidad de Fisioterapia Avanzada FIMART. Información sobre el tratamiento de datos personales conforme al RGPD."
+        path="/politica-privacidad"
+        noindex
+      />
+      <LegalLayout title="Política de Privacidad" lastUpdated="Febrero 2026">
       <section>
         <h2>1. Responsable del tratamiento</h2>
         <p>
@@ -131,6 +139,7 @@ const PoliticaPrivacidad = () => {
         </p>
       </section>
     </LegalLayout>
+    </>
   );
 };
 

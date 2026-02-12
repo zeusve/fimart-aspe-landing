@@ -1,9 +1,17 @@
 import LegalLayout from "@/components/LegalLayout";
+import SEO from "@/components/SEO";
 import { CLINIC_INFO, PHONE_DISPLAY } from "@/lib/constants";
 
 const AvisoLegal = () => {
   return (
-    <LegalLayout title="Aviso Legal" lastUpdated="Febrero 2026">
+    <>
+      <SEO
+        title="Aviso Legal | Clínica FIMART"
+        description="Aviso legal de Fisioterapia Avanzada FIMART. Información legal, condiciones de uso del sitio web y datos identificativos."
+        path="/aviso-legal"
+        noindex
+      />
+      <LegalLayout title="Aviso Legal" lastUpdated="Febrero 2026">
       <section>
         <h2>1. Datos identificativos</h2>
         <p>
@@ -109,6 +117,7 @@ const AvisoLegal = () => {
         </p>
       </section>
     </LegalLayout>
+    </>
   );
 };
 

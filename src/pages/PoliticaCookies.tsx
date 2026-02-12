@@ -1,8 +1,16 @@
 import LegalLayout from "@/components/LegalLayout";
+import SEO from "@/components/SEO";
 
 const PoliticaCookies = () => {
   return (
-    <LegalLayout title="Política de Cookies" lastUpdated="Febrero 2026">
+    <>
+      <SEO
+        title="Política de Cookies | Clínica FIMART"
+        description="Política de cookies de Fisioterapia Avanzada FIMART. Información sobre las cookies utilizadas en nuestro sitio web."
+        path="/politica-cookies"
+        noindex
+      />
+      <LegalLayout title="Política de Cookies" lastUpdated="Febrero 2026">
       <section>
         <h2>1. ¿Qué son las cookies?</h2>
         <p>
@@ -152,6 +160,7 @@ const PoliticaCookies = () => {
         </p>
       </section>
     </LegalLayout>
+    </>
   );
 };
 

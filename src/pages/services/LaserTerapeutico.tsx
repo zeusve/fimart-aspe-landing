@@ -1,10 +1,18 @@
 import { Radio } from "lucide-react";
 import ServiceLayout from "@/components/ServiceLayout";
+import SEO from "@/components/SEO";
 import laserImage from "@/assets/laser-terapeutico-aspe.jpg";
 
 const LaserTerapeutico = () => {
   return (
-    <ServiceLayout
+    <>
+      <SEO
+        title="Láser Terapéutico de Alta Potencia en Aspe | Clínica FIMART"
+        description="Láser terapéutico de alta potencia en Aspe. Tratamiento indoloro antiinflamatorio y regenerador para lesiones agudas y crónicas. Clínica FIMART."
+        path="/laser-terapeutico-aspe"
+        keywords="láser terapéutico Aspe, láser alta potencia Aspe, fisioterapia láser Aspe"
+      />
+      <ServiceLayout
       title="Láser Terapéutico de Alta Potencia"
       subtitle="Terapia de Luz Avanzada"
       description="El láser terapéutico de alta potencia (Clase IV) utiliza fotones de luz para penetrar en los tejidos y estimular la regeneración celular. Es un tratamiento indoloro que acelera la curación, reduce la inflamación y alivia el dolor de forma efectiva."
@@ -67,6 +75,7 @@ const LaserTerapeutico = () => {
         },
       ]}
     />
+    </>
   );
 };
 

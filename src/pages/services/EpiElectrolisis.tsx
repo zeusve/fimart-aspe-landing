@@ -1,10 +1,18 @@
 import { Zap } from "lucide-react";
 import ServiceLayout from "@/components/ServiceLayout";
+import SEO from "@/components/SEO";
 import epiImage from "@/assets/epi-electrolisis-percutanea-aspe.jpg";
 
 const EpiElectrolisis = () => {
   return (
-    <ServiceLayout
+    <>
+      <SEO
+        title="EPI Electrólisis Percutánea en Aspe | Clínica FIMART"
+        description="Tratamiento de EPI en Aspe. Técnica regenerativa ecoguiada para tendinopatías crónicas y lesiones musculares. Resultados desde la primera sesión. Clínica FIMART."
+        path="/epi-electrolisis-percutanea-aspe"
+        keywords="EPI Aspe, electrólisis percutánea Aspe, tendinopatía Aspe, fisioterapia invasiva Aspe"
+      />
+      <ServiceLayout
       title="EPI - Electrólisis Percutánea Intratisular"
       subtitle="Técnica Regenerativa Avanzada"
       description="La EPI es una técnica de fisioterapia invasiva que utiliza una corriente galvánica aplicada de forma ecoguiada para regenerar el tejido dañado. Es especialmente efectiva en tendinopatías crónicas y lesiones musculares que no responden a tratamientos convencionales."
@@ -67,6 +75,7 @@ const EpiElectrolisis = () => {
         },
       ]}
     />
+    </>
   );
 };
 

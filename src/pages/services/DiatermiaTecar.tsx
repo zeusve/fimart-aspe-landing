@@ -1,10 +1,18 @@
 import { Target } from "lucide-react";
 import ServiceLayout from "@/components/ServiceLayout";
+import SEO from "@/components/SEO";
 import diatermiaImage from "@/assets/diatermia-tecar-aspe.jpg";
 
 const DiatermiaTecar = () => {
   return (
-    <ServiceLayout
+    <>
+      <SEO
+        title="Diatermia TECAR en Aspe | Clínica FIMART"
+        description="Diatermia TECAR en Aspe. Radiofrecuencia profunda para contracturas, tendinopatías y recuperación postquirúrgica. Sensación agradable. Clínica FIMART."
+        path="/diatermia-tecar-aspe"
+        keywords="diatermia Aspe, TECAR Aspe, radiofrecuencia fisioterapia Aspe, tecarterapia Aspe"
+      />
+      <ServiceLayout
       title="Diatermia - Tecarterapia"
       subtitle="Radiofrecuencia Profunda"
       description="La diatermia o TECAR utiliza corrientes de radiofrecuencia que generan un calor profundo desde el interior de los tejidos. Esta termoterapia endógena activa el metabolismo celular, mejora la circulación y acelera los procesos de reparación tisular."
@@ -67,6 +75,7 @@ const DiatermiaTecar = () => {
         },
       ]}
     />
+    </>
   );
 };
 

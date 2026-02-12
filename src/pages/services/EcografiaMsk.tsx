@@ -1,10 +1,18 @@
 import { Scan } from "lucide-react";
 import ServiceLayout from "@/components/ServiceLayout";
+import SEO from "@/components/SEO";
 import ecografoImage from "@/assets/ecografo-msk-aspe.jpg";
 
 const EcografiaMsk = () => {
   return (
-    <ServiceLayout
+    <>
+      <SEO
+        title="Ecografía Musculoesquelética en Aspe | Clínica FIMART"
+        description="Ecografía musculoesquelética en Aspe. Diagnóstico en tiempo real de lesiones musculares, tendinosas y ligamentosas. Sin radiación ni esperas. Clínica FIMART."
+        path="/ecografia-musculoesqueletica-aspe"
+        keywords="ecografía musculoesquelética Aspe, ecografía MSK Aspe, diagnóstico ecográfico Aspe"
+      />
+      <ServiceLayout
       title="Ecografía Musculoesquelética"
       subtitle="Diagnóstico en Tiempo Real"
       description="La ecografía musculoesquelética nos permite visualizar en tiempo real músculos, tendones, ligamentos y articulaciones. Es una herramienta fundamental para realizar diagnósticos precisos y guiar tratamientos invasivos como la EPI o las infiltraciones."
@@ -67,6 +75,7 @@ const EcografiaMsk = () => {
         },
       ]}
     />
+    </>
   );
 };
 
