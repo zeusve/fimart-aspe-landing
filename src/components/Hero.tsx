@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import HeroParticles from "./HeroParticles";
 import fachadaImage from "@/assets/fachada-clinica-fimart-aspe.jpg";
+import fachadaImageWebp from "@/assets/fachada-clinica-fimart-aspe.webp";
 import { WHATSAPP_LINK } from "@/lib/constants";
 
 const Hero = () => {
@@ -32,14 +33,18 @@ const Hero = () => {
 
       {/* Background Image with Overlays */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <img
-          src={fachadaImage}
-          alt="Fachada de Clínica de Fisioterapia FIMART en Aspe, Alicante - Calle Colón 30"
-          className="w-full h-full object-cover object-[center_top]"
-          width={1920}
-          height={1080}
-          fetchPriority="high"
-        />
+        <picture>
+          <source srcSet={fachadaImageWebp} type="image/webp" />
+          <source srcSet={fachadaImage} type="image/jpeg" />
+          <img
+            src={fachadaImage}
+            alt="Fachada de Clínica de Fisioterapia FIMART en Aspe, Alicante - Calle Colón 30"
+            className="w-full h-full object-cover object-[center_top]"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+          />
+        </picture>
         {/* Dark Overlay - Dark Mode */}
         <div className="absolute inset-0 dark:from-background/95 dark:via-background/80 dark:to-background/70 dark:bg-gradient-to-b hidden dark:block" />
         {/* Light Overlay - Light Mode */}
@@ -132,7 +137,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="inline-block bg-card/50 dark:bg-card/40 backdrop-blur-md border border-primary/20 rounded-2xl p-6 sm:p-8 mb-8"
           >
             <p className="text-foreground text-base sm:text-lg font-semibold mb-4">

@@ -46,6 +46,40 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Índice de Servicios -->
+  <url>
+    <loc>https://fisioterapiafimart.com/servicios</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://fisioterapiafimart.com/blog</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fisioterapiafimart.com/blog/fascitis-plantar-tratamiento-fisioterapia</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fisioterapiafimart.com/blog/tendinitis-hombro-manguito-rotador</loc>
+    <lastmod>2025-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fisioterapiafimart.com/blog/diferencias-epi-puncion-seca-ondas-choque</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Páginas Legales -->
   <url>
     <loc>https://fisioterapiafimart.com/aviso-legal</loc>

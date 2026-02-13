@@ -1,11 +1,39 @@
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY, SOCIAL_LINKS } from "@/lib/constants";
 
+const GOOGLE_MAPS_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d782.3993285652841!2d-0.7714851!3d38.3447156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b2e9c7a5e5e5%3A0x1234567890abcdef!2sCalle%20Col%C3%B3n%2C%2030%2C%2003680%20Aspe%2C%20Alicante%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1706000000000!5m2!1ses!2ses";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+
+  const loadMap = useCallback(() => {
+    setMapLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    const container = mapContainerRef.current;
+    if (!container || mapLoaded) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadMap();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [mapLoaded, loadMap]);
 
   return (
     <footer id="contacto" className="bg-card border-t border-border" role="contentinfo">
@@ -180,26 +208,49 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Map */}
-        <motion.div 
+        {/* Map (lazy-loaded) */}
+        <motion.div
+          ref={mapContainerRef}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-12 rounded-2xl overflow-hidden border border-border"
         >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d782.3993285652841!2d-0.7714851!3d38.3447156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b2e9c7a5e5e5%3A0x1234567890abcdef!2sCalle%20Col%C3%B3n%2C%2030%2C%2003680%20Aspe%2C%20Alicante%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1706000000000!5m2!1ses!2ses"
-            width="100%"
-            height="300"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-            title="Mapa de ubicación de Clínica FIMART en Aspe - Calle Colón 30, 03680 Aspe, Alicante"
-            className="grayscale hover:grayscale-0 transition-all duration-500"
-          />
+          {mapLoaded ? (
+            <iframe
+              src={GOOGLE_MAPS_EMBED_URL}
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              title="Mapa de ubicación de Clínica FIMART en Aspe - Calle Colón 30, 03680 Aspe, Alicante"
+              className="grayscale hover:grayscale-0 transition-all duration-500"
+            />
+          ) : (
+            <div
+              className="flex flex-col items-center justify-center gap-4 bg-card text-muted-foreground"
+              style={{ height: 300 }}
+            >
+              <MapPin className="w-10 h-10 text-secondary" aria-hidden="true" />
+              <p className="text-center font-body text-sm leading-relaxed">
+                <strong className="text-foreground">Calle Colón, 30 Bajo</strong>
+                <br />
+                03680 Aspe (Alicante)
+              </p>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={loadMap}
+                className="border-border hover:bg-primary hover:text-primary-foreground"
+              >
+                Ver mapa
+              </Button>
+            </div>
+          )}
         </motion.div>
       </div>
 

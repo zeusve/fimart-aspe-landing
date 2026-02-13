@@ -1,41 +1,47 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 
-// Pages
+// Pages - Index loaded eagerly (main landing page)
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-// Legal Pages
-import AvisoLegal from "./pages/AvisoLegal";
-import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
-import PoliticaCookies from "./pages/PoliticaCookies";
+// Legal Pages - Lazy loaded (rarely visited)
+const AvisoLegal = lazy(() => import("./pages/AvisoLegal"));
+const PoliticaPrivacidad = lazy(() => import("./pages/PoliticaPrivacidad"));
+const PoliticaCookies = lazy(() => import("./pages/PoliticaCookies"));
 
-// Service Pages
-import EpiElectrolisis from "./pages/services/EpiElectrolisis";
-import OndasChoque from "./pages/services/OndasChoque";
-import EcografiaMsk from "./pages/services/EcografiaMsk";
-import LaserTerapeutico from "./pages/services/LaserTerapeutico";
-import DiatermiaTecar from "./pages/services/DiatermiaTecar";
-import FisioterapiaNeurologica from "./pages/services/FisioterapiaNeurologica";
+// Service Pages - Lazy loaded (separate routes)
+const EpiElectrolisis = lazy(() => import("./pages/services/EpiElectrolisis"));
+const OndasChoque = lazy(() => import("./pages/services/OndasChoque"));
+const EcografiaMsk = lazy(() => import("./pages/services/EcografiaMsk"));
+const LaserTerapeutico = lazy(() => import("./pages/services/LaserTerapeutico"));
+const DiatermiaTecar = lazy(() => import("./pages/services/DiatermiaTecar"));
+const FisioterapiaNeurologica = lazy(() => import("./pages/services/FisioterapiaNeurologica"));
+
+// Services Index & Blog - Lazy loaded
+const Servicios = lazy(() => import("./pages/Servicios"));
+const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
+const FascitisPlantar = lazy(() => import("./pages/blog/FascitisPlantar"));
+const TendinitisHombro = lazy(() => import("./pages/blog/TendinitisHombro"));
+const ComparativaTecnicas = lazy(() => import("./pages/blog/ComparativaTecnicas"));
 
 // Components
 import CookieBanner from "./components/CookieBanner";
 import ScrollToTop from "./components/ScrollToTop";
 
-const queryClient = new QueryClient();
-
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
+  <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
             {/* Main Page */}
             <Route path="/" element={<Index />} />
@@ -53,14 +59,23 @@ const App = () => (
             <Route path="/diatermia-tecar-aspe" element={<DiatermiaTecar />} />
             <Route path="/fisioterapia-neurologica-aspe" element={<FisioterapiaNeurologica />} />
 
+            {/* Services Index */}
+            <Route path="/servicios" element={<Servicios />} />
+
+            {/* Blog */}
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/fascitis-plantar-tratamiento-fisioterapia" element={<FascitisPlantar />} />
+            <Route path="/blog/tendinitis-hombro-manguito-rotador" element={<TendinitisHombro />} />
+            <Route path="/blog/diferencias-epi-puncion-seca-ondas-choque" element={<ComparativaTecnicas />} />
+
             {/* Catch-all 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <CookieBanner />
-        </BrowserRouter>
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+        </Suspense>
+        <CookieBanner />
+      </BrowserRouter>
+    </TooltipProvider>
+  </ThemeProvider>
 );
 
 export default App;

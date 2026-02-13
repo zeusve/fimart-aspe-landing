@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle, Phone, MessageCircle, MapPin, Clock } from "lucide-react";
+import { CheckCircle, Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LucideIcon } from "lucide-react";
 import Header from "./Header";
@@ -8,12 +8,30 @@ import { Button } from "@/components/ui/button";
 import GridBackground from "@/components/ui/GridBackground";
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY, CLINIC_INFO } from "@/lib/constants";
 
+interface SectionTitles {
+  benefits?: string;
+  benefitsSubtitle?: string;
+  conditions?: string;
+  conditionsSubtitle?: string;
+  howItWorks?: string;
+  howItWorksSubtitle?: string;
+  faq?: string;
+  detailed?: string;
+  results?: string;
+}
+
+interface DetailedSection {
+  title: string;
+  content: string;
+}
+
 interface ServiceLayoutProps {
   title: string;
   subtitle: string;
   description: string;
   icon: LucideIcon;
   image: string;
+  imageWebp?: string;
   imageAlt: string;
   benefits: string[];
   conditions: string[];
@@ -25,6 +43,12 @@ interface ServiceLayoutProps {
     question: string;
     answer: string;
   }[];
+  sectionTitles?: SectionTitles;
+  /** In-depth treatment explanation paragraphs */
+  detailedContent?: DetailedSection[];
+  /** Expected results + aftercare */
+  expectedResults?: string;
+  aftercare?: string[];
   metaDescription?: string;
 }
 
@@ -34,11 +58,16 @@ const ServiceLayout = ({
   description,
   icon: Icon,
   image,
+  imageWebp,
   imageAlt,
   benefits,
   conditions,
   howItWorks,
   faqs,
+  sectionTitles,
+  detailedContent,
+  expectedResults,
+  aftercare,
 }: ServiceLayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
@@ -54,13 +83,20 @@ const ServiceLayout = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Volver al inicio
-            </Link>
+            {/* Breadcrumb navigation */}
+            <nav aria-label="Breadcrumb" className="mb-8">
+              <ol className="flex items-center gap-2 text-sm text-muted-foreground" role="list">
+                <li>
+                  <Link to="/" className="hover:text-primary transition-colors">
+                    Inicio
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="text-border">/</li>
+                <li>
+                  <span className="text-foreground font-medium" aria-current="page">{title}</span>
+                </li>
+              </ol>
+            </nav>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -119,12 +155,16 @@ const ServiceLayout = ({
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden border border-border shadow-2xl">
-                <img
-                  src={image}
-                  alt={imageAlt}
-                  className="w-full h-[400px] object-cover"
-                  loading="eager"
-                />
+                <picture>
+                  {imageWebp && <source srcSet={imageWebp} type="image/webp" />}
+                  <source srcSet={image} type="image/jpeg" />
+                  <img
+                    src={image}
+                    alt={imageAlt}
+                    className="w-full h-[400px] object-cover"
+                    loading="eager"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </div>
             </motion.div>
@@ -142,10 +182,10 @@ const ServiceLayout = ({
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Beneficios del tratamiento
+              {sectionTitles?.benefits || "Beneficios del tratamiento"}
             </h2>
             <p className="text-muted-foreground font-body">
-              Descubre las ventajas de este tratamiento en nuestra clínica de Aspe.
+              {sectionTitles?.benefitsSubtitle || "Descubre las ventajas de este tratamiento en nuestra clínica de Aspe."}
             </p>
           </motion.div>
 
@@ -169,6 +209,43 @@ const ServiceLayout = ({
         </div>
       </section>
 
+      {/* Detailed Content Section */}
+      {detailedContent && detailedContent.length > 0 && (
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center max-w-3xl mx-auto mb-12"
+            >
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                {sectionTitles?.detailed || "Información detallada del tratamiento"}
+              </h2>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto space-y-10">
+              {detailedContent.map((section, index) => (
+                <motion.div
+                  key={section.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4">
+                    {section.title}
+                  </h3>
+                  <p className="text-muted-foreground font-body leading-relaxed">
+                    {section.content}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Conditions Section */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -179,10 +256,10 @@ const ServiceLayout = ({
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              ¿Para qué patologías está indicado?
+              {sectionTitles?.conditions || "¿Para qué patologías está indicado?"}
             </h2>
             <p className="text-muted-foreground font-body">
-              Este tratamiento es especialmente efectivo para las siguientes condiciones.
+              {sectionTitles?.conditionsSubtitle || "Este tratamiento es especialmente efectivo para las siguientes condiciones."}
             </p>
           </motion.div>
 
@@ -214,10 +291,10 @@ const ServiceLayout = ({
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              ¿Cómo funciona?
+              {sectionTitles?.howItWorks || "¿Cómo funciona?"}
             </h2>
             <p className="text-muted-foreground font-body">
-              Proceso del tratamiento paso a paso.
+              {sectionTitles?.howItWorksSubtitle || "Proceso del tratamiento paso a paso."}
             </p>
           </motion.div>
 
@@ -246,6 +323,52 @@ const ServiceLayout = ({
         </div>
       </section>
 
+      {/* Expected Results & Aftercare Section */}
+      {(expectedResults || (aftercare && aftercare.length > 0)) && (
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+              {expectedResults && (
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="p-8 bg-card border border-border rounded-2xl"
+                >
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4">
+                    {sectionTitles?.results || "Resultados esperados"}
+                  </h3>
+                  <p className="text-muted-foreground font-body leading-relaxed">
+                    {expectedResults}
+                  </p>
+                </motion.div>
+              )}
+
+              {aftercare && aftercare.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="p-8 bg-card border border-border rounded-2xl"
+                >
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4">
+                    Cuidados posteriores
+                  </h3>
+                  <ul className="space-y-3">
+                    {aftercare.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-muted-foreground font-body">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ Section */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -256,7 +379,7 @@ const ServiceLayout = ({
             className="text-center max-w-3xl mx-auto mb-12"
           >
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Preguntas frecuentes
+              {sectionTitles?.faq || "Preguntas frecuentes"}
             </h2>
           </motion.div>
 

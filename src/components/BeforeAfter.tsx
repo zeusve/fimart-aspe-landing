@@ -2,7 +2,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Scan, Eye } from "lucide-react";
 import ecografoImage from "@/assets/ecografo-msk-aspe.jpg";
+import ecografoImageWebp from "@/assets/ecografo-msk-aspe.webp";
 import fisioterapeutaImage from "@/assets/fisioterapeuta-tratando-paciente-aspe.jpg";
+import fisioterapeutaImageWebp from "@/assets/fisioterapeuta-tratando-paciente-aspe.webp";
 
 const BeforeAfter = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -56,24 +58,37 @@ const BeforeAfter = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          <div 
+          <div
             className="relative aspect-[16/9] rounded-2xl overflow-hidden cursor-pointer group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onTouchStart={() => setIsHovered(true)}
             onTouchEnd={() => setIsHovered(false)}
-            role="img"
-            aria-label="Comparación interactiva: tratamiento de fisioterapia vs diagnóstico por ecografía MSK"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setIsHovered((prev) => !prev);
+              }
+            }}
+            onBlur={() => setIsHovered(false)}
+            role="button"
+            tabIndex={0}
+            aria-label="Comparación interactiva: pulsa para alternar entre vista de tratamiento y ecografía MSK"
+            aria-pressed={isHovered}
           >
             {/* Base Layer - Treatment */}
-            <img
-              src={fisioterapeutaImage}
-              alt="Fisioterapeuta realizando tratamiento manual en Clínica FIMART Aspe"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-              width={800}
-              height={450}
-            />
+            <picture>
+              <source srcSet={fisioterapeutaImageWebp} type="image/webp" />
+              <source srcSet={fisioterapeutaImage} type="image/jpeg" />
+              <img
+                src={fisioterapeutaImage}
+                alt="Fisioterapeuta realizando tratamiento manual en Clínica FIMART Aspe"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                width={800}
+                height={450}
+              />
+            </picture>
 
             {/* Overlay Layer - Ecografía */}
             <motion.div
@@ -87,14 +102,18 @@ const BeforeAfter = () => {
               className="absolute inset-0"
               aria-hidden="true"
             >
-              <img
-                src={ecografoImage}
-                alt="Diagnóstico por ecografía MSK en Clínica FIMART Aspe"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                width={800}
-                height={450}
-              />
+              <picture>
+                <source srcSet={ecografoImageWebp} type="image/webp" />
+                <source srcSet={ecografoImage} type="image/jpeg" />
+                <img
+                  src={ecografoImage}
+                  alt="Diagnóstico por ecografía MSK en Clínica FIMART Aspe"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  width={800}
+                  height={450}
+                />
+              </picture>
               {/* Blue tint overlay for tech effect */}
               <div className="absolute inset-0 bg-secondary/20 mix-blend-overlay" />
             </motion.div>

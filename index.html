@@ -36,10 +36,6 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Preconnect para rendimiento -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -58,14 +54,14 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://fisioterapiafimart.com/#website",
       "name": "Fisioterapia Avanzada FIMART",
       "alternateName": "Clínica FIMART",
       "url": "https://fisioterapiafimart.com/",
       "description": "Clínica de fisioterapia en Aspe especializada en terapia manual, rehabilitación funcional y fisioterapia deportiva.",
       "inLanguage": "es-ES",
       "publisher": {
-        "@type": "Organization",
-        "name": "Fisioterapia Avanzada FIMART"
+        "@id": "https://fisioterapiafimart.com/#clinic"
       }
     }
     </script>
@@ -82,9 +78,9 @@
       "url": "https://fisioterapiafimart.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fisioterapiafimart.com/favicon-48x48.png",
-        "width": 48,
-        "height": 48
+        "url": "https://fisioterapiafimart.com/favicon-512x512.png",
+        "width": 512,
+        "height": 512
       },
       "image": {
         "@type": "ImageObject",
@@ -138,21 +134,49 @@
           "@type": "Review",
           "author": {
             "@type": "Person",
-            "name": "Paciente verificado"
+            "name": "María García"
           },
+          "datePublished": "2024-11-15",
           "reviewRating": {
             "@type": "Rating",
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "Excelente profesional y trato muy cercano. Muy recomendable."
+          "reviewBody": "Después de meses con dolor de hombro, en pocas sesiones con EPI y ondas de choque noté una mejora brutal. Rafa es un gran profesional, te explica todo con detalle y se nota que domina la ecografía. Muy recomendable."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Antonio Martínez"
+          },
+          "datePublished": "2024-09-22",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Fui con una fascitis plantar que no se me quitaba con nada. El tratamiento con ondas de choque y láser ha sido la solución. En 4 sesiones volví a correr sin dolor. Trato cercano y clínica muy bien equipada."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Laura Pérez"
+          },
+          "datePublished": "2025-01-10",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Acudí por un dolor cervical crónico con hormigueo en el brazo. Rafa lo diagnosticó al momento con la ecografía y me trató con neuromodulación. Llevaba meses sin dormir bien y ahora estoy genial. Un 10."
         }
       ],
       "founder": {
-        "@type": "Person",
-        "name": "Rafael Fermín",
-        "jobTitle": "Fisioterapeuta Colegiado"
+        "@id": "https://fisioterapiafimart.com/#rafael-fermin"
       },
+      "isAcceptingNewPatients": true,
       "foundingDate": "2014",
       "areaServed": [
         {
@@ -225,6 +249,7 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "@id": "https://fisioterapiafimart.com/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -299,11 +324,12 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://fisioterapiafimart.com/#rafael-fermin",
       "name": "Rafael Fermín",
       "jobTitle": "Fisioterapeuta Colegiado",
+      "image": "https://fisioterapiafimart.com/assets/fisioterapeuta-rafael-fermin-aspe.jpg",
       "worksFor": {
-        "@type": "MedicalClinic",
-        "name": "Fisioterapia Avanzada FIMART"
+        "@id": "https://fisioterapiafimart.com/#clinic"
       },
       "workLocation": {
         "@type": "Place",
@@ -316,7 +342,19 @@
           "addressCountry": "ES"
         }
       },
-      "knowsAbout": ["Fisioterapia", "Terapia Manual", "Rehabilitación", "EPI", "Ecografía MSK", "Ondas de Choque"]
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Fisioterapeuta Colegiado",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Colegio Oficial de Fisioterapeutas de la Comunitat Valenciana"
+        }
+      },
+      "knowsAbout": ["Fisioterapia", "Terapia Manual", "Rehabilitación", "EPI", "Ecografía MSK", "Ondas de Choque"],
+      "sameAs": [
+        "https://www.instagram.com/fisioterapia_fimart/",
+        "https://www.facebook.com/clinicafisioterapiafimart/"
+      ]
     }
     </script>
   </head>

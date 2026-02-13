@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Heart, Target } from "lucide-react";
 import specialistImage from "@/assets/fisioterapeuta-rafael-fermin-aspe.jpg";
+import specialistImageWebp from "@/assets/fisioterapeuta-rafael-fermin-aspe.webp";
 import SectionBadge from "@/components/ui/SectionBadge";
 import GridBackground from "@/components/ui/GridBackground";
 
@@ -52,14 +53,18 @@ const Specialist = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border shadow-2xl shadow-primary/10"
               >
-                <img
-                  src={specialistImage}
-                  alt="Rafael Fermín, fisioterapeuta colegiado en Clínica FIMART Aspe, especialista en terapia manual y rehabilitación funcional"
-                  className="w-full h-full object-cover object-[center_top]"
-                  loading="lazy"
-                  width={400}
-                  height={500}
-                />
+                <picture>
+                  <source srcSet={specialistImageWebp} type="image/webp" />
+                  <source srcSet={specialistImage} type="image/jpeg" />
+                  <img
+                    src={specialistImage}
+                    alt="Rafael Fermín, fisioterapeuta colegiado en Clínica FIMART Aspe, especialista en terapia manual y rehabilitación funcional"
+                    className="w-full h-full object-cover object-[center_top]"
+                    loading="lazy"
+                    width={400}
+                    height={500}
+                  />
+                </picture>
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" aria-hidden="true" />
                 

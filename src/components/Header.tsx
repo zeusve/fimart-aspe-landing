@@ -1,19 +1,28 @@
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY } from "@/lib/constants";
 
+const serviceLinks = [
+  { href: "/epi-electrolisis-percutanea-aspe", label: "EPI Electrólisis Percutánea" },
+  { href: "/ondas-de-choque-aspe", label: "Ondas de Choque" },
+  { href: "/ecografia-musculoesqueletica-aspe", label: "Ecografía MSK" },
+  { href: "/laser-terapeutico-aspe", label: "Láser Terapéutico" },
+  { href: "/diatermia-tecar-aspe", label: "Diatermia TECAR" },
+  { href: "/fisioterapia-neurologica-aspe", label: "Fisioterapia Neurológica" },
+];
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const navLinks = [
     { href: "/#especialista", label: "El Especialista" },
-    { href: "/#tratamientos", label: "Tratamientos" },
     { href: "/#tecnologia", label: "Tecnología" },
-    { href: "/#faq", label: "FAQ" },
+    { href: "/blog", label: "Blog" },
     { href: "/#contacto", label: "Contacto" },
   ];
 
@@ -45,7 +54,55 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
+            <motion.a
+              href="/#especialista"
+              className="relative text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium font-body"
+              whileHover={{ y: -2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              El Especialista
+            </motion.a>
+
+            {/* Services Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <button
+                className="relative flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium font-body"
+                aria-expanded={isServicesOpen}
+                aria-haspopup="true"
+              >
+                Servicios
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`} />
+              </button>
+              <AnimatePresence>
+                {isServicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50"
+                  >
+                    <div className="bg-card/95 backdrop-blur-xl border border-border rounded-xl shadow-xl p-2 min-w-[260px]">
+                      {serviceLinks.map((service) => (
+                        <Link
+                          key={service.href}
+                          to={service.href}
+                          className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-primary/10 rounded-lg transition-colors font-body"
+                        >
+                          {service.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {navLinks.filter(l => l.href !== "/#especialista").map((link) => (
               <motion.a
                 key={link.href}
                 href={link.href}
@@ -54,12 +111,6 @@ const Header = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 {link.label}
-                <motion.span
-                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
               </motion.a>
             ))}
           </nav>
@@ -87,7 +138,8 @@ const Header = () => {
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 text-foreground hover:text-primary transition-colors"
-              aria-label="Toggle menu"
+              aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={isMenuOpen}
               whileTap={{ scale: 0.95 }}
             >
               <AnimatePresence mode="wait">
@@ -129,14 +181,65 @@ const Header = () => {
             className="lg:hidden bg-card/95 backdrop-blur-xl border-b border-border"
           >
             <nav className="container mx-auto px-4 py-6 space-y-4">
-              {navLinks.map((link, index) => (
+              <motion.a
+                href="/#especialista"
+                onClick={() => setIsMenuOpen(false)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0 }}
+                className="block text-foreground hover:text-primary transition-colors font-medium py-2 font-body"
+              >
+                El Especialista
+              </motion.a>
+
+              {/* Mobile Services Accordion */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="flex items-center justify-between w-full text-foreground hover:text-primary transition-colors font-medium py-2 font-body"
+                  aria-expanded={isServicesOpen}
+                >
+                  Servicios
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {isServicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pl-4 space-y-1 pb-2">
+                        {serviceLinks.map((service) => (
+                          <Link
+                            key={service.href}
+                            to={service.href}
+                            onClick={() => { setIsMenuOpen(false); setIsServicesOpen(false); }}
+                            className="block text-sm text-muted-foreground hover:text-primary transition-colors py-1.5 font-body"
+                          >
+                            {service.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
+              {navLinks.filter(l => l.href !== "/#especialista").map((link, index) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: (index + 2) * 0.1 }}
                   className="block text-foreground hover:text-primary transition-colors font-medium py-2 font-body"
                 >
                   {link.label}
