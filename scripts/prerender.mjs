@@ -305,4 +305,22 @@ for (const page of pages) {
   console.log(`  ✓ ${page.path} → ${page.file}`);
 }
 
-console.log(`\nPre-rendered ${pages.length} pages.`);
+// --- Generate 404 page ---
+const notFoundSeoTags = [
+  `<title>Página no encontrada | ${SITE_NAME}</title>`,
+  `<meta name="description" content="La página que buscas no existe. Vuelve a la página principal de Fisioterapia Avanzada FIMART." />`,
+  `<meta name="robots" content="noindex, nofollow" />`,
+  `<meta name="googlebot" content="noindex, nofollow" />`,
+].join("\n    ");
+
+let notFoundHtml = template.replace(PLACEHOLDER, notFoundSeoTags);
+// Remove all JSON-LD schemas from 404 page
+notFoundHtml = notFoundHtml.replace(jsonLdBlockRegex("WebSite"), "");
+notFoundHtml = notFoundHtml.replace(jsonLdBlockRegex("MedicalClinic"), "");
+notFoundHtml = notFoundHtml.replace(jsonLdBlockRegex("FAQPage"), "");
+notFoundHtml = notFoundHtml.replace(jsonLdBlockRegex("BreadcrumbList"), "");
+notFoundHtml = notFoundHtml.replace(jsonLdBlockRegex("Person"), "");
+writeFileSync(join(DIST, "404.html"), notFoundHtml);
+console.log("  ✓ 404.html (noindex)");
+
+console.log(`\nPre-rendered ${pages.length} pages + 404.`);

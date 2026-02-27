@@ -1,15 +1,29 @@
-const NotFound = () => {
+import SEO from "@/components/SEO";
 
+const NotFound = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
+    <>
+      <SEO
+        title="Página no encontrada | Fisioterapia Avanzada FIMART"
+        description="La página que buscas no existe. Vuelve a la página principal de Fisioterapia Avanzada FIMART."
+        path="/404"
+        noindex
+      />
+      <div className="flex min-h-screen items-center justify-center bg-muted">
+        <div className="text-center">
+          <h1 className="mb-4 text-4xl font-bold">404</h1>
+          <p className="mb-4 text-xl text-muted-foreground">
+            La página que buscas no existe
+          </p>
+          <a
+            href="/"
+            className="text-primary underline hover:text-primary/90"
+          >
+            Volver al inicio
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
