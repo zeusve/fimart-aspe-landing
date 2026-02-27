@@ -219,14 +219,19 @@ function jsonLdBlockRegex(schemaType) {
 /**
  * Process JSON-LD schemas in the HTML based on the page type:
  * - Homepage (/): keep all schemas as-is
- * - Service pages: replace BreadcrumbList with a proper 2-item version
- * - Legal (noindex) pages: remove FAQPage, Person schemas + fix BreadcrumbList
+ * - All non-homepage: remove homepage FAQPage (service pages get their own via react-helmet-async)
+ * - Service/blog pages: replace BreadcrumbList with a proper 2-item version
+ * - Legal (noindex) pages: also remove Person schema
  */
 function processJsonLd(html, page) {
   const url = `${BASE_URL}${page.path}`;
 
   // Homepage: keep everything as-is
   if (page.path === "/") return html;
+
+  // Remove homepage FAQPage from ALL non-homepage pages to avoid duplicate schemas.
+  // Service pages get their own page-specific FAQPage via react-helmet-async at runtime.
+  html = html.replace(jsonLdBlockRegex("FAQPage"), "");
 
   // Replace BreadcrumbList with a proper 2-item version for all non-homepage pages
   if (page.breadcrumbName) {
@@ -237,9 +242,8 @@ function processJsonLd(html, page) {
     );
   }
 
-  // Legal (noindex) pages: remove irrelevant schemas
+  // Legal (noindex) pages: also remove Person schema
   if (page.noindex) {
-    html = html.replace(jsonLdBlockRegex("FAQPage"), "");
     html = html.replace(jsonLdBlockRegex("Person"), "");
   }
 
