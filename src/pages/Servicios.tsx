@@ -101,11 +101,11 @@ const Servicios = () => {
               transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight">
                 Nuestros{" "}
                 <span className="text-primary glow-text">Servicios</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
+              <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
                 Tecnología de vanguardia y terapia manual avanzada para ofrecerte el tratamiento
                 más efectivo. Cada servicio cuenta con equipamiento de última generación y la
                 experiencia de más de 14 años.
@@ -115,9 +115,9 @@ const Servicios = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="py-24 lg:py-36">
+        <section className="py-20 lg:py-32">
           <div className="container mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {services.map((service, index) => (
                 <motion.div
                   key={service.href}
@@ -128,17 +128,17 @@ const Servicios = () => {
                 >
                   <Link
                     to={service.href}
-                    className="group block h-full p-8 lg:p-10 bg-card border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                    className="group block h-full p-6 lg:p-8 bg-card border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                   >
-                    <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-primary/15 text-primary mb-6 group-hover:bg-primary/25 transition-colors">
-                      <service.icon className="w-8 h-8 lg:w-10 lg:h-10" />
+                    <div className="flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-primary/15 text-primary mb-6 group-hover:bg-primary/25 transition-colors">
+                      <service.icon className="w-7 h-7 lg:w-8 lg:h-8" />
                     </div>
 
-                    <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    <h2 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                       {service.title}
                     </h2>
 
-                    <p className="text-muted-foreground font-body text-base lg:text-lg leading-relaxed mb-4">
+                    <p className="text-muted-foreground font-body text-sm lg:text-base leading-relaxed mb-4">
                       {service.description}
                     </p>
 
@@ -146,7 +146,7 @@ const Servicios = () => {
                       {service.keywords.map((kw) => (
                         <span
                           key={kw}
-                          className="text-sm px-3 py-1.5 bg-primary/10 text-primary rounded-full font-medium"
+                          className="text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium"
                         >
                           {kw}
                         </span>
@@ -165,7 +165,7 @@ const Servicios = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-24 lg:py-36 bg-primary/10">
+        <section className="py-20 lg:py-32 bg-primary/10">
           <div className="container mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -173,10 +173,10 @@ const Servicios = () => {
               viewport={{ once: true }}
               className="text-center max-w-4xl mx-auto"
             >
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-8">
                 ¿No sabes qué tratamiento necesitas?
               </h2>
-              <p className="text-xl lg:text-2xl text-muted-foreground mb-10 font-body">
+              <p className="text-lg lg:text-xl text-muted-foreground mb-10 font-body">
                 No te preocupes. En tu primera visita realizamos una valoración completa con
                 ecografía para determinar el tratamiento más adecuado para tu caso.
               </p>

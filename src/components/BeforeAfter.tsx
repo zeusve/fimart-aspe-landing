@@ -12,7 +12,7 @@ const BeforeAfter = () => {
   return (
     <section
       id="diagnostico"
-      className="py-24 lg:py-36 bg-card relative overflow-hidden grain-overlay"
+      className="py-20 lg:py-32 bg-card relative overflow-hidden grain-overlay"
       aria-labelledby="diagnostico-heading"
     >
       {/* Background accents */}
@@ -34,12 +34,12 @@ const BeforeAfter = () => {
             </span>
             <h2
               id="diagnostico-heading"
-              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 tracking-tight"
             >
               VEMOS LO QUE<br />
               <span className="text-primary glow-text">OTROS NO VEN</span>
             </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed mb-8">
+            <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed mb-8">
               Nuestra tecnología de <strong className="text-foreground">ecografía MSK</strong> nos permite ver en tiempo real
               lo que está ocurriendo en tus tejidos para un diagnóstico certero.
             </p>

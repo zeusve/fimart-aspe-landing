@@ -110,12 +110,12 @@ const ServiceLayout = ({
                 <span className="text-sm font-medium text-primary">{subtitle}</span>
               </div>
 
-              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight leading-tight">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight leading-tight">
                 {title}{" "}
                 <span className="text-primary glow-text">en Aspe</span>
               </h1>
 
-              <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed font-body">
+              <p className="text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed font-body">
                 {description}
               </p>
 
@@ -173,7 +173,7 @@ const ServiceLayout = ({
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 lg:py-36 bg-card">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -181,10 +181,10 @@ const ServiceLayout = ({
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               {sectionTitles?.benefits || "Beneficios del tratamiento"}
             </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground font-body">
+            <p className="text-base lg:text-lg text-muted-foreground font-body">
               {sectionTitles?.benefitsSubtitle || "Descubre las ventajas de este tratamiento en nuestra clínica de Aspe."}
             </p>
           </motion.div>
@@ -197,12 +197,12 @@ const ServiceLayout = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-4 p-6 lg:p-8 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors"
+                className="flex items-start gap-4 p-5 lg:p-6 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors"
               >
-                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/20 text-primary flex-shrink-0">
-                  <CheckCircle className="w-6 h-6" />
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/20 text-primary flex-shrink-0">
+                  <CheckCircle className="w-5 h-5" />
                 </div>
-                <p className="text-lg text-foreground font-medium font-body">{benefit}</p>
+                <p className="text-base text-foreground font-medium font-body">{benefit}</p>
               </motion.div>
             ))}
           </div>
@@ -211,15 +211,15 @@ const ServiceLayout = ({
 
       {/* Detailed Content Section */}
       {detailedContent && detailedContent.length > 0 && (
-        <section className="py-24 lg:py-36">
+        <section className="py-20 lg:py-32">
           <div className="container mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center max-w-4xl mx-auto mb-16"
+              className="text-center max-w-4xl mx-auto mb-12"
             >
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 {sectionTitles?.detailed || "Información detallada del tratamiento"}
               </h2>
             </motion.div>
@@ -233,10 +233,10 @@ const ServiceLayout = ({
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4">
                     {section.title}
                   </h3>
-                  <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
+                  <p className="text-base lg:text-lg text-muted-foreground font-body leading-relaxed">
                     {section.content}
                   </p>
                 </motion.div>
@@ -247,18 +247,18 @@ const ServiceLayout = ({
       )}
 
       {/* Conditions Section */}
-      <section className="py-24 lg:py-36">
+      <section className="py-20 lg:py-32">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto mb-16"
+            className="text-center max-w-4xl mx-auto mb-12"
           >
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               {sectionTitles?.conditions || "¿Para qué patologías está indicado?"}
             </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground font-body">
+            <p className="text-base lg:text-lg text-muted-foreground font-body">
               {sectionTitles?.conditionsSubtitle || "Este tratamiento es especialmente efectivo para las siguientes condiciones."}
             </p>
           </motion.div>
@@ -271,10 +271,10 @@ const ServiceLayout = ({
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="flex items-center gap-3 p-5 lg:p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-colors"
+                className="flex items-center gap-3 p-4 lg:p-5 bg-card border border-border rounded-xl hover:border-primary/50 transition-colors"
               >
                 <div className="w-2.5 h-2.5 rounded-full bg-primary flex-shrink-0" />
-                <span className="text-lg text-foreground font-body">{condition}</span>
+                <span className="text-base text-foreground font-body">{condition}</span>
               </motion.div>
             ))}
           </div>
@@ -282,23 +282,23 @@ const ServiceLayout = ({
       </section>
 
       {/* How It Works Section */}
-      <section className="py-24 lg:py-36 bg-card">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto mb-16"
+            className="text-center max-w-4xl mx-auto mb-12"
           >
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               {sectionTitles?.howItWorks || "¿Cómo funciona?"}
             </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground font-body">
+            <p className="text-base lg:text-lg text-muted-foreground font-body">
               {sectionTitles?.howItWorksSubtitle || "Proceso del tratamiento paso a paso."}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {howItWorks.map((step, index) => (
               <motion.div
                 key={step.title}
@@ -306,15 +306,15 @@ const ServiceLayout = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative p-8 bg-background border border-border rounded-xl"
+                className="relative p-6 lg:p-8 bg-background border border-border rounded-xl"
               >
-                <div className="absolute -top-4 left-8 w-10 h-10 flex items-center justify-center bg-primary text-primary-foreground rounded-full font-bold text-base">
+                <div className="absolute -top-4 left-8 w-9 h-9 flex items-center justify-center bg-primary text-primary-foreground rounded-full font-bold text-base">
                   {index + 1}
                 </div>
-                <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-3 mt-2">
+                <h3 className="font-display text-lg lg:text-xl font-bold text-foreground mb-3 mt-2">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground text-base lg:text-lg font-body">
+                <p className="text-muted-foreground text-sm lg:text-base font-body">
                   {step.description}
                 </p>
               </motion.div>
@@ -325,20 +325,20 @@ const ServiceLayout = ({
 
       {/* Expected Results & Aftercare Section */}
       {(expectedResults || (aftercare && aftercare.length > 0)) && (
-        <section className="py-24 lg:py-36">
+        <section className="py-20 lg:py-32">
           <div className="container mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
               {expectedResults && (
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="p-8 lg:p-10 bg-card border border-border rounded-2xl"
+                  className="p-6 lg:p-8 bg-card border border-border rounded-2xl"
                 >
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4">
                     {sectionTitles?.results || "Resultados esperados"}
                   </h3>
-                  <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
+                  <p className="text-base lg:text-lg text-muted-foreground font-body leading-relaxed">
                     {expectedResults}
                   </p>
                 </motion.div>
@@ -349,15 +349,15 @@ const ServiceLayout = ({
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="p-8 lg:p-10 bg-card border border-border rounded-2xl"
+                  className="p-6 lg:p-8 bg-card border border-border rounded-2xl"
                 >
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4">
                     Cuidados posteriores
                   </h3>
                   <ul className="space-y-4">
                     {aftercare.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-lg text-muted-foreground font-body">
-                        <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                      <li key={item} className="flex items-start gap-3 text-base text-muted-foreground font-body">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -370,15 +370,15 @@ const ServiceLayout = ({
       )}
 
       {/* FAQ Section */}
-      <section className="py-24 lg:py-36">
+      <section className="py-20 lg:py-32">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto mb-16"
+            className="text-center max-w-4xl mx-auto mb-12"
           >
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               {sectionTitles?.faq || "Preguntas frecuentes"}
             </h2>
           </motion.div>
@@ -391,13 +391,13 @@ const ServiceLayout = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group p-6 lg:p-8 bg-card border border-border rounded-xl cursor-pointer"
+                className="group p-5 lg:p-6 bg-card border border-border rounded-xl cursor-pointer"
               >
-                <summary className="flex items-center justify-between font-display text-lg lg:text-xl font-bold text-foreground list-none">
+                <summary className="flex items-center justify-between font-display text-base lg:text-lg font-bold text-foreground list-none">
                   {faq.question}
                   <span className="ml-4 text-primary transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-4 text-lg text-muted-foreground font-body leading-relaxed">
+                <p className="mt-4 text-base text-muted-foreground font-body leading-relaxed">
                   {faq.answer}
                 </p>
               </motion.details>
@@ -407,7 +407,7 @@ const ServiceLayout = ({
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-36 bg-primary/10">
+      <section className="py-20 lg:py-32 bg-primary/10">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -415,10 +415,10 @@ const ServiceLayout = ({
             viewport={{ once: true }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-8">
               ¿Listo para comenzar tu recuperación?
             </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground mb-10 font-body">
+            <p className="text-lg lg:text-xl text-muted-foreground mb-10 font-body">
               Contacta con nosotros para una valoración personalizada sin compromiso.
             </p>
 

@@ -27,14 +27,14 @@ const NotFound = () => {
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="text-center max-w-3xl mx-auto"
             >
-              <span className="font-display text-[10rem] sm:text-[14rem] lg:text-[18rem] font-bold text-primary/10 leading-none select-none block">
+              <span className="font-display text-[8rem] sm:text-[12rem] lg:text-[14rem] font-bold text-primary/10 leading-none select-none block">
                 404
               </span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight -mt-16 sm:-mt-20">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight -mt-16 sm:-mt-20">
                 Página no{" "}
                 <span className="text-primary glow-text">encontrada</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground mb-10 font-body leading-relaxed">
+              <p className="text-lg lg:text-xl text-muted-foreground mb-10 font-body leading-relaxed">
                 Lo sentimos, la página que buscas no existe o ha sido movida.
               </p>
               <Button

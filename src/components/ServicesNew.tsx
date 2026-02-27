@@ -70,7 +70,7 @@ const ServicesNew = () => {
   return (
     <section
       id="tratamientos"
-      className="py-24 lg:py-36 bg-card relative overflow-hidden grain-overlay"
+      className="py-20 lg:py-32 bg-card relative overflow-hidden grain-overlay"
       aria-labelledby="tratamientos-heading"
     >
       <GridBackground variant="lines" size={60} />
@@ -86,12 +86,12 @@ const ServicesNew = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-center max-w-5xl mx-auto mb-16"
+          className="text-center max-w-5xl mx-auto mb-12"
         >
           <SectionBadge variant="primary">Nuestros Servicios</SectionBadge>
           <h2
             id="tratamientos-heading"
-            className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight leading-tight"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-8 tracking-tight leading-tight"
           >
             Tratamientos de fisioterapia en Aspe{" "}
             <span className="text-primary">adaptados a ti</span>
@@ -99,7 +99,7 @@ const ServicesNew = () => {
         </motion.header>
 
         {/* Services Grid */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-10 mb-16" role="list">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12" role="list">
           {services.map((service, index) => {
             const colors = accentClasses[service.accent];
             return (
@@ -117,16 +117,16 @@ const ServicesNew = () => {
                   scale: 1.03,
                   transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
-                className={`group relative overflow-hidden rounded-2xl border border-border bg-background/50 backdrop-blur-sm ${colors.border} transition-all duration-500 p-8 lg:p-10`}
+                className={`group relative overflow-hidden rounded-2xl border border-border bg-background/50 backdrop-blur-sm ${colors.border} transition-all duration-500 p-6 lg:p-8`}
               >
                 <article className="relative z-10">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 rounded-2xl border mb-6 ${colors.icon} ${colors.hover} group-hover:shadow-lg transition-shadow duration-300`} aria-hidden="true">
-                    <service.icon className="w-8 h-8 lg:w-10 lg:h-10" />
+                  <div className={`inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-2xl border mb-6 ${colors.icon} ${colors.hover} group-hover:shadow-lg transition-shadow duration-300`} aria-hidden="true">
+                    <service.icon className="w-7 h-7 lg:w-8 lg:h-8" />
                   </div>
-                  <h3 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors tracking-wide">
+                  <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors tracking-wide">
                     {service.title}
                   </h3>
-                  <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed font-body">
+                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed font-body">
                     {service.description}
                   </p>
                 </article>
@@ -162,14 +162,14 @@ const ServicesNew = () => {
           className="text-center max-w-5xl mx-auto mb-14"
         >
           <SectionBadge variant="secondary">¿Por qué nosotros?</SectionBadge>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-8 tracking-tight leading-tight">
             Por qué elegir{" "}
             <span className="text-primary glow-text">FIMART en Aspe</span>
           </h2>
         </motion.div>
 
         {/* Benefits Grid */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-10" role="list">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8" role="list">
           {benefits.map((benefit, index) => {
             const colors = accentClasses[benefit.accent];
             return (
@@ -179,12 +179,12 @@ const ServicesNew = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`flex items-start gap-5 p-8 lg:p-10 bg-background/50 backdrop-blur-sm border border-border rounded-2xl ${colors.border} transition-colors duration-300`}
+                className={`flex items-start gap-5 p-6 lg:p-8 bg-background/50 backdrop-blur-sm border border-border rounded-2xl ${colors.border} transition-colors duration-300`}
               >
                 <div className={`flex items-center justify-center w-14 h-14 rounded-xl flex-shrink-0 ${colors.icon}`} aria-hidden="true">
                   <benefit.icon className="w-7 h-7" />
                 </div>
-                <p className="text-lg lg:text-xl text-foreground font-medium font-body leading-snug">
+                <p className="text-base lg:text-lg text-foreground font-medium font-body leading-snug">
                   {benefit.text}
                 </p>
               </motion.li>

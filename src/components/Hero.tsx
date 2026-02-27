@@ -77,15 +77,15 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             {/* Línea 1: keyword SEO principal */}
-            <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-foreground mb-2">
+            <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-foreground mb-2">
               Fisioterapia en Aspe
             </span>
             {/* Línea 2: contexto */}
-            <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-medium mb-4">
+            <span className="block text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-muted-foreground font-medium mb-4">
               Clínica Fisioterapia Avanzada
             </span>
             {/* Línea 3: FIMART protagonista */}
-            <span className="block text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] tracking-tighter leading-none text-primary glow-text">
+            <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] tracking-tighter leading-none text-primary glow-text">
               FIMART
             </span>
           </motion.h1>
@@ -103,7 +103,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
-            className="font-body text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed"
+            className="font-body text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed"
           >
             Recupera tu movilidad y calidad de vida con tratamientos personalizados.
             <strong className="text-foreground"> Diagnóstico preciso, resultados duraderos.</strong>

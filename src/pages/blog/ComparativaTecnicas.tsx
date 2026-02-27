@@ -21,7 +21,7 @@ const ComparativaTecnicas = () => {
         <Header />
 
         {/* Hero */}
-        <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
+        <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
           <GridBackground variant="lines" size={60} />
           <div className="container mx-auto relative z-10">
             <motion.div
@@ -55,7 +55,7 @@ const ComparativaTecnicas = () => {
               <span className="inline-block text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4">
                 Tratamientos
               </span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight leading-tight">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-8 tracking-tight leading-tight">
                 EPI vs Punción Seca vs Ondas de Choque:{" "}
                 <span className="text-primary glow-text">¿Cuál Necesitas?</span>
               </h1>
@@ -74,7 +74,7 @@ const ComparativaTecnicas = () => {
         </section>
 
         {/* Article Content */}
-        <section className="py-16 lg:py-28">
+        <section className="py-14 lg:py-24">
           <div className="container mx-auto">
             <article className="max-w-4xl mx-auto">
 
@@ -85,7 +85,7 @@ const ComparativaTecnicas = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   ¿Por qué se confunden estas técnicas?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -106,7 +106,7 @@ const ComparativaTecnicas = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   ¿Qué es la EPI (Electrólisis Percutánea Intratisular)?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -131,7 +131,7 @@ const ComparativaTecnicas = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   ¿Qué es la punción seca?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -152,7 +152,7 @@ const ComparativaTecnicas = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   ¿Qué es la terapia por ondas de choque?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -177,7 +177,7 @@ const ComparativaTecnicas = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   Tabla comparativa: EPI vs Punción Seca vs Ondas de Choque
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -291,7 +291,7 @@ const ComparativaTecnicas = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   ¿Se pueden combinar estas técnicas?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -326,7 +326,7 @@ const ComparativaTecnicas = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   ¿Cómo elegir el tratamiento adecuado?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -365,7 +365,7 @@ const ComparativaTecnicas = () => {
                 transition={{ duration: 0.5 }}
                 className="mt-16 p-8 bg-card border border-border rounded-2xl text-center"
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">
                   ¿No sabes qué tratamiento necesitas?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6 max-w-xl mx-auto">

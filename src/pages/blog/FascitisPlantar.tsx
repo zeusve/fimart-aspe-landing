@@ -21,7 +21,7 @@ const FascitisPlantar = () => {
         <Header />
 
         {/* Hero */}
-        <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
+        <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
           <GridBackground variant="lines" size={60} />
           <div className="container mx-auto relative z-10">
             <motion.div
@@ -55,7 +55,7 @@ const FascitisPlantar = () => {
               <span className="inline-block text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4">
                 Patologías
               </span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight leading-tight">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-8 tracking-tight leading-tight">
                 Fascitis Plantar: Causas, Síntomas y Tratamiento con{" "}
                 <span className="text-primary glow-text">Fisioterapia</span>
               </h1>
@@ -74,7 +74,7 @@ const FascitisPlantar = () => {
         </section>
 
         {/* Article Content */}
-        <section className="py-16 lg:py-28">
+        <section className="py-14 lg:py-24">
           <div className="container mx-auto">
             <article className="max-w-4xl mx-auto">
 
@@ -85,7 +85,7 @@ const FascitisPlantar = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <p className="text-muted-foreground font-body leading-relaxed mb-6 text-xl lg:text-2xl">
+                <p className="text-muted-foreground font-body leading-relaxed mb-6 text-lg">
                   La fascitis plantar es una de las causas más frecuentes de dolor en el talón y la planta del pie. Se estima que afecta a cerca del 10 % de la población en algún momento de su vida, siendo especialmente prevalente en personas de entre 40 y 60 años, corredores y trabajadores que permanecen muchas horas de pie. En la Clínica FIMART de Aspe contamos con tecnología avanzada y un enfoque multidisciplinar para tratar esta patología de forma eficaz y sin cirugía.
                 </p>
               </motion.div>
@@ -97,7 +97,7 @@ const FascitisPlantar = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   ¿Qué es la fascitis plantar?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -118,7 +118,7 @@ const FascitisPlantar = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   Causas y factores de riesgo
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -153,7 +153,7 @@ const FascitisPlantar = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   Síntomas principales
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -185,7 +185,7 @@ const FascitisPlantar = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   Diagnóstico: la importancia de la ecografía
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -224,7 +224,7 @@ const FascitisPlantar = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   Tratamientos de fisioterapia más efectivos
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -290,7 +290,7 @@ const FascitisPlantar = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   ¿Cuánto tarda en curarse la fascitis plantar?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -319,7 +319,7 @@ const FascitisPlantar = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
                   Prevención de la fascitis plantar
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -355,7 +355,7 @@ const FascitisPlantar = () => {
                 transition={{ duration: 0.5 }}
                 className="mt-16 p-8 bg-card border border-border rounded-2xl text-center"
               >
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">
                   ¿Sufres dolor en el talón?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6 max-w-xl mx-auto">

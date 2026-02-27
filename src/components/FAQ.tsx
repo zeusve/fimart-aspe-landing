@@ -74,7 +74,7 @@ const FAQ = () => {
   return (
     <section
       id="faq"
-      className="py-24 lg:py-36 bg-background relative overflow-hidden"
+      className="py-20 lg:py-32 bg-background relative overflow-hidden"
       aria-labelledby="faq-heading"
     >
       {/* Background accents */}
@@ -95,12 +95,12 @@ const FAQ = () => {
             <SectionBadge variant="primary">Resolvemos tus dudas</SectionBadge>
             <h2
               id="faq-heading"
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 tracking-tight leading-tight"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-8 tracking-tight leading-tight"
             >
               Preguntas frecuentes sobre{" "}
               <span className="text-primary">fisioterapia en Aspe</span>
             </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed mb-10">
+            <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed mb-10">
               ¿Tienes alguna duda que no aparece aquí? No dudes en contactarnos, estaremos encantados de ayudarte.
             </p>
             <CTAButton
@@ -126,12 +126,12 @@ const FAQ = () => {
                   className="bg-card border border-border rounded-xl overflow-hidden px-0 data-[state=open]:border-primary/40 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/5 transition-all duration-300"
                 >
                   <AccordionTrigger className="px-6 lg:px-8 py-6 hover:no-underline hover:bg-muted/30 transition-colors text-left">
-                    <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground tracking-wide pr-4 text-left">
+                    <h3 className="font-display text-lg lg:text-xl font-bold text-foreground tracking-wide pr-4 text-left">
                       {faq.question}
                     </h3>
                   </AccordionTrigger>
                   <AccordionContent className="px-6 lg:px-8 pb-8">
-                    <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed font-body">
+                    <p className="text-base lg:text-lg text-muted-foreground leading-relaxed font-body">
                       {faq.answer}
                     </p>
                   </AccordionContent>

@@ -161,7 +161,7 @@ const Services = () => {
   return (
     <section 
       id="tecnologia" 
-      className="py-24 lg:py-36 bg-background relative overflow-hidden"
+      className="py-20 lg:py-32 bg-background relative overflow-hidden"
       aria-labelledby="tecnologia-heading"
     >
       <GridBackground variant="lines" size={60} />
@@ -174,23 +174,23 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
           <SectionBadge variant="primary">Tecnología Avanzada</SectionBadge>
           <h2
             id="tecnologia-heading"
-            className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 tracking-tight"
           >
             NUESTROS<br />
             <span className="text-primary glow-text">TRATAMIENTOS</span>
           </h2>
-          <p className="text-xl lg:text-2xl text-muted-foreground font-body">
+          <p className="text-lg lg:text-xl text-muted-foreground font-body">
             Combinamos la <strong>terapia manual experta</strong> con la última tecnología para acelerar tu recuperación.
           </p>
         </motion.div>
 
         {/* UNIFORM GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {bentoServices.map((service, index) => {
             const accentColor = service.accent || "primary";
             const accentStyles: Record<string, { icon: string; badge: string; link: string; ring: string }> = {
@@ -263,17 +263,17 @@ const Services = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 lg:p-8 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-xl border mb-4 shadow-lg transition-shadow duration-300 ${styles.icon}`}>
-                    <service.icon className="w-7 h-7 lg:w-8 lg:h-8" />
+                <div className="p-5 lg:p-6 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-xl border mb-4 shadow-lg transition-shadow duration-300 ${styles.icon}`}>
+                    <service.icon className="w-6 h-6 lg:w-7 lg:h-7" />
                   </div>
-                  <h4 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors tracking-wide">
+                  <h4 className="font-display text-lg lg:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors tracking-wide">
                     {service.title}
                   </h4>
                   <p className={`text-sm font-medium mb-3 ${styles.link.split(' ')[0]}`}>
                     {service.subtitle}
                   </p>
-                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed font-body flex-grow mb-5">
+                  <p className="text-sm lg:text-base text-muted-foreground leading-relaxed font-body flex-grow mb-5">
                     {service.description}
                   </p>
                   <Link
@@ -319,11 +319,11 @@ const Services = () => {
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <SectionBadge variant="secondary">Especialidades</SectionBadge>
-          <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 tracking-tight">
             ¿QUÉ<br />
             <span className="text-primary glow-text">TRATAMOS?</span>
           </h2>
-          <p className="text-xl lg:text-2xl text-muted-foreground font-body">
+          <p className="text-lg lg:text-xl text-muted-foreground font-body">
             Tratamiento especializado de lesiones por zonas del cuerpo.
           </p>
         </motion.div>

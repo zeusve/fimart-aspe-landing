@@ -36,7 +36,7 @@ const Specialist = () => {
   return (
     <section
       id="especialista"
-      className="py-24 lg:py-36 bg-background relative overflow-hidden"
+      className="py-20 lg:py-32 bg-background relative overflow-hidden"
       aria-labelledby="especialista-heading"
     >
       <GridBackground variant="dots" size={40} />
@@ -106,19 +106,19 @@ const Specialist = () => {
 
             <h2
               id="especialista-heading"
-              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 tracking-tight"
             >
               TU FISIO<br />
               <span className="text-primary glow-text">EN ASPE</span>
             </h2>
 
-            <p className="text-xl lg:text-2xl text-muted-foreground mb-6 leading-relaxed font-body">
+            <p className="text-lg lg:text-xl text-muted-foreground mb-6 leading-relaxed font-body">
               Desde 2014, en <strong className="text-foreground font-semibold">FIMART</strong> combinamos
               la valoración precisa con la última tecnología para que recuperes tu calidad
               de vida en tiempo récord.
             </p>
 
-            <p className="text-xl lg:text-2xl text-muted-foreground mb-10 leading-relaxed font-body">
+            <p className="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed font-body">
               Mi filosofía se basa en <strong className="text-foreground font-semibold">valorar, diagnosticar
               y tratar</strong> utilizando la tecnología más avanzada del sector.
             </p>
@@ -135,11 +135,11 @@ const Specialist = () => {
                   whileHover={{ scale: 1.05 }}
                   className="group text-center sm:text-left"
                 >
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl border mb-4 group-hover:shadow-lg transition-shadow duration-300 ${colorMap[item.color]}`} aria-hidden="true">
-                    <item.icon className="w-8 h-8" />
+                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl border mb-4 group-hover:shadow-lg transition-shadow duration-300 ${colorMap[item.color]}`} aria-hidden="true">
+                    <item.icon className="w-7 h-7" />
                   </div>
-                  <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-2 tracking-wide">{item.title}</h3>
-                  <p className="text-base lg:text-lg text-muted-foreground font-body">{item.description}</p>
+                  <h3 className="font-display text-lg lg:text-xl font-bold text-foreground mb-2 tracking-wide">{item.title}</h3>
+                  <p className="text-sm lg:text-base text-muted-foreground font-body">{item.description}</p>
                 </motion.li>
               ))}
             </ul>
