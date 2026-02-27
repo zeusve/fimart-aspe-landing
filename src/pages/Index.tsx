@@ -15,7 +15,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Fisioterapia en Aspe | Clínica FIMART - Desde 2014"
-        description="Clínica de fisioterapia en Aspe con más de 10 años de experiencia. Terapia manual, rehabilitación funcional, EPI y ecografía MSK. Valoración 4.9★ en Google. Pide cita: 652 667 953."
+        description="Clínica de fisioterapia en Aspe con más de 14 años de experiencia. Terapia manual, rehabilitación funcional, EPI y ecografía MSK. Valoración 4.9★ en Google. Pide cita: 652 667 953."
         path="/"
         keywords="fisioterapia Aspe, fisioterapeuta Aspe, clínica fisioterapia Alicante, rehabilitación Aspe, terapia manual Aspe, EPI Aspe, ondas de choque Aspe"
       />

@@ -44,6 +44,7 @@ const Services = () => {
       alt: "neurología neuromodulación aspe",
       featured: true,
       link: "/fisioterapia-neurologica-aspe",
+      accent: "secondary",
     },
     {
       icon: Zap,
@@ -55,6 +56,7 @@ const Services = () => {
       alt: "epi electrolisis percutanea aspe",
       featured: false,
       link: "/epi-electrolisis-percutanea-aspe",
+      accent: "primary",
     },
     {
       icon: Scan,
@@ -66,6 +68,7 @@ const Services = () => {
       alt: "ecografo msk aspe",
       featured: false,
       link: "/ecografia-musculoesqueletica-aspe",
+      accent: "accent",
     },
     {
       icon: Waves,
@@ -77,6 +80,7 @@ const Services = () => {
       alt: "ondas de choque radiales aspe",
       featured: false,
       link: "/ondas-de-choque-aspe",
+      accent: "secondary",
     },
     {
       icon: Radio,
@@ -88,6 +92,7 @@ const Services = () => {
       alt: "laser terapeutico aspe",
       featured: false,
       link: "/laser-terapeutico-aspe",
+      accent: "primary",
     },
     {
       icon: Target,
@@ -99,6 +104,7 @@ const Services = () => {
       alt: "diatermia tecar aspe",
       featured: false,
       link: "/diatermia-tecar-aspe",
+      accent: "accent",
     },
   ];
 
@@ -155,12 +161,12 @@ const Services = () => {
   return (
     <section 
       id="tecnologia" 
-      className="py-20 lg:py-32 bg-background relative overflow-hidden"
+      className="py-24 lg:py-36 bg-background relative overflow-hidden"
       aria-labelledby="tecnologia-heading"
     >
       <GridBackground variant="lines" size={60} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto relative z-10">
         
         {/* Section Header */}
         <motion.div
@@ -171,109 +177,119 @@ const Services = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <SectionBadge variant="primary">Tecnología Avanzada</SectionBadge>
-          <h2 
+          <h2
             id="tecnologia-heading"
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight"
+            className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight"
           >
             NUESTROS<br />
             <span className="text-primary glow-text">TRATAMIENTOS</span>
           </h2>
-          <p className="text-lg text-muted-foreground font-body">
+          <p className="text-xl lg:text-2xl text-muted-foreground font-body">
             Combinamos la <strong>terapia manual experta</strong> con la última tecnología para acelerar tu recuperación.
           </p>
         </motion.div>
 
         {/* UNIFORM GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 mb-16">
-          {bentoServices.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 0.5, 
-                delay: index * 0.1,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-              whileHover={{ 
-                scale: 1.03,
-                transition: { type: "spring", stiffness: 300, damping: 20 }
-              }}
-              className={`
-                group relative overflow-hidden rounded-2xl border border-border 
-                bg-gradient-to-br from-card to-card/50
-                hover:border-primary/50 transition-all duration-500
-                flex flex-col h-full
-                ${service.featured ? 'ring-2 ring-primary/30 ring-offset-2 ring-offset-background' : ''}
-              `}
-            >
-              {/* Glow Effect on Hover */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+          {bentoServices.map((service, index) => {
+            const accentColor = service.accent || "primary";
+            const accentStyles: Record<string, { icon: string; badge: string; link: string; ring: string }> = {
+              primary: {
+                icon: "bg-primary/20 text-primary border-primary/30 shadow-primary/20 group-hover:shadow-primary/40",
+                badge: "bg-primary text-primary-foreground shadow-primary/30",
+                link: "text-primary hover:text-primary/80",
+                ring: "ring-primary/30",
+              },
+              secondary: {
+                icon: "bg-secondary/20 text-secondary border-secondary/30 shadow-secondary/20 group-hover:shadow-secondary/40",
+                badge: "bg-secondary text-secondary-foreground shadow-secondary/30",
+                link: "text-secondary hover:text-secondary/80",
+                ring: "ring-secondary/30",
+              },
+              accent: {
+                icon: "bg-accent/20 text-accent border-accent/30 shadow-accent/20 group-hover:shadow-accent/40",
+                badge: "bg-accent text-accent-foreground shadow-accent/30",
+                link: "text-accent hover:text-accent/80",
+                ring: "ring-accent/30",
+              },
+            };
+            const styles = accentStyles[accentColor];
+
+            return (
               <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 pointer-events-none"
-              />
-              
-              {/* Badge */}
-              <div className="absolute top-4 right-4 z-20">
-                <span className={`px-3 py-1 text-xs font-bold rounded-full shadow-lg ${
-                  service.featured 
-                    ? 'bg-primary text-primary-foreground shadow-primary/30' 
-                    : 'bg-muted text-foreground border border-border'
-                }`}>
-                  {service.badge}
-                </span>
-              </div>
-
-              {/* Image - Fixed Height */}
-              <div className="relative overflow-hidden h-44">
-                <img
-                  src={service.image}
-                  alt={`${service.title} - Tratamiento de fisioterapia en Clínica FIMART Aspe: ${service.description}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                  width={400}
-                  height={176}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" aria-hidden="true" />
-              </div>
-
-              {/* Content - Flex grow to fill space */}
-              <div className="p-5 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
-                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl border mb-3 shadow-lg transition-shadow duration-300 ${
-                  service.featured
-                    ? 'bg-primary/20 text-primary border-primary/30 shadow-primary/20 group-hover:shadow-primary/40'
-                    : 'bg-secondary/20 text-secondary border-secondary/30 shadow-secondary/20 group-hover:shadow-secondary/40'
-                }`}>
-                  <service.icon className="w-6 h-6" />
-                </div>
-                <h4 className="font-display text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors tracking-wide">
-                  {service.title}
-                </h4>
-                <p className={`text-xs font-medium mb-2 ${service.featured ? 'text-primary' : 'text-secondary'}`}>
-                  {service.subtitle}
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed font-body flex-grow mb-4">
-                  {service.description}
-                </p>
-                <Link
-                  to={service.link}
-                  className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                whileHover={{
+                  scale: 1.03,
+                  transition: { type: "spring", stiffness: 300, damping: 20 }
+                }}
+                className={`
+                  group relative overflow-hidden rounded-2xl border border-border
+                  bg-gradient-to-br from-card to-card/50
+                  hover:border-primary/50 transition-all duration-500
+                  flex flex-col h-full
+                  ${service.featured ? `ring-2 ${styles.ring} ring-offset-2 ring-offset-background` : ''}
+                `}
+              >
+                {/* Badge */}
+                <div className="absolute top-4 right-4 z-20">
+                  <span className={`px-3 py-1 text-xs font-bold rounded-full shadow-lg ${
                     service.featured
-                      ? 'text-primary hover:text-primary/80'
-                      : 'text-secondary hover:text-secondary/80'
-                  }`}
-                >
-                  Ver más información
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
+                      ? styles.badge
+                      : 'bg-muted text-foreground border border-border'
+                  }`}>
+                    {service.badge}
+                  </span>
+                </div>
 
-              {/* Border Glow */}
-              <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-colors duration-300 pointer-events-none" />
-            </motion.div>
-          ))}
+                {/* Image - Fixed Height */}
+                <div className="relative overflow-hidden h-44">
+                  <img
+                    src={service.image}
+                    alt={`${service.title} - Tratamiento de fisioterapia en Clínica FIMART Aspe: ${service.description}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    width={400}
+                    height={176}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" aria-hidden="true" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6 lg:p-8 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
+                  <div className={`inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-xl border mb-4 shadow-lg transition-shadow duration-300 ${styles.icon}`}>
+                    <service.icon className="w-7 h-7 lg:w-8 lg:h-8" />
+                  </div>
+                  <h4 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors tracking-wide">
+                    {service.title}
+                  </h4>
+                  <p className={`text-sm font-medium mb-3 ${styles.link.split(' ')[0]}`}>
+                    {service.subtitle}
+                  </p>
+                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed font-body flex-grow mb-5">
+                    {service.description}
+                  </p>
+                  <Link
+                    to={service.link}
+                    className={`inline-flex items-center gap-2 text-base font-medium transition-colors ${styles.link}`}
+                  >
+                    Ver más información
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+
+                {/* Border Glow */}
+                <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-colors duration-300 pointer-events-none" />
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* CTA */}
@@ -303,11 +319,11 @@ const Services = () => {
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <SectionBadge variant="secondary">Especialidades</SectionBadge>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+          <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight">
             ¿QUÉ<br />
-            <span className="text-secondary">TRATAMOS?</span>
+            <span className="text-primary glow-text">TRATAMOS?</span>
           </h2>
-          <p className="text-lg text-muted-foreground font-body">
+          <p className="text-xl lg:text-2xl text-muted-foreground font-body">
             Tratamiento especializado de lesiones por zonas del cuerpo.
           </p>
         </motion.div>
@@ -318,7 +334,7 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
           <Accordion type="single" collapsible className="space-y-4">
             {bodyZones.map((zone) => (

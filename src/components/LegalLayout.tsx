@@ -14,8 +14,8 @@ const LegalLayout = ({ title, lastUpdated, children }: LegalLayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <main className="pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,15 +30,15 @@ const LegalLayout = ({ title, lastUpdated, children }: LegalLayoutProps) => {
             </Link>
 
             <header className="mb-12">
-              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-6">
                 {title}
               </h1>
-              <p className="text-muted-foreground">
+              <p className="text-lg text-muted-foreground">
                 Última actualización: {lastUpdated}
               </p>
             </header>
 
-            <article className="prose prose-invert max-w-none prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
+            <article className="prose prose-lg prose-invert max-w-5xl prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
               {children}
             </article>
           </motion.div>

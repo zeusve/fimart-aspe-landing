@@ -37,7 +37,7 @@ const Header = () => {
       </a>
 
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/15">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/">
@@ -180,7 +180,7 @@ const Header = () => {
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="lg:hidden bg-card/95 backdrop-blur-xl border-b border-border"
           >
-            <nav className="container mx-auto px-4 py-6 space-y-4">
+            <nav className="container mx-auto py-6 space-y-4">
               <motion.a
                 href="/#especialista"
                 onClick={() => setIsMenuOpen(false)}

@@ -72,9 +72,9 @@ const Servicios = () => {
         <Header />
 
         {/* Hero */}
-        <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden">
+        <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
           <GridBackground variant="lines" size={60} />
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,23 +101,23 @@ const Servicios = () => {
               transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight">
                 Nuestros{" "}
-                <span className="text-primary">Servicios</span>
+                <span className="text-primary glow-text">Servicios</span>
               </h1>
-              <p className="text-lg text-muted-foreground font-body leading-relaxed">
+              <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
                 Tecnología de vanguardia y terapia manual avanzada para ofrecerte el tratamiento
                 más efectivo. Cada servicio cuenta con equipamiento de última generación y la
-                experiencia de más de 10 años.
+                experiencia de más de 14 años.
               </p>
             </motion.div>
           </div>
         </section>
 
         {/* Services Grid */}
-        <section className="py-16 lg:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <section className="py-24 lg:py-36">
+          <div className="container mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {services.map((service, index) => (
                 <motion.div
                   key={service.href}
@@ -128,17 +128,17 @@ const Servicios = () => {
                 >
                   <Link
                     to={service.href}
-                    className="group block h-full p-8 bg-card border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                    className="group block h-full p-8 lg:p-10 bg-card border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                   >
-                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/15 text-primary mb-6 group-hover:bg-primary/25 transition-colors">
-                      <service.icon className="w-7 h-7" />
+                    <div className="flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-primary/15 text-primary mb-6 group-hover:bg-primary/25 transition-colors">
+                      <service.icon className="w-8 h-8 lg:w-10 lg:h-10" />
                     </div>
 
-                    <h2 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                       {service.title}
                     </h2>
 
-                    <p className="text-muted-foreground font-body text-sm leading-relaxed mb-4">
+                    <p className="text-muted-foreground font-body text-base lg:text-lg leading-relaxed mb-4">
                       {service.description}
                     </p>
 
@@ -146,14 +146,14 @@ const Servicios = () => {
                       {service.keywords.map((kw) => (
                         <span
                           key={kw}
-                          className="text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium"
+                          className="text-sm px-3 py-1.5 bg-primary/10 text-primary rounded-full font-medium"
                         >
                           {kw}
                         </span>
                       ))}
                     </div>
 
-                    <span className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
+                    <span className="inline-flex items-center gap-1 text-base font-medium text-primary group-hover:gap-2 transition-all">
                       Ver tratamiento
                       <ArrowRight className="w-4 h-4" />
                     </span>
@@ -165,18 +165,18 @@ const Servicios = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 lg:py-24 bg-primary/10">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-24 lg:py-36 bg-primary/10">
+          <div className="container mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center max-w-2xl mx-auto"
+              className="text-center max-w-4xl mx-auto"
             >
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-6">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8">
                 ¿No sabes qué tratamiento necesitas?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 font-body">
+              <p className="text-xl lg:text-2xl text-muted-foreground mb-10 font-body">
                 No te preocupes. En tu primera visita realizamos una valoración completa con
                 ecografía para determinar el tratamiento más adecuado para tu caso.
               </p>

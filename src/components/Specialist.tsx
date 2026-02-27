@@ -10,29 +10,41 @@ const Specialist = () => {
     {
       icon: Award,
       title: "Desde 2014",
-      description: "Más de una década de experiencia clínica",
+      description: "Más de 14 años de experiencia clínica",
+      color: "primary",
     },
     {
       icon: Heart,
       title: "Diagnóstico Preciso",
       description: "Valoración con tecnología avanzada",
+      color: "secondary",
     },
     {
       icon: Target,
       title: "Solución de Raíz",
       description: "Buscamos el origen, no solo el síntoma",
+      color: "accent",
     },
   ];
 
+  const colorMap: Record<string, string> = {
+    primary: "bg-primary/15 text-primary border-primary/30",
+    secondary: "bg-secondary/15 text-secondary border-secondary/30",
+    accent: "bg-accent/15 text-accent border-accent/30",
+  };
+
   return (
-    <section 
-      id="especialista" 
-      className="py-20 lg:py-32 bg-muted/20 relative overflow-hidden"
+    <section
+      id="especialista"
+      className="py-24 lg:py-36 bg-background relative overflow-hidden"
       aria-labelledby="especialista-heading"
     >
       <GridBackground variant="dots" size={40} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Decorative blob */}
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true" />
+
+      <div className="container mx-auto relative z-10">
         {/* Split Screen Layout */}
         <article className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
@@ -44,14 +56,15 @@ const Specialist = () => {
             className="relative order-2 lg:order-1"
           >
             <div className="relative max-w-md mx-auto lg:mx-0">
-              {/* Decorative Glow */}
+              {/* Decorative frame */}
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent rounded-2xl blur-xl" aria-hidden="true" />
-              
+              <div className="absolute -inset-[2px] bg-gradient-to-br from-primary/30 via-transparent to-secondary/30 rounded-2xl" aria-hidden="true" />
+
               {/* Main image container */}
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border shadow-2xl shadow-primary/10"
+                className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10"
               >
                 <picture>
                   <source srcSet={specialistImageWebp} type="image/webp" />
@@ -66,14 +79,14 @@ const Specialist = () => {
                   />
                 </picture>
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" aria-hidden="true" />
-                
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" aria-hidden="true" />
+
                 {/* Name overlay */}
                 <figcaption className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="font-display text-xl font-bold text-foreground tracking-wide">
                     RAFAEL FERMÍN
                   </p>
-                  <p className="text-sm text-primary font-medium">
+                  <p className="text-sm text-primary font-semibold">
                     Fisioterapeuta Colegiado
                   </p>
                 </figcaption>
@@ -90,28 +103,28 @@ const Specialist = () => {
             className="order-1 lg:order-2"
           >
             <SectionBadge variant="secondary">Conoce a tu Fisioterapeuta</SectionBadge>
-            
-            <h2 
+
+            <h2
               id="especialista-heading"
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight"
             >
               TU FISIO<br />
-              <span className="text-secondary">EN ASPE</span>
+              <span className="text-primary glow-text">EN ASPE</span>
             </h2>
-            
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed font-body">
-              Desde 2014, en <strong className="text-foreground font-semibold">FIMART</strong> combinamos 
-              la valoración precisa con la última tecnología para que recuperes tu calidad 
+
+            <p className="text-xl lg:text-2xl text-muted-foreground mb-6 leading-relaxed font-body">
+              Desde 2014, en <strong className="text-foreground font-semibold">FIMART</strong> combinamos
+              la valoración precisa con la última tecnología para que recuperes tu calidad
               de vida en tiempo récord.
             </p>
-            
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed font-body">
-              Mi filosofía se basa en <strong className="text-foreground font-semibold">valorar, diagnosticar 
+
+            <p className="text-xl lg:text-2xl text-muted-foreground mb-10 leading-relaxed font-body">
+              Mi filosofía se basa en <strong className="text-foreground font-semibold">valorar, diagnosticar
               y tratar</strong> utilizando la tecnología más avanzada del sector.
             </p>
 
-            {/* Highlights Grid */}
-            <ul className="grid sm:grid-cols-3 gap-6" role="list">
+            {/* Highlights */}
+            <ul className="grid sm:grid-cols-3 gap-8" role="list">
               {highlights.map((item, index) => (
                 <motion.li
                   key={item.title}
@@ -122,11 +135,11 @@ const Specialist = () => {
                   whileHover={{ scale: 1.05 }}
                   className="group text-center sm:text-left"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/20 text-secondary border border-secondary/30 mb-3 group-hover:shadow-lg group-hover:shadow-secondary/20 transition-shadow duration-300" aria-hidden="true">
-                    <item.icon className="w-6 h-6" />
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl border mb-4 group-hover:shadow-lg transition-shadow duration-300 ${colorMap[item.color]}`} aria-hidden="true">
+                    <item.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="font-display font-bold text-foreground mb-1 tracking-wide">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground font-body">{item.description}</p>
+                  <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-2 tracking-wide">{item.title}</h3>
+                  <p className="text-base lg:text-lg text-muted-foreground font-body">{item.description}</p>
                 </motion.li>
               ))}
             </ul>

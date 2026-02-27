@@ -21,9 +21,9 @@ const TendinitisHombro = () => {
         <Header />
 
         {/* Hero */}
-        <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden">
+        <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
           <GridBackground variant="lines" size={60} />
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -55,9 +55,9 @@ const TendinitisHombro = () => {
               <span className="inline-block text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4">
                 Patologías
               </span>
-              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight leading-tight">
                 Tendinitis del Manguito Rotador: Diagnóstico y{" "}
-                <span className="text-primary">Rehabilitación</span>
+                <span className="text-primary glow-text">Rehabilitación</span>
               </h1>
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1.5">
@@ -74,9 +74,9 @@ const TendinitisHombro = () => {
         </section>
 
         {/* Article Content */}
-        <section className="py-12 lg:py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <article className="max-w-3xl mx-auto">
+        <section className="py-16 lg:py-28">
+          <div className="container mx-auto">
+            <article className="max-w-4xl mx-auto">
 
               {/* Introducción */}
               <motion.div
@@ -85,7 +85,7 @@ const TendinitisHombro = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <p className="text-muted-foreground font-body leading-relaxed mb-6 text-lg">
+                <p className="text-muted-foreground font-body leading-relaxed mb-6 text-xl lg:text-2xl">
                   El dolor de hombro es el tercer motivo de consulta musculoesquelética más frecuente, y la tendinitis del manguito rotador es la causa principal en la mayoría de los casos. Esta patología puede limitar seriamente las actividades de la vida diaria, desde peinarse hasta conducir o dormir. En la Clínica FIMART de Aspe, combinamos el diagnóstico ecográfico con las técnicas de fisioterapia avanzada más eficaces para lograr una recuperación completa y evitar la cirugía en la gran mayoría de los pacientes.
                 </p>
               </motion.div>
@@ -97,7 +97,7 @@ const TendinitisHombro = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
                   ¿Qué es el manguito rotador?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -129,7 +129,7 @@ const TendinitisHombro = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
                   ¿Por qué se lesiona el manguito rotador?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -161,7 +161,7 @@ const TendinitisHombro = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
                   Síntomas de la tendinitis del manguito rotador
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -193,7 +193,7 @@ const TendinitisHombro = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
                   Diagnóstico con ecografía musculoesquelética (MSK)
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -229,7 +229,7 @@ const TendinitisHombro = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
                   Tratamiento de fisioterapia del manguito rotador
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -300,7 +300,7 @@ const TendinitisHombro = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
                   Ejercicios de rehabilitación del hombro
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -329,7 +329,7 @@ const TendinitisHombro = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-12">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 mt-12">
                   ¿Cuándo es necesaria la cirugía?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6">
@@ -365,7 +365,7 @@ const TendinitisHombro = () => {
                 transition={{ duration: 0.5 }}
                 className="mt-16 p-8 bg-card border border-border rounded-2xl text-center"
               >
-                <h2 className="font-display text-2xl font-bold text-foreground mb-4">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
                   ¿Tienes dolor de hombro?
                 </h2>
                 <p className="text-muted-foreground font-body leading-relaxed mb-6 max-w-xl mx-auto">

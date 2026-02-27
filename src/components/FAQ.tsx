@@ -6,6 +6,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY } from "@/lib/constants";
+import SectionBadge from "@/components/ui/SectionBadge";
+import CTAButton from "@/components/ui/CTAButton";
 
 const WhatsAppLink = ({ children }: { children: React.ReactNode }) => (
   <a
@@ -70,62 +72,74 @@ const FAQ = () => {
   ];
 
   return (
-    <section 
-      id="faq" 
-      className="py-20 lg:py-28 bg-card relative overflow-hidden"
+    <section
+      id="faq"
+      className="py-24 lg:py-36 bg-background relative overflow-hidden"
       aria-labelledby="faq-heading"
     >
-      {/* Subtle background accent */}
-      <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-secondary/5 to-transparent pointer-events-none" aria-hidden="true" />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.header
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto mb-12"
-        >
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/30">
-            Resolvemos tus dudas
-          </span>
-          <h2 
-            id="faq-heading"
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 tracking-tight leading-tight"
-          >
-            Preguntas frecuentes sobre{" "}
-            <span className="text-primary">fisioterapia en Aspe</span>
-          </h2>
-        </motion.header>
+      {/* Background accents */}
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-0 right-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl -translate-y-1/4 translate-x-1/3 pointer-events-none" aria-hidden="true" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto"
-        >
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq) => (
-              <AccordionItem 
-                key={faq.id} 
-                value={faq.id}
-                className="bg-background border border-border rounded-xl overflow-hidden px-0 data-[state=open]:border-primary/50 transition-all duration-300"
-              >
-                <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-muted/30 transition-colors text-left">
-                  <h3 className="font-display text-lg font-bold text-foreground tracking-wide pr-4 text-left">
-                    {faq.question}
-                  </h3>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
-                  <p className="text-muted-foreground leading-relaxed font-body">
-                    {faq.answer}
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
+      <div className="container mx-auto relative z-10">
+        {/* Two-column layout on desktop */}
+        <div className="grid lg:grid-cols-[1fr,1.2fr] gap-12 lg:gap-16 items-start">
+          {/* Left: Header + CTA */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="lg:sticky lg:top-28"
+          >
+            <SectionBadge variant="primary">Resolvemos tus dudas</SectionBadge>
+            <h2
+              id="faq-heading"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 tracking-tight leading-tight"
+            >
+              Preguntas frecuentes sobre{" "}
+              <span className="text-primary">fisioterapia en Aspe</span>
+            </h2>
+            <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed mb-10">
+              ¿Tienes alguna duda que no aparece aquí? No dudes en contactarnos, estaremos encantados de ayudarte.
+            </p>
+            <CTAButton
+              variant="whatsapp"
+              ariaLabel="Preguntar por WhatsApp sobre fisioterapia en Aspe"
+            >
+              Pregúntanos
+            </CTAButton>
+          </motion.div>
+
+          {/* Right: Accordion */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqs.map((faq) => (
+                <AccordionItem
+                  key={faq.id}
+                  value={faq.id}
+                  className="bg-card border border-border rounded-xl overflow-hidden px-0 data-[state=open]:border-primary/40 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/5 transition-all duration-300"
+                >
+                  <AccordionTrigger className="px-6 lg:px-8 py-6 hover:no-underline hover:bg-muted/30 transition-colors text-left">
+                    <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground tracking-wide pr-4 text-left">
+                      {faq.question}
+                    </h3>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 lg:px-8 pb-8">
+                    <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed font-body">
+                      {faq.answer}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

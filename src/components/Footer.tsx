@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <footer id="contacto" className="bg-card border-t border-border" role="contentinfo">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div className="container mx-auto py-16 lg:py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand & Description */}
           <motion.div 
@@ -256,7 +256,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-border">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="container mx-auto py-6">
           <div className="flex flex-col gap-4 text-sm text-muted-foreground font-body">
             {/* Legal Links */}
             <nav aria-label="Enlaces legales" className="flex flex-wrap justify-center gap-4 md:gap-6">

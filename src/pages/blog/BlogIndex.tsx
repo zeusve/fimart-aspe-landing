@@ -20,9 +20,9 @@ const BlogIndex = () => {
         <Header />
 
         {/* Hero */}
-        <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden">
+        <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
           <GridBackground variant="lines" size={60} />
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -47,11 +47,11 @@ const BlogIndex = () => {
               transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 tracking-tight">
                 Blog de{" "}
-                <span className="text-primary">Fisioterapia</span>
+                <span className="text-primary glow-text">Fisioterapia</span>
               </h1>
-              <p className="text-lg text-muted-foreground font-body leading-relaxed">
+              <p className="text-xl lg:text-2xl text-muted-foreground font-body leading-relaxed">
                 Artículos escritos por nuestro equipo de fisioterapeutas sobre patologías,
                 tratamientos y consejos para tu salud musculoesquelética.
               </p>
@@ -60,9 +60,9 @@ const BlogIndex = () => {
         </section>
 
         {/* Articles Grid */}
-        <section className="py-16 lg:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <section className="py-24 lg:py-36">
+          <div className="container mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {blogPosts.map((post, index) => (
                 <motion.article
                   key={post.slug}
@@ -73,17 +73,17 @@ const BlogIndex = () => {
                 >
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="group block h-full p-8 bg-card border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                    className="group block h-full p-8 lg:p-10 bg-card border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                   >
                     <span className="inline-block text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4">
                       {post.category}
                     </span>
 
-                    <h2 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">
+                    <h2 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">
                       {post.title}
                     </h2>
 
-                    <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">
+                    <p className="text-muted-foreground font-body text-base lg:text-lg leading-relaxed mb-6">
                       {post.description}
                     </p>
 

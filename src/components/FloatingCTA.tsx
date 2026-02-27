@@ -15,11 +15,11 @@ const FloatingCTA = () => {
       <Button
         asChild
         size="lg"
-        className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 rounded-full px-6 h-14 text-base animate-pulse-glow"
+        className="relative bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold shadow-2xl shadow-secondary/30 hover:shadow-secondary/50 transition-all duration-300 rounded-full px-6 h-14 text-base"
       >
-        <a 
-          href={WHATSAPP_LINK} 
-          target="_blank" 
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2"
         >
@@ -28,7 +28,7 @@ const FloatingCTA = () => {
           <span className="sm:hidden">Cita</span>
         </a>
       </Button>
-      
+
       {/* Animated Ring */}
       <motion.div
         animate={{
@@ -40,7 +40,7 @@ const FloatingCTA = () => {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute inset-0 rounded-full border-2 border-primary pointer-events-none"
+        className="absolute inset-0 rounded-full border-2 border-secondary pointer-events-none"
       />
     </motion.div>
   );

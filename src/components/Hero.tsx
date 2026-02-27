@@ -1,4 +1,4 @@
-import { Phone, ArrowDown, MessageCircle } from "lucide-react";
+import { Phone, MessageCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import HeroParticles from "./HeroParticles";
@@ -6,32 +6,21 @@ import fachadaImage from "@/assets/fachada-clinica-fimart-aspe.jpg";
 import fachadaImageWebp from "@/assets/fachada-clinica-fimart-aspe.webp";
 import { WHATSAPP_LINK } from "@/lib/constants";
 
+const stats = [
+  { value: "+2000", label: "Pacientes tratados", color: "text-primary" },
+  { value: "14+", label: "Años de experiencia", color: "text-secondary" },
+  { value: "6", label: "Tecnologías avanzadas", color: "text-accent" },
+];
+
 const Hero = () => {
-
-  const titleVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.04,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const titleLine1 = "Fisioterapia en Aspe";
-  const titleLine2 = "Clínica Fisioterapia Avanzada";
-  const titleLine3 = "FIMART";
-
   return (
-    <section 
+    <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0"
       aria-labelledby="hero-heading"
     >
-      {/* Animated Particles Background */}
       <HeroParticles />
 
-      {/* Background Image with Overlays */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <picture>
           <source srcSet={fachadaImageWebp} type="image/webp" />
@@ -45,161 +34,163 @@ const Hero = () => {
             fetchPriority="high"
           />
         </picture>
-        {/* Dark Overlay - Dark Mode */}
-        <div className="absolute inset-0 dark:from-background/95 dark:via-background/80 dark:to-background/70 dark:bg-gradient-to-b hidden dark:block" />
-        {/* Light Overlay - Light Mode */}
-        <div className="absolute inset-0 from-white/70 via-white/50 to-white/60 bg-gradient-to-b dark:hidden" />
+        <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-background/95 dark:via-background/85 dark:to-background/80 hidden dark:block" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/70 dark:hidden" />
       </div>
 
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 z-[1] opacity-10 dark:opacity-20" aria-hidden="true">
+      {/* Grid pattern */}
+      <div className="absolute inset-0 z-[1] opacity-[0.04] dark:opacity-[0.08]" aria-hidden="true">
         <div
           className="w-full h-full"
           style={{
             backgroundImage: `
-              linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px)
+              linear-gradient(hsl(var(--primary) / 0.2) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--primary) / 0.2) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px'
+            backgroundSize: '60px 60px'
           }}
         />
       </div>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
+      {/* Content - Todo centrado */}
+      <div className="container mx-auto relative z-10">
+        <div className="text-center max-w-5xl mx-auto">
+
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="inline-block px-4 py-2 mb-6 text-sm font-semibold text-primary dark:text-primary bg-primary/10 rounded-full border border-primary/30 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 mb-8 text-sm lg:text-base font-semibold text-secondary bg-secondary/10 rounded-full border border-secondary/30 backdrop-blur-sm">
+              <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" aria-hidden="true" />
               Desde 2014 en Aspe, Alicante
             </span>
           </motion.div>
 
-          {/* Main Title - 3 Lines */}
-          <motion.div
-            variants={titleVariants}
-            initial="hidden"
-            animate="visible"
-            className="mb-6"
+          {/* H1 SEO: 3 líneas con jerarquía visual */}
+          <motion.h1
+            id="hero-heading"
+            className="font-display font-bold tracking-tight leading-[1.05] mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h1 
-              id="hero-heading"
-              className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight"
-            >
-              {/* Line 1: Fisioterapia en Aspe */}
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="block text-foreground"
-              >
-                {titleLine1}
-              </motion.span>
-              
-              {/* Line 2: Clínica Fisioterapia Avanzada */}
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="block text-foreground mt-1"
-              >
-                {titleLine2}
-              </motion.span>
-              
-              {/* Line 3: FIMART (Cyan) */}
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="block text-primary glow-text mt-1"
-              >
-                {titleLine3}
-              </motion.span>
-            </h1>
-          </motion.div>
+            {/* Línea 1: keyword SEO principal */}
+            <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-foreground mb-2">
+              Fisioterapia en Aspe
+            </span>
+            {/* Línea 2: contexto */}
+            <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-medium mb-4">
+              Clínica Fisioterapia Avanzada
+            </span>
+            {/* Línea 3: FIMART protagonista */}
+            <span className="block text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] tracking-tighter leading-none text-primary glow-text">
+              FIMART
+            </span>
+          </motion.h1>
+
+          {/* Underline animada */}
+          <motion.div
+            className="mx-auto h-1 lg:h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full mb-10 max-w-md lg:max-w-lg"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+          />
 
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="font-body text-lg sm:text-xl text-foreground dark:text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.7 }}
+            className="font-body text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            Recupera tu movilidad y mejora tu calidad de vida con tratamientos personalizados y cercanos.
-            <span className="font-semibold block mt-2 text-foreground"> Trayectoria y confianza desde 2014.</span>
+            Recupera tu movilidad y calidad de vida con tratamientos personalizados.
+            <strong className="text-foreground"> Diagnóstico preciso, resultados duraderos.</strong>
           </motion.p>
 
-          {/* CTA Box */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-block bg-card/50 dark:bg-card/40 backdrop-blur-md border border-primary/20 rounded-2xl p-6 sm:p-8 mb-8"
+            transition={{ duration: 0.7, delay: 0.9 }}
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12"
           >
-            <p className="text-foreground text-base sm:text-lg font-semibold mb-4">
-              ¿El dolor no te deja avanzar? Valoremos tu caso hoy mismo.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 text-base px-8 h-12"
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:translate-y-[-2px] transition-all duration-300 text-lg px-10 h-14 rounded-xl"
+            >
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3"
+                aria-label="Solicitar cita en Clínica FIMART Aspe por WhatsApp"
               >
-                <a 
-                  href={WHATSAPP_LINK} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center justify-center gap-2"
-                  aria-label="Solicitar cita en Clínica FIMART Aspe por WhatsApp"
-                >
-                  <MessageCircle className="w-5 h-5" aria-hidden="true" />
-                  Solicitar Cita
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-2 border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary backdrop-blur-sm text-base px-8 h-12 transition-all duration-300"
+                <MessageCircle className="w-5 h-5" aria-hidden="true" />
+                Solicitar Cita
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-2 border-foreground/20 text-foreground hover:bg-foreground/5 hover:border-primary backdrop-blur-sm text-lg px-10 h-14 rounded-xl transition-all duration-300"
+            >
+              <a
+                href="tel:+34652667953"
+                className="flex items-center justify-center gap-3"
+                aria-label="Llamar a Clínica FIMART al 652 667 953"
               >
-                <a 
-                  href="tel:+34652667953" 
-                  className="flex items-center justify-center gap-2"
-                  aria-label="Llamar a Clínica FIMART al 652 667 953"
-                >
-                  <Phone className="w-5 h-5" aria-hidden="true" />
-                  Llamar Ahora
-                </a>
-              </Button>
+                <Phone className="w-5 h-5" aria-hidden="true" />
+                652 667 953
+              </a>
+            </Button>
+          </motion.div>
+
+          {/* Stats row - horizontal */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+            className="inline-flex flex-wrap justify-center gap-6 sm:gap-0 bg-card/40 backdrop-blur-xl border border-border/50 rounded-2xl px-6 sm:px-0 py-5 sm:py-0 sm:divide-x divide-border/50 mb-8"
+          >
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center px-8 sm:px-10 sm:py-5">
+                <div className={`text-3xl lg:text-4xl font-display font-bold ${stat.color} mb-1`}>
+                  {stat.value}
+                </div>
+                <div className="text-sm lg:text-base text-muted-foreground font-body">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Trust indicators */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.3 }}
+            className="flex flex-wrap items-center gap-6 justify-center text-sm lg:text-base text-muted-foreground"
+          >
+            <div className="flex items-center gap-1.5">
+              <div className="flex" aria-hidden="true">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 lg:w-5 lg:h-5 fill-accent text-accent" />
+                ))}
+              </div>
+              <span className="font-semibold text-foreground">4.9</span>
+              <span>en Google</span>
             </div>
+            <div className="h-4 w-px bg-border hidden sm:block" aria-hidden="true" />
+            <span>Fisioterapia en Aspe</span>
+            <div className="h-4 w-px bg-border hidden sm:block" aria-hidden="true" />
+            <span>Calle Colón, 30</span>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator - Hidden on mobile to avoid overlap */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center"
-      >
-        <a
-          href="#problema-solucion"
-          className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors duration-300"
-        >
-          <span className="text-sm mb-2 font-medium">Descubre más</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ArrowDown className="w-5 h-5" />
-          </motion.div>
-        </a>
-      </motion.div>
 
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[5]" aria-hidden="true" />
