@@ -12,15 +12,6 @@ const FisioterapiaNeurologica = () => {
         description="Fisioterapia neurológica y neuromodulación en Aspe. Tratamiento de dolor neuropático, atrapamientos nerviosos, ciática y radiculopatías. Clínica FIMART."
         path="/fisioterapia-neurologica-aspe"
         keywords="fisioterapia neurológica Aspe, neuromodulación Aspe, ciática Aspe, túnel carpiano Aspe"
-        serviceName="Fisioterapia Neurológica en Aspe"
-        serviceDescription="La fisioterapia neurológica se especializa en el tratamiento de patologías del sistema nervioso. Utilizamos técnicas de neuromodulación percutánea y electroacupuntura para tratar dolor neuropático, atrapamientos nerviosos y diversas afecciones neurológicas."
-        breadcrumbName="Fisioterapia Neurológica"
-        faqs={[
-          { question: "¿Qué es la neuromodulación percutánea?", answer: "Es una técnica que utiliza agujas de acupuntura conectadas a un dispositivo de electroestimulación. Aplicamos corrientes específicas cerca del nervio para modular su actividad y reducir el dolor neuropático." },
-          { question: "¿Es dolorosa la neuromodulación?", answer: "La inserción de la aguja produce una molestia mínima, similar a la acupuntura. Durante la estimulación eléctrica puedes notar hormigueo o contracciones suaves, pero no dolor. Ajustamos la intensidad según tu tolerancia." },
-          { question: "¿Cuántas sesiones necesito para un atrapamiento nervioso?", answer: "Generalmente entre 4 y 8 sesiones, dependiendo de la cronicidad y gravedad del atrapamiento. Muchos pacientes notan mejoría significativa desde las primeras sesiones." },
-          { question: "¿La fisioterapia neurológica puede evitar una cirugía?", answer: "En muchos casos sí. Tratamientos como la neuromodulación han demostrado ser muy efectivos en atrapamientos nerviosos leves-moderados, evitando o retrasando la necesidad de cirugía." },
-        ]}
       />
       <ServiceLayout
       title="Fisioterapia Neurológica"

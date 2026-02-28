@@ -12,15 +12,6 @@ const EcografiaMsk = () => {
         description="Ecografía musculoesquelética en Aspe. Diagnóstico en tiempo real de lesiones musculares, tendinosas y ligamentosas. Sin radiación ni esperas. Clínica FIMART."
         path="/ecografia-musculoesqueletica-aspe"
         keywords="ecografía musculoesquelética Aspe, ecografía MSK Aspe, diagnóstico ecográfico Aspe"
-        serviceName="Ecografía Musculoesquelética en Aspe"
-        serviceDescription="La ecografía musculoesquelética nos permite visualizar en tiempo real músculos, tendones, ligamentos y articulaciones. Es una herramienta fundamental para realizar diagnósticos precisos y guiar tratamientos invasivos como la EPI o las infiltraciones."
-        breadcrumbName="Ecografía Musculoesquelética"
-        faqs={[
-          { question: "¿Necesito preparación previa para la ecografía?", answer: "No se requiere ninguna preparación especial. Solo debes acudir con ropa cómoda que permita acceder fácilmente a la zona a explorar." },
-          { question: "¿Cuánto dura una ecografía musculoesquelética?", answer: "La exploración suele durar entre 15 y 30 minutos, dependiendo de la complejidad de la zona a estudiar y si se compara con el lado contralateral." },
-          { question: "¿La ecografía puede sustituir a una resonancia magnética?", answer: "En muchos casos de patología superficial (tendones, músculos, ligamentos) la ecografía es igual o más precisa que la resonancia. Sin embargo, para estructuras profundas o articulares complejas puede ser necesaria la RM." },
-          { question: "¿Se ve todo con la ecografía?", answer: "La ecografía es excelente para tejidos blandos superficiales. Tiene limitaciones para ver hueso en profundidad o estructuras muy internas. Valoramos cada caso para determinar si es la prueba más adecuada." },
-        ]}
       />
       <ServiceLayout
       title="Ecografía Musculoesquelética"

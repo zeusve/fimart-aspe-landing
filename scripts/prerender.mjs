@@ -44,6 +44,14 @@ const pages = [
       "EPI Aspe, electrólisis percutánea Aspe, tendinopatía Aspe, fisioterapia invasiva Aspe",
     breadcrumbName: "EPI Electrólisis Percutánea",
     ogImagePrefix: "epi-electrolisis-percutanea-aspe",
+    serviceName: "EPI - Electrólisis Percutánea Intratisular en Aspe",
+    serviceDescription: "La EPI es una técnica de fisioterapia invasiva que utiliza una corriente galvánica aplicada de forma ecoguiada para regenerar el tejido dañado. Es especialmente efectiva en tendinopatías crónicas y lesiones musculares que no responden a tratamientos convencionales.",
+    faqs: [
+      { question: "¿Duele el tratamiento de EPI?", answer: "La EPI produce una molestia moderada durante la aplicación, similar a un pinchazo. La sensación dura pocos segundos y es perfectamente tolerable. Utilizamos técnicas de manejo del dolor para minimizar las molestias." },
+      { question: "¿Cuántas sesiones de EPI necesito?", answer: "Generalmente se necesitan entre 3 y 5 sesiones, espaciadas entre 1 y 2 semanas. El número exacto depende de la gravedad de la lesión y la respuesta individual de cada paciente." },
+      { question: "¿Puedo hacer vida normal después de la EPI?", answer: "Sí, aunque recomendamos evitar actividades intensas durante 24-48 horas. Es normal sentir molestias en la zona tratada que remiten en pocos días." },
+      { question: "¿La EPI tiene efectos secundarios?", answer: "Los efectos secundarios son mínimos: puede aparecer un pequeño hematoma y molestias localizadas que desaparecen en 2-3 días. No hay riesgo de infección ya que usamos material estéril de un solo uso." },
+    ],
   },
   {
     path: "/ondas-de-choque-aspe",
@@ -55,6 +63,14 @@ const pages = [
       "ondas de choque Aspe, terapia extracorpórea Aspe, fascitis plantar Aspe, tendinitis Aspe",
     breadcrumbName: "Ondas de Choque",
     ogImagePrefix: "ondas-de-choque-radiales-aspe",
+    serviceName: "Ondas de Choque en Aspe",
+    serviceDescription: "Las ondas de choque son pulsos acústicos de alta energía que penetran en el tejido para estimular la regeneración celular. Es un tratamiento no invasivo altamente efectivo para tendinopatías crónicas, calcificaciones y dolor musculoesquelético persistente.",
+    faqs: [
+      { question: "¿Es doloroso el tratamiento de ondas de choque?", answer: "Durante la aplicación puedes notar una sensación de golpeteo intenso que puede ser incómoda, pero raramente dolorosa. Ajustamos la intensidad según tu tolerancia y la zona a tratar." },
+      { question: "¿Cuántas sesiones necesito?", answer: "El protocolo habitual incluye entre 3 y 5 sesiones, con una frecuencia semanal. Los resultados suelen notarse a partir de la tercera sesión, aunque algunos pacientes mejoran antes." },
+      { question: "¿Tienen contraindicaciones las ondas de choque?", answer: "Sí, no se aplican en embarazadas, personas con marcapasos, trastornos de coagulación, infecciones locales, tumores o sobre zonas con placas metálicas. Valoramos cada caso individualmente." },
+      { question: "¿Puedo hacer deporte después del tratamiento?", answer: "Recomendamos evitar actividad física intensa durante 48 horas tras la sesión. Después puedes retomar progresivamente tu actividad deportiva según las indicaciones que te daremos." },
+    ],
   },
   {
     path: "/ecografia-musculoesqueletica-aspe",
@@ -66,6 +82,14 @@ const pages = [
       "ecografía musculoesquelética Aspe, ecografía MSK Aspe, diagnóstico ecográfico Aspe",
     breadcrumbName: "Ecografía Musculoesquelética",
     ogImagePrefix: "ecografo-msk-aspe",
+    serviceName: "Ecografía Musculoesquelética en Aspe",
+    serviceDescription: "La ecografía musculoesquelética nos permite visualizar en tiempo real músculos, tendones, ligamentos y articulaciones. Es una herramienta fundamental para realizar diagnósticos precisos y guiar tratamientos invasivos como la EPI o las infiltraciones.",
+    faqs: [
+      { question: "¿Necesito preparación previa para la ecografía?", answer: "No se requiere ninguna preparación especial. Solo debes acudir con ropa cómoda que permita acceder fácilmente a la zona a explorar." },
+      { question: "¿Cuánto dura una ecografía musculoesquelética?", answer: "La exploración suele durar entre 15 y 30 minutos, dependiendo de la complejidad de la zona a estudiar y si se compara con el lado contralateral." },
+      { question: "¿La ecografía puede sustituir a una resonancia magnética?", answer: "En muchos casos de patología superficial (tendones, músculos, ligamentos) la ecografía es igual o más precisa que la resonancia. Sin embargo, para estructuras profundas o articulares complejas puede ser necesaria la RM." },
+      { question: "¿Se ve todo con la ecografía?", answer: "La ecografía es excelente para tejidos blandos superficiales. Tiene limitaciones para ver hueso en profundidad o estructuras muy internas. Valoramos cada caso para determinar si es la prueba más adecuada." },
+    ],
   },
   {
     path: "/laser-terapeutico-aspe",
@@ -77,6 +101,14 @@ const pages = [
       "láser terapéutico Aspe, láser alta potencia Aspe, fisioterapia láser Aspe",
     breadcrumbName: "Láser Terapéutico",
     ogImagePrefix: "laser-terapeutico-aspe",
+    serviceName: "Láser Terapéutico de Alta Potencia en Aspe",
+    serviceDescription: "El láser terapéutico de alta potencia (Clase IV) utiliza fotones de luz para penetrar en los tejidos y estimular la regeneración celular. Es un tratamiento indoloro que acelera la curación, reduce la inflamación y alivia el dolor de forma efectiva.",
+    faqs: [
+      { question: "¿Es seguro el láser de alta potencia?", answer: "Sí, es completamente seguro cuando lo aplica un profesional formado. La única precaución importante es la protección ocular, por lo que siempre utilizamos gafas especiales durante el tratamiento." },
+      { question: "¿Cuántas sesiones de láser necesito?", answer: "Depende de la patología. Para procesos agudos pueden bastar 3-5 sesiones. En casos crónicos se suelen necesitar entre 8 y 12 sesiones para obtener resultados óptimos y duraderos." },
+      { question: "¿Qué sentiré durante el tratamiento?", answer: "Solo notarás una sensación agradable de calor en la zona tratada. No hay dolor ni efectos secundarios. Muchos pacientes lo encuentran relajante." },
+      { question: "¿Puedo recibir láser si tengo placas metálicas?", answer: "Sí, a diferencia de otras terapias, el láser no interactúa con el metal, por lo que se puede aplicar sobre zonas con material de osteosíntesis sin ningún problema." },
+    ],
   },
   {
     path: "/diatermia-tecar-aspe",
@@ -88,6 +120,14 @@ const pages = [
       "diatermia Aspe, TECAR Aspe, radiofrecuencia fisioterapia Aspe, tecarterapia Aspe",
     breadcrumbName: "Diatermia TECAR",
     ogImagePrefix: "diatermia-tecar-aspe",
+    serviceName: "Diatermia - Tecarterapia en Aspe",
+    serviceDescription: "La diatermia o TECAR utiliza corrientes de radiofrecuencia que generan un calor profundo desde el interior de los tejidos. Esta termoterapia endógena activa el metabolismo celular, mejora la circulación y acelera los procesos de reparación tisular.",
+    faqs: [
+      { question: "¿Qué sensación produce la diatermia?", answer: "Sentirás un calor agradable y profundo que se extiende por la zona tratada. Muchos pacientes lo describen como muy relajante. Regulamos la intensidad según tu sensación de confort." },
+      { question: "¿Cuánto dura una sesión de diatermia?", answer: "Una sesión típica dura entre 20 y 30 minutos. Suele combinarse con otras técnicas de fisioterapia manual para potenciar los resultados." },
+      { question: "¿Tiene contraindicaciones la diatermia?", answer: "Sí, no se aplica en embarazadas, personas con marcapasos, implantes metálicos activos, tumores, alteraciones de la sensibilidad o fiebre. Siempre valoramos tu caso antes del tratamiento." },
+      { question: "¿Cuántas sesiones son necesarias?", answer: "Depende de la patología. En procesos agudos pueden bastar 5-6 sesiones. Para patologías crónicas o recuperaciones postquirúrgicas se necesitan más sesiones distribuidas en varias semanas." },
+    ],
   },
   {
     path: "/fisioterapia-neurologica-aspe",
@@ -99,6 +139,14 @@ const pages = [
       "fisioterapia neurológica Aspe, neuromodulación Aspe, ciática Aspe, túnel carpiano Aspe",
     breadcrumbName: "Fisioterapia Neurológica",
     ogImagePrefix: "electroacupuntura-puncion-seca-aspe",
+    serviceName: "Fisioterapia Neurológica en Aspe",
+    serviceDescription: "La fisioterapia neurológica se especializa en el tratamiento de patologías del sistema nervioso. Utilizamos técnicas de neuromodulación percutánea y electroacupuntura para tratar dolor neuropático, atrapamientos nerviosos y diversas afecciones neurológicas.",
+    faqs: [
+      { question: "¿Qué es la neuromodulación percutánea?", answer: "Es una técnica que utiliza agujas de acupuntura conectadas a un dispositivo de electroestimulación. Aplicamos corrientes específicas cerca del nervio para modular su actividad y reducir el dolor neuropático." },
+      { question: "¿Es dolorosa la neuromodulación?", answer: "La inserción de la aguja produce una molestia mínima, similar a la acupuntura. Durante la estimulación eléctrica puedes notar hormigueo o contracciones suaves, pero no dolor. Ajustamos la intensidad según tu tolerancia." },
+      { question: "¿Cuántas sesiones necesito para un atrapamiento nervioso?", answer: "Generalmente entre 4 y 8 sesiones, dependiendo de la cronicidad y gravedad del atrapamiento. Muchos pacientes notan mejoría significativa desde las primeras sesiones." },
+      { question: "¿La fisioterapia neurológica puede evitar una cirugía?", answer: "En muchos casos sí. Tratamientos como la neuromodulación han demostrado ser muy efectivos en atrapamientos nerviosos leves-moderados, evitando o retrasando la necesidad de cirugía." },
+    ],
   },
   {
     path: "/servicios",
@@ -182,10 +230,17 @@ const pages = [
 // --- JSON-LD helpers ---
 
 /**
+ * Build a JSON-LD script block with comment.
+ */
+function buildJsonLdBlock(label, schema) {
+  return `\n    <!-- Schema.org JSON-LD: ${label} -->\n    <script type="application/ld+json">\n    ${JSON.stringify(schema, null, 6)}\n    </script>`;
+}
+
+/**
  * Build a proper BreadcrumbList JSON-LD with 2 items (Home + current page).
  */
 function buildBreadcrumbSchema(pageName, pageUrl) {
-  return JSON.stringify({
+  return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -202,7 +257,42 @@ function buildBreadcrumbSchema(pageName, pageUrl) {
         "item": pageUrl
       }
     ]
-  }, null, 6);
+  };
+}
+
+/**
+ * Build a MedicalProcedure JSON-LD for a service page.
+ */
+function buildMedicalProcedureSchema(name, description, url) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "name": name,
+    "description": description,
+    "url": url,
+    "procedureType": "https://schema.org/NoninvasiveProcedure",
+    "provider": {
+      "@id": `${BASE_URL}/#clinic`
+    }
+  };
+}
+
+/**
+ * Build a FAQPage JSON-LD for a service page.
+ */
+function buildFAQPageSchema(faqs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
 }
 
 /**
@@ -217,10 +307,15 @@ function jsonLdBlockRegex(schemaType) {
 }
 
 /**
- * Process JSON-LD schemas in the HTML based on the page type:
- * - Homepage (/): keep all schemas as-is
- * - All non-homepage: remove homepage FAQPage (service pages get their own via react-helmet-async)
- * - Service/blog pages: replace BreadcrumbList with a proper 2-item version
+ * Process JSON-LD schemas in the HTML based on the page type.
+ *
+ * ALL structured data is managed here (single source of truth).
+ * The React SEO component ONLY handles meta tags, never JSON-LD.
+ *
+ * - Homepage (/): keep all schemas as-is (defined in index.html template)
+ * - Service pages: remove homepage FAQPage & BreadcrumbList, inject page-specific
+ *   MedicalProcedure + FAQPage + BreadcrumbList
+ * - Blog/other pages: remove homepage FAQPage, replace BreadcrumbList
  * - Legal (noindex) pages: also remove Person schema
  */
 function processJsonLd(html, page) {
@@ -229,17 +324,28 @@ function processJsonLd(html, page) {
   // Homepage: keep everything as-is
   if (page.path === "/") return html;
 
-  // Remove homepage FAQPage from ALL non-homepage pages to avoid duplicate schemas.
-  // Service pages get their own page-specific FAQPage via react-helmet-async at runtime.
+  // Remove homepage FAQPage from ALL non-homepage pages
   html = html.replace(jsonLdBlockRegex("FAQPage"), "");
 
   // Replace BreadcrumbList with a proper 2-item version for all non-homepage pages
   if (page.breadcrumbName) {
-    const breadcrumbBlock = `\n    <!-- Schema.org JSON-LD: BreadcrumbList -->\n    <script type="application/ld+json">\n    ${buildBreadcrumbSchema(page.breadcrumbName, url)}\n    </script>`;
+    const breadcrumbBlock = buildJsonLdBlock("BreadcrumbList", buildBreadcrumbSchema(page.breadcrumbName, url));
     html = html.replace(
       jsonLdBlockRegex("BreadcrumbList"),
       breadcrumbBlock
     );
+  }
+
+  // Service pages: inject MedicalProcedure + FAQPage schemas into <head>
+  // These are placed BEFORE the closing </head> tag to keep all schemas together
+  if (page.serviceName && page.faqs) {
+    const serviceBlocks = [
+      buildJsonLdBlock("MedicalProcedure", buildMedicalProcedureSchema(page.serviceName, page.serviceDescription, url)),
+      buildJsonLdBlock("FAQPage", buildFAQPageSchema(page.faqs)),
+    ].join("");
+
+    // Insert service schemas right before </head>
+    html = html.replace("</head>", `${serviceBlocks}\n  </head>`);
   }
 
   // Legal (noindex) pages: also remove Person schema

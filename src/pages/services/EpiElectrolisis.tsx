@@ -12,15 +12,6 @@ const EpiElectrolisis = () => {
         description="Tratamiento de EPI en Aspe. Técnica regenerativa ecoguiada para tendinopatías crónicas y lesiones musculares. Resultados desde la primera sesión. Clínica FIMART."
         path="/epi-electrolisis-percutanea-aspe"
         keywords="EPI Aspe, electrólisis percutánea Aspe, tendinopatía Aspe, fisioterapia invasiva Aspe"
-        serviceName="EPI - Electrólisis Percutánea Intratisular en Aspe"
-        serviceDescription="La EPI es una técnica de fisioterapia invasiva que utiliza una corriente galvánica aplicada de forma ecoguiada para regenerar el tejido dañado. Es especialmente efectiva en tendinopatías crónicas y lesiones musculares que no responden a tratamientos convencionales."
-        breadcrumbName="EPI Electrólisis Percutánea"
-        faqs={[
-          { question: "¿Duele el tratamiento de EPI?", answer: "La EPI produce una molestia moderada durante la aplicación, similar a un pinchazo. La sensación dura pocos segundos y es perfectamente tolerable. Utilizamos técnicas de manejo del dolor para minimizar las molestias." },
-          { question: "¿Cuántas sesiones de EPI necesito?", answer: "Generalmente se necesitan entre 3 y 5 sesiones, espaciadas entre 1 y 2 semanas. El número exacto depende de la gravedad de la lesión y la respuesta individual de cada paciente." },
-          { question: "¿Puedo hacer vida normal después de la EPI?", answer: "Sí, aunque recomendamos evitar actividades intensas durante 24-48 horas. Es normal sentir molestias en la zona tratada que remiten en pocos días." },
-          { question: "¿La EPI tiene efectos secundarios?", answer: "Los efectos secundarios son mínimos: puede aparecer un pequeño hematoma y molestias localizadas que desaparecen en 2-3 días. No hay riesgo de infección ya que usamos material estéril de un solo uso." },
-        ]}
       />
       <ServiceLayout
       title="EPI - Electrólisis Percutánea Intratisular"

@@ -12,15 +12,6 @@ const DiatermiaTecar = () => {
         description="Diatermia TECAR en Aspe. Radiofrecuencia profunda para contracturas, tendinopatías y recuperación postquirúrgica. Sensación agradable. Clínica FIMART."
         path="/diatermia-tecar-aspe"
         keywords="diatermia Aspe, TECAR Aspe, radiofrecuencia fisioterapia Aspe, tecarterapia Aspe"
-        serviceName="Diatermia - Tecarterapia en Aspe"
-        serviceDescription="La diatermia o TECAR utiliza corrientes de radiofrecuencia que generan un calor profundo desde el interior de los tejidos. Esta termoterapia endógena activa el metabolismo celular, mejora la circulación y acelera los procesos de reparación tisular."
-        breadcrumbName="Diatermia TECAR"
-        faqs={[
-          { question: "¿Qué sensación produce la diatermia?", answer: "Sentirás un calor agradable y profundo que se extiende por la zona tratada. Muchos pacientes lo describen como muy relajante. Regulamos la intensidad según tu sensación de confort." },
-          { question: "¿Cuánto dura una sesión de diatermia?", answer: "Una sesión típica dura entre 20 y 30 minutos. Suele combinarse con otras técnicas de fisioterapia manual para potenciar los resultados." },
-          { question: "¿Tiene contraindicaciones la diatermia?", answer: "Sí, no se aplica en embarazadas, personas con marcapasos, implantes metálicos activos, tumores, alteraciones de la sensibilidad o fiebre. Siempre valoramos tu caso antes del tratamiento." },
-          { question: "¿Cuántas sesiones son necesarias?", answer: "Depende de la patología. En procesos agudos pueden bastar 5-6 sesiones. Para patologías crónicas o recuperaciones postquirúrgicas se necesitan más sesiones distribuidas en varias semanas." },
-        ]}
       />
       <ServiceLayout
       title="Diatermia - Tecarterapia"

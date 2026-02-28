@@ -12,15 +12,6 @@ const OndasChoque = () => {
         description="Tratamiento con ondas de choque en Aspe. Terapia no invasiva para tendinopatías crónicas, calcificaciones y dolor musculoesquelético. Clínica FIMART."
         path="/ondas-de-choque-aspe"
         keywords="ondas de choque Aspe, terapia extracorpórea Aspe, fascitis plantar Aspe, tendinitis Aspe"
-        serviceName="Ondas de Choque en Aspe"
-        serviceDescription="Las ondas de choque son pulsos acústicos de alta energía que penetran en el tejido para estimular la regeneración celular. Es un tratamiento no invasivo altamente efectivo para tendinopatías crónicas, calcificaciones y dolor musculoesquelético persistente."
-        breadcrumbName="Ondas de Choque"
-        faqs={[
-          { question: "¿Es doloroso el tratamiento de ondas de choque?", answer: "Durante la aplicación puedes notar una sensación de golpeteo intenso que puede ser incómoda, pero raramente dolorosa. Ajustamos la intensidad según tu tolerancia y la zona a tratar." },
-          { question: "¿Cuántas sesiones necesito?", answer: "El protocolo habitual incluye entre 3 y 5 sesiones, con una frecuencia semanal. Los resultados suelen notarse a partir de la tercera sesión, aunque algunos pacientes mejoran antes." },
-          { question: "¿Tienen contraindicaciones las ondas de choque?", answer: "Sí, no se aplican en embarazadas, personas con marcapasos, trastornos de coagulación, infecciones locales, tumores o sobre zonas con placas metálicas. Valoramos cada caso individualmente." },
-          { question: "¿Puedo hacer deporte después del tratamiento?", answer: "Recomendamos evitar actividad física intensa durante 48 horas tras la sesión. Después puedes retomar progresivamente tu actividad deportiva según las indicaciones que te daremos." },
-        ]}
       />
       <ServiceLayout
       title="Ondas de Choque"
