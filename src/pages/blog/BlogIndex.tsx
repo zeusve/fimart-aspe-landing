@@ -48,8 +48,8 @@ const BlogIndex = () => {
               className="text-center max-w-3xl mx-auto"
             >
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 tracking-tight">
-                Blog de{" "}
-                <span className="text-primary glow-text">Fisioterapia</span>
+                Blog de Fisioterapia{" "}
+                <span className="text-primary glow-text">en Aspe</span>
               </h1>
               <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
                 Artículos escritos por nuestro equipo de fisioterapeutas sobre patologías,

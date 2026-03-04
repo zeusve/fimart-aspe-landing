@@ -8,7 +8,7 @@ import { WHATSAPP_LINK } from "@/lib/constants";
 
 const stats = [
   { value: "+2000", label: "Pacientes tratados", color: "text-primary" },
-  { value: "14+", label: "Años de experiencia", color: "text-secondary" },
+  { value: "12+", label: "Años de experiencia", color: "text-secondary" },
   { value: "6", label: "Tecnologías avanzadas", color: "text-accent" },
 ];
 

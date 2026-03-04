@@ -30,7 +30,7 @@ const pages = [
     file: "index.html",
     title: "Fisioterapia en Aspe | Clínica FIMART - Desde 2014",
     description:
-      "Clínica de fisioterapia en Aspe con más de 10 años de experiencia. Terapia manual, rehabilitación funcional, EPI y ecografía MSK. Valoración 4.9★ en Google. Pide cita: 652 667 953.",
+      "Clínica de fisioterapia en Aspe con más de 12 años de experiencia. Terapia manual, rehabilitación funcional, EPI y ecografía MSK. Valoración 4.9★ en Google. Pide cita: 652 667 953.",
     keywords:
       "fisioterapia Aspe, fisioterapeuta Aspe, clínica fisioterapia Alicante, rehabilitación Aspe, terapia manual Aspe, EPI Aspe, ondas de choque Aspe",
   },
@@ -149,6 +149,64 @@ const pages = [
     ],
   },
   {
+    path: "/fisioterapia-deportiva-aspe",
+    file: "fisioterapia-deportiva-aspe.html",
+    title: "Fisioterapia Deportiva en Aspe | Clínica FIMART",
+    description:
+      "Fisioterapia deportiva en Aspe. Tratamiento y prevención de lesiones deportivas con tecnología avanzada. Recuperación rápida para deportistas. Clínica FIMART.",
+    keywords:
+      "fisioterapia deportiva Aspe, lesiones deportivas Aspe, rehabilitacion deportiva Alicante, fisioterapeuta deportivo Aspe",
+    breadcrumbName: "Fisioterapia Deportiva",
+    ogImagePrefix: "fisioterapeuta-tratando-paciente-aspe",
+    serviceName: "Fisioterapia Deportiva en Aspe",
+    serviceDescription: "La fisioterapia deportiva se centra en la prevención, diagnóstico y tratamiento de lesiones relacionadas con la actividad física y el deporte. Combinamos terapia manual avanzada con tecnología de última generación para acelerar tu recuperación y ayudarte a volver a tu nivel deportivo.",
+    faqs: [
+      { question: "¿Cuánto tarda en curarse una lesión deportiva?", answer: "Depende del tipo y gravedad de la lesión. Una contractura puede resolverse en 1-2 semanas, mientras que una rotura fibrilar necesita 3-6 semanas. Las tendinopatías crónicas pueden requerir 2-3 meses de tratamiento." },
+      { question: "¿Puedo seguir entrenando mientras me trato?", answer: "En muchos casos sí, adaptando la carga y el tipo de ejercicio. Nuestro objetivo es mantener tu condición física durante la recuperación." },
+      { question: "¿La fisioterapia deportiva es solo para profesionales?", answer: "No, es para cualquier persona que practique deporte o actividad física regular. Desde runners aficionados hasta deportistas de competición." },
+      { question: "¿Qué diferencia hay entre fisioterapia deportiva y fisioterapia convencional?", answer: "La fisioterapia deportiva tiene un enfoque específico en las demandas del deporte: tiempos de recuperación, readaptación al gesto deportivo, prevención de recaídas y optimización del rendimiento." },
+    ],
+  },
+  {
+    path: "/puncion-seca-aspe",
+    file: "puncion-seca-aspe.html",
+    title: "Punción Seca en Aspe | Clínica FIMART",
+    description:
+      "Punción seca en Aspe. Tratamiento de puntos gatillo y dolor miofascial con técnica invasiva precisa. Alivio rápido del dolor muscular. Clínica FIMART.",
+    keywords:
+      "puncion seca Aspe, dolor miofascial Aspe, puntos gatillo fisioterapia, fisioterapia invasiva Aspe",
+    breadcrumbName: "Punción Seca",
+    ogImagePrefix: "electroacupuntura-puncion-seca-aspe",
+    serviceName: "Punción Seca en Aspe",
+    serviceDescription: "La punción seca es una técnica de fisioterapia invasiva que utiliza agujas de acupuntura para desactivar puntos gatillo miofasciales. Estos puntos son nódulos hipersensibles en el músculo que generan dolor referido y restricción de movimiento.",
+    faqs: [
+      { question: "¿Duele la punción seca?", answer: "La inserción de la aguja apenas se nota. Lo que sí se siente es la respuesta de espasmo local: una contracción involuntaria del músculo que puede ser intensa pero dura solo unos segundos." },
+      { question: "¿Cuántas sesiones de punción seca necesito?", answer: "Para puntos gatillo agudos, 1-3 sesiones pueden ser suficientes. Para dolor crónico con múltiples puntos gatillo, pueden necesitarse 4-6 sesiones espaciadas semanalmente." },
+      { question: "¿La punción seca tiene riesgos?", answer: "Es una técnica muy segura realizada por un fisioterapeuta formado. Los efectos secundarios más comunes son dolor muscular temporal (24-48h) y ocasionalmente un pequeño hematoma." },
+      { question: "¿Puedo recibir punción seca si tomo anticoagulantes?", answer: "En principio sí, aunque tomamos precauciones adicionales. Evitamos zonas profundas o cercanas a vasos importantes y monitorizamos la aparición de hematomas." },
+    ],
+  },
+  {
+    path: "/contacto",
+    file: "contacto.html",
+    title: "Contacto | Clínica de Fisioterapia FIMART en Aspe",
+    description:
+      "Contacta con la Clínica FIMART en Aspe. Calle Colón 30 Bajo, 03680 Aspe (Alicante). Teléfono: 652 667 953. Horario: L-J 09:00-13:00 y 15:00-20:00, V 09:00-13:00. Pide tu cita.",
+    keywords:
+      "contacto fisioterapia Aspe, clinica fisioterapia Aspe direccion, fisioterapeuta Aspe telefono, pedir cita fisioterapia Aspe",
+    breadcrumbName: "Contacto",
+  },
+  {
+    path: "/sobre-nosotros",
+    file: "sobre-nosotros.html",
+    title: "Sobre Nosotros | Fisioterapeuta Colegiado en Aspe - Clínica FIMART",
+    description:
+      "Conoce a Rafael Fermín, fisioterapeuta colegiado en Aspe con más de 12 años de experiencia. Especialista en terapia manual, EPI, ecografía MSK y rehabilitación. Clínica FIMART.",
+    keywords:
+      "fisioterapeuta Aspe, Rafael Fermin fisioterapeuta, clinica fisioterapia Aspe equipo, fisioterapeuta colegiado Alicante",
+    breadcrumbName: "Sobre Nosotros",
+  },
+  {
     path: "/servicios",
     file: "servicios.html",
     title: "Servicios de Fisioterapia Avanzada en Aspe | Clínica FIMART",
@@ -177,6 +235,7 @@ const pages = [
     keywords:
       "fascitis plantar tratamiento, fascitis plantar fisioterapia, dolor talón Aspe",
     breadcrumbName: "Fascitis Plantar",
+    blogDate: "2025-01-15",
   },
   {
     path: "/blog/tendinitis-hombro-manguito-rotador",
@@ -187,6 +246,7 @@ const pages = [
     keywords:
       "tendinitis hombro, manguito rotador, dolor hombro fisioterapia Aspe",
     breadcrumbName: "Tendinitis del Manguito Rotador",
+    blogDate: "2025-02-05",
   },
   {
     path: "/blog/diferencias-epi-puncion-seca-ondas-choque",
@@ -197,6 +257,7 @@ const pages = [
     keywords:
       "EPI vs punción seca, ondas de choque vs EPI, fisioterapia invasiva Aspe",
     breadcrumbName: "EPI vs Punción Seca vs Ondas de Choque",
+    blogDate: "2025-02-20",
   },
   {
     path: "/aviso-legal",
@@ -278,6 +339,33 @@ function buildMedicalProcedureSchema(name, description, url) {
 }
 
 /**
+ * Build a BlogPosting JSON-LD for blog articles.
+ */
+function buildBlogPostingSchema(title, description, url, datePublished) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "url": url,
+    "datePublished": datePublished,
+    "dateModified": datePublished,
+    "author": {
+      "@type": "Person",
+      "@id": `${BASE_URL}/#rafael-fermin`,
+      "name": "Rafael Fermín"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#clinic`,
+      "name": SITE_NAME
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+    "inLanguage": "es-ES"
+  };
+}
+
+/**
  * Build a FAQPage JSON-LD for a service page.
  */
 function buildFAQPageSchema(faqs) {
@@ -346,6 +434,14 @@ function processJsonLd(html, page) {
 
     // Insert service schemas right before </head>
     html = html.replace("</head>", `${serviceBlocks}\n  </head>`);
+  }
+
+  // Blog articles: inject BlogPosting schema
+  if (page.blogDate) {
+    const blogBlock = buildJsonLdBlock("BlogPosting",
+      buildBlogPostingSchema(page.title, page.description, url, page.blogDate)
+    );
+    html = html.replace("</head>", `${blogBlock}\n  </head>`);
   }
 
   // Legal (noindex) pages: also remove Person schema

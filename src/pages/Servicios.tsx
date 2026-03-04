@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Zap, Waves, Scan, Sun, Thermometer, Brain, ArrowRight, MessageCircle } from "lucide-react";
+import { Zap, Waves, Scan, Sun, Thermometer, Brain, ArrowRight, MessageCircle, Footprints, Crosshair } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -57,6 +57,22 @@ const services = [
       "Neuromodulación percutánea ecoguiada y técnicas especializadas para dolor neuropático, atrapamientos nerviosos y radiculopatías.",
     keywords: ["Ciática", "Túnel carpiano", "Cervicobraquialgia"],
   },
+  {
+    href: "/fisioterapia-deportiva-aspe",
+    icon: Footprints,
+    title: "Fisioterapia Deportiva",
+    description:
+      "Prevención, tratamiento y readaptación de lesiones deportivas. Diagnóstico ecográfico y tecnología avanzada para una recuperación rápida y segura.",
+    keywords: ["Esguinces", "Roturas fibrilares", "Tendinopatías"],
+  },
+  {
+    href: "/puncion-seca-aspe",
+    icon: Crosshair,
+    title: "Punción Seca",
+    description:
+      "Técnica invasiva para desactivar puntos gatillo miofasciales. Alivio rápido del dolor muscular crónico, contracturas y síndrome de dolor miofascial.",
+    keywords: ["Puntos gatillo", "Dolor miofascial", "Contracturas"],
+  },
 ];
 
 const Servicios = () => {
@@ -102,13 +118,13 @@ const Servicios = () => {
               className="text-center max-w-3xl mx-auto"
             >
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight">
-                Nuestros{" "}
-                <span className="text-primary glow-text">Servicios</span>
+                Servicios de Fisioterapia{" "}
+                <span className="text-primary glow-text">en Aspe</span>
               </h1>
               <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
                 Tecnología de vanguardia y terapia manual avanzada para ofrecerte el tratamiento
                 más efectivo. Cada servicio cuenta con equipamiento de última generación y la
-                experiencia de más de 14 años.
+                experiencia de más de 12 años.
               </p>
             </motion.div>
           </div>

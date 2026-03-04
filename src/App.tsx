@@ -22,6 +22,12 @@ const EcografiaMsk = lazy(() => import("./pages/services/EcografiaMsk"));
 const LaserTerapeutico = lazy(() => import("./pages/services/LaserTerapeutico"));
 const DiatermiaTecar = lazy(() => import("./pages/services/DiatermiaTecar"));
 const FisioterapiaNeurologica = lazy(() => import("./pages/services/FisioterapiaNeurologica"));
+const FisioterapiaDeportiva = lazy(() => import("./pages/services/FisioterapiaDeportiva"));
+const PuncionSeca = lazy(() => import("./pages/services/PuncionSeca"));
+
+// Pages - Lazy loaded
+const Contacto = lazy(() => import("./pages/Contacto"));
+const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
 
 // Services Index & Blog - Lazy loaded
 const Servicios = lazy(() => import("./pages/Servicios"));
@@ -58,6 +64,12 @@ const App = () => (
             <Route path="/laser-terapeutico-aspe" element={<LaserTerapeutico />} />
             <Route path="/diatermia-tecar-aspe" element={<DiatermiaTecar />} />
             <Route path="/fisioterapia-neurologica-aspe" element={<FisioterapiaNeurologica />} />
+            <Route path="/fisioterapia-deportiva-aspe" element={<FisioterapiaDeportiva />} />
+            <Route path="/puncion-seca-aspe" element={<PuncionSeca />} />
+
+            {/* Pages */}
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
 
             {/* Services Index */}
             <Route path="/servicios" element={<Servicios />} />

@@ -13,6 +13,8 @@ const serviceLinks = [
   { href: "/laser-terapeutico-aspe", label: "Láser Terapéutico" },
   { href: "/diatermia-tecar-aspe", label: "Diatermia TECAR" },
   { href: "/fisioterapia-neurologica-aspe", label: "Fisioterapia Neurológica" },
+  { href: "/fisioterapia-deportiva-aspe", label: "Fisioterapia Deportiva" },
+  { href: "/puncion-seca-aspe", label: "Punción Seca" },
 ];
 
 const Header = () => {
@@ -23,7 +25,8 @@ const Header = () => {
     { href: "/#especialista", label: "El Especialista" },
     { href: "/#tecnologia", label: "Tecnología" },
     { href: "/blog", label: "Blog" },
-    { href: "/#contacto", label: "Contacto" },
+    { href: "/sobre-nosotros", label: "Sobre Nosotros" },
+    { href: "/contacto", label: "Contacto" },
   ];
 
   return (

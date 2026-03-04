@@ -21,6 +21,7 @@ const FloatingCTA = () => {
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Pedir cita por WhatsApp"
           className="flex items-center gap-2"
         >
           <MessageCircle className="w-5 h-5" />

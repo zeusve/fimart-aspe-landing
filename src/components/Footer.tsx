@@ -126,8 +126,10 @@ const Footer = () => {
                 <li className="flex items-start text-muted-foreground">
                   <Clock className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" aria-hidden="true" />
                   <span>
-                    <strong className="text-foreground">Lunes - Viernes</strong><br />
-                    09:00 - 14:00 y 16:00 - 20:00
+                    <strong className="text-foreground">Lunes - Jueves</strong><br />
+                    09:00 - 13:00 y 15:00 - 20:00<br />
+                    <strong className="text-foreground">Viernes</strong><br />
+                    09:00 - 13:00
                   </span>
                 </li>
               </ul>
@@ -172,6 +174,16 @@ const Footer = () => {
                 <li>
                   <Link to="/fisioterapia-neurologica-aspe" className="text-muted-foreground hover:text-primary transition-colors">
                     Fisioterapia Neurológica
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/fisioterapia-deportiva-aspe" className="text-muted-foreground hover:text-primary transition-colors">
+                    Fisioterapia Deportiva
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/puncion-seca-aspe" className="text-muted-foreground hover:text-primary transition-colors">
+                    Punción Seca
                   </Link>
                 </li>
               </ul>
@@ -278,7 +290,7 @@ const Footer = () => {
               <p className="text-center md:text-left">
                 © {currentYear} <strong>Fisioterapia Avanzada FIMART</strong> | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: <a href="tel:+34652667953" className="hover:text-primary transition-colors">652 667 953</a>
               </p>
-              <p className="text-muted-foreground/70">
+              <p className="text-muted-foreground/85">
                 Web diseñada por <span className="font-medium text-foreground/80">Znatix</span>
               </p>
             </div>

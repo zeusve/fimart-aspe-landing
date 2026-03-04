@@ -457,7 +457,7 @@ const ServiceLayout = ({
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-primary" />
-                <span>L-V: 09:00-14:00 y 16:00-20:00</span>
+                <span>L-J: 09:00-13:00 y 15:00-20:00 | V: 09:00-13:00</span>
               </div>
             </div>
           </motion.div>

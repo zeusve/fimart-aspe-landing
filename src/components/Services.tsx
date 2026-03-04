@@ -9,7 +9,8 @@ import {
   Hand,
   Footprints,
   Brain,
-  ArrowRight
+  ArrowRight,
+  Crosshair
 } from "lucide-react";
 import {
   Accordion,
@@ -24,11 +25,19 @@ import CTAButton from "@/components/ui/CTAButton";
 
 // Imágenes principales para tarjetas de servicios
 import ecografoImage from "@/assets/ecografo-msk-aspe.jpg";
+import ecografoImageWebp from "@/assets/ecografo-msk-aspe.webp";
 import epiImage from "@/assets/epi-electrolisis-percutanea-aspe.jpg";
+import epiImageWebp from "@/assets/epi-electrolisis-percutanea-aspe.webp";
 import ondasChoquesImage from "@/assets/ondas-de-choque-radiales-aspe.jpg";
+import ondasChoquesImageWebp from "@/assets/ondas-de-choque-radiales-aspe.webp";
 import diatermiaImage from "@/assets/diatermia-tecar-aspe.jpg";
+import diatermiaImageWebp from "@/assets/diatermia-tecar-aspe.webp";
 import laserImage from "@/assets/laser-terapeutico-aspe.jpg";
+import laserImageWebp from "@/assets/laser-terapeutico-aspe.webp";
 import electroacupunturaImage from "@/assets/electroacupuntura-puncion-seca-aspe.jpg";
+import electroacupunturaImageWebp from "@/assets/electroacupuntura-puncion-seca-aspe.webp";
+import fisioterapeutaImage from "@/assets/fisioterapeuta-tratando-paciente-aspe.jpg";
+import fisioterapeutaImageWebp from "@/assets/fisioterapeuta-tratando-paciente-aspe.webp";
 
 const Services = () => {
 
@@ -41,6 +50,7 @@ const Services = () => {
       description: "Tratamiento especializado del sistema nervioso. Abordamos patologías neurológicas complejas con las técnicas más innovadoras.",
       badge: "Especialidad",
       image: electroacupunturaImage,
+      imageWebp: electroacupunturaImageWebp,
       alt: "neurología neuromodulación aspe",
       featured: true,
       link: "/fisioterapia-neurologica-aspe",
@@ -53,6 +63,7 @@ const Services = () => {
       description: "Técnica invasiva ecoguiada que acelera la regeneración tisular.",
       badge: "Premium",
       image: epiImage,
+      imageWebp: epiImageWebp,
       alt: "epi electrolisis percutanea aspe",
       featured: false,
       link: "/epi-electrolisis-percutanea-aspe",
@@ -65,6 +76,7 @@ const Services = () => {
       description: "Visualización precisa de tejidos blandos para un diagnóstico certero.",
       badge: "Diagnóstico",
       image: ecografoImage,
+      imageWebp: ecografoImageWebp,
       alt: "ecografo msk aspe",
       featured: false,
       link: "/ecografia-musculoesqueletica-aspe",
@@ -77,6 +89,7 @@ const Services = () => {
       description: "Regeneración tisular profunda para tendinopatías crónicas.",
       badge: "Regenerativo",
       image: ondasChoquesImage,
+      imageWebp: ondasChoquesImageWebp,
       alt: "ondas de choque radiales aspe",
       featured: false,
       link: "/ondas-de-choque-aspe",
@@ -89,6 +102,7 @@ const Services = () => {
       description: "Tratamiento con láser de alta potencia para acelerar la recuperación.",
       badge: "Avanzado",
       image: laserImage,
+      imageWebp: laserImageWebp,
       alt: "laser terapeutico aspe",
       featured: false,
       link: "/laser-terapeutico-aspe",
@@ -101,10 +115,37 @@ const Services = () => {
       description: "Termoterapia profunda que acelera la recuperación celular.",
       badge: "Térmico",
       image: diatermiaImage,
+      imageWebp: diatermiaImageWebp,
       alt: "diatermia tecar aspe",
       featured: false,
       link: "/diatermia-tecar-aspe",
       accent: "accent",
+    },
+    {
+      icon: Footprints,
+      title: "Fisioterapia Deportiva",
+      subtitle: "Rendimiento y Recuperación",
+      description: "Prevención y tratamiento de lesiones deportivas con tecnología avanzada.",
+      badge: "Deportivo",
+      image: fisioterapeutaImage,
+      imageWebp: fisioterapeutaImageWebp,
+      alt: "fisioterapia deportiva aspe",
+      featured: false,
+      link: "/fisioterapia-deportiva-aspe",
+      accent: "secondary",
+    },
+    {
+      icon: Crosshair,
+      title: "Punción Seca",
+      subtitle: "Tratamiento Miofascial",
+      description: "Desactivación de puntos gatillo para alivio rápido del dolor muscular.",
+      badge: "Invasiva",
+      image: electroacupunturaImage,
+      imageWebp: electroacupunturaImageWebp,
+      alt: "puncion seca aspe",
+      featured: false,
+      link: "/puncion-seca-aspe",
+      accent: "primary",
     },
   ];
 
@@ -251,14 +292,17 @@ const Services = () => {
 
                 {/* Image - Fixed Height */}
                 <div className="relative overflow-hidden h-44">
-                  <img
-                    src={service.image}
-                    alt={`${service.title} - Tratamiento de fisioterapia en Clínica FIMART Aspe: ${service.description}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    loading="lazy"
-                    width={400}
-                    height={176}
-                  />
+                  <picture>
+                    {service.imageWebp && <source srcSet={service.imageWebp} type="image/webp" />}
+                    <img
+                      src={service.image}
+                      alt={`${service.title} - Tratamiento de fisioterapia en Clínica FIMART Aspe: ${service.description}`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                      width={400}
+                      height={176}
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" aria-hidden="true" />
                 </div>
 
@@ -267,9 +311,9 @@ const Services = () => {
                   <div className={`inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-xl border mb-4 shadow-lg transition-shadow duration-300 ${styles.icon}`}>
                     <service.icon className="w-6 h-6 lg:w-7 lg:h-7" />
                   </div>
-                  <h4 className="font-display text-lg lg:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors tracking-wide">
+                  <h3 className="font-display text-lg lg:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors tracking-wide">
                     {service.title}
-                  </h4>
+                  </h3>
                   <p className={`text-sm font-medium mb-3 ${styles.link.split(' ')[0]}`}>
                     {service.subtitle}
                   </p>
@@ -280,7 +324,7 @@ const Services = () => {
                     to={service.link}
                     className={`inline-flex items-center gap-2 text-base font-medium transition-colors ${styles.link}`}
                   >
-                    Ver más información
+                    Ver más sobre {service.title}
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
