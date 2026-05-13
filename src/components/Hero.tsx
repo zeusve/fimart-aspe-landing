@@ -1,199 +1,219 @@
-import { Phone, MessageCircle, Star } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { Phone, MessageCircle, Star, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import HeroParticles from "./HeroParticles";
-import fachadaImage from "@/assets/fachada-clinica-fimart-aspe.jpg";
-import fachadaImageWebp from "@/assets/fachada-clinica-fimart-aspe.webp";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { WHATSAPP_LINK } from "@/lib/constants";
+import clinicFacade from "@/assets/fachada-clinica-fimart-aspe.webp";
 
 const stats = [
-  { value: "+2000", label: "Pacientes tratados", color: "text-primary" },
-  { value: "12+", label: "Años de experiencia", color: "text-secondary" },
-  { value: "6", label: "Tecnologías avanzadas", color: "text-accent" },
+  { value: "+2000", label: "Pacientes", color: "text-primary" },
+  { value: "Desde 2014", label: "Experiencia", color: "text-secondary" },
+  { value: "4.9★", label: "Google", color: "text-accent" },
 ];
 
 const Hero = () => {
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0"
+      ref={containerRef}
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      <HeroParticles />
-
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0" aria-hidden="true">
-        <picture>
-          <source srcSet={fachadaImageWebp} type="image/webp" />
-          <source srcSet={fachadaImage} type="image/jpeg" />
-          <img
-            src={fachadaImage}
-            alt="Fachada de Clínica de Fisioterapia FIMART en Aspe, Alicante - Calle Colón 30"
-            className="w-full h-full object-cover object-[center_top]"
-            width={1920}
-            height={1080}
-            fetchPriority="high"
-          />
-        </picture>
-        <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-background/95 dark:via-background/85 dark:to-background/80 hidden dark:block" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/70 dark:hidden" />
-      </div>
-
-      {/* Grid pattern */}
-      <div className="absolute inset-0 z-[1] opacity-[0.04] dark:opacity-[0.08]" aria-hidden="true">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(hsl(var(--primary) / 0.2) 1px, transparent 1px),
-              linear-gradient(90deg, hsl(var(--primary) / 0.2) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
+      {/* Background Image with Parallax */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        aria-hidden="true"
+        style={{ y, scale }}
+      >
+        <img
+          src={clinicFacade}
+          alt=""
+          className="w-full h-full object-cover"
+          loading="eager"
         />
-      </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 z-10" />
+      </motion.div>
 
-      {/* Content - Todo centrado */}
-      <div className="container mx-auto relative z-10">
-        <div className="text-center max-w-5xl mx-auto">
+      {/* Ambient glow */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/6 rounded-full blur-[100px] pointer-events-none" aria-hidden="true" />
 
-          {/* Badge */}
+      {/* Content */}
+      <motion.div
+        className="container mx-auto relative z-10 px-4 sm:px-6"
+        style={{ opacity }}
+      >
+        <div className="max-w-6xl mx-auto">
+
+          {/* Top Badge */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="flex justify-center mb-8"
           >
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 mb-8 text-sm lg:text-base font-semibold text-secondary bg-secondary/10 rounded-full border border-secondary/30 backdrop-blur-sm">
-              <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" aria-hidden="true" />
-              Desde 2014 en Aspe, Alicante
+            <span className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium tracking-widest uppercase text-secondary/90 bg-secondary/5 border border-secondary/20 rounded-full backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse" />
+              Fisioterapia Avanzada en Aspe
             </span>
           </motion.div>
 
-          {/* H1 SEO: 3 líneas con jerarquía visual */}
+          {/* Main Title — Dramatic Scale */}
           <motion.h1
             id="hero-heading"
-            className="font-display font-bold tracking-tight leading-[1.05] mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-center mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            {/* Línea 1: keyword SEO principal */}
-            <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-foreground mb-2">
-              Fisioterapia en Aspe
-            </span>
-            {/* Línea 2: contexto */}
-            <span className="block text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-muted-foreground font-medium mb-4">
-              Clínica Fisioterapia Avanzada
-            </span>
-            {/* Línea 3: FIMART protagonista */}
-            <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] tracking-tighter leading-none text-primary glow-text">
+            <motion.span
+              className="block font-body text-sm sm:text-base lg:text-lg tracking-[0.3em] uppercase text-muted-foreground mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Clínica de Fisioterapia
+            </motion.span>
+
+            <motion.span
+              className="block font-display font-bold tracking-tighter leading-[0.9] text-foreground"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                fontSize: "clamp(4rem, 15vw, 12rem)",
+              }}
+            >
               FIMART
-            </span>
+            </motion.span>
+
+            <motion.div
+              className="mx-auto h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent my-6"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{ maxWidth: "200px" }}
+            />
+
+            <motion.span
+              className="block font-body text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Recupera tu movilidad y calidad de vida con tratamientos personalizados.
+              <br className="hidden sm:block" />
+              Diagnóstico preciso, resultados duraderos.
+            </motion.span>
           </motion.h1>
 
-          {/* Underline animada */}
-          <motion.div
-            className="mx-auto h-1 lg:h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full mb-10 max-w-md lg:max-w-lg"
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-          />
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-            className="font-body text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed"
-          >
-            Recupera tu movilidad y calidad de vida con tratamientos personalizados.
-            <strong className="text-foreground"> Diagnóstico preciso, resultados duraderos.</strong>
-          </motion.p>
-
-          {/* CTAs */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.9 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12"
+            transition={{ duration: 0.8, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10"
           >
             <Button
               asChild
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:translate-y-[-2px] transition-all duration-300 text-lg px-10 h-14 rounded-xl"
+              className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg px-8 sm:px-12 h-14 rounded-full shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all duration-500 hover:-translate-y-0.5"
             >
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3"
-                aria-label="Solicitar cita en Clínica FIMART Aspe por WhatsApp"
+                className="flex items-center gap-3"
               >
-                <MessageCircle className="w-5 h-5" aria-hidden="true" />
-                Solicitar Cita
+                <MessageCircle className="w-5 h-5 transition-transform group-hover:scale-110" />
+                <span className="relative z-10">Consulta tu caso</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </a>
             </Button>
+
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-foreground/20 text-foreground hover:bg-foreground/5 hover:border-primary backdrop-blur-sm text-lg px-10 h-14 rounded-xl transition-all duration-300"
+              className="group border-foreground/10 hover:border-primary/50 hover:bg-primary/5 text-foreground backdrop-blur-sm text-base px-8 h-14 rounded-full transition-all duration-300"
             >
-              <a
-                href="tel:+34652667953"
-                className="flex items-center justify-center gap-3"
-                aria-label="Llamar a Clínica FIMART al 652 667 953"
-              >
-                <Phone className="w-5 h-5" aria-hidden="true" />
+              <a href="tel:+34652667953" className="flex items-center gap-3">
+                <Phone className="w-5 h-5 transition-transform group-hover:scale-110" />
                 652 667 953
               </a>
             </Button>
           </motion.div>
 
-          {/* Stats row - horizontal */}
+          {/* Stats — Minimal */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            className="inline-flex flex-wrap justify-center gap-6 sm:gap-0 bg-card/40 backdrop-blur-xl border border-border/50 rounded-2xl px-6 sm:px-0 py-5 sm:py-0 sm:divide-x divide-border/50 mb-8"
+            transition={{ duration: 0.8, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-16 pt-8 border-t border-border/30"
           >
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center px-8 sm:px-10 sm:py-5">
-                <div className={`text-3xl lg:text-4xl font-display font-bold ${stat.color} mb-1`}>
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.4 + i * 0.1 }}
+                className="text-center"
+              >
+                <div className={`text-2xl sm:text-3xl font-display font-bold ${stat.color}`}>
                   {stat.value}
                 </div>
-                <div className="text-sm lg:text-base text-muted-foreground font-body">
+                <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider mt-1">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
 
-          {/* Trust indicators */}
+          {/* Trust badge */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.3 }}
-            className="flex flex-wrap items-center gap-6 justify-center text-sm lg:text-base text-muted-foreground"
+            transition={{ duration: 0.8, delay: 1.6 }}
+            className="flex items-center justify-center gap-2 mt-6 text-xs text-muted-foreground"
           >
-            <div className="flex items-center gap-1.5">
-              <div className="flex" aria-hidden="true">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 lg:w-5 lg:h-5 fill-accent text-accent" />
-                ))}
-              </div>
-              <span className="font-semibold text-foreground">4.9</span>
-              <span>en Google</span>
+            <div className="flex" aria-hidden="true">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-accent text-accent" />
+              ))}
             </div>
-            <div className="h-4 w-px bg-border hidden sm:block" aria-hidden="true" />
-            <span>Fisioterapia en Aspe</span>
-            <div className="h-4 w-px bg-border hidden sm:block" aria-hidden="true" />
-            <span>Calle Colón, 30</span>
+            <span>4.9 en Google</span>
+            <span className="text-border">·</span>
+            <span>Colegiado Nº 1668</span>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[5]" aria-hidden="true" />
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2 text-muted-foreground/50"
+        >
+          <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+          <ArrowDown className="w-4 h-4" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
