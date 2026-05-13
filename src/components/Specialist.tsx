@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Award, Heart, Target, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 import specialistImage from "@/assets/fisioterapeuta-rafael-fermin-aspe.jpg";
 import specialistImageWebp from "@/assets/fisioterapeuta-rafael-fermin-aspe.webp";
 
@@ -25,6 +26,7 @@ const highlights = [
 
 const Specialist = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const isTouch = useIsTouchDevice();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -50,7 +52,7 @@ const Specialist = () => {
           
           {/* Image — Asymmetric with parallax */}
           <motion.div
-            style={{ y: imageY }}
+            style={isTouch ? undefined : { y: imageY }}
             className="relative order-2 lg:order-1"
           >
             <motion.figure
@@ -107,7 +109,7 @@ const Specialist = () => {
 
           {/* Content */}
           <motion.div
-            style={{ y: contentY }}
+            style={isTouch ? undefined : { y: contentY }}
             className="order-1 lg:order-2"
           >
             <motion.div

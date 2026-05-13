@@ -1,30 +1,58 @@
 import { useEffect, useRef } from "react";
-import Lenis from "lenis";
 
 export const useLenis = () => {
-  const lenisRef = useRef<Lenis | null>(null);
+  const lenisRef = useRef<InstanceType<typeof import("lenis").default> | null>(null);
+  const rafIdRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      touchMultiplier: 2,
-    });
+    let cancelled = false;
 
-    lenisRef.current = lenis;
+    async function initLenis() {
+      const { default: Lenis } = await import("lenis");
+      if (cancelled) return;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+        touchMultiplier: 2,
+      });
+
+      lenisRef.current = lenis;
+
+      function raf(time: number) {
+        if (cancelled) return;
+        lenis.raf(time);
+        rafIdRef.current = requestAnimationFrame(raf);
+      }
+
+      // Pause RAF when tab hidden or no scroll possible
+      const handleVisibility = () => {
+        if (document.hidden) {
+          if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+        } else {
+          rafIdRef.current = requestAnimationFrame(raf);
+        }
+      };
+
+      document.addEventListener("visibilitychange", handleVisibility);
+      rafIdRef.current = requestAnimationFrame(raf);
+
+      return () => {
+        document.removeEventListener("visibilitychange", handleVisibility);
+        if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+        lenis.destroy();
+      };
     }
 
-    requestAnimationFrame(raf);
+    const cleanupPromise = initLenis();
 
     return () => {
-      lenis.destroy();
+      cancelled = true;
+      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+      cleanupPromise.then((cleanup) => cleanup?.()).catch(() => {});
     };
   }, []);
 

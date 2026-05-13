@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY } from "@/lib/constants";
+import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 
 interface Treatment {
   name: string;
@@ -29,6 +30,38 @@ interface PathologyLayoutProps {
   whatsappText: string;
 }
 
+const FadeIn = ({
+  children,
+  className,
+  delay = 0,
+  direction = "y",
+  isTouch,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: "y" | "x";
+  isTouch: boolean;
+}) => {
+  const initial =
+    direction === "y"
+      ? { opacity: 0, y: 20 }
+      : { opacity: 0, x: -20 };
+
+  return (
+    <motion.div
+      initial={isTouch ? undefined : initial}
+      animate={isTouch ? undefined : { opacity: 1, y: 0, x: 0 }}
+      whileInView={isTouch ? undefined : { opacity: 1, y: 0, x: 0 }}
+      viewport={isTouch ? undefined : { once: true }}
+      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 const PathologyLayout = ({
   title,
   subtitle,
@@ -41,6 +74,8 @@ const PathologyLayout = ({
   path,
   whatsappText,
 }: PathologyLayoutProps) => {
+  const isTouch = useIsTouchDevice();
+
   return (
     <>
       <SEO
@@ -116,45 +151,28 @@ const PathologyLayout = ({
         {/* Symptoms */}
         <section className="py-20 lg:py-28 bg-card">
           <div className="container mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto"
-            >
+            <FadeIn className="max-w-4xl mx-auto" isTouch={isTouch}>
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-8">
                 ¿Tienes alguno de estos <span className="text-primary">síntomas</span>?
               </h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {symptoms.map((symptom, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-3 p-4 bg-background border border-border rounded-xl"
-                  >
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{symptom.text}</span>
-                  </motion.div>
+                  <FadeIn key={i} direction="x" delay={i * 0.1} isTouch={isTouch}>
+                    <div className="flex items-center gap-3 p-4 bg-background border border-border rounded-xl">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-foreground">{symptom.text}</span>
+                    </div>
+                  </FadeIn>
                 ))}
               </div>
-            </motion.div>
+            </FadeIn>
           </div>
         </section>
 
         {/* Treatments */}
         <section className="py-20 lg:py-28">
           <div className="container mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto"
-            >
+            <FadeIn className="max-w-4xl mx-auto" isTouch={isTouch}>
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 Tratamientos <span className="text-primary">específicos</span>
               </h2>
@@ -163,13 +181,7 @@ const PathologyLayout = ({
               </p>
               <div className="space-y-4">
                 {treatments.map((treatment, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                  >
+                  <FadeIn key={i} delay={i * 0.1} isTouch={isTouch}>
                     <Link
                       to={treatment.href}
                       className="flex items-center justify-between p-6 bg-card border border-border rounded-2xl hover:border-primary/50 transition-all group"
@@ -182,22 +194,17 @@ const PathologyLayout = ({
                       </div>
                       <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1" />
                     </Link>
-                  </motion.div>
+                  </FadeIn>
                 ))}
               </div>
-            </motion.div>
+            </FadeIn>
           </div>
         </section>
 
         {/* FAQ */}
         <section className="py-20 lg:py-28 bg-card">
           <div className="container mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto"
-            >
+            <FadeIn className="max-w-4xl mx-auto" isTouch={isTouch}>
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-8">
                 Preguntas <span className="text-primary">frecuentes</span>
               </h2>
@@ -217,19 +224,14 @@ const PathologyLayout = ({
                   </details>
                 ))}
               </div>
-            </motion.div>
+            </FadeIn>
           </div>
         </section>
 
         {/* CTA */}
         <section className="py-20 lg:py-28">
           <div className="container mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-3xl mx-auto text-center"
-            >
+            <FadeIn className="max-w-3xl mx-auto text-center" isTouch={isTouch}>
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-6">
                 No esperes más para <span className="text-primary">sentirte mejor</span>
               </h2>
@@ -254,7 +256,7 @@ const PathologyLayout = ({
                   Llamar: {PHONE_DISPLAY}
                 </a>
               </div>
-            </motion.div>
+            </FadeIn>
           </div>
         </section>
 

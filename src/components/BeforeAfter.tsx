@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Scan, ArrowRight } from "lucide-react";
+import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 import ecografoImage from "@/assets/ecografo-msk-aspe.jpg";
 import ecografoImageWebp from "@/assets/ecografo-msk-aspe.webp";
 import fisioterapeutaImage from "@/assets/fisioterapeuta-tratando-paciente-aspe.jpg";
@@ -9,6 +10,7 @@ import fisioterapeutaImageWebp from "@/assets/fisioterapeuta-tratando-paciente-a
 const BeforeAfter = () => {
   const [isActive, setIsActive] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const isTouch = useIsTouchDevice();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -36,7 +38,7 @@ const BeforeAfter = () => {
           
           {/* Text Content */}
           <motion.div
-            style={{ y: textY }}
+            style={isTouch ? undefined : { y: textY }}
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -112,7 +114,7 @@ const BeforeAfter = () => {
             >
               <motion.div
                 className="absolute inset-0"
-                style={{ scale: imageScale }}
+                style={isTouch ? undefined : { scale: imageScale }}
               >
                 {/* Base image */}
                 <picture>

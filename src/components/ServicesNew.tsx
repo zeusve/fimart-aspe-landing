@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Hand, Activity, Zap, Cpu, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 
 const services = [
   {
@@ -67,6 +68,7 @@ const itemVariants = {
 
 const ServicesNew = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const isTouch = useIsTouchDevice();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -82,19 +84,19 @@ const ServicesNew = () => {
       className="relative py-32 lg:py-40 overflow-hidden"
       aria-labelledby="servicios-heading"
     >
-      {/* Ambient glow */}
+      {/* Ambient glow (parallax disabled on touch) */}
       <motion.div
         className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full pointer-events-none"
         style={{
           background: "radial-gradient(circle, hsl(var(--primary) / 0.04) 0%, transparent 70%)",
-          y: y1,
+          ...(isTouch ? {} : { y: y1 }),
         }}
       />
       <motion.div
         className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
           background: "radial-gradient(circle, hsl(var(--secondary) / 0.04) 0%, transparent 70%)",
-          y: y2,
+          ...(isTouch ? {} : { y: y2 }),
         }}
       />
 

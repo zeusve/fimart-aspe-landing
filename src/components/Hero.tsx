@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Phone, MessageCircle, Star, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { WHATSAPP_LINK } from "@/lib/constants";
+import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 import clinicFacade from "@/assets/fachada-clinica-fimart-aspe.webp";
 
 const stats = [
@@ -13,6 +14,8 @@ const stats = [
 
 const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
+  const isTouch = useIsTouchDevice();
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -28,11 +31,11 @@ const Hero = () => {
       className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      {/* Background Image with Parallax */}
+      {/* Background Image with Parallax (disabled on touch) */}
       <motion.div
         className="absolute inset-0 z-0"
         aria-hidden="true"
-        style={{ y, scale }}
+        style={isTouch ? undefined : { y, scale }}
       >
         <img
           src={clinicFacade}
@@ -54,7 +57,7 @@ const Hero = () => {
       {/* Content */}
       <motion.div
         className="container mx-auto relative z-10 px-4 sm:px-6"
-        style={{ opacity }}
+        style={isTouch ? undefined : { opacity }}
       >
         <div className="max-w-6xl mx-auto">
 
