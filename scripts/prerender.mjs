@@ -28,20 +28,20 @@ const pages = [
   {
     path: "/",
     file: "index.html",
-    title: "Fisioterapia en Aspe | Clínica FIMART - Desde 2014",
+    title: "Fisioterapia en Aspe | Recupera tu movilidad | FIMART \u2b50 4.9",
     description:
-      "Clínica de fisioterapia en Aspe con más de 12 años de experiencia. Terapia manual, rehabilitación funcional, EPI y ecografía MSK. Valoración 4.9★ en Google. Pide cita: 652 667 953.",
+      "\u00bf Dolor de espalda o lesion ? +2000 pacientes recuperados en Aspe. Ecografia MSK + EPI + terapia manual. Colegiado N\u00ba 1668. Primera valoracion informativa. \ud83d\udcde 652 667 953",
     keywords:
-      "fisioterapia Aspe, fisioterapeuta Aspe, clínica fisioterapia Alicante, rehabilitación Aspe, terapia manual Aspe, EPI Aspe, ondas de choque Aspe",
+      "fisioterapia Aspe, fisioterapeuta Aspe, clinica fisioterapia Alicante, rehabilitacion Aspe, terapia manual Aspe, EPI Aspe, ondas de choque Aspe, dolor espalda Aspe, lumbalgia Aspe",
   },
   {
     path: "/epi-electrolisis-percutanea-aspe",
     file: "epi-electrolisis-percutanea-aspe.html",
-    title: "EPI Electrólisis Percutánea en Aspe | Clínica FIMART",
+    title: "EPI en Aspe | Tendinitis cronica? Resultados en 3-5 sesiones | FIMART",
     description:
-      "Tratamiento de EPI en Aspe. Técnica regenerativa ecoguiada para tendinopatías crónicas y lesiones musculares. Resultados desde la primera sesión. Clínica FIMART.",
+      "Tendinitis que no mejora? EPI ecoguiada en FIMART Aspe. Tecnica regenerativa con ecografia MSK en tiempo real. Colegiado N\u00ba 1668. Pide valoracion sin compromiso.",
     keywords:
-      "EPI Aspe, electrólisis percutánea Aspe, tendinopatía Aspe, fisioterapia invasiva Aspe",
+      "EPI Aspe, electrolisis percutanea Aspe, tendinitis Aspe, tendinopatia cronica Aspe, fisioterapia invasiva Aspe, tratamiento tendinitis hombro Aspe",
     breadcrumbName: "EPI Electrólisis Percutánea",
     ogImagePrefix: "epi-electrolisis-percutanea-aspe",
     serviceName: "EPI - Electrólisis Percutánea Intratisular en Aspe",
@@ -56,11 +56,11 @@ const pages = [
   {
     path: "/ondas-de-choque-aspe",
     file: "ondas-de-choque-aspe.html",
-    title: "Ondas de Choque en Aspe | Clínica FIMART",
+    title: "Ondas de Choque en Aspe | Fascitis plantar y calcificaciones | FIMART",
     description:
-      "Tratamiento con ondas de choque en Aspe. Terapia no invasiva para tendinopatías crónicas, calcificaciones y dolor musculoesquelético. Clínica FIMART.",
+      "Fascitis plantar o calcificacion? Ondas de choque en FIMART Aspe. Terapia no invasiva, resultados desde la 3\u00aa sesion. Ecografia MSK incluida. Pide valoracion.",
     keywords:
-      "ondas de choque Aspe, terapia extracorpórea Aspe, fascitis plantar Aspe, tendinitis Aspe",
+      "ondas de choque Aspe, fascitis plantar Aspe, calcificacion hombro Aspe, terapia extracorporea Aspe, tendinitis cronica Aspe, dolor talon Aspe",
     breadcrumbName: "Ondas de Choque",
     ogImagePrefix: "ondas-de-choque-radiales-aspe",
     serviceName: "Ondas de Choque en Aspe",
@@ -75,11 +75,11 @@ const pages = [
   {
     path: "/ecografia-musculoesqueletica-aspe",
     file: "ecografia-musculoesqueletica-aspe.html",
-    title: "Ecografía Musculoesquelética en Aspe | Clínica FIMART",
+    title: "Ecografia MSK en Aspe | Diagnostico inmediato sin esperas | FIMART",
     description:
-      "Ecografía musculoesquelética en Aspe. Diagnóstico en tiempo real de lesiones musculares, tendinosas y ligamentosas. Sin radiación ni esperas. Clínica FIMART.",
+      "\u00bf Dolor muscular sin diagnostico? Ecografia MSK en tiempo real en Aspe. Vemos tu lesion mientras te tratamos. Sin radiacion. Resultados inmediatos. Colegiado N\u00ba 1668.",
     keywords:
-      "ecografía musculoesquelética Aspe, ecografía MSK Aspe, diagnóstico ecográfico Aspe",
+      "ecografia musculoesqueletica Aspe, ecografia MSK Aspe, diagnostico ecografico Aspe, ecografia tendones Aspe, ecografia deportiva Aspe, lesion muscular Aspe",
     breadcrumbName: "Ecografía Musculoesquelética",
     ogImagePrefix: "ecografo-msk-aspe",
     serviceName: "Ecografía Musculoesquelética en Aspe",
@@ -201,7 +201,7 @@ const pages = [
     file: "sobre-nosotros.html",
     title: "Sobre Nosotros | Fisioterapeuta Colegiado en Aspe - Clínica FIMART",
     description:
-      "Conoce a Rafael Fermín, fisioterapeuta colegiado en Aspe con más de 12 años de experiencia. Especialista en terapia manual, EPI, ecografía MSK y rehabilitación. Clínica FIMART.",
+      "Conoce a Rafael Fermín, fisioterapeuta colegiado en Aspe desde 2014. Especialista en terapia manual, EPI, ecografía MSK y rehabilitación. Clínica FIMART.",
     keywords:
       "fisioterapeuta Aspe, Rafael Fermin fisioterapeuta, clinica fisioterapia Aspe equipo, fisioterapeuta colegiado Alicante",
     breadcrumbName: "Sobre Nosotros",
@@ -258,6 +258,98 @@ const pages = [
       "EPI vs punción seca, ondas de choque vs EPI, fisioterapia invasiva Aspe",
     breadcrumbName: "EPI vs Punción Seca vs Ondas de Choque",
     blogDate: "2025-02-20",
+  },
+  // Pathology Landing Pages
+  {
+    path: "/dolor-espalda-aspe",
+    file: "dolor-espalda-aspe.html",
+    title: "Dolor de Espalda en Aspe | Tratamiento efectivo sin cirugía | FIMART",
+    description:
+      "¿Dolor de espalda persistente? Tratamiento efectivo en Aspe. Ecografía MSK + terapia manual + EPI. Colegiado Nº 1668. Primera valoración informativa.",
+    keywords:
+      "dolor espalda Aspe, dolor lumbar Aspe, lumbago Aspe, tratamiento espalda Aspe, fisioterapia espalda Aspe",
+    breadcrumbName: "Dolor de Espalda",
+    faqs: [
+      { question: "¿Cuánto dura el tratamiento del dolor de espalda?", answer: "Depende de la causa. La mayoría de pacientes notan mejoría desde la primera sesión. Un plan completo suele ser de 4-8 sesiones." },
+      { question: "¿Puede la fisioterapia evitar una cirugía?", answer: "En muchos casos sí. La fisioterapia especializada puede resolver hernias discales leves, protrusiones y contracturas sin necesidad de intervención." },
+      { question: "¿Necesito radiografía antes de venir?", answer: "No es necesario. Con la ecografía MSK podemos ver la mayoría de lesiones en la primera sesión. Si detectamos algo que requiere radiografía o resonancia, te lo indicamos." },
+    ],
+  },
+  {
+    path: "/lumbalgia-aspe",
+    file: "lumbalgia-aspe.html",
+    title: "Lumbalgia en Aspe | Alivio del dolor lumbar | FIMART",
+    description:
+      "¿Dolor lumbar persistente? Tratamiento de lumbalgia en Aspe. Ecografía MSK + terapia manual + EPI. Resultados desde la primera sesión. Colegiado Nº 1668.",
+    keywords:
+      "lumbalgia Aspe, dolor lumbar Aspe, lumbago Aspe, tratamiento lumbalgia Aspe, fisioterapia lumbar Aspe",
+    breadcrumbName: "Lumbalgia",
+    faqs: [
+      { question: "¿Cuántas sesiones necesito para la lumbalgia?", answer: "La mayoría de pacientes con lumbalgia aguda mejoran en 3-5 sesiones. Los casos crónicos pueden requerir 8-10 sesiones con mantenimiento." },
+      { question: "¿Puedo venir con lumbalgia aguda?", answer: "Sí, de hecho es recomendable. Cuanto antes tratamos la lumbalgia aguda, menos probabilidad de cronificación." },
+      { question: "¿Qué diferencia hay entre lumbalgia y ciática?", answer: "La lumbalgia es dolor localizado en la zona lumbar. La ciática es dolor que irradia por el nervio ciático hasta la pierna. En la primera sesión determinamos cuál tienes." },
+    ],
+  },
+  {
+    path: "/ciatica-aspe",
+    file: "ciatica-aspe.html",
+    title: "Ciática en Aspe | Tratamiento del nervio ciático | FIMART",
+    description:
+      "¿Dolor que baja por la pierna? Tratamiento de ciática en Aspe. Diagnóstico con ecografía MSK + tratamiento específico. Colegiado Nº 1668. Pide valoración.",
+    keywords:
+      "ciatica Aspe, dolor ciático Aspe, tratamiento ciatica Aspe, nervio ciatico Aspe, ciatalgia Aspe, fisioterapia ciatica Aspe",
+    breadcrumbName: "Ciática",
+    faqs: [
+      { question: "¿La ciática se cura con fisioterapia?", answer: "En la mayoría de casos sí. El 90% de las ciáticas mejoran con tratamiento conservador en 12 semanas. Solo casos severos requieren cirugía." },
+      { question: "¿Cuánto dura el tratamiento de una ciática?", answer: "Con fisioterapia específica, la mayoría de pacientes notan mejoría significativa en 2-4 semanas. Los casos crónicos pueden requerir 8-12 semanas." },
+      { question: "¿Puedo hacer ejercicio con ciática?", answer: "Depende de la fase. En fase aguda recomendamos reposo relativo. A medida que mejoras, introducimos ejercicios específicos de movilización neural." },
+    ],
+  },
+  {
+    path: "/tendinitis-hombro-aspe",
+    file: "tendinitis-hombro-aspe.html",
+    title: "Tendinitis de Hombro en Aspe | Recuperación completa | FIMART",
+    description:
+      "¿Dolor de hombro al levantar el brazo? Tratamiento de tendinitis en Aspe. EPI + ondas de choque + ecografía MSK. Colegiado Nº 1668. Pide valoración.",
+    keywords:
+      "tendinitis hombro Aspe, manguito rotador Aspe, supraespinoso Aspe, dolor hombro Aspe, tratamiento tendinitis Aspe",
+    breadcrumbName: "Tendinitis de Hombro",
+    faqs: [
+      { question: "¿Cuánto tarda en curarse una tendinitis de hombro?", answer: "Con tratamiento adecuado, la fase aguda mejora en 3-6 semanas. Las tendinopatías crónicas pueden requerir 3-5 meses con tratamiento combinado." },
+      { question: "¿Es mejor EPI u ondas de choque para la tendinitis?", answer: "Depende del tipo. Para tendinopatías sin calcificación, EPI. Para calcificaciones, ondas de choque. En la primera sesión valoramos cuál es mejor para tu caso." },
+      { question: "¿Puedo seguir haciendo deporte con tendinitis de hombro?", answer: "Durante la fase aguda es mejor descansar. Una vez iniciado el tratamiento, introducimos ejercicios específicos de fortalecimiento progresivo." },
+    ],
+  },
+  {
+    path: "/dolor-cervical-aspe",
+    file: "dolor-cervical-aspe.html",
+    title: "Dolor Cervical en Aspe | Cervicales y contracturas | FIMART",
+    description:
+      "¿Contracturas cervicales o dolor de cuello? Tratamiento en Aspe. Terapia manual + EPI + ecografía MSK. Resultados desde la primera sesión. Colegiado Nº 1668.",
+    keywords:
+      "dolor cervical Aspe, contracturas cervicales Aspe, dolor cuello Aspe, torticolis Aspe, tratamiento cervical Aspe, cervicales Aspe",
+    breadcrumbName: "Dolor Cervical",
+    faqs: [
+      { question: "¿El dolor cervical puede causar mareos?", answer: "Sí, la cervicalgia puede producir vértigo postural, mareos y náuseas debido a la alteración de los receptores propioceptivos del cuello." },
+      { question: "¿Cuántas sesiones necesito para las cervicales?", answer: "Las contracturas agudas mejoran en 2-4 sesiones. Los problemas crónicos por postura pueden requerir 6-10 sesiones con reeducación postural." },
+      { question: "¿Puede la fisioterapia curar la hernia cervical?", answer: "Las hernias cervicales leves y moderadas mejoran significativamente con fisioterapia. En casos severos con compresión nerviosa grave, valoramos con el traumatólogo." },
+    ],
+  },
+  {
+    path: "/fascitis-plantar-aspe",
+    file: "fascitis-plantar-aspe.html",
+    title: "Fascitis Plantar en Aspe | Tratamiento sin cirugía en 3-5 sesiones | FIMART",
+    description:
+      "Dolor de talón por las mañanas? Tratamiento efectivo de fascitis plantar en Aspe. Ondas de choque + EPI ecoguiada. Colegiado Nº 1668. Primera valoración informativa.",
+    keywords:
+      "fascitis plantar Aspe, dolor talón Aspe, tratamiento fascitis plantar Aspe, ondas de choque fascitis plantar, dolor planta pie Aspe, fisioterapia pie Aspe",
+    breadcrumbName: "Fascitis Plantar",
+    faqs: [
+      { question: "¿Cuánto tarda en curarse la fascitis plantar?", answer: "Con tratamiento fisioterapéutico adecuado, la mayoría de pacientes notan mejoría en 2-4 semanas. Casos crónicos pueden requerir 6-8 semanas combinando ondas de choque y ejercicios específicos." },
+      { question: "¿Las ondas de choque curan la fascitis plantar?", answer: "Sí, tienen una tasa de éxito del 80-90% en fascitis plantar crónica. Estimulan la regeneración del tejido dañado y rompen las calcificaciones si las hay." },
+      { question: "¿Necesito plantillas para la fascitis plantar?", answer: "Las plantillas de apoyo del arco pueden ayudar a descargar la fascia, pero no curan la lesión. Las combinamos con tratamiento fisioterapéutico para resolver la causa." },
+      { question: "¿Puedo seguir corriendo con fascitis plantar?", answer: "Durante la fase aguda es mejor reducir o eliminar el impacto. Una vez controlado el dolor, te guiamos en un retorno progresivo al deporte con ejercicios de fortalecimiento." },
+    ],
   },
   {
     path: "/aviso-legal",
@@ -434,6 +526,12 @@ function processJsonLd(html, page) {
 
     // Insert service schemas right before </head>
     html = html.replace("</head>", `${serviceBlocks}\n  </head>`);
+  }
+
+  // Non-service pages with FAQs (pathology landings, etc.)
+  if (!page.serviceName && page.faqs) {
+    const faqBlock = buildJsonLdBlock("FAQPage", buildFAQPageSchema(page.faqs));
+    html = html.replace("</head>", `${faqBlock}\n  </head>`);
   }
 
   // Blog articles: inject BlogPosting schema

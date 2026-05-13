@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 
+import { useLenis } from "./hooks/useLenis";
+
 // Pages - Index loaded eagerly (main landing page)
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -28,6 +30,15 @@ const PuncionSeca = lazy(() => import("./pages/services/PuncionSeca"));
 // Pages - Lazy loaded
 const Contacto = lazy(() => import("./pages/Contacto"));
 const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
+const RafaelFermin = lazy(() => import("./pages/RafaelFermin"));
+
+// Pathology Landing Pages - Lazy loaded
+const DolorEspalda = lazy(() => import("./pages/pathologies/DolorEspalda"));
+const Lumbalgia = lazy(() => import("./pages/pathologies/Lumbalgia"));
+const Ciatica = lazy(() => import("./pages/pathologies/Ciatica"));
+const TendinitisHombroPathologia = lazy(() => import("./pages/pathologies/TendinitisHombro"));
+const DolorCervical = lazy(() => import("./pages/pathologies/DolorCervical"));
+const FascitisPlantarPathologia = lazy(() => import("./pages/pathologies/FascitisPlantar"));
 
 // Services Index & Blog - Lazy loaded
 const Servicios = lazy(() => import("./pages/Servicios"));
@@ -39,6 +50,14 @@ const ComparativaTecnicas = lazy(() => import("./pages/blog/ComparativaTecnicas"
 // Components
 import CookieBanner from "./components/CookieBanner";
 import ScrollToTop from "./components/ScrollToTop";
+import CustomCursor from "./components/CustomCursor";
+import PageTransition from "./components/PageTransition";
+import PageLoader from "./components/PageLoader";
+
+const AppContent = () => {
+  useLenis();
+  return null;
+};
 
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
@@ -46,42 +65,40 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AppContent />
+        <CustomCursor />
+        <PageLoader />
         <ScrollToTop />
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
-            {/* Main Page */}
-            <Route path="/" element={<Index />} />
-
-            {/* Legal Pages */}
-            <Route path="/aviso-legal" element={<AvisoLegal />} />
-            <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
-            <Route path="/politica-cookies" element={<PoliticaCookies />} />
-
-            {/* Service Landing Pages */}
-            <Route path="/epi-electrolisis-percutanea-aspe" element={<EpiElectrolisis />} />
-            <Route path="/ondas-de-choque-aspe" element={<OndasChoque />} />
-            <Route path="/ecografia-musculoesqueletica-aspe" element={<EcografiaMsk />} />
-            <Route path="/laser-terapeutico-aspe" element={<LaserTerapeutico />} />
-            <Route path="/diatermia-tecar-aspe" element={<DiatermiaTecar />} />
-            <Route path="/fisioterapia-neurologica-aspe" element={<FisioterapiaNeurologica />} />
-            <Route path="/fisioterapia-deportiva-aspe" element={<FisioterapiaDeportiva />} />
-            <Route path="/puncion-seca-aspe" element={<PuncionSeca />} />
-
-            {/* Pages */}
-            <Route path="/contacto" element={<Contacto />} />
-            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-
-            {/* Services Index */}
-            <Route path="/servicios" element={<Servicios />} />
-
-            {/* Blog */}
-            <Route path="/blog" element={<BlogIndex />} />
-            <Route path="/blog/fascitis-plantar-tratamiento-fisioterapia" element={<FascitisPlantar />} />
-            <Route path="/blog/tendinitis-hombro-manguito-rotador" element={<TendinitisHombro />} />
-            <Route path="/blog/diferencias-epi-puncion-seca-ondas-choque" element={<ComparativaTecnicas />} />
-
-            {/* Catch-all 404 */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+            <Route path="/aviso-legal" element={<PageTransition><AvisoLegal /></PageTransition>} />
+            <Route path="/politica-privacidad" element={<PageTransition><PoliticaPrivacidad /></PageTransition>} />
+            <Route path="/politica-cookies" element={<PageTransition><PoliticaCookies /></PageTransition>} />
+            <Route path="/epi-electrolisis-percutanea-aspe" element={<PageTransition><EpiElectrolisis /></PageTransition>} />
+            <Route path="/ondas-de-choque-aspe" element={<PageTransition><OndasChoque /></PageTransition>} />
+            <Route path="/ecografia-musculoesqueletica-aspe" element={<PageTransition><EcografiaMsk /></PageTransition>} />
+            <Route path="/laser-terapeutico-aspe" element={<PageTransition><LaserTerapeutico /></PageTransition>} />
+            <Route path="/diatermia-tecar-aspe" element={<PageTransition><DiatermiaTecar /></PageTransition>} />
+            <Route path="/fisioterapia-neurologica-aspe" element={<PageTransition><FisioterapiaNeurologica /></PageTransition>} />
+            <Route path="/fisioterapia-deportiva-aspe" element={<PageTransition><FisioterapiaDeportiva /></PageTransition>} />
+            <Route path="/puncion-seca-aspe" element={<PageTransition><PuncionSeca /></PageTransition>} />
+            <Route path="/contacto" element={<PageTransition><Contacto /></PageTransition>} />
+            <Route path="/sobre-nosotros" element={<PageTransition><SobreNosotros /></PageTransition>} />
+            <Route path="/rafael-fermin" element={<PageTransition><RafaelFermin /></PageTransition>} />
+            <Route path="/servicios" element={<PageTransition><Servicios /></PageTransition>} />
+            <Route path="/blog" element={<PageTransition><BlogIndex /></PageTransition>} />
+            <Route path="/blog/fascitis-plantar-tratamiento-fisioterapia" element={<PageTransition><FascitisPlantar /></PageTransition>} />
+            <Route path="/blog/tendinitis-hombro-manguito-rotador" element={<PageTransition><TendinitisHombro /></PageTransition>} />
+            <Route path="/blog/diferencias-epi-puncion-seca-ondas-choque" element={<PageTransition><ComparativaTecnicas /></PageTransition>} />
+            {/* Pathology Landing Pages */}
+            <Route path="/dolor-espalda-aspe" element={<PageTransition><DolorEspalda /></PageTransition>} />
+            <Route path="/lumbalgia-aspe" element={<PageTransition><Lumbalgia /></PageTransition>} />
+            <Route path="/ciatica-aspe" element={<PageTransition><Ciatica /></PageTransition>} />
+            <Route path="/tendinitis-hombro-aspe" element={<PageTransition><TendinitisHombroPathologia /></PageTransition>} />
+            <Route path="/dolor-cervical-aspe" element={<PageTransition><DolorCervical /></PageTransition>} />
+            <Route path="/fascitis-plantar-aspe" element={<PageTransition><FascitisPlantarPathologia /></PageTransition>} />
+            <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
           </Routes>
         </Suspense>
         <CookieBanner />

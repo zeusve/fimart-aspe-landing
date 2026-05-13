@@ -106,4 +106,42 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Landing Pages de Patología (SEO) -->
+  <url>
+    <loc>https://fisioterapiafimart.com/dolor-espalda-aspe</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fisioterapiafimart.com/lumbalgia-aspe</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fisioterapiafimart.com/ciatica-aspe</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fisioterapiafimart.com/tendinitis-hombro-aspe</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fisioterapiafimart.com/dolor-cervical-aspe</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fisioterapiafimart.com/fascitis-plantar-aspe</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
