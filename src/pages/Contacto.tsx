@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Clock, MessageCircle, Send, User, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -15,6 +15,13 @@ const GOOGLE_MAPS_EMBED_URL =
 const Contacto = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
   const mapContainerRef = useRef<HTMLDivElement>(null);
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "", service: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Hola, soy ${formData.name}.%0A%0ATeléfono: ${formData.phone}%0AEmail: ${formData.email}%0AServicio de interés: ${formData.service}%0A%0AMensaje:%0A${formData.message}`;
+    window.open(`https://wa.me/34652667953?text=${text}`, "_blank");
+  };
 
   const loadMap = useCallback(() => {
     setMapLoaded(true);
@@ -184,6 +191,102 @@ const Contacto = () => {
                     </a>
                   </Button>
                 </div>
+
+                {/* Formulario Web */}
+                <motion.form
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  onSubmit={handleSubmit}
+                  className="mt-10 p-6 bg-card border border-border rounded-2xl space-y-4"
+                >
+                  <h3 className="font-display text-xl font-bold text-foreground mb-4">
+                    O envíanos un mensaje
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium text-foreground">Nombre</label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <input
+                          id="name"
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
+                          className="w-full pl-10 pr-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                          placeholder="Tu nombre"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-sm font-medium text-foreground">Teléfono</label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <input
+                          id="phone"
+                          type="tel"
+                          required
+                          value={formData.phone}
+                          onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))}
+                          className="w-full pl-10 pr-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                          placeholder="652 000 000"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
+                        className="w-full pl-10 pr-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        placeholder="tu@email.com"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="service" className="text-sm font-medium text-foreground">Servicio de interés</label>
+                    <select
+                      id="service"
+                      value={formData.service}
+                      onChange={e => setFormData(p => ({ ...p, service: e.target.value }))}
+                      className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    >
+                      <option value="">Selecciona un servicio</option>
+                      <option value="Terapia manual">Terapia manual</option>
+                      <option value="EPI">EPI</option>
+                      <option value="Ecografía MSK">Ecografía MSK</option>
+                      <option value="Ondas de choque">Ondas de choque</option>
+                      <option value="Láser terapéutico">Láser terapéutico</option>
+                      <option value="Diatermia TECAR">Diatermia TECAR</option>
+                      <option value="Fisioterapia neurológica">Fisioterapia neurológica</option>
+                      <option value="Otro">Otro / No sé</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-foreground">Mensaje</label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={e => setFormData(p => ({ ...p, message: e.target.value }))}
+                      className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                      placeholder="Cuéntanos tu caso..."
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
+                  >
+                    <Send className="w-4 h-4 mr-2" />
+                    Enviar por WhatsApp
+                  </Button>
+                </motion.form>
               </motion.div>
 
               {/* Map */}

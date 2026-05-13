@@ -24,7 +24,7 @@ const SobreNosotros = () => {
     <>
       <SEO
         title="Sobre Nosotros | Fisioterapeuta Colegiado en Aspe - Clínica FIMART"
-        description="Conoce a Rafael Fermín, fisioterapeuta colegiado en Aspe con más de 12 años de experiencia. Especialista en terapia manual, EPI, ecografía MSK y rehabilitación. Clínica FIMART."
+        description="Conoce a Rafael Fermín, fisioterapeuta colegiado en Aspe desde 2014. Especialista en terapia manual, EPI, ecografía MSK y rehabilitación. Clínica FIMART."
         path="/sobre-nosotros"
         keywords="fisioterapeuta Aspe, Rafael Fermin fisioterapeuta, clinica fisioterapia Aspe equipo, fisioterapeuta colegiado Alicante"
       />
@@ -109,7 +109,7 @@ const SobreNosotros = () => {
               >
                 <div className="inline-flex items-center gap-3 px-4 py-2 bg-secondary/10 border border-secondary/30 rounded-full mb-6">
                   <Award className="w-5 h-5 text-secondary" />
-                  <span className="text-sm font-medium text-secondary">Fisioterapeuta Colegiado</span>
+                  <span className="text-sm font-medium text-secondary">Fisioterapeuta Colegiado Nº 1668</span>
                 </div>
 
                 <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -118,7 +118,7 @@ const SobreNosotros = () => {
 
                 <p className="text-lg text-muted-foreground font-body leading-relaxed mb-4">
                   Fisioterapeuta colegiado por el <strong className="text-foreground">Colegio Oficial de Fisioterapeutas
-                  de la Comunitat Valenciana</strong>, con más de 12 años de experiencia clínica.
+                  de la Comunitat Valenciana</strong>, con más de una década de experiencia clínica desde 2014.
                 </p>
 
                 <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">

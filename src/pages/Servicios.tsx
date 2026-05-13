@@ -124,7 +124,7 @@ const Servicios = () => {
               <p className="text-lg lg:text-xl text-muted-foreground font-body leading-relaxed">
                 Tecnología de vanguardia y terapia manual avanzada para ofrecerte el tratamiento
                 más efectivo. Cada servicio cuenta con equipamiento de última generación y la
-                experiencia de más de 12 años.
+                experiencia desde 2014.
               </p>
             </motion.div>
           </div>

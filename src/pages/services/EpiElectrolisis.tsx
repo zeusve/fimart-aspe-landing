@@ -17,6 +17,7 @@ const EpiElectrolisis = () => {
       title="EPI - Electrólisis Percutánea Intratisular"
       subtitle="Técnica Regenerativa Avanzada"
       description="La EPI es una técnica de fisioterapia invasiva que utiliza una corriente galvánica aplicada de forma ecoguiada para regenerar el tejido dañado. Es especialmente efectiva en tendinopatías crónicas y lesiones musculares que no responden a tratamientos convencionales."
+      whatsappText="Hola, vi la página de EPI en la web de FIMART y me gustaría consultar mi caso. ¿Podemos hablar?"
       icon={Zap}
       image={epiImage}
       imageWebp={epiImageWebp}
