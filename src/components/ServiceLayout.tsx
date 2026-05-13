@@ -50,6 +50,7 @@ interface ServiceLayoutProps {
   expectedResults?: string;
   aftercare?: string[];
   metaDescription?: string;
+  whatsappText?: string;
 }
 
 const ServiceLayout = ({
@@ -68,7 +69,11 @@ const ServiceLayout = ({
   detailedContent,
   expectedResults,
   aftercare,
+  whatsappText,
 }: ServiceLayoutProps) => {
+  const waLink = whatsappText
+    ? `https://wa.me/34652667953?text=${encodeURIComponent(whatsappText)}`
+    : WHATSAPP_LINK;
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -112,7 +117,7 @@ const ServiceLayout = ({
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 tracking-tight leading-tight">
                 {title}{" "}
-                <span className="text-primary glow-text">en Aspe</span>
+                <span className="text-primary">en Aspe</span>
               </h1>
 
               <p className="text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed font-body">
@@ -126,13 +131,13 @@ const ServiceLayout = ({
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25"
                 >
                   <a
-                    href={WHATSAPP_LINK}
+                    href={waLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
                     <MessageCircle className="w-5 h-5" />
-                    Solicitar Cita
+                    Consultar por {title}
                   </a>
                 </Button>
                 <Button
@@ -429,13 +434,13 @@ const ServiceLayout = ({
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25"
               >
                 <a
-                  href={WHATSAPP_LINK}
+                  href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Pedir Cita por WhatsApp
+                  Consultar por {title}
                 </a>
               </Button>
               <Button

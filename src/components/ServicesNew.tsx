@@ -1,196 +1,205 @@
-import { motion } from "framer-motion";
-import {
-  Hand,
-  Activity,
-  Zap,
-  Cpu,
-  CheckCircle,
-  Star,
-  MapPin,
-  Award
-} from "lucide-react";
-import SectionBadge from "@/components/ui/SectionBadge";
-import GridBackground from "@/components/ui/GridBackground";
-import CTAButton from "@/components/ui/CTAButton";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Hand, Activity, Zap, Cpu, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const services = [
+  {
+    num: "01",
+    icon: Hand,
+    title: "Terapia Manual",
+    subtitle: "Dolor de espalda, cuello y articulaciones",
+    description: "Tratamos el origen del dolor, no solo el síntoma. Terapia manual avanzada para recuperar función y prevenir recaídas.",
+    href: "/servicios",
+    color: "from-primary/20 to-transparent",
+  },
+  {
+    num: "02",
+    icon: Activity,
+    title: "Rehabilitación",
+    subtitle: "Recuperación tras lesión o cirugía",
+    description: "Planes personalizados con objetivos medibles. Recuperación segura, progresiva y duradera.",
+    href: "/servicios",
+    color: "from-secondary/20 to-transparent",
+  },
+  {
+    num: "03",
+    icon: Zap,
+    title: "Deportiva",
+    subtitle: "Rendimiento y prevención",
+    description: "Para deportistas y amateurs. Mejora tu rendimiento y reduce el riesgo de lesiones con tratamientos específicos.",
+    href: "/servicios",
+    color: "from-accent/20 to-transparent",
+  },
+  {
+    num: "04",
+    icon: Cpu,
+    title: "Tecnología Avanzada",
+    subtitle: "EPI, láser, ondas de choque, ecografía",
+    description: "Diagnóstico por ecografía MSK en tiempo real. Tratamientos de última generación con resultados probados.",
+    href: "/servicios",
+    color: "from-primary/20 to-transparent",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
 
 const ServicesNew = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
 
-  const services = [
-    {
-      icon: Hand,
-      title: "Terapia manual y dolor",
-      description: "Tratamos dolor de espalda, cuello y articulaciones. Objetivo: recuperar función y prevenir recaídas.",
-      accent: "primary",
-    },
-    {
-      icon: Activity,
-      title: "Rehabilitación funcional",
-      description: "Planes personalizados tras lesiones o cirugías. Recuperación segura y duradera.",
-      accent: "secondary",
-    },
-    {
-      icon: Zap,
-      title: "Fisioterapia deportiva",
-      description: "Para deportistas y amateurs. Mejora rendimiento y reduce el riesgo de lesiones.",
-      accent: "accent",
-    },
-    {
-      icon: Cpu,
-      title: "Tecnología avanzada",
-      description: "EPI, láser terapéutico, ondas de choque y diatermia para tratamientos de última generación.",
-      accent: "primary",
-    },
-  ];
-
-  const benefits = [
-    { icon: CheckCircle, text: "Tratamientos 100% personalizados", accent: "primary" },
-    { icon: Award, text: "Clínica autorizada con trayectoria desde 2014", accent: "secondary" },
-    { icon: Star, text: "Alta satisfacción (4.9★ en reseñas)", accent: "accent" },
-    { icon: MapPin, text: "Ubicación céntrica en Calle Colón, 30", accent: "primary" },
-  ];
-
-  const accentClasses: Record<string, { icon: string; border: string; hover: string }> = {
-    primary: {
-      icon: "bg-primary/15 text-primary border-primary/25",
-      border: "hover:border-primary/40",
-      hover: "group-hover:shadow-primary/20",
-    },
-    secondary: {
-      icon: "bg-secondary/15 text-secondary border-secondary/25",
-      border: "hover:border-secondary/40",
-      hover: "group-hover:shadow-secondary/20",
-    },
-    accent: {
-      icon: "bg-accent/15 text-accent border-accent/25",
-      border: "hover:border-accent/40",
-      hover: "group-hover:shadow-accent/20",
-    },
-  };
+  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
     <section
+      ref={sectionRef}
       id="tratamientos"
-      className="py-20 lg:py-32 bg-card relative overflow-hidden grain-overlay"
-      aria-labelledby="tratamientos-heading"
+      className="relative py-32 lg:py-40 overflow-hidden"
+      aria-labelledby="servicios-heading"
     >
-      <GridBackground variant="lines" size={60} />
+      {/* Ambient glow */}
+      <motion.div
+        className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, hsl(var(--primary) / 0.04) 0%, transparent 70%)",
+          y: y1,
+        }}
+      />
+      <motion.div
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, hsl(var(--secondary) / 0.04) 0%, transparent 70%)",
+          y: y2,
+        }}
+      />
 
-      <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2 pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl -translate-x-1/3 pointer-events-none" aria-hidden="true" />
-
-      <div className="container mx-auto relative z-10">
-
-        {/* Header */}
-        <motion.header
-          initial={{ opacity: 0, y: 30 }}
+      <div className="container mx-auto relative z-10 px-4 sm:px-6">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-center max-w-5xl mx-auto mb-12"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mb-20 lg:mb-28"
         >
-          <SectionBadge variant="primary">Nuestros Servicios</SectionBadge>
+          <span className="inline-block text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6">
+            Nuestros Servicios
+          </span>
           <h2
-            id="tratamientos-heading"
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-8 tracking-tight leading-tight"
+            id="servicios-heading"
+            className="font-display font-bold tracking-tight leading-[1.1] text-foreground"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
           >
-            Tratamientos de fisioterapia en Aspe{" "}
-            <span className="text-primary">adaptados a ti</span>
+            Tratamientos de
+            <br />
+            <span className="text-primary">fisioterapia avanzada</span>
           </h2>
-        </motion.header>
+        </motion.div>
 
-        {/* Services Grid */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12" role="list">
-          {services.map((service, index) => {
-            const colors = accentClasses[service.accent];
-            return (
-              <motion.li
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }}
-                whileHover={{
-                  scale: 1.03,
-                  transition: { type: "spring", stiffness: 300, damping: 20 }
-                }}
-                className={`group relative overflow-hidden rounded-2xl border border-border bg-background/50 backdrop-blur-sm ${colors.border} transition-all duration-500 p-6 lg:p-8`}
+        {/* Services — Editorial Layout */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="space-y-1"
+        >
+          {services.map((service, index) => (
+            <motion.div
+              key={service.num}
+              variants={itemVariants}
+            >
+              <Link
+                to={service.href}
+                className="group block relative"
               >
-                <article className="relative z-10">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-2xl border mb-6 ${colors.icon} ${colors.hover} group-hover:shadow-lg transition-shadow duration-300`} aria-hidden="true">
-                    <service.icon className="w-7 h-7 lg:w-8 lg:h-8" />
+                <div
+                  className={`relative flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12 py-8 lg:py-10 px-6 lg:px-10 rounded-2xl border border-transparent transition-all duration-500 hover:border-border/50 hover:bg-gradient-to-r ${service.color}`}
+                >
+                  {/* Number */}
+                  <span className="font-display text-5xl lg:text-7xl font-bold text-muted-foreground/20 group-hover:text-primary/30 transition-colors duration-500 lg:w-32 flex-shrink-0">
+                    {service.num}
+                  </span>
+
+                  {/* Icon + Title */}
+                  <div className="flex items-start gap-4 lg:w-80 flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                      <service.icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {service.subtitle}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors tracking-wide">
-                    {service.title}
-                  </h3>
-                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed font-body">
+
+                  {/* Description */}
+                  <p className="text-muted-foreground leading-relaxed lg:flex-1 lg:max-w-lg">
                     {service.description}
                   </p>
-                </article>
-              </motion.li>
-            );
-          })}
-        </ul>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-28"
-        >
-          <CTAButton
-            variant="whatsapp-arrow"
-            fullWidth
-            ariaLabel="Consultar sobre tratamientos de fisioterapia por WhatsApp"
-            className="text-lg px-10 h-14"
-          >
-            ¿Necesitas algún tratamiento? Consúltanos
-          </CTAButton>
+                  {/* Arrow */}
+                  <div className="flex-shrink-0 hidden lg:flex items-center justify-center w-12 h-12 rounded-full border border-border group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </div>
+
+                {/* Divider */}
+                {index < services.length - 1 && (
+                  <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mx-6 lg:mx-10" />
+                )}
+              </Link>
+            </motion.div>
+          ))}
         </motion.div>
 
-        {/* Why Choose FIMART */}
+        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-5xl mx-auto mb-14"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-20 lg:mt-28 text-center"
         >
-          <SectionBadge variant="secondary">¿Por qué nosotros?</SectionBadge>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-8 tracking-tight leading-tight">
-            Por qué elegir{" "}
-            <span className="text-primary glow-text">FIMART en Aspe</span>
-          </h2>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+            ¿No sabes qué tratamiento necesitas? Te ayudamos a encontrar la mejor opción para tu caso.
+          </p>
+          <Link
+            to="/contacto"
+            className="inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4 transition-all"
+          >
+            Consulta gratuita
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </motion.div>
-
-        {/* Benefits Grid */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8" role="list">
-          {benefits.map((benefit, index) => {
-            const colors = accentClasses[benefit.accent];
-            return (
-              <motion.li
-                key={benefit.text}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`flex items-start gap-5 p-6 lg:p-8 bg-background/50 backdrop-blur-sm border border-border rounded-2xl ${colors.border} transition-colors duration-300`}
-              >
-                <div className={`flex items-center justify-center w-14 h-14 rounded-xl flex-shrink-0 ${colors.icon}`} aria-hidden="true">
-                  <benefit.icon className="w-7 h-7" />
-                </div>
-                <p className="text-base lg:text-lg text-foreground font-medium font-body leading-snug">
-                  {benefit.text}
-                </p>
-              </motion.li>
-            );
-          })}
-        </ul>
       </div>
     </section>
   );

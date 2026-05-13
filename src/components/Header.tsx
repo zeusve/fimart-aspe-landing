@@ -39,7 +39,7 @@ const Header = () => {
         Saltar al contenido principal
       </a>
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/15">
+      <header className="fixed top-0 left-0 right-0 z-50 glass-premium border-b border-border/20">
         <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}

@@ -1,233 +1,189 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, Facebook, Instagram, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MapPin, Phone, Clock, Facebook, Instagram, MessageCircle, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_DISPLAY, SOCIAL_LINKS } from "@/lib/constants";
 
 const GOOGLE_MAPS_EMBED_URL =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d782.3993285652841!2d-0.7714851!3d38.3447156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b2e9c7a5e5e5%3A0x1234567890abcdef!2sCalle%20Col%C3%B3n%2C%2030%2C%2003680%20Aspe%2C%20Alicante%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1706000000000!5m2!1ses!2ses";
 
+const serviceLinks = [
+  { to: "/epi-electrolisis-percutanea-aspe", label: "EPI" },
+  { to: "/ondas-de-choque-aspe", label: "Ondas de Choque" },
+  { to: "/ecografia-musculoesqueletica-aspe", label: "Ecografía MSK" },
+  { to: "/laser-terapeutico-aspe", label: "Láser Terapéutico" },
+  { to: "/diatermia-tecar-aspe", label: "Diatermia TECAR" },
+  { to: "/fisioterapia-neurologica-aspe", label: "Neurológica" },
+  { to: "/fisioterapia-deportiva-aspe", label: "Deportiva" },
+  { to: "/puncion-seca-aspe", label: "Punción Seca" },
+];
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [mapLoaded, setMapLoaded] = useState(false);
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
-  const loadMap = useCallback(() => {
-    setMapLoaded(true);
-  }, []);
+  const loadMap = useCallback(() => setMapLoaded(true), []);
 
   useEffect(() => {
     const container = mapContainerRef.current;
     if (!container || mapLoaded) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          loadMap();
-          observer.disconnect();
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) { loadMap(); observer.disconnect(); } },
       { rootMargin: "200px" }
     );
-
     observer.observe(container);
     return () => observer.disconnect();
   }, [mapLoaded, loadMap]);
 
   return (
-    <footer id="contacto" className="bg-card border-t border-border" role="contentinfo">
+    <footer id="contacto" className="relative border-t border-border/50" role="contentinfo">
       {/* Main Footer */}
-      <div className="container mx-auto py-16 lg:py-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Brand & Description */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-1"
+      <div className="container mx-auto py-20 lg:py-28 px-4 sm:px-6">
+        {/* Top section - Brand + CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20 lg:mb-28"
+        >
+          <h2
+            className="font-display font-bold tracking-tight text-foreground mb-6"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
           >
-            <a href="#" className="inline-block mb-6" aria-label="Ir al inicio de la página">
-              <span className="font-display text-3xl font-bold tracking-tight text-primary glow-text">
-                FIMART
-              </span>
-            </a>
-            <p className="text-muted-foreground mb-4 leading-relaxed font-body">
-              <strong className="text-foreground">Fisioterapia Avanzada FIMART</strong>
-            </p>
-            <p className="text-muted-foreground mb-6 leading-relaxed font-body">
-              Clínica de fisioterapia en Aspe especializada en tratamientos personalizados 
-              para tu recuperación y bienestar. Desde 2014.
-            </p>
-            
-            {/* Social Links */}
-            <nav aria-label="Redes sociales">
-              <ul className="flex space-x-4" role="list">
-                <li>
-                  <motion.a
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={SOCIAL_LINKS.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="Visitar página de Facebook de Clínica FIMART"
-                  >
-                    <Facebook className="w-5 h-5" aria-hidden="true" />
-                  </motion.a>
-                </li>
-                <li>
-                  <motion.a
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={SOCIAL_LINKS.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="Visitar perfil de Instagram de Clínica FIMART"
-                  >
-                    <Instagram className="w-5 h-5" aria-hidden="true" />
-                  </motion.a>
-                </li>
-              </ul>
-            </nav>
-          </motion.div>
+            ¿Listo para <span className="text-primary">recuperarte</span>?
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
+            Tu primera consulta es el primer paso hacia una vida sin dolor.
+          </p>
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 group text-lg"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Consulta tu caso
+            <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </motion.div>
 
-          {/* Contact Info - NAP Consistente */}
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">CONTACTO</h2>
-            <address className="not-italic">
-              <ul className="space-y-4 font-body" role="list">
-                <li>
-                  <a
-                    href="tel:+34652667953"
-                    className="flex items-start group text-muted-foreground hover:text-primary transition-colors"
-                    aria-label="Llamar al teléfono 652 667 953"
-                  >
-                    <Phone className="w-5 h-5 mr-3 mt-0.5 text-primary flex-shrink-0" aria-hidden="true" />
-                    <span className="text-xl font-semibold group-hover:text-primary">
-                      652 667 953
-                    </span>
-                  </a>
-                </li>
-                <li className="flex items-start text-muted-foreground">
-                  <MapPin className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" aria-hidden="true" />
-                  <span>
-                    <strong className="text-foreground">Calle Colón, 30 Bajo</strong><br />
-                    03680 Aspe (Alicante)
-                  </span>
-                </li>
-                <li className="flex items-start text-muted-foreground">
-                  <Clock className="w-5 h-5 mr-3 mt-0.5 text-secondary flex-shrink-0" aria-hidden="true" />
-                  <span>
-                    <strong className="text-foreground">Lunes - Jueves</strong><br />
-                    09:00 - 13:00 y 15:00 - 20:00<br />
-                    <strong className="text-foreground">Viernes</strong><br />
-                    09:00 - 13:00
-                  </span>
-                </li>
-              </ul>
+            <span className="font-display text-3xl font-bold tracking-tighter text-primary block mb-4">
+              FIMART
+            </span>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+              Fisioterapia avanzada en Aspe desde 2014. Tecnología de diagnóstico en tiempo real.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Rafael Fermín — Colegiado Nº 1668 | COFCV
+            </p>
+          </motion.div>
+
+          {/* Contact */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground mb-6">Contacto</h3>
+            <address className="not-italic space-y-4">
+              <a href={`tel:${PHONE_NUMBER}`} className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group">
+                <Phone className="w-4 h-4 text-primary" />
+                <span className="font-display text-xl font-bold">{PHONE_DISPLAY}</span>
+              </a>
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                <span className="text-sm">
+                  Calle Colón, 30 Bajo<br />
+                  03680 Aspe (Alicante)
+                </span>
+              </div>
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <Clock className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                <span className="text-sm">
+                  L-J: 09:00-13:00 / 15:00-20:00<br />
+                  V: 09:00-13:00
+                </span>
+              </div>
             </address>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Services */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">SERVICIOS</h2>
-            <nav aria-label="Enlaces a servicios">
-              <ul className="space-y-3 font-body" role="list">
-                <li>
-                  <Link to="/epi-electrolisis-percutanea-aspe" className="text-muted-foreground hover:text-primary transition-colors">
-                    EPI / Electrólisis Percutánea
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ondas-de-choque-aspe" className="text-muted-foreground hover:text-primary transition-colors">
-                    Ondas de Choque
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ecografia-musculoesqueletica-aspe" className="text-muted-foreground hover:text-primary transition-colors">
-                    Ecografía MSK
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/laser-terapeutico-aspe" className="text-muted-foreground hover:text-primary transition-colors">
-                    Láser Terapéutico
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/diatermia-tecar-aspe" className="text-muted-foreground hover:text-primary transition-colors">
-                    Diatermia / TECAR
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/fisioterapia-neurologica-aspe" className="text-muted-foreground hover:text-primary transition-colors">
-                    Fisioterapia Neurológica
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/fisioterapia-deportiva-aspe" className="text-muted-foreground hover:text-primary transition-colors">
-                    Fisioterapia Deportiva
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/puncion-seca-aspe" className="text-muted-foreground hover:text-primary transition-colors">
-                    Punción Seca
-                  </Link>
-                </li>
-              </ul>
+            <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground mb-6">Servicios</h3>
+            <nav className="grid grid-cols-2 gap-x-4 gap-y-2">
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors line-reveal"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </motion.div>
 
-          {/* CTA Section */}
+          {/* Social + Legal */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h2 className="font-display text-lg font-bold mb-6 text-foreground tracking-wide">¿NECESITAS AYUDA?</h2>
-            <p className="text-muted-foreground mb-6 font-body">
-              Reserva tu cita y comienza tu recuperación con nosotros.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25"
-            >
-              <a 
-                href={WHATSAPP_LINK} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center justify-center gap-2"
-                aria-label="Solicitar cita por WhatsApp en Clínica FIMART"
+            <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground mb-6">Síguenos</h3>
+            <div className="flex gap-3 mb-8">
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                aria-label="Facebook"
               >
-                <MessageCircle className="w-5 h-5" aria-hidden="true" />
-                Solicitar Cita
+                <Facebook className="w-4 h-4" />
               </a>
-            </Button>
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
+            <nav className="space-y-2">
+              <Link to="/aviso-legal" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Aviso Legal</Link>
+              <Link to="/politica-privacidad" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Privacidad</Link>
+              <Link to="/politica-cookies" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Cookies</Link>
+            </nav>
           </motion.div>
         </div>
 
-        {/* Map (lazy-loaded) */}
+        {/* Map */}
         <motion.div
           ref={mapContainerRef}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-12 rounded-2xl overflow-hidden border border-border"
+          transition={{ duration: 0.6 }}
+          className="rounded-3xl overflow-hidden border border-border/50"
         >
           {mapLoaded ? (
             <iframe
@@ -239,62 +195,34 @@ const Footer = () => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-              title="Mapa de ubicación de Clínica FIMART en Aspe - Calle Colón 30, 03680 Aspe, Alicante"
-              className="grayscale hover:grayscale-0 transition-all duration-500"
+              title="Mapa de Clínica FIMART en Aspe"
+              className="grayscale hover:grayscale-0 transition-all duration-700"
             />
           ) : (
-            <div
-              className="flex flex-col items-center justify-center gap-4 bg-card text-muted-foreground"
-              style={{ height: 300 }}
-            >
-              <MapPin className="w-10 h-10 text-secondary" aria-hidden="true" />
-              <p className="text-center font-body text-sm leading-relaxed">
-                <strong className="text-foreground">Calle Colón, 30 Bajo</strong>
-                <br />
+            <div className="flex flex-col items-center justify-center gap-4 bg-card text-muted-foreground py-20">
+              <MapPin className="w-10 h-10 text-secondary" />
+              <p className="text-center text-sm">
+                <strong className="text-foreground">Calle Colón, 30 Bajo</strong><br />
                 03680 Aspe (Alicante)
               </p>
-              <Button
-                variant="outline"
-                size="sm"
+              <button
                 onClick={loadMap}
-                className="border-border hover:bg-primary hover:text-primary-foreground"
+                className="px-4 py-2 border border-border rounded-full text-sm hover:bg-primary hover:text-primary-foreground transition-all"
               >
                 Ver mapa
-              </Button>
+              </button>
             </div>
           )}
         </motion.div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-border">
-        <div className="container mx-auto py-6">
-          <div className="flex flex-col gap-4 text-sm text-muted-foreground font-body">
-            {/* Legal Links */}
-            <nav aria-label="Enlaces legales" className="flex flex-wrap justify-center gap-4 md:gap-6">
-              <Link to="/aviso-legal" className="hover:text-primary transition-colors">
-                Aviso Legal
-              </Link>
-              <span className="hidden md:inline text-border">|</span>
-              <Link to="/politica-privacidad" className="hover:text-primary transition-colors">
-                Política de Privacidad
-              </Link>
-              <span className="hidden md:inline text-border">|</span>
-              <Link to="/politica-cookies" className="hover:text-primary transition-colors">
-                Política de Cookies
-              </Link>
-            </nav>
-
-            {/* Copyright */}
-            <div className="flex flex-col md:flex-row items-center justify-between gap-2 pt-4 border-t border-border/50">
-              <p className="text-center md:text-left">
-                © {currentYear} <strong>Fisioterapia Avanzada FIMART</strong> | Calle Colón, 30 Bajo - 03680 Aspe (Alicante) | Tel: <a href="tel:+34652667953" className="hover:text-primary transition-colors">652 667 953</a>
-              </p>
-              <p className="text-muted-foreground/85">
-                Web diseñada por <span className="font-medium text-foreground/80">Znatix</span>
-              </p>
-            </div>
-          </div>
+        {/* Bottom bar */}
+        <div className="mt-12 pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <p>
+            © {currentYear} <strong className="text-foreground">Fisioterapia Avanzada FIMART</strong>
+          </p>
+          <p>
+            Calle Colón, 30 Bajo — 03680 Aspe (Alicante) — <a href={`tel:${PHONE_NUMBER}`} className="hover:text-primary transition-colors">{PHONE_DISPLAY}</a>
+          </p>
         </div>
       </div>
     </footer>

@@ -1,150 +1,181 @@
-import { motion } from "framer-motion";
-import { Award, Heart, Target } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Award, Heart, Target, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import specialistImage from "@/assets/fisioterapeuta-rafael-fermin-aspe.jpg";
 import specialistImageWebp from "@/assets/fisioterapeuta-rafael-fermin-aspe.webp";
-import SectionBadge from "@/components/ui/SectionBadge";
-import GridBackground from "@/components/ui/GridBackground";
+
+const highlights = [
+  {
+    icon: Award,
+    title: "Colegiado Nº 1668",
+    description: "COFCV — Comunitat Valenciana",
+  },
+  {
+    icon: Heart,
+    title: "Diagnóstico Preciso",
+    description: "Ecografía MSK en tiempo real",
+  },
+  {
+    icon: Target,
+    title: "Solución de Raíz",
+    description: "Tratamos el origen, no el síntoma",
+  },
+];
 
 const Specialist = () => {
-  const highlights = [
-    {
-      icon: Award,
-      title: "Desde 2014",
-      description: "Más de 14 años de experiencia clínica",
-      color: "primary",
-    },
-    {
-      icon: Heart,
-      title: "Diagnóstico Preciso",
-      description: "Valoración con tecnología avanzada",
-      color: "secondary",
-    },
-    {
-      icon: Target,
-      title: "Solución de Raíz",
-      description: "Buscamos el origen, no solo el síntoma",
-      color: "accent",
-    },
-  ];
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
 
-  const colorMap: Record<string, string> = {
-    primary: "bg-primary/15 text-primary border-primary/30",
-    secondary: "bg-secondary/15 text-secondary border-secondary/30",
-    accent: "bg-accent/15 text-accent border-accent/30",
-  };
+  const imageY = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
     <section
+      ref={sectionRef}
       id="especialista"
-      className="py-20 lg:py-32 bg-background relative overflow-hidden"
+      className="relative py-32 lg:py-40 overflow-hidden"
       aria-labelledby="especialista-heading"
     >
-      <GridBackground variant="dots" size={40} />
+      {/* Ambient glow */}
+      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] -translate-y-1/2 -translate-x-1/2 rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, hsl(var(--secondary) / 0.05) 0%, transparent 70%)" }}
+      />
 
-      {/* Decorative blob */}
-      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true" />
-
-      <div className="container mx-auto relative z-10">
-        {/* Split Screen Layout */}
-        <article className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image */}
-          <motion.figure
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+      <div className="container mx-auto relative z-10 px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          
+          {/* Image — Asymmetric with parallax */}
+          <motion.div
+            style={{ y: imageY }}
             className="relative order-2 lg:order-1"
           >
-            <div className="relative max-w-md mx-auto lg:mx-0">
+            <motion.figure
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="relative"
+            >
               {/* Decorative frame */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent rounded-2xl blur-xl" aria-hidden="true" />
-              <div className="absolute -inset-[2px] bg-gradient-to-br from-primary/30 via-transparent to-secondary/30 rounded-2xl" aria-hidden="true" />
+              <div className="absolute -inset-4 lg:-inset-8 border border-border/30 rounded-3xl" />
+              <div className="absolute -inset-2 lg:-inset-4 border border-border/20 rounded-2xl" />
 
-              {/* Main image container */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10"
-              >
+              {/* Image container */}
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
                 <picture>
                   <source srcSet={specialistImageWebp} type="image/webp" />
                   <source srcSet={specialistImage} type="image/jpeg" />
                   <img
                     src={specialistImage}
-                    alt="Rafael Fermín, fisioterapeuta colegiado en Clínica FIMART Aspe, especialista en terapia manual y rehabilitación funcional"
+                    alt="Rafael Fermín — Fisioterapeuta Colegiado Nº 1668 en FIMART Aspe"
                     className="w-full h-full object-cover object-[center_top]"
                     loading="lazy"
-                    width={400}
-                    height={500}
                   />
                 </picture>
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" aria-hidden="true" />
 
-                {/* Name overlay */}
-                <figcaption className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-display text-xl font-bold text-foreground tracking-wide">
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+
+                {/* Name badge */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                  <p className="font-display text-lg lg:text-xl font-bold text-foreground">
                     RAFAEL FERMÍN
                   </p>
-                  <p className="text-sm text-primary font-semibold">
-                    Fisioterapeuta Colegiado
+                  <p className="text-sm text-primary font-medium">
+                    Fisioterapeuta Colegiado Nº 1668
                   </p>
-                </figcaption>
+                </div>
+              </div>
+
+              {/* Floating stat */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute -right-4 lg:-right-8 top-1/4 glass-premium rounded-2xl p-4 lg:p-6 shadow-xl"
+              >
+                <p className="font-display text-3xl lg:text-4xl font-bold text-primary">+2000</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">Pacientes</p>
               </motion.div>
-            </div>
-          </motion.figure>
+            </motion.figure>
+          </motion.div>
 
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ y: contentY }}
             className="order-1 lg:order-2"
           >
-            <SectionBadge variant="secondary">Conoce a tu Fisioterapeuta</SectionBadge>
-
-            <h2
-              id="especialista-heading"
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-8 tracking-tight"
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              TU FISIO<br />
-              <span className="text-primary glow-text">EN ASPE</span>
-            </h2>
+              <span className="inline-block text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6">
+                El Especialista
+              </span>
 
-            <p className="text-lg lg:text-xl text-muted-foreground mb-6 leading-relaxed font-body">
-              Desde 2014, en <strong className="text-foreground font-semibold">FIMART</strong> combinamos
-              la valoración precisa con la última tecnología para que recuperes tu calidad
-              de vida en tiempo récord.
-            </p>
+              <h2
+                id="especialista-heading"
+                className="font-display font-bold tracking-tight leading-[1.1] text-foreground mb-8"
+                style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+              >
+                Tu fisioterapeuta
+                <br />
+                <span className="text-primary">en Aspe</span>
+              </h2>
 
-            <p className="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed font-body">
-              Mi filosofía se basa en <strong className="text-foreground font-semibold">valorar, diagnosticar
-              y tratar</strong> utilizando la tecnología más avanzada del sector.
-            </p>
+              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed mb-10">
+                <p>
+                  Desde 2014, en <strong className="text-foreground">FIMART</strong> combinamos
+                  la valoración precisa con la última tecnología para que recuperes tu calidad
+                  de vida en tiempo récord.
+                </p>
+                <p>
+                  Mi filosofía se basa en <strong className="text-foreground">valorar, diagnosticar
+                  y tratar</strong> utilizando la tecnología más avanzada del sector — ecografía MSK,
+                  EPI, ondas de choque y más.
+                </p>
+              </div>
 
-            {/* Highlights */}
-            <ul className="grid sm:grid-cols-3 gap-8" role="list">
-              {highlights.map((item, index) => (
-                <motion.li
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="group text-center sm:text-left"
-                >
-                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl border mb-4 group-hover:shadow-lg transition-shadow duration-300 ${colorMap[item.color]}`} aria-hidden="true">
-                    <item.icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="font-display text-lg lg:text-xl font-bold text-foreground mb-2 tracking-wide">{item.title}</h3>
-                  <p className="text-sm lg:text-base text-muted-foreground font-body">{item.description}</p>
-                </motion.li>
-              ))}
-            </ul>
+              {/* Highlights */}
+              <div className="space-y-4 mb-10">
+                {highlights.map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex items-center gap-4 p-4 rounded-xl border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                      <item.icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground text-sm">{item.title}</h3>
+                      <p className="text-xs text-muted-foreground">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <Link
+                to="/rafael-fermin"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all duration-300 group"
+              >
+                Conoce a Rafael
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </motion.div>
           </motion.div>
-        </article>
+        </div>
       </div>
     </section>
   );

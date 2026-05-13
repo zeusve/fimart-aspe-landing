@@ -133,6 +133,9 @@ const CookieBanner = () => {
                       </div>
                       <button
                         onClick={() => setPreferences(p => ({ ...p, analytics: !p.analytics }))}
+                        role="switch"
+                        aria-checked={preferences.analytics}
+                        aria-label="Permitir cookies analíticas"
                         className={`relative w-10 h-6 rounded-full transition-colors ${
                           preferences.analytics ? "bg-primary" : "bg-muted"
                         }`}
@@ -153,6 +156,9 @@ const CookieBanner = () => {
                       </div>
                       <button
                         onClick={() => setPreferences(p => ({ ...p, preferences: !p.preferences }))}
+                        role="switch"
+                        aria-checked={preferences.preferences}
+                        aria-label="Permitir cookies de preferencias"
                         className={`relative w-10 h-6 rounded-full transition-colors ${
                           preferences.preferences ? "bg-primary" : "bg-muted"
                         }`}
