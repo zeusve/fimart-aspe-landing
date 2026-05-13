@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { useMemo } from "react";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -8,24 +9,21 @@ interface PageTransitionProps {
 const pageVariants = {
   initial: {
     opacity: 0,
-    y: 20,
-    scale: 0.98,
+    y: 12,
   },
   animate: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
-      duration: 0.6,
+      duration: 0.2,
       ease: [0.16, 1, 0.3, 1],
     },
   },
   exit: {
     opacity: 0,
-    y: -20,
-    scale: 0.98,
+    y: -12,
     transition: {
-      duration: 0.4,
+      duration: 0.15,
       ease: [0.16, 1, 0.3, 1],
     },
   },
@@ -33,6 +31,16 @@ const pageVariants = {
 
 const PageTransition = ({ children }: PageTransitionProps) => {
   const location = useLocation();
+
+  // Disable transitions on touch devices (mobile) for instant navigation
+  const isTouchDevice = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  }, []);
+
+  if (isTouchDevice) {
+    return <>{children}</>;
+  }
 
   return (
     <AnimatePresence mode="wait">

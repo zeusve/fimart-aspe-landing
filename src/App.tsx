@@ -52,7 +52,6 @@ import CookieBanner from "./components/CookieBanner";
 import ScrollToTop from "./components/ScrollToTop";
 import CustomCursor from "./components/CustomCursor";
 import PageTransition from "./components/PageTransition";
-import PageLoader from "./components/PageLoader";
 
 const AppContent = () => {
   useLenis();
@@ -67,7 +66,6 @@ const App = () => (
       <BrowserRouter>
         <AppContent />
         <CustomCursor />
-        <PageLoader />
         <ScrollToTop />
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
